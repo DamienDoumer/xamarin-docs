@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/23/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Map Pins
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithmaps)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/workingwithmaps)
 
 The Xamarin.Forms [`Map`](xref:Xamarin.Forms.Maps.Map) control allows locations to be marked with [`Pin`](xref:Xamarin.Forms.Maps.Pin) objects. A `Pin` is a map marker that opens an information window when tapped:
 
@@ -156,7 +157,7 @@ The `PinClickedEventArgs` object that accompanies both events has a single `Hide
 - `SavedPin`, represents a pin for a saved location.
 - `SearchResult`, represents a pin for a search result.
 
-However, setting the [`Pin.Type`](xref:Xamarin.Forms.Maps.Pin.Type) property to any [`PinType`](xref:Xamarin.Forms.Maps.PinType) member does not change the appearance of the rendered pin. Instead, you must create a custom renderer to customize pin appearance. For more information, see [Customizing a map pin](~/xamarin-forms/app-fundamentals/custom-renderer/map/customized-pin.md).
+However, setting the [`Pin.Type`](xref:Xamarin.Forms.Maps.Pin.Type) property to any [`PinType`](xref:Xamarin.Forms.Maps.PinType) member does not change the appearance of the rendered pin. Instead, you must create a custom renderer to customize pin appearance. For more information, see [Customizing a map pin](~/xamarin-forms/app-fundamentals/custom-renderer/map-pin.md).
 
 ## Display a pin collection
 
@@ -263,7 +264,7 @@ For more information about data template selectors, see [Creating a Xamarin.Form
 
 ## Related links
 
-- [Maps Sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithmaps)
-- [Map Custom Renderer](~/xamarin-forms/app-fundamentals/custom-renderer/map/index.md)
+- [Maps Sample](/samples/xamarin/xamarin-forms-samples/workingwithmaps)
+- [Map Custom Renderer](~/xamarin-forms/app-fundamentals/custom-renderer/map-pin.md)
 - [Passing Arguments in XAML](~/xamarin-forms/xaml/passing-arguments.md)
 - [Creating a Xamarin.Forms DataTemplateSelector](~/xamarin-forms/app-fundamentals/templates/data-templates/selector.md)

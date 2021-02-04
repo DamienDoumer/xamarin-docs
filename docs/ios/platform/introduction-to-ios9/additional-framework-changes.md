@@ -13,7 +13,7 @@ ms.date: 03/19/2017
 
 _This article covers additional, minor changes or enhancements to existing frameworks for iOS 9._
 
-[![](additional-framework-changes-images/ios9-sml.png "iOS 9 Logo")](additional-framework-changes-images/ios9.png#lightbox)
+[![iOS 9 Logo](additional-framework-changes-images/ios9-sml.png)](additional-framework-changes-images/ios9.png#lightbox)
 
 In addition to the major changes to iOS, Apple has made modifications and improvements to several existing frameworks in iOS 9.
 
@@ -56,7 +56,6 @@ For more information, please see the following documents:
 - [Introduction to CloudKit](~/ios/data-cloud/intro-to-cloudkit.md) - Our introduction to using CloudKit in a Xamarin.iOS app.
 - [CloudKit Quick Start](https://developer.apple.com/library/prerelease/ios/documentation/DataManagement/Conceptual/CloudKitQuickStart/Introduction/Introduction.html#//apple_ref/doc/uid/TP40014987) - Apple's introduction to CloudKit.
 - [CloudKit JS Reference](https://developer.apple.com/library/prerelease/ios/documentation/CloudKitJS/Reference/CloudKitJavaScriptReference/index.html#//apple_ref/doc/uid/TP40015359) - Apple's CloudKit JS documentation.
-- [CloudKit Web Services Reference](https://developer.apple.com/library/prerelease/ios/documentation/DataManagement/Conceptual/CloutKitWebServicesReference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40015240) - Apple's reference that describes the HTTP interface to CloudKit.
 - [CloudKit Catalog: An Introduction to CloudKit (Cocoa and JavaScript)](https://developer.apple.com/library/prerelease/ios/samplecode/CloudAtlas/Introduction/Intro.html#//apple_ref/doc/uid/TP40014599) - Apple's sample app using CloudKit and CloudKit JS.
 
 > [!IMPORTANT]
@@ -114,7 +113,7 @@ if (NSProcessInfo.ProcessInfo.LowPowerModeEnabled) {
 Apple included the following changes to the [HealthKit](xref:HealthKit) framework in iOS 9:
 
 - Support for bulk deletion and deletion tracking of entries in the HealthKit database. See Apple's [HKDeletedObject](https://developer.apple.com/library/prerelease/ios/documentation/HealthKit/Reference/HKDeletedObject_ClassReference/index.html#//apple_ref/occ/cl/HKDeletedObject), [HKAnchoredObjectQuery](https://developer.apple.com/library/prerelease/ios/documentation/HealthKit/Reference/HKAnchoredObjectQuery_Class/index.html#//apple_ref/occ/cl/HKAnchoredObjectQuery) and [HKHealthStore Class Reference](https://developer.apple.com/library/prerelease/ios/documentation/HealthKit/Reference/HKHealthStore_Class/index.html#//apple_ref/doc/uid/TP40014708) for more information.
-- New tracking categories and characteristics have been added to the `HKQuantityTypeIdentifier` class (such as `UVExposure`) and to the `HKCategoryTypeIdentifier` class (such as `OvulationTestResult`). See Apple's [HealthKit Constants Reference](https://developer.apple.com/library/prerelease/ios/documentation/HealthKit/Reference/HealthKit_Constants/index.html#//apple_ref/doc/uid/TP40014710) for more information.
+- New tracking categories and characteristics have been added to the `HKQuantityTypeIdentifier` class (such as `UVExposure`) and to the `HKCategoryTypeIdentifier` class (such as `OvulationTestResult`). 
 
 Please see our [Introduction to HealthKit](~/ios/platform/healthkit.md) documentation for more information on working with HealthKit in Xamarin.iOS.
 
@@ -258,7 +257,7 @@ Use the new `UITextInputAssistantItem` class to layout Bar Button Groups in a _S
 
 ## Related Links
 
-- [iOS 9 Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+iOS9)
+- [iOS 9 Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2biOS9)
 - [Introduction to iOS 9](~/ios/platform/introduction-to-ios9/index.md)
 - [iOS 9 for Developers](https://developer.apple.com/ios/pre-release/)
 - [What's New in iOS 9.0](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html)

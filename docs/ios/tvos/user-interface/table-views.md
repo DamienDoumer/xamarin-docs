@@ -17,15 +17,15 @@ In tvOS, a Table View is presented as a single column of scrolling rows that can
 
 Table Views are typically displayed in one side of a [Split View](~/ios/tvos/user-interface/split-views.md) as navigation, with the details of the selected item displayed in the opposite side:
 
-[![](table-views-images/intro01.png "Sample table view")](table-views-images/intro01.png#lightbox)
+[![Sample table view](table-views-images/intro01.png)](table-views-images/intro01.png#lightbox)
 
-<a name="About-Table-Views" />
+<a name="About-Table-Views"></a>
 
 ## About Table Views
 
 A `UITableView` displays a single column of scrollable rows as a hierarchical list of information that can optionally be organized into groups or sections: 
 
-[![](table-views-images/table01.png "A selected item")](table-views-images/table01.png#lightbox)
+[![A selected item](table-views-images/table01.png)](table-views-images/table01.png#lightbox)
 
 Apple has the following suggestions for working with tables:
 
@@ -33,7 +33,7 @@ Apple has the following suggestions for working with tables:
 - **Show Table Contents Quickly** - For large lists of data, lazy-load the content and start showing information as soon as the table is presented to the user. If the table takes to long to load, the user might lose interest in your app or think it is locked up.
 - **Inform User of Long Content Loads** - If a long table load time is unavoidable, present a [Progress Bar or Activity Indicator](~/ios/tvos/user-interface/progress-indicators.md) so that they know the app hasn't locked up.
 
-<a name="Table-Cell-Types" />
+<a name="Table-Cell-Types"></a>
 
 ## Table View Cell Types
 
@@ -55,7 +55,7 @@ Apple has the following suggestions for working with Table View Cells:
 - **Use Editable Tables Sparingly** - Moving or deleting Table Rows is more time consuming on tvOS than iOS. You need to decide carefully if this feature will add or distract from your tvOS app.
 - **Create Custom Cell Types Where Appropriate** - While the built-in Table View Cell Types are great for many situations, consider creating Custom Cell Types for non-standard information to provide greater control and better present the information to the user.
 
-<a name="Working-With-Table-Views" />
+<a name="Working-With-Table-Views"></a>
 
 ## Working With Table Views
 
@@ -67,91 +67,91 @@ To get started, do the following:
 
 1. In Visual Studio for Mac, start a new tvOS app project and select **tvOS** > **App** > **Single View App** and click the **Next** button: 
 
-    [![](table-views-images/table02.png "Select Single View App")](table-views-images/table02.png#lightbox)
+    [![Select Single View App](table-views-images/table02.png)](table-views-images/table02.png#lightbox)
 1. Enter a **Name** for the app and click **Next**: 
 
-    [![](table-views-images/table03.png "Enter a Name for the app")](table-views-images/table03.png#lightbox)
+    [![Enter a Name for the app](table-views-images/table03.png)](table-views-images/table03.png#lightbox)
 1. Either adjust the **Project Name** and **Solution Name** or accept the defaults and click the **Create** button to create the new solution: 
 
-    [![](table-views-images/table04.png "The Project Name and Solution Name")](table-views-images/table04.png#lightbox)
+    [![The Project Name and Solution Name](table-views-images/table04.png)](table-views-images/table04.png#lightbox)
 1. In the **Solution Pad**, double-click the `Main.storyboard` file to open it in the iOS Designer: 
 
-    [![](table-views-images/table05.png "The Main.storyboard file")](table-views-images/table05.png#lightbox)
+    [![The Main.storyboard file](table-views-images/table05.png)](table-views-images/table05.png#lightbox)
 1. Select and delete the **Default View Controller**: 
 
-    [![](table-views-images/table06.png "Select and delete the Default View Controller")](table-views-images/table06.png#lightbox)
+    [![Select and delete the Default View Controller](table-views-images/table06.png)](table-views-images/table06.png#lightbox)
 1. Select a **Split View Controller** from the **Toolbox** and drag it onto the Design Surface.
 1. By default, you'll get a [Split View](~/ios/tvos/user-interface/split-views.md) with a **Navigation View Controller** and a **Table View Controller** in the left hand side and a **View Controller** in the right hand side. This is Apple's suggested usage of a Table View in tvOS: 
 
-    [![](table-views-images/table08.png "Add a Split View")](table-views-images/table08.png#lightbox)
+    [![Add a Split View](table-views-images/table08.png)](table-views-images/table08.png#lightbox)
 1. You will need to select every part of the Table View and assign it a custom **Class Name** in the **Widget** tab of the **Properties Explorer** so that you can access it later in C# code. For example, the **Table View Controller**: 
 
-    [![](table-views-images/table09.png "Assign a class name")](table-views-images/table09.png#lightbox)
+    [![Assign a class name](table-views-images/table09.png)](table-views-images/table09.png#lightbox)
 1. Ensure that you create a custom class for the **Table View Controller**, the **Table View** and any **Prototype Cells**. Visual Studio for Mac will add the custom classes to the Project Tree as they are created: 
 
-    [![](table-views-images/table10.png "The custom classes in the Project Tree")](table-views-images/table10.png#lightbox)
+    [![The custom classes in the Project Tree](table-views-images/table10.png)](table-views-images/table10.png#lightbox)
 1. Next, select the Table View in the Design Surface and adjust it's properties as needed. Such as the number of **Prototype Cells** and the **Style** (Plain or Grouped): 
 
-    [![](table-views-images/table11.png "The widget tab")](table-views-images/table11.png#lightbox)
+    [![The widget tab](table-views-images/table11.png)](table-views-images/table11.png#lightbox)
 1. For each **Prototype Cell**, select it and assign a unique **Identifier** in the **Widget** tab of the **Properties Explorer**. This step is _very important_ as you will need this Identifier later when you populate the table. For example `AttrCell`: 
 
-    [![](table-views-images/table12.png "The Widget Tab")](table-views-images/table12.png#lightbox)
+    [![The Widget Tab](table-views-images/table12.png)](table-views-images/table12.png#lightbox)
 1. You can also select to present the Cell as one of the [Default Table View Cell Types](#table-view-cell-types) via the **Style** dropdown or set it to **Custom** and use the Design Surface to layout the Cell by dragging in other UI widgets from the **Toolbox**: 
 
-    [![](table-views-images/table13.png "The cell layout")](table-views-images/table13.png#lightbox)
+    [![The cell layout](table-views-images/table13.png)](table-views-images/table13.png#lightbox)
 1. Assign a unique **Name** to each UI element in the Prototype Cell design in the **Widget** tab of the **Properties Explorer** so you can access them later in C# code: 
 
-    [![](table-views-images/table14.png "Assign a name")](table-views-images/table14.png#lightbox)
+    [![Assign a name](table-views-images/table14.png)](table-views-images/table14.png#lightbox)
 1. Repeat the above step for all of the Prototype Cells in the Table View.
 1. Next, assign custom classes to the rest of your UI design, layout the Details view and assign unique **Names** to each UI element in the Details view so that you can access them in C# as well. For Example: 
 
-    [![](table-views-images/table15.png "The UI layout")](table-views-images/table15.png#lightbox)
+    [![The UI layout](table-views-images/table15.png)](table-views-images/table15.png#lightbox)
 1. Save your Changes to the Storyboard.
 
 # [Visual Studio](#tab/windows)
 
 1. In Visual Studio, start a new tvOS app project and select **tvOS** > **Single View App** and enter a name for your app. Click the **Okay** button to create a new solution: 
 
-    [![](table-views-images/table02-vs.png "Select Single View App")](table-views-images/table02-vs.png#lightbox)
+    [![Select Single View App](table-views-images/table02-vs.png)](table-views-images/table02-vs.png#lightbox)
 1. In the **Solution Explorer**, double-click the `Main.storyboard` file to open it in the iOS Designer: 
 
-    [![](table-views-images/table05-vs.png "The Main.storyboard file")](table-views-images/table05-vs.png#lightbox)
+    [![The Main.storyboard file](table-views-images/table05-vs.png)](table-views-images/table05-vs.png#lightbox)
 1. Select and delete the **Default View Controller**: 
 
-    [![](table-views-images/table06-vs.png "Select and delete the Default View Controller")](table-views-images/table06-vs.png#lightbox)
+    [![Select and delete the Default View Controller](table-views-images/table06-vs.png)](table-views-images/table06-vs.png#lightbox)
 1. Select a **Split View Controller** from the **Toolbox** and drag it onto the Design Surface: 
 
-    [![](table-views-images/table07-vs.png "A Split View Controller")](table-views-images/table07-vs.png#lightbox)
+    [![A Split View Controller](table-views-images/table07-vs.png)](table-views-images/table07-vs.png#lightbox)
 1. By default, you'll get a [Split View](~/ios/tvos/user-interface/split-views.md) with a **Navigation View Controller** and a **Table View Controller** in the left hand side and a **View Controller** in the right hand side. This is Apple's suggested usage of a Table View in tvOS: 
 
-    [![](table-views-images/table08-vs.png "Layout the UI")](table-views-images/table08-vs.png#lightbox)
+    [![Layout the UI](table-views-images/table08-vs.png)](table-views-images/table08-vs.png#lightbox)
 1. You will need to select every part of the Table View and assign it a custom **Class Name** in the **Widget** tab of the **Properties Explorer** so that you can access it later in C# code. For example, the **Table View Controller**: 
 
-    [![](table-views-images/table09-vs.png "The Widget Tab")](table-views-images/table09-vs.png#lightbox)
+    [![The Widget Tab of the Properties Explorer, where you assign a Class Name.](table-views-images/table09-vs.png)](table-views-images/table09-vs.png#lightbox)
 1. Ensure that you create a custom class for the **Table View Controller**, the **Table View** and any **Prototype Cells**. Visual Studio for Mac will add the custom classes to the Project Tree as they are created: 
 
-    [![](table-views-images/table10-vs.png "The custom classes in the Project Tree")](table-views-images/table10-vs.png#lightbox)
+    [![The custom classes in the Project Tree](table-views-images/table10-vs.png)](table-views-images/table10-vs.png#lightbox)
 1. Next, select the Table View in the Design Surface and adjust it's properties as needed. Such as the number of **Prototype Cells** and the **Style** (Plain or Grouped): 
 
-    [![](table-views-images/table11-vs.png "The Widget Tab")](table-views-images/table11-vs.png#lightbox)
+    [![The Widget Tab, where you can change properties as needed.](table-views-images/table11-vs.png)](table-views-images/table11-vs.png#lightbox)
 1. For each **Prototype Cell**, select it and assign a unique **Identifier** in the **Widget** tab of the **Properties Explorer**. This step is _very important_ as you will need this Identifier later when you populate the table. For example `AttrCell`: 
 
-    [![](table-views-images/table12-vs.png "Assign an Identifier")](table-views-images/table12-vs.png#lightbox)
+    [![Assign an Identifier](table-views-images/table12-vs.png)](table-views-images/table12-vs.png#lightbox)
 1. You can also select to present the Cell as one of the [Default Table View Cell Types](#table-view-cell-types) via the **Style** dropdown or set it to **Custom** and use the Design Surface to layout the Cell by dragging in other UI widgets from the **Toolbox**: 
 
-    [![](table-views-images/table13-vs.png "The Style dropdown")](table-views-images/table13-vs.png#lightbox)
+    [![The Style dropdown](table-views-images/table13-vs.png)](table-views-images/table13-vs.png#lightbox)
 1. Assign a unique **Name** to each UI element in the Prototype Cell design in the **Widget** tab of the **Properties Explorer** so you can access them later in C# code: 
 
-    [![](table-views-images/table14-vs.png "The Widget Tab")](table-views-images/table14-vs.png#lightbox)
+    [![The Widget Tab, where you can assign a Name for each U I element.](table-views-images/table14-vs.png)](table-views-images/table14-vs.png#lightbox)
 1. Repeat the above step for all of the Prototype Cells in the Table View.
 1. Next, assign custom classes to the rest of your UI design, layout the Details view and assign unique **Names** to each UI element in the Details view so that you can access them in C# as well. For Example: 
 
-    [![](table-views-images/table15.png "The UI Layout")](table-views-images/table15.png#lightbox)
+    [![The UI Layout](table-views-images/table15.png)](table-views-images/table15.png#lightbox)
 1. Save your Changes to the Storyboard.
 
 -----
 
-<a name="Designing-a-Data-Model" />
+<a name="Designing-a-Data-Model"></a>
 
 ## Designing a Data Model
 
@@ -163,13 +163,13 @@ Take the example of a travel booking app that contains a list of **Cities**, eac
 
 To create the Data Model for an **Attraction**, right-click on the Project Name in the **Solution Pad** and select **Add** > **New File...**. Enter `AttractionInformation` for the **Name** and click the **New** button: 
 
-[![](table-views-images/data01.png "Enter AttractionInformation for the Name")](table-views-images/data01.png#lightbox)
+[![Enter AttractionInformation for the Name](table-views-images/data01.png)](table-views-images/data01.png#lightbox)
 
 # [Visual Studio](#tab/windows)
 
 To create the Data Model for an **Attraction**, right-click on the Project Name in the **Solution Explorer** and select **Add** > **New Item...**. Select **Class** and enter `AttractionInformation` for the **Name** and click the **Add** button: 
 
-[![](table-views-images/data01-vs.png "Select Class and enter AttractionInformation for the Name")](table-views-images/data01-vs.png#lightbox)
+[![Select Class and enter AttractionInformation for the Name](table-views-images/data01-vs.png)](table-views-images/data01-vs.png#lightbox)
 
 -----
 
@@ -211,13 +211,13 @@ This class provides the properties to store the information about a given **Attr
 
 Next, right-click on the Project Name in the **Solution Pad** again and select **Add** > **New File...**. Enter `CityInformation` for the **Name** and click the **New** button: 
 
-[![](table-views-images/data02.png "Enter CityInformation for the Name")](table-views-images/data02.png#lightbox)
+[![Enter CityInformation for the Name](table-views-images/data02.png)](table-views-images/data02.png#lightbox)
 
 # [Visual Studio](#tab/windows)
 
 Next, right-click on the Project Name in the **Solution Explorer** again and select **Add** > **New Item...**. Enter `CityInformation` for the **Name** and click the **Add** button: 
 
-[![](table-views-images/data02-vs.png "Enter CityInformation for the Name")](table-views-images/data02-vs.png#lightbox)
+[![Enter CityInformation for the Name](table-views-images/data02-vs.png)](table-views-images/data02-vs.png#lightbox)
 
 -----
 
@@ -275,7 +275,7 @@ namespace tvTable
 
 This class holds all of the information about a destination **City**, a collection of **Attractions** for that city and provides two helper methods (`AddAttraction`) to make it easier to add attractions to the city.
 
-<a name="The-Table-Data-Source" />
+<a name="The-Table-Data-Source"></a>
 
 ## The Table View Data Source
 
@@ -467,7 +467,7 @@ public override UITableViewCell GetCell (UITableView tableView, Foundation.NSInd
 
 For more information on working with a `UITableViewDatasource`, please see Apple's [UITableViewDatasource](https://developer.apple.com/library/prerelease/tvos/documentation/UIKit/Reference/UITableViewDataSource_Protocol/index.html#//apple_ref/doc/uid/TP40006941) documentation.
 
-<a name="The-Table-View-Delegate" />
+<a name="The-Table-View-Delegate"></a>
 
 ## The Table View Delegate
 
@@ -581,7 +581,7 @@ The `CanFocusRow` method is called for each Row that is about to get Focus in th
 
 For more information on working with a `UITableViewDelegate`, please see Apple's [UITableViewDelegate](https://developer.apple.com/library/prerelease/tvos/documentation/UIKit/Reference/UITableViewDelegate_Protocol/index.html#//apple_ref/doc/uid/TP40006942) documentation.
 
-<a name="The-Table-View-Cell" />
+<a name="The-Table-View-Cell"></a>
 
 ## The Table View Cell
 
@@ -668,7 +668,7 @@ private void UpdateUI ()
 
 For more information on working with a `UITableViewCell`, please see Apple's [UITableViewCell](https://developer.apple.com/library/prerelease/tvos/documentation/UIKit/Reference/UITableViewCell_Class/index.html#//apple_ref/doc/uid/TP40006938) documentation.
 
-<a name="The-Table-View-Controller" />
+<a name="The-Table-View-Controller"></a>
 
 ## The Table View Controller
 
@@ -722,17 +722,17 @@ Finally, when the Table View is loaded into memory, we create instances of the `
 
 For more information on working with a `UITableViewController`, please see Apple's [UITableViewController](https://developer.apple.com/library/prerelease/tvos/documentation/UIKit/Reference/UITableViewController_Class/index.html#//apple_ref/doc/uid/TP40007523) documentation.
 
-<a name="Pulling-it-All-Together" />
+<a name="Pulling-it-All-Together"></a>
 
 ## Pulling it All Together
 
 As stated at the start of this document, Table Views are typically displayed in one side of a [Split View](~/ios/tvos/user-interface/split-views.md) as navigation, with the details of the selected item displayed in the opposite side. For example: 
 
-[![](table-views-images/intro01.png "Sample app run")](table-views-images/intro01.png#lightbox)
+[![Sample app run](table-views-images/intro01.png)](table-views-images/intro01.png#lightbox)
 
 Since this is a standard pattern in tvOS, let's look at the final steps to bring everything together and have the left and right sides of the Split View interact with each other.
 
-<a name="The-Detail-View" />
+<a name="The-Detail-View"></a>
 
 ### The Detail View
 
@@ -845,7 +845,7 @@ We have also defined a shortcut back to the Split View Controller (`SplitView`) 
 
 Finally, custom Actions (events) were added to the three `UIButton` instances created in the Interface Designer, that allow the user to mark an attraction as a _Favorite_, get _Directions_ to an attraction and _Book a Flight_ to a given city.
 
-<a name="The-Navigation-View-Controller" />
+<a name="The-Navigation-View-Controller"></a>
 
 ### The Navigation View Controller
 
@@ -881,7 +881,7 @@ Again, this class just defines a few shortcuts to make it easier to communicate 
 - `SplitView` - Is a link to the Split View Controller (`MainSpiltViewController`) that the Navigation View Controller belongs to.
 - `TableController` - Gets the Table View Controller (`AttractionTableViewController`) that is presented as the Top View in the Navigation View Controller.
 
-<a name="The-Split-View-Controller" />
+<a name="The-Split-View-Controller"></a>
 
 ### The Split View Controller
 
@@ -936,13 +936,13 @@ First, we create shortcuts to the **Details** side of the Split View (`Attractio
 
 Next, when the Split View is loaded into memory, we attach the Split View Controller to both sides of the Split View and respond to the user highlighting an attraction in the Table View (`AttractionHighlighted`) by displaying the new attraction in the **Details** side of the Split View.
 
-Please see the [tvTables](https://docs.microsoft.com/samples/xamarin/ios-samples/tvos-tvtable) sample app for a full implementation of Table Views inside of a Split View.
+Please see the [tvTables](/samples/xamarin/ios-samples/tvos-tvtable) sample app for a full implementation of Table Views inside of a Split View.
 
 ## Table Views in Detail
 
 Since tvOS is based off of iOS, Table Views and Table View Controllers are designed and behave in a similar fashion. For more detailed information on working with Table View in a Xamarin app, please see our iOS [Working with Tables and Cells](~/ios/user-interface/controls/tables/index.md) documentation.
 
-<a name="Summary" />
+<a name="Summary"></a>
 
 ## Summary
 
@@ -950,7 +950,7 @@ This article has covered designing and working with Table Views inside of a Xama
 
 ## Related Links
 
-- [tvOS Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+tvOS)
+- [tvOS Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2btvOS)
 - [UITableViewController](https://developer.apple.com/library/prerelease/tvos/documentation/UIKit/Reference/UITableViewController_Class/index.html#//apple_ref/doc/uid/TP40007523)
 - [tvOS](https://developer.apple.com/tvos/)
 - [tvOS Human Interface Guides](https://developer.apple.com/tvos/human-interface-guidelines/)

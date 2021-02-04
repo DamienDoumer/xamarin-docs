@@ -17,13 +17,13 @@ When working with C# and .NET in a Xamarin.Mac application, you have access to t
 
 A Source List is a special type of Outline View used to show the source of an action, like the side bar in Finder or iTunes.
 
-[![](source-list-images/source05.png "An example source list")](source-list-images/source05.png#lightbox)
+[![An example source list](source-list-images/source05.png)](source-list-images/source05.png#lightbox)
 
 In this article, we'll cover the basics of working with Source Lists in a Xamarin.Mac application. It is highly suggested that you work through the [Hello, Mac](~/mac/get-started/hello-mac.md) article first, specifically the [Introduction to Xcode and Interface Builder](~/mac/get-started/hello-mac.md#introduction-to-xcode-and-interface-builder) and [Outlets and Actions](~/mac/get-started/hello-mac.md#outlets-and-actions) sections, as it covers key concepts and techniques that we'll be using in this article.
 
 You may want to take a look at the [Exposing C# classes / methods to Objective-C](~/mac/internals/how-it-works.md) section of the [Xamarin.Mac Internals](~/mac/internals/how-it-works.md) document as well, it explains the `Register` and `Export` commands used to wire-up your C# classes to Objective-C objects and UI Elements.
 
-<a name="Introduction_to_Outline_Views" />
+<a name="Introduction_to_Outline_Views"></a>
 
 ## Introduction to Source Lists
 
@@ -37,7 +37,7 @@ A Source List's behavior can be customized by providing a subclass of the Outlin
 
 Since a Source List shares much of it's behavior and functionality with a Table View and an Outline View, you might want to go through our [Table Views](~/mac/user-interface/table-view.md) and [Outline Views](~/mac/user-interface/outline-view.md) documentation before continuing with this article.
 
-<a name="Working_with_Source_Lists" />
+<a name="Working_with_Source_Lists"></a>
 
 ## Working with Source Lists
 
@@ -45,7 +45,7 @@ A Source List is a special type of Outline View used to show the source of an ac
 
 First, let's create a new `SourceListItem` class to hold the data for our Source List. In the **Solution Explorer**, right-click the Project and select **Add** > **New File...** Select **General** > **Empty Class**, enter `SourceListItem` for the **Name** and click the **New** button:
 
-[![](source-list-images/source01.png "Adding an empty class")](source-list-images/source01.png#lightbox)
+[![Adding an empty class](source-list-images/source01.png)](source-list-images/source01.png#lightbox)
 
 Make the `SourceListItem.cs` file look like the following: 
 
@@ -521,29 +521,29 @@ namespace MacOutlines
 
 This creates a custom, reusable subclass of `NSOutlineView` (`SourceListView`) that we can use to drive the Source List in any Xamarin.Mac application that we make.
 
-<a name="Creating_and_Maintaining_Source_Lists_in_Xcode" />
+<a name="Creating_and_Maintaining_Source_Lists_in_Xcode"></a>
 
 ## Creating and Maintaining Source Lists in Xcode
 
 Now, let's design our Source List in Interface Builder. Double-click the `Main.storyboard` file to open it for editing in Interface Builder and drag a Split View from the **Library Inspector**, add it to the View Controller and set it to resize with the View in the **Constraints Editor**:
 
-[![](source-list-images/source00.png "Editing constraints")](source-list-images/source00.png#lightbox)
+[![Editing constraints in the Interface Builder.](source-list-images/source00.png)](source-list-images/source00.png#lightbox)
 
 Next, drag a Source List from the **Library Inspector**, add it to the left side of the Split View and set it to resize with the View in the **Constraints Editor**:
 
-[![](source-list-images/source02.png "Editing constraints")](source-list-images/source02.png#lightbox)
+[![Editing constraints by dragging a Source List to the Split View.](source-list-images/source02.png)](source-list-images/source02.png#lightbox)
 
 Next, switch to the **Identity View**, select the Source List, and change it's **Class** to `SourceListView`:
 
-[![](source-list-images/source03.png "Setting the class name")](source-list-images/source03.png#lightbox)
+[![Setting the class name](source-list-images/source03.png)](source-list-images/source03.png#lightbox)
 
 Finally, create an **Outlet** for our Source List called `SourceList` in the `ViewController.h` file:
 
-[![](source-list-images/source04.png "Configuring an Outlet")](source-list-images/source04.png#lightbox)
+[![Configuring an Outlet](source-list-images/source04.png)](source-list-images/source04.png#lightbox)
 
 Save your changes and return to Visual Studio for Mac to sync with Xcode.
 
-<a name="Populating the Source List" />
+<a name="Populating the Source List"></a>
 
 ## Populating the Source List
 
@@ -609,9 +609,9 @@ public override void DidFinishLaunching (NSNotification notification)
 
 If we run our application, the following will be displayed:
 
-[![](source-list-images/source05.png "An example app run")](source-list-images/source05.png#lightbox)
+[![An example app run](source-list-images/source05.png)](source-list-images/source05.png#lightbox)
 
-<a name="Summary" />
+<a name="Summary"></a>
 
 ## Summary
 
@@ -619,7 +619,7 @@ This article has taken a detailed look at working with Source Lists in a Xamarin
 
 ## Related Links
 
-- [MacOutlines (sample)](https://docs.microsoft.com/samples/xamarin/mac-samples/macoutlines)
+- [MacOutlines (sample)](/samples/xamarin/mac-samples/macoutlines)
 - [Hello, Mac](~/mac/get-started/hello-mac.md)
 - [Table Views](~/mac/user-interface/table-view.md)
 - [Outline Views](~/mac/user-interface/outline-view.md)

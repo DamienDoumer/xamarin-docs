@@ -7,9 +7,13 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/07/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Unit Testing Enterprise Apps
+
+> [!NOTE]
+> This eBook was published in the spring of 2017, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated.
 
 Mobile apps have unique problems that desktop and web-based applications don't have to worry about. Mobile users will differ by the devices that they use, by network connectivity, by the availability of services, and a range of other factors. Therefore, mobile apps should be tested as they will be used in the real world to improve their quality, reliability, and performance. There are many types of testing that should be performed on an app, including unit testing, integration testing, and user interface testing, with unit testing being the most common form of testing.
 
@@ -47,7 +51,7 @@ public class OrderDetailViewModel : ViewModelBase
 
 The `OrderDetailViewModel` class has a dependency on the `IOrderService` type which the container resolves when it instantiates a `OrderDetailViewModel` object. However, rather than create an `OrderService` object to unit test the `OrderDetailViewModel` class, instead, replace the `OrderService` object with a mock for the purpose of the tests. Figure 10-1 illustrates this relationship.
 
-![](unit-testing-images/unittesting.png "Classes that implement the IOrderService interface")
+![Classes that implement the IOrderService interface](unit-testing-images/unittesting.png)
 
 **Figure 10-1:** Classes that implement the IOrderService interface
 

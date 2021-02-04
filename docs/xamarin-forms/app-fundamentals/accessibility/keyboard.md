@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/09/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Keyboard Accessibility in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-accessibility)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-accessibility)
 
 Users who use screen readers, or have mobility issues, can have difficulty using applications that don't provide appropriate keyboard access. Xamarin.Forms applications can have an expected tab order specified to improve their usability and accessibility. Specifying a tab order for controls enables keyboard navigation, prepares application pages to receive input in a particular order, and permits screen readers to read focusable elements to the user.
 
@@ -48,7 +49,7 @@ By default, the tab order of controls is the same order in which they are listed
 
 The following screenshot shows the default tab order for this code example:
 
-![](keyboard-images/default-tab-order.png "Default Row-based Tab Order")
+![Default Row-based Tab Order](keyboard-images/default-tab-order.png)
 
 The tab order here is row-based, and is the order the controls are listed in the XAML. Therefore, pressing the Tab key navigates through forename [`Entry`](xref:Xamarin.Forms.Entry) instances, followed by surname `Entry` instances. However, a more intuitive experience would be to use a column-first tab navigation, so that pressing the Tab key navigates through forename-surname pairs. This can be achieved by specifying the tab order of the input controls.
 
@@ -67,6 +68,9 @@ The following rules apply when using the default tab order, or setting the `TabI
 - Conflicts on a `TabIndex` are resolved by declaration order.
 
 After defining a tab order, pressing the Tab key will cycle the focus through controls in ascending `TabIndex` order, wrapping around to the beginning once the final control is reached.
+
+> [!WARNING]
+> On the Universal Windows Platform, the `TabIndex` property of each control must be set to `int.MaxValue` for the tab order to be identical to the control declaration order.
 
 The following XAML example shows the `TabIndex` property set on input controls to enable column-first tab navigation:
 
@@ -105,7 +109,7 @@ The following XAML example shows the `TabIndex` property set on input controls t
 
 The following screenshot shows the tab order for this code example:
 
-![](keyboard-images/correct-tab-order.png "Column-based Tab Order")
+![Column-based Tab Order](keyboard-images/correct-tab-order.png)
 
 The tab order here is column-based. Therefore, pressing the Tab key navigates through forename-surname [`Entry`](xref:Xamarin.Forms.Entry) pairs.
 
@@ -141,4 +145,4 @@ The `TabIndex` and `IsTabStop` properties are supported on the following control
 
 ## Related Links
 
-- [Accessibility (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-accessibility)
+- [Accessibility (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-accessibility)

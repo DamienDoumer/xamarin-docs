@@ -13,7 +13,7 @@ Xamarin does not support Visual Basic directly - follow the instructions on
 this page to create a C# Xamarin.Forms solution and then replace the
 .NET Standard C# project with Visual Basic.
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/mobile-samples/visualbasic-xamarinformsvb/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/mobile-samples/visualbasic-xamarinformsvb/)
 
 [![Create a Xamarin.Forms solution and then replace the .NET Standard project with Visual Basic](xamarin-forms-images/hero-sml.png)](xamarin-forms-images/hero.png#lightbox)
 
@@ -126,7 +126,7 @@ As stated on the [Portable Visual Basic.NET page](~/cross-platform/platform/visu
 Xamarin does not support the Visual Basic language. This means there are some limitations
 on where you can use Visual Basic:
 
-- XAML pages cannot be included in the Visual Basic project - the code-behind generator can only build C#. It is possible to include XAML in a separate, referenced, C# portable class library and use databinding to populate the XAML files via Visual Basic models (an example of this is included in the [sample](https://github.com/xamarin/mobile-samples/tree/master/VisualBasic/XamarinFormsVB/XamlPages)).
+- XAML pages cannot be included in the Visual Basic project - the code-behind generator can only build C#. It is possible to include XAML in a separate, referenced, C# portable class library and use databinding to populate the XAML files via Visual Basic models (an example of this is included in the [sample](https://github.com/xamarin/mobile-samples/tree/master/VisualBasic/XamarinFormsVB)).
 
 - Custom Renderers cannot be written in Visual Basic, they must be written in C# in the native platform projects.
 
@@ -134,5 +134,5 @@ on where you can use Visual Basic:
 
 ## Related Links
 
-- [XamarinFormsVB (sample)](https://docs.microsoft.com/samples/xamarin/mobile-samples/visualbasic-xamarinformsvb/)
-- [Cross-Platform Development with the .NET Framework](https://docs.microsoft.com/dotnet/standard/cross-platform/)
+- [XamarinFormsVB (sample)](/samples/xamarin/mobile-samples/visualbasic-xamarinformsvb/)
+- [Cross-Platform Development with the .NET Framework](/dotnet/standard/cross-platform/)

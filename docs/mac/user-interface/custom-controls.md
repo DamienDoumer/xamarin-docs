@@ -15,13 +15,13 @@ When working with C# and .NET in a Xamarin.Mac application, you have access to t
 
 While macOS provides a wealth of built-in User Controls, there might be times that you need to create a custom control to provide functionality not provided out-of-the-box or to match a custom UI theme (such as a game interface).
 
-[![](custom-controls-images/intro01.png "Example of a custom UI control")](custom-controls-images/intro01.png#lightbox)
+[![Example of a custom UI control](custom-controls-images/intro01.png)](custom-controls-images/intro01.png#lightbox)
 
 In this article, we'll cover the basics of creating a reusable Custom User Interface Control in a Xamarin.Mac application. It is highly suggested that you work through the [Hello, Mac](~/mac/get-started/hello-mac.md) article first, specifically the [Introduction to Xcode and Interface Builder](~/mac/get-started/hello-mac.md#introduction-to-xcode-and-interface-builder) and [Outlets and Actions](~/mac/get-started/hello-mac.md#outlets-and-actions) sections, as it covers key concepts and techniques that we'll be using in this article.
 
 You may want to take a look at the [Exposing C# classes / methods to Objective-C](~/mac/internals/how-it-works.md) section of the [Xamarin.Mac Internals](~/mac/internals/how-it-works.md) document as well, it explains the `Register` and `Export` commands used to wire-up your C# classes to Objective-C objects and UI Elements.
 
-<a name="Introduction-to-Outline-Views" />
+<a name="Introduction-to-Outline-Views"></a>
 
 ## Introduction to Custom Controls
 
@@ -35,7 +35,7 @@ No matter which base class is used, the basic steps for creating a custom contro
 
 In this article will, create a custom Flip Switch component that provides a unique User Interface Theme and an example of building a fully functional Custom User Interface Control.
 
-<a name="Building-the-Custom-Control" />
+<a name="Building-the-Custom-Control"></a>
 
 ## Building the Custom Control
 
@@ -43,7 +43,7 @@ Since the custom control we are creating will be responding to user input (left 
 
 In Visual Studio for Mac, open the Xamarin.Mac project that you want to create a Custom User Interface Control for (or create a new one). Add a new class and call it `NSFlipSwitch`:
 
-[![](custom-controls-images/custom01.png "Adding a new class")](custom-controls-images/custom01.png#lightbox)
+[![Adding a new class](custom-controls-images/custom01.png)](custom-controls-images/custom01.png#lightbox)
 
 Next, edit the `NSFlipSwitch.cs` class and make it look like the following:
 
@@ -130,7 +130,7 @@ public class NSFlipSwitch : NSControl
 
 In the following sections, we'll take a look at the rest of the above code in detail.
 
-<a name="Tracking-the-Controls-State" />
+<a name="Tracking-the-Controls-State"></a>
 
 ### Tracking the Control's State
 
@@ -165,7 +165,7 @@ private void FlipSwitchState() {
 
 Later, we'll expand this helper class to inform the caller when the switches state has changed.
 
-<a name="Drawing-the-Controls-Interface" />
+<a name="Drawing-the-Controls-Interface"></a>
 
 ### Drawing the Control's Interface
 
@@ -203,7 +203,7 @@ public override void DrawRect (CGRect dirtyRect)
 
 We'll be adjusting the visual representation for the control when its state changes (such as going from **On** to **Off**). Any time the state changes, we can use the `NeedsDisplay = true` command to force the control to redraw for the new state.
 
-<a name="Responding-to-User-Input" />
+<a name="Responding-to-User-Input"></a>
 
 ### Responding to User Input
 
@@ -212,7 +212,7 @@ There are two basic way that we can add user input to our custom control: **Over
 > [!IMPORTANT]
 > For any custom control you create, you should use either **Override Methods** _or_ **Gesture Recognizers**, but not both at the same time as they can conflict with each other.
 
-<a name="Summary" />
+<a name="Summary"></a>
 
 #### Handling User Input with Override Methods
 
@@ -250,7 +250,7 @@ public override void MouseMoved (NSEvent theEvent)
 
 In the above code, we call the `FlipSwitchState` method (defined above) to flip the On/Off state of the switch in the `MouseDown` method. This will also force the control to be redrawn to reflect the current state.
 
-<a name="Handling-User-Input-with-Gesture-Recognizers" />
+<a name="Handling-User-Input-with-Gesture-Recognizers"></a>
 
 #### Handling User Input with Gesture Recognizers
 
@@ -276,7 +276,7 @@ Here, we are creating a new `NSClickGestureRecognizer` and calling our `FlipSwit
 
 Again, which method we use depends on what we are trying to accomplish with our custom control. If we need low level access the to user interaction, use the Override Methods. If we need predefined functionality, such as mouse clicks, use Gesture Recognizers.
 
-<a name="Responding-to-State-Change-Events" />
+<a name="Responding-to-State-Change-Events"></a>
 
 ### Responding to State Change Events
 
@@ -321,7 +321,7 @@ if (this.Action !=null)
 
 First, we check to see if an **Action** has been assigned to the control. Next, we call the **Action** if it has been defined.
 
-<a name="Using-the-Custom-Control" />
+<a name="Using-the-Custom-Control"></a>
 
 ## Using the Custom Control
 
@@ -329,19 +329,19 @@ With our custom control fully defined, we can either add it to our Xamarin.Mac a
 
 To add the control using Interface Builder, first do a clean build of the Xamarin.Mac project, then double-click the `Main.storyboard` file to open it in Interface Builder for edit:
 
-[![](custom-controls-images/custom02.png "Editing the storyboard in Xcode")](custom-controls-images/custom02.png#lightbox)
+[![Editing the storyboard in Xcode](custom-controls-images/custom02.png)](custom-controls-images/custom02.png#lightbox)
 
 Next, drag a `Custom View` into the User Interface design:
 
-[![](custom-controls-images/custom03.png "Selecting a Custom View from the Library")](custom-controls-images/custom03.png#lightbox)
+[![Selecting a Custom View from the Library](custom-controls-images/custom03.png)](custom-controls-images/custom03.png#lightbox)
 
 With the Custom View still selected, switch to the **Identity Inspector** and change the view's **Class** to `NSFlipSwitch`:
 
-[![](custom-controls-images/custom04.png "Setting the View's class")](custom-controls-images/custom04.png#lightbox)
+[![Setting the View's class](custom-controls-images/custom04.png)](custom-controls-images/custom04.png#lightbox)
 
 Switch to the **Assistant Editor** and create an **Outlet** for the custom control (making sure to bind it in the `ViewController.h` file and not the `.m` file):
 
-[![](custom-controls-images/custom05.png "Configuring a new Outlet")](custom-controls-images/custom05.png#lightbox)
+[![Configuring a new Outlet](custom-controls-images/custom05.png)](custom-controls-images/custom05.png#lightbox)
 
 Save your changes, return to Visual Studio for Mac and allow the changes to sync. Edit the `ViewController.cs` file and make the `ViewDidLoad` method look like the following:
 
@@ -362,7 +362,7 @@ Here, we respond to the `ValueChanged` event we defined above on the `NSFlipSwit
 
 Optionally, we could return to Interface Builder and define an **Action** on the control:
 
-[![](custom-controls-images/custom06.png "Configuring a new Action")](custom-controls-images/custom06.png#lightbox)
+[![Configuring a new Action](custom-controls-images/custom06.png)](custom-controls-images/custom06.png#lightbox)
 
 Again, edit the `ViewController.cs` file and add the following method:
 
@@ -376,7 +376,7 @@ partial void OptionTwoFlipped (Foundation.NSObject sender) {
 > [!IMPORTANT]
 > You should use either the **Event** or define an **Action** in Interface Builder, but you should not use both methods at the same time or they can conflict with each other.
 
-<a name="Summary" />
+<a name="Summary"></a>
 
 ## Summary
 
@@ -384,7 +384,7 @@ This article has taken a detailed look at creating a reusable Custom User Interf
 
 ## Related Links
 
-- [MacCustomControl (sample)](https://docs.microsoft.com/samples/xamarin/mac-samples/maccustomcontrol)
+- [MacCustomControl (sample)](/samples/xamarin/mac-samples/maccustomcontrol)
 - [Hello, Mac](~/mac/get-started/hello-mac.md)
 - [Data Binding and Key-Value Coding](~/mac/app-fundamentals/databinding.md)
 - [OS X Human Interface Guidelines](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/)

@@ -6,12 +6,13 @@ ms.assetid: 22C99029-0B16-43A6-BF58-26B48C4AED38
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 10/29/2019
+ms.date: 05/20/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Map Control
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithmaps)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/workingwithmaps)
 
 The [`Map`](xref:Xamarin.Forms.Maps.Map) control is a cross-platform view for displaying and annotating maps. It uses the native map control for each platform, providing a fast and familiar maps experience for users:
 
@@ -29,6 +30,7 @@ The [`Map`](xref:Xamarin.Forms.Maps.Map) class defines the following properties 
 - [`MapType`](xref:Xamarin.Forms.Maps.Map.MapType), of type [`MapType`](xref:Xamarin.Forms.Maps.Map.MapType), indicates the display style of the map.
 - `MoveToLastRegionOnLayoutChange`, of type `bool`, controls whether the displayed map region will move from its current region to its previously set region when a layout change occurs.
 - [`Pins`](xref:Xamarin.Forms.Maps.Map.Pins), of type `IList<Pin>`, represents the list of pins on the map.
+- `TrafficEnabled`, of type `bool`, indicates whether traffic data is overlaid on the map.
 - [`VisibleRegion`](xref:Xamarin.Forms.Maps.Map.VisibleRegion), of type [`MapSpan`](xref:Xamarin.Forms.Maps.MapSpan), returns the currently displayed region of the map.
 
 These properties, with the exception of the `MapElements`, `Pins`, and `VisibleRegion` properties, are backed by [`BindableProperty`](xref:Xamarin.Forms.BindableProperty) objects, which mean they can be targets of data bindings.
@@ -201,7 +203,24 @@ In this example, the [`MoveToRegion`](xref:Xamarin.Forms.Maps.Map.MoveToRegion*)
 The behavior of a [`Map`](xref:Xamarin.Forms.Maps.Map) can be customized by setting some of its properties, and by handling the `MapClicked` event.
 
 > [!NOTE]
-> Additional map behavior customizatin can be achieved by creating a map custom renderer. For more information, see [Customizing a Xamarin.Forms Map](~/xamarin-forms/app-fundamentals/custom-renderer/map/index.md).
+> Additional map behavior customization can be achieved by creating a map custom renderer. For more information, see [Customizing a Xamarin.Forms Map](~/xamarin-forms/app-fundamentals/custom-renderer/map-pin.md).
+
+### Show traffic data
+
+The [`Map`](xref:Xamarin.Forms.Maps.Map) class defines a `TrafficEnabled` property of type `bool`. By default this property is `false`, which indicates that traffic data won't be overlaid on the map. When this property is set to `true`, traffic data is overlaid on the map. The following example shows setting this property:
+
+```xaml
+<maps:Map TrafficEnabled="true" />
+```
+
+The equivalent C# code is:
+
+```csharp
+Map map = new Map
+{
+    TrafficEnabled = true
+};
+```
 
 ### Disable scroll
 
@@ -302,7 +321,7 @@ map.MapClicked += OnMapClicked;
 
 ## Related links
 
-- [Maps Sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithmaps)
+- [Maps Sample](/samples/xamarin/xamarin-forms-samples/workingwithmaps)
 - [Map Position and Distance](position-distance.md)
-- [Customizing a Xamarin.Forms Map](~/xamarin-forms/app-fundamentals/custom-renderer/map/index.md)
+- [Customizing a Xamarin.Forms Map](~/xamarin-forms/app-fundamentals/custom-renderer/map-pin.md)
 - [Passing Arguments in XAML](~/xamarin-forms/xaml/passing-arguments.md)

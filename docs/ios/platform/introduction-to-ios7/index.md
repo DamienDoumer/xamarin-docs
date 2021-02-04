@@ -44,7 +44,7 @@ void AnimateWithSpring ()
 
 This spring effect causes the image view to appear to bounce as it completes its animation to a new center location, as illustrated below:
 
- ![](images/spring-animation.png "This spring effect causes the image view to appear to bounce as it completes its animation to a new center location")
+ ![This spring effect causes the image view to appear to bounce as it completes its animation to a new center location](images/spring-animation.png)
 
 ### Keyframe Animations
 
@@ -81,7 +81,7 @@ The first two parameters to the `AddKeyframeWithRelativeStartTime` method specif
 
 The screenshots below illustrates the combined animation through the keyframes:
 
- ![](images/keyframes.png "This screenshots illustrates the combined animation through the keyframes")
+ ![This screenshots illustrates the combined animation through the keyframes](images/keyframes.png)
 
 ## UIKit Dynamics
 
@@ -149,8 +149,8 @@ dynAnimator.AddBehavior (gravity);
 
 This results in the image animating downward with gravity, as illustrated below:
 
-![](images/gravity2.png "The starting image location")
-![](images/gravity3.png "The ending image location")
+![The starting image location](images/gravity2.png)
+![The ending image location](images/gravity3.png)
 
 Since there is nothing constraining the boundaries of the screen, the image view simply falls off the bottom. To constrain the view so that the image collides with the edges of the screen, we can add a `UICollisionBehavior`. We'll cover this in the next section.
 
@@ -189,7 +189,7 @@ Now, when the image animates downward with gravity, it bounces slightly off the 
 
 <!--, as shown below:
 
- ![](images/bounce.png "Now, when the image animates downward with gravity, it bounces slightly off the bottom of the screen before settling to rest there")-->
+ ![Now, when the image animates downward with gravity, it bounces slightly off the bottom of the screen before settling to rest there](images/bounce.png)-->
 
 #### UIDynamicItemBehavior
 
@@ -235,6 +235,6 @@ This article covers several major new additions to iOS. First, it shows how to a
 
 ## Related Links
 
-- [Intro to iOS 7 (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/introtoios7)
+- [Intro to iOS 7 (sample)](/samples/xamarin/ios-samples/introtoios7)
 - [iOS 7 User Interface Overview](~/ios/platform/introduction-to-ios7/ios7-ui.md)
 - [Backgrounding](~/ios/app-fundamentals/backgrounding/index.md)

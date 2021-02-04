@@ -6,12 +6,13 @@ ms.assetid: C025AB53-05CC-49BA-9815-75D6DF9E40B7
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 12/04/2019
+ms.date: 05/19/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Images in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithimages)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/workingwithimages)
 
 _Images can be shared across platforms with Xamarin.Forms, they can be loaded specifically for each platform, or they can be downloaded for display._
 
@@ -21,7 +22,7 @@ Platform-specific images are also required for icons and splash screens; these n
 
 ## Display images
 
-Xamarin.Forms uses the [`Image`](xref:Xamarin.Forms.Image) view to display images on a page. It has two important properties:
+Xamarin.Forms uses the [`Image`](xref:Xamarin.Forms.Image) view to display images on a page. It has several important properties:
 
 - [`Source`](xref:Xamarin.Forms.Image.Source) - An [`ImageSource`](xref:Xamarin.Forms.ImageSource) instance, either File, Uri or Resource, which sets the image to display.
 - [`Aspect`](xref:Xamarin.Forms.Image.Aspect) - How to size the image within the bounds it is being displayed within (whether to stretch, crop or letterbox).
@@ -36,7 +37,7 @@ Xamarin.Forms uses the [`Image`](xref:Xamarin.Forms.Image) view to display image
 The [`Aspect`](xref:Xamarin.Forms.Image.Aspect) property determines how the image will be scaled to fit the display area:
 
 - [`Fill`](xref:Xamarin.Forms.Aspect.Fill) - Stretches the image to completely and exactly fill the display area. This may result in the image being distorted.
-- [`AspectFill`](xref:Xamarin.Forms.Aspect.AspectFill) - Clips the image so that it fills the display area while preserving the aspect (ie. no distortion).
+- [`AspectFill`](xref:Xamarin.Forms.Aspect.AspectFill) - Clips the image so that it fills the display area while preserving the aspect (i.e. no distortion).
 - [`AspectFit`](xref:Xamarin.Forms.Aspect.AspectFit) - Letterboxes the image (if required) so that the entire image fits into the display area, with blank space added to the top/bottom or sides depending on whether the image is wide or tall.
 
 Images can be loaded from a [local file](#local-images), an [embedded resource](#embedded-images), [downloaded](#download-images), or loaded from a stream. In addition, font icons can be displayed by the [`Image`](xref:Xamarin.Forms.Image) view by specifying the font icon data in a `FontImageSource` object. For more information, see [Display font icons](~/xamarin-forms/user-interface/text/fonts.md#display-font-icons) in the [Fonts](~/xamarin-forms/user-interface/text/fonts.md) guide.
@@ -45,11 +46,11 @@ Images can be loaded from a [local file](#local-images), an [embedded resource](
 
 Image files can be added to each application project and referenced from Xamarin.Forms shared code. This method of distributing images is required when images are platform-specific, such as when using different resolutions on different platforms, or slightly different designs.
 
-To use a single image across all apps, *the same filename must be used on every platform*, and it should be a valid Android resource name (ie. only lowercase letters, numerals, the underscore, and the period are allowed).
+To use a single image across all apps, *the same filename must be used on every platform*, and it should be a valid Android resource name (i.e. only lowercase letters, numerals, the underscore, and the period are allowed).
 
 - **iOS** - The preferred way to manage and support images since iOS 9 is to use **Asset Catalog Image Sets**, which should contain all of the versions of an image that are necessary to support various devices and scale factors for an application. For more information, see [Adding Images to an Asset Catalog Image Set](~/ios/app-fundamentals/images-icons/displaying-an-image.md).
 - **Android** - Place images in the  **Resources/drawable** directory with **Build Action: AndroidResource**. High- and low-DPI versions of an image can also be supplied (in appropriately named **Resources** subdirectories such as **drawable-ldpi**, **drawable-hdpi**, and **drawable-xhdpi**).
-- **Universal Windows Platform (UWP)** - Place images in the application's root directory with **Build Action: Content**.
+- **Universal Windows Platform (UWP)** - By default, images should be placed in the application's root directory with **Build Action: Content**. Alternatively, images can be placed in a different directory which is then specified with a platform-specific. For more information, see [Default image directory on Windows](~/xamarin-forms/platform/windows/default-image-directory.md).
 
 > [!IMPORTANT]
 > Prior to iOS 9, images were typically placed in the **Resources** folder with **Build Action: BundleResource**. However, this method of working with images in an iOS app has been deprecated by Apple. For more information, see [Image Sizes and Filenames](~/ios/app-fundamentals/images-icons/displaying-an-image.md).
@@ -73,8 +74,8 @@ The following screenshots show the result of displaying a local image on each pl
 For more flexibility the `Device.RuntimePlatform` property can be used to select a different image file or path for some or all platforms, as shown in this code example:
 
 ```csharp
-image.Source = Device.RuntimePlatform == Device.Android 
-                ? ImageSource.FromFile("waterfront.jpg") 
+image.Source = Device.RuntimePlatform == Device.Android
+                ? ImageSource.FromFile("waterfront.jpg")
                 : ImageSource.FromFile("Images/waterfront.jpg");
 ```
 
@@ -94,7 +95,7 @@ Android alternate resolution images should be placed in [specially-named directo
 
 [![Android multiple-resolution image location](images-images/xs-highdpisolution-sml.png)](images-images/xs-highdpisolution.png#lightbox)
 
-UWP image file names [can be suffixed with `.scale-xxx` before the file extension](https://docs.microsoft.com/windows/uwp/app-resources/images-tailored-for-scale-theme-contrast), where `xxx` is the percentage of scaling applied to the asset, e.g. **myimage.scale-200.png**. Images can then be referred to in code or XAML without the scale modifier, e.g. just **myimage.png**. The platform will select the nearest appropriate asset scale based on the display's current DPI.
+UWP image file names [can be suffixed with `.scale-xxx` before the file extension](/windows/uwp/app-resources/images-tailored-for-scale-theme-contrast), where `xxx` is the percentage of scaling applied to the asset, e.g. **myimage.scale-200.png**. Images can then be referred to in code or XAML without the scale modifier, e.g. just **myimage.png**. The platform will select the nearest appropriate asset scale based on the display's current DPI.
 
 ### Additional controls that display images
 
@@ -131,7 +132,7 @@ for this project with the filename, using a period (.) between each value.
 
 # [Visual Studio for Mac](#tab/macos)
 
-![](images-images/xs-buildaction.png "Set Build Action: EmbeddedResource")
+![Set Build Action: EmbeddedResource](images-images/xs-buildaction.png)
 
 **Build Action** can also be viewed and changed in the
 **Properties** pad for a file.
@@ -152,11 +153,10 @@ If you place embedded images into folders within your project, the folder names 
 The code to load an embedded image simply passes the **Resource ID** to the [`ImageSource.FromResource`](xref:Xamarin.Forms.ImageSource.FromResource*) method as shown below:
 
 ```csharp
-var embeddedImage = new Image { 
-      Source = ImageSource.FromResource(
-        "WorkingWithImages.beach.jpg", 
-        typeof(EmbeddedImages).GetTypeInfo().Assembly
-      ) };
+Image embeddedImage = new Image
+{
+    Source = ImageSource.FromResource("WorkingWithImages.beach.jpg", typeof(MyClass).GetTypeInfo().Assembly)
+};
 ```
 
 > [!NOTE]
@@ -222,7 +222,7 @@ Because it is sometimes difficult to understand why a particular image resource 
 using System.Reflection;
 // ...
 // NOTE: use for debugging, not in released app code!
-var assembly = typeof(EmbeddedImages).GetTypeInfo().Assembly;
+var assembly = typeof(MyClass).GetTypeInfo().Assembly;
 foreach (var res in assembly.GetManifestResourceNames())
 {
     System.Diagnostics.Debug.WriteLine("found resource: " + res);
@@ -236,7 +236,7 @@ By default, the `ImageSource.FromResource` method only looks for images in the s
 However, the source assembly being searched for an embedded image can be specified as an argument to the `ImageSource.FromResource` method:
 
 ```csharp
-var imageSource = ImageSource.FromResource("filename.png", 
+var imageSource = ImageSource.FromResource("filename.png",
             typeof(MyClass).GetTypeInfo().Assembly);
 ```
 
@@ -245,14 +245,13 @@ var imageSource = ImageSource.FromResource("filename.png",
 Images can be automatically downloaded for display, as shown in the following XAML:
 
 ```xaml
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
        x:Class="WorkingWithImages.DownloadImagesXaml">
   <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
     <Label Text="Image UriSource Xaml" />
-    <Image Source="https://xamarin.com/content/images/pages/forms/example-app.png" />
-    <Label Text="example-app.png gets downloaded from xamarin.com" />
+    <Image Source="https://aka.ms/campus.jpg" />
+    <Label Text="campus.jpg gets downloaded from microsoft.com" />
   </StackLayout>
 </ContentPage>
 ```
@@ -260,9 +259,9 @@ Images can be automatically downloaded for display, as shown in the following XA
 The equivalent C# code is as follows:
 
 ```csharp
-var webImage = new Image { 
+var webImage = new Image {
      Source = ImageSource.FromUri(
-        new Uri("https://xamarin.com/content/images/pages/forms/example-app.png")
+        new Uri("https://aka.ms/campus.jpg")
      ) };
 ```
 
@@ -271,7 +270,7 @@ The [`ImageSource.FromUri`](xref:Xamarin.Forms.ImageSource.FromUri(System.Uri)) 
 There is also an implicit conversion for URI strings, so the following example will also work:
 
 ```csharp
-webImage.Source = "https://xamarin.com/content/images/pages/forms/example-app.png";
+webImage.Source = "https://aka.ms/campus.jpg";
 ```
 
 The following screenshots show the result of displaying a remote image on each platform:
@@ -288,7 +287,7 @@ A [`UriImageSource`](xref:Xamarin.Forms.UriImageSource) also supports caching of
 Caching is enabled by default and will store the image locally for 24 hours. To disable caching for a particular image, instantiate the image source as follows:
 
 ```csharp
-image.Source = new UriImageSource { CachingEnabled = false, Uri = new Uri("http://server.com/image") };
+image.Source = new UriImageSource { CachingEnabled = false, Uri = new Uri("https://server.com/image") };
 ```
 
 To set a specific cache period (for example, 5 days) instantiate the image source as follows:
@@ -296,7 +295,7 @@ To set a specific cache period (for example, 5 days) instantiate the image sourc
 ```csharp
 webImage.Source = new UriImageSource
 {
-    Uri = new Uri("https://xamarin.com/content/images/pages/forms/example-app.png"),
+    Uri = new Uri("https://aka.ms/campus.jpg"),
     CachingEnabled = true,
     CacheValidity = new TimeSpan(5,0,0,0)
 };
@@ -343,7 +342,7 @@ Refer to the documentation for [iOS Working with Images](~/ios/app-fundamentals/
 
 ## Related links
 
-- [WorkingWithImages (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithimages)
+- [WorkingWithImages (sample)](/samples/xamarin/xamarin-forms-samples/workingwithimages)
 - [iOS Working with Images](~/ios/app-fundamentals/images-icons/index.md)
 - [Android Iconography](https://developer.android.com/design/style/iconography.html)
 - [Guidelines for tile and icon assets](/windows/uwp/controls-and-patterns/tiles-and-notifications-app-assets/)

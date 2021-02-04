@@ -12,6 +12,7 @@ metadata:
   author: davidbritch
   ms.author: dabritch
   ms.date: 12/23/2019
+  no-loc: [Xamarin.Forms, Xamarin.Essentials]
 
 landingContent:
   - title: Get started
@@ -20,14 +21,18 @@ landingContent:
         links:
           - text: What is Xamarin?
             url: ~/get-started/what-is-xamarin.md
-          - text: Requirements
-            url: requirements.md
+          - text: Supported platforms
+            url: supported-platforms.md
       - linkListType: how-to-guide
         links:
           - text: Installation
             url: installation/index.md
           - text: Build your first app
             url: first-app/index.md
+      - linkListType: get-started
+        links:
+          - text: Xamarin.Forms on Q&A
+            url: /answers/topics/dotnet-xamarinforms.html
 
   - title: Quickstarts
     linkLists:
@@ -64,8 +69,8 @@ landingContent:
             url: tutorials/image/index.yml
           - text: Grid
             url: tutorials/grid/index.yml
-          - text: ListView
-            url: tutorials/listview/index.yml
+          - text: CollectionView
+            url: tutorials/collectionview/index.yml
           - text: Pop-ups
             url: tutorials/pop-ups/index.yml
 

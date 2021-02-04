@@ -4,8 +4,9 @@ description: "The Share class in Xamarin.Essentials enables an application to sh
 ms.assetid: B7B01D55-0129-4C87-B515-89F8F4E94665
 author: jamesmontemagno
 ms.author: jamont
-ms.date: 08/20/2019
+ms.date: 01/04/2021
 ms.custom: video
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: Share
@@ -52,9 +53,9 @@ public class ShareTest
 
 User interface to share to external application that appears when request is made:
 
-![Share](images/share.png)
+![Share to external application UI](images/share.png)
 
-## Files
+## File
 
 This features enables an app to share files to other applications on the device. Xamarin.Essentials will automatically detect the file type (MIME) and request a share. Each platform may only support specific file extensions.
 
@@ -71,6 +72,27 @@ await Share.RequestAsync(new ShareFileRequest
     File = new ShareFile(file)
 });
 ```
+
+## Multiple Files
+
+The usage of share multiple files differs from the single file only in the ability of sending several files at once:
+
+```csharp
+var file1 = Path.Combine(FileSystem.CacheDirectory, "Attachment1.txt");
+File.WriteAllText(file, "Content 1");
+var file2 = Path.Combine(FileSystem.CacheDirectory, "Attachment2.txt");
+File.WriteAllText(file, "Content 2");
+
+await Share.RequestAsync(new ShareMultipleFilesRequest
+{
+    Title = ShareFilesTitle,
+    Files = new ShareFile[] { new ShareFile(file1), new ShareFile(file2) }
+});
+```
+
+## Presentation Location
+
+[!include[](~/essentials/includes/ios-PresentationSourceBounds.md)]
 
 ## Platform Differences
 
@@ -92,7 +114,7 @@ await Share.RequestAsync(new ShareFileRequest
 
 ## API
 
-- [Share source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/Share)
+- [Share source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/Share)
 - [Share API documentation](xref:Xamarin.Essentials.Share)
 
 ## Related Video

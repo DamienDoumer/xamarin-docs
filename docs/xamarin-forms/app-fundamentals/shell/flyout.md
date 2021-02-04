@@ -6,14 +6,15 @@ ms.assetid: FEDE51EB-577E-4B3E-9890-B7C1A5E52516
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 11/05/2019
+ms.date: 01/12/2021
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Shell Flyout
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
 
-The flyout is the root menu for a Shell application, and is accessible through an icon or by swiping from the side of the screen. The flyout consists of an optional header, flyout items, and optional menu items:
+The flyout is the root menu for a Shell application, and is accessible through an icon or by swiping from the side of the screen. The flyout consists of an optional header, flyout items, optional menu items, and an optional footer:
 
 ![Screenshot of a Shell annotated flyout](flyout-images/flyout-annotated.png "Annotated flyout")
 
@@ -55,6 +56,20 @@ In addition, the flyout can be programmatically opened and closed by setting the
 ```csharp
 Shell.Current.FlyoutIsPresented = false;
 ```
+
+## Flyout width and height
+
+The width and height of the flyout can be customized by setting the `Shell.FlyoutWidth` and `Shell.FlyoutHeight` attached properties to `double` values:
+
+```xaml
+<Shell ...
+       FlyoutWidth="400"
+       FlyoutHeight="200">
+    ...
+</Shell>
+```
+
+This enables scenarios such as expanding the flyout across the entire screen, or reducing the height of the flyout so that it doesn't obscure the tab bar.
 
 ## Flyout header
 
@@ -125,6 +140,59 @@ The following example shows how to collapse the flyout header as the user scroll
     ...
 </Shell>
 ```
+
+## Flyout footer
+
+The flyout footer is the content that optionally appears at the bottom of the flyout, with its appearance being defined by an `object` that can be set through the `Shell.FlyoutFooter` property value:
+
+```xaml
+<Shell.FlyoutFooter>
+    <controls:FlyoutFooter />
+</Shell.FlyoutFooter>
+```
+
+The `FlyoutFooter` type is shown in the following example:
+
+```xaml
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="Xaminals.Controls.FlyoutFooter">
+    <StackLayout>
+        <Label Text="Xaminals"
+               TextColor="GhostWhite"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+        <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}"
+               TextColor="GhostWhite"
+               HorizontalOptions="Center" />
+    </StackLayout>
+</ContentView>
+```
+
+This results in the following flyout footer:
+
+![Screenshot of the flyout footer](flyout-images/flyout-footer.png "Flyout footer")
+
+Alternatively, the flyout footer appearance can be defined by setting the `Shell.FlyoutFooterTemplate` property to a [`DataTemplate`](xref:Xamarin.Forms.DataTemplate):
+
+```xaml
+<Shell.FlyoutFooterTemplate>
+    <DataTemplate>
+        <StackLayout>
+            <Label Text="Xaminals"
+                   TextColor="GhostWhite"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}"
+                   TextColor="GhostWhite"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+    </DataTemplate>
+</Shell.FlyoutFooterTemplate>
+```
+
+The flyout footer is fixed to the bottom of the flyout, and can be any height. In addition, the footer never obscures any menu items.
 
 ## Flyout background image
 
@@ -226,6 +294,7 @@ The `FlyoutItem` class includes the following properties that control flyout ite
 - `IsChecked`, of type `boolean`, defines if the item is currently highlighted in the flyout.
 - `IsEnabled`, of type `boolean`, defines if the item is selectable in the chrome.
 - `IsTabStop`, of type `bool`, indicates whether a `FlyoutItem` is included in tab navigation. Its default value is `true`, and when its value is `false` the `FlyoutItem` is ignored by the tab-navigation infrastructure, irrespective if a `TabIndex` is set.
+- `IsVisible`, of type `bool`, indicates if the `FlyoutItem` is hidden on the flyout menu. Its default value is `true`.
 - `TabIndex`, of type `int`, indicates the order in which `FlyoutItem` objects receive focus when the user navigates through items by pressing the Tab key. The default value of the property is 0.
 - `Title`, of type `string`, the title to display in the UI.
 - `Route`, of type `string`, the string used to address the item.
@@ -241,6 +310,46 @@ In addition, the `FlyoutItem` class exposes the following overridable methods:
 - `OnTabStopPropertyChanged`, that's called whenever the `IsTabStop` property changes.
 - `TabIndexDefaultValueCreator`, returns an `int`, and is called to set the default value of the `TabIndex` property.
 - `TabStopDefaultValueCreator`, returns a `bool`, and is called to set the default value of the `TabStop` property.
+
+## Flyout backdrop
+
+The backdrop of the flyout, which is the appearance of the flyout overlay, can be specified by setting the `Shell.FlyoutBackdrop` attached property to a `Brush`:
+
+```xaml
+<Shell ...
+       FlyoutBackdrop="Silver">
+    ...
+</Shell>
+```
+
+In this example, the flyout backdrop is painted with a silver `SolidColorBrush`.
+
+> [!IMPORTANT]
+> Th `FlyoutBackdrop` attached property can be set on any Shell element, but will only be applied when it's set on `Shell`, `FlyoutItem`, or `TabBar` objects.
+
+The following example shows setting the flyout backdrop on a `FlyoutItem` to a `LinearGradientBrush`:
+
+```xaml
+<Shell ...>
+    <FlyoutItem ...>
+      <Shell.FlyoutBackdrop>
+          <LinearGradientBrush StartPoint="0,0"
+                               EndPoint="1,1">
+              <GradientStop Color="#8A2387"
+                            Offset="0.1" />
+              <GradientStop Color="#E94057"
+                            Offset="0.6" />
+              <GradientStop Color="#F27121"
+                            Offset="1.0" />
+          </LinearGradientBrush>
+      </Shell.FlyoutBackdrop>
+      ...
+    </FlyoutItem>
+    ...
+</Shell>
+```
+
+For more information about brushes, see [Xamarin.Forms Brushes](~/xamarin-forms/user-interface/brushes/index.md).
 
 ## Flyout vertical scroll
 
@@ -345,64 +454,84 @@ This example displays the title of each `FlyoutItem` object in italics:
 
 [![Screenshot of templated FlyoutItem objects, on iOS and Android](flyout-images/flyoutitem-templated.png "Shell templated FlyoutItem objects")](flyout-images/flyoutitem-templated-large.png#lightbox "Shell templated FlyoutItem objects")
 
-
 Because `Shell.ItemTemplate` is an attached property, different templates can be attached to specific `FlyoutItem` objects.
 
 > [!NOTE]
 > Shell provides the `Title` and `FlyoutIcon` properties to the [`BindingContext`](xref:Xamarin.Forms.BindableObject.BindingContext) of the `ItemTemplate`.
 
+In addition, Shell includes three style classes, which are automatically applied to `FlyoutItem` objects. For more information, see [FlyoutItem and MenuItem style classes](#flyoutitem-and-menuitem-style-classes).
 
-### Default Template for FlyoutItems and MenuItems
-Shell uses the following template internally for its default implementation. This is a great starting point if all you want to do is make small tweaks to the existing layouts. This also demonstrates the Visual State Manager features of the flyout items. This same template can also be used for MenuItems
+### Default template for FlyoutItems
+
+The default [`DataTemplate`](xref:Xamarin.Forms.DataTemplate) used for each `FlyoutItem` is shown below:
 
 ```xaml
-<DataTemplate x:Key="FlyoutTemplates">
-    <Grid HeightRequest="{x:OnPlatform Android=50}">
+<DataTemplate x:Key="FlyoutTemplate">
+    <Grid x:Name="FlyoutItemLayout"
+          HeightRequest="{x:OnPlatform Android=50}"
+          ColumnSpacing="{x:OnPlatform UWP=0}"
+          RowSpacing="{x:OnPlatform UWP=0}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Normal">
-                    </VisualState>
+                    <VisualState x:Name="Normal" />
                     <VisualState x:Name="Selected">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="#F2F2F2" />
+                            <Setter Property="BackgroundColor"
+                                    Value="{x:OnPlatform Android=#F2F2F2, iOS=#F2F2F2}" />
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>
             </VisualStateGroupList>
         </VisualStateManager.VisualStateGroups>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="{x:OnPlatform Android=54, iOS=50}"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="{x:OnPlatform Android=54, iOS=50, UWP=Auto}" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Image Source="{Binding FlyoutIcon}"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            HeightRequest="{x:OnPlatform Android=24, iOS=22}"
-            WidthRequest="{x:OnPlatform Android=24, iOS=22}">
+        <Image x:Name="FlyoutItemImage"
+               Source="{Binding FlyoutIcon}"
+               VerticalOptions="Center"
+               HorizontalOptions="{x:OnPlatform Default=Center, UWP=Start}"
+               HeightRequest="{x:OnPlatform Android=24, iOS=22, UWP=16}"
+               WidthRequest="{x:OnPlatform Android=24, iOS=22, UWP=16}">
+            <Image.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <OnPlatform.Platforms>
+                        <On Platform="UWP"
+                            Value="12,0,12,0" />
+                    </OnPlatform.Platforms>
+                </OnPlatform>
+            </Image.Margin>
         </Image>
-        <Label VerticalOptions="Center"
-                Text="{Binding Title}"
-                FontSize="{x:OnPlatform Android=14, iOS=Small}"
-                FontAttributes="Bold" Grid.Column="1">
+        <Label x:Name="FlyoutItemLabel"
+               Grid.Column="1"
+               Text="{Binding Title}"
+               FontSize="{x:OnPlatform Android=14, iOS=Small}"
+               HorizontalOptions="{x:OnPlatform UWP=Start}"
+               HorizontalTextAlignment="{x:OnPlatform UWP=Start}"
+               FontAttributes="{x:OnPlatform iOS=Bold}"
+               VerticalTextAlignment="Center">
             <Label.TextColor>
                 <OnPlatform x:TypeArguments="Color">
                     <OnPlatform.Platforms>
-                        <On Platform="Android" Value="#D2000000" />
+                        <On Platform="Android"
+                            Value="#D2000000" />
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Label.TextColor>
             <Label.Margin>
                 <OnPlatform x:TypeArguments="Thickness">
                     <OnPlatform.Platforms>
-                        <On Platform="Android" Value="20, 0, 0, 0" />
+                        <On Platform="Android"
+                            Value="20, 0, 0, 0" />
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Label.Margin>
             <Label.FontFamily>
                 <OnPlatform x:TypeArguments="x:String">
                     <OnPlatform.Platforms>
-                        <On Platform="Android" Value="sans-serif-medium" />
+                        <On Platform="Android"
+                            Value="sans-serif-medium" />
                     </OnPlatform.Platforms>
                 </OnPlatform>
             </Label.FontFamily>
@@ -411,7 +540,30 @@ Shell uses the following template internally for its default implementation. Thi
 </DataTemplate>
 ```
 
-## FlyoutItem tab order
+This template can be used for as a basis for making alterations to the existing flyout layout, and also shows the visual states that are implemented for flyout items.
+
+In addition, the [`Grid`](xref:Xamarin.Forms.Grid), [`Image`](xref:Xamarin.Forms.Image), and [`Label`](xref:Xamarin.Forms.Label) elements all have `x:Name` values and so can be targeted with the Visual State Manager. For more information, see [Set state on multiple elements](~/xamarin-forms/user-interface/visual-state-manager.md#set-state-on-multiple-elements).
+
+> [!NOTE]
+> The same template can also be used for `MenuItem` objects.
+
+## Set FlyoutItem visibility
+
+Flyout items are visible in the flyout by default. However, a flyout item can be hidden in the flyout by setting the `Shell.FlyoutItemIsVisible` attached property, which defaults to `true`, to `false`:
+
+```xaml
+<Shell ...>
+    <FlyoutItem ...
+                Shell.FlyoutItemIsVisible="False">
+        ...
+    </FlyoutItem>
+</Shell>
+```
+
+> [!NOTE]
+> The `Shell.FlyoutItemIsVisible` attached property can be set on `FlyoutItem`, `MenuItem`, `Tab`, and `ShellContent` objects.
+
+## Set FlyoutItem tab order
 
 By default, the tab order of `FlyoutItem` objects is the same order in which they are listed in XAML, or programmatically added to a child collection. This order is the order in which the `FlyoutItem` objects will be navigated through with a keyboard, and often this default order is the best order.
 
@@ -448,11 +600,65 @@ The `Shell` class has a bindable property named `CurrentItem`, of type `FlyoutIt
 
 This code sets the `ShellContent` object named `aboutItem` as the `CurrentItem` property, resulting in it being displayed. In this example, an implicit conversion is used to wrap the `ShellContent` object in a `Tab` object, which is wrapped in a `FlyoutItem` object.
 
-The equivalent C# code is:
+The equivalent C# code, given a `ShellContent` object named `aboutItem`, is:
+
+```csharp
+CurrentItem = aboutItem;
+```
+
+In this example, the `CurrentItem` property is set in the subclassed `Shell` class. Alternatively, the `CurrentItem` property can be set in any class through the `Shell.Current` static property:
 
 ```csharp
 Shell.Current.CurrentItem = aboutItem;
 ```
+
+## Replace flyout content
+
+Flyout items, which represent the flyout content, can optionally be replaced with your own content by setting the `Shell.FlyoutContent` bindable property to an `object`:
+
+```xaml
+<Shell.FlyoutContent>
+    <CollectionView BindingContext="{x:Reference shell}"
+                    IsGrouped="True"
+                    ItemsSource="{Binding FlyoutItems}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Label Text="{Binding Title}"
+                       TextColor="White"
+                       FontSize="Large" />
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</Shell.FlyoutContent>
+```
+
+In this example, the flyout content is replaced with a [`CollectionView`](xref:Xamarin.Forms.CollectionView) that displays the title of each item in the `FlyoutItems` collection.
+
+> [!NOTE]
+> The `FlyoutItems` property, in the `Shell` class, is a read-only collection of flyout items.
+
+Alternatively, flyout content can be defined by setting the `Shell.FlyoutContentTemplate` property to a [`DataTemplate`](xref:Xamarin.Forms.DataTemplate):
+
+```xaml
+<Shell.FlyoutContentTemplate>
+    <DataTemplate>
+        <CollectionView BindingContext="{x:Reference shell}"
+                        IsGrouped="True"
+                        ItemsSource="{Binding FlyoutItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Title}"
+                           TextColor="White"
+                           FontSize="Large" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </DataTemplate>
+</Shell.FlyoutContentTemplate>
+```
+
+> [!IMPORTANT]
+> A flyout header can optionally be displayed above your flyout content, and a flyout footer can optionally be displayed below your flyout content. If your flyout content is scrollable, Shell will attempt to honor the scroll behavior of your flyout header.
 
 ## Menu items
 
@@ -564,12 +770,51 @@ Because `Shell.MenuItemTemplate` is an attached property, different templates ca
 </Shell>
 ```
 
+This example attaches the Shell-level `MenuItemTemplate` to the first `MenuItem` object, and attaches the inline `MenuItemTemplate` to the second `MenuItem`.
 
 > [!NOTE]
-> The same template used for [Flyout Items](#default-template-for-flyoutitems-and-menuitems) can also be used for Menu Items.
+> The default template for `FlyoutItem` objects can also be used for `MenuItem` objects. For more information, see [Default template for FlyoutItems](#default-template-for-flyoutitems).
 
-This example attaches the Shell-level `MenuItemTemplate` to the first `MenuItem` object, and attaches the inline `MenuItemTemplate` to the second `MenuItem`.
+## FlyoutItem and MenuItem style classes
+
+Shell includes three style classes, which are automatically applied to `FlyoutItem` and `MenuItem` objects. The style class names are:
+
+- `FlyoutItemLabelStyle`
+- `FlyoutItemImageStyle`
+- `FlyoutItemLayoutStyle`
+
+The following XAML shows an example of defining styles for these style classes:
+
+```xaml
+<Style TargetType="Label"
+       Class="FlyoutItemLabelStyle">
+    <Setter Property="TextColor"
+            Value="Black" />
+    <Setter Property="HeightRequest"
+            Value="100" />
+</Style>
+
+<Style TargetType="Image"
+       Class="FlyoutItemImageStyle">
+    <Setter Property="Aspect"
+            Value="Fill" />
+</Style>
+
+<Style TargetType="Layout"
+       Class="FlyoutItemLayoutStyle"
+       ApplyToDerivedTypes="True">
+    <Setter Property="BackgroundColor"
+            Value="Teal" />
+</Style>
+```
+
+These styles will automatically be applied to `FlyoutItem` and `MenuItem` objects, without having to set their [`StyleClass`](xref:Xamarin.Forms.NavigableElement.StyleClass) properties to the style class names.
+
+In addition, custom style classes can be defined and applied to `FlyoutItem` and `MenuItem` objects. For more information about style classes, see [Xamarin.Forms Style Classes](~/xamarin-forms/user-interface/styles/xaml/style-class.md).
 
 ## Related links
 
-- [Xaminals (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
+- [Xaminals (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
+- [Xamarin.Forms Style Classes](~/xamarin-forms/user-interface/styles/xaml/style-class.md)
+- [Xamarin.Forms Visual State Manager](~/xamarin-forms/user-interface/visual-state-manager.md)
+- [Xamarin.Forms Brushes](~/xamarin-forms/user-interface/brushes/index.md)

@@ -215,7 +215,7 @@ await FileIO.WriteTextAsync(storageFile, "Contents of text file");
 
 Refer to the [book chapter](https://developer.xamarin.com/r/xamarin-forms/book/chapter20.pdf) for more details.
 
-<a name="Isolated_Storage" />
+<a name="Isolated_Storage"></a>
 
 ### Isolated Storage on Windows Phone 7 & 8 (Silverlight)
 
@@ -227,7 +227,7 @@ implemented in Xamarin.iOS and Xamarin.Android to allow common file-access code
 to be written. The `System.IO.IsolatedStorage` class can be
 referenced across all three platforms in a [Shared Project](~/cross-platform/app-fundamentals/shared-projects.md).
 
-Refer to the [Isolated Storage Overview for Windows Phone](https://msdn.microsoft.com/library/windowsphone/develop/ff402541(v=vs.105).aspx) for more information.
+Refer to the [Isolated Storage Overview for Windows Phone](/previous-versions/windows/apps/ff402541(v=vs.105)) for more information.
 
 The Isolated Storage APIs are not available in [Portable Class Libraries](~/cross-platform/app-fundamentals/pcl.md). One alternative for PCL is the [PCLStorage NuGet](https://pclstorage.codeplex.com/)
 
@@ -287,7 +287,7 @@ webClient.DownloadStringAsync (new Uri ("http://some-server.com/file.xml"));
 
  `WebClient` also has `DownloadFileCompleted` and `DownloadFileAsync` for retrieving binary data.
 
-<a name="HttpWebRequest" />
+<a name="HttpWebRequest"></a>
 
 ### HttpWebRequest
 
@@ -314,7 +314,7 @@ using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
 
 There is an example in our [Web Services documentation](~/cross-platform/data-cloud/web-services/index.md).
 
- <a name="Reachability" />
+ <a name="Reachability"></a>
 
 ### Reachability
 
@@ -329,9 +329,6 @@ Actions a mobile app might take in these situations include:
 - If the network is unavailable, advise the user. If they have manually disabled it (eg. Airplane mode or turning off Wi-Fi) then they can resolve the issue.
 - If the connection is 3G, applications may behave differently (for example, Apple does not allow apps larger than 20Mb to be downloaded over 3G). Applications could use this information to warn the user about excessive download times when retrieving large files.
 - Even if the network is available, it is good practice to verify connectivity with the target server before initiating other requests. This will prevent the app’s network operations from timing out repeatedly and also allow a more informative error message to be displayed to the user.
-
-There is a [Xamarin.iOS sample](https://github.com/xamarin/monotouch-samples/tree/master/ReachabilitySample) available (which is based on Apple’s [Reachability sample code](https://developer.apple.com/library/ios/#samplecode/Reachability/Introduction/Intro.html)
-) to help detect network availability.
 
 ## WebServices
 
@@ -363,7 +360,7 @@ RestSharp provides Xamarin.iOS and Xamarin.Android examples on [github](https://
 
 There is also a Xamarin.iOS code snippet in our [Web Services documentation](~/cross-platform/data-cloud/web-services/index.md).
 
- <a name="ServiceStack" />
+ <a name="ServiceStack"></a>
 
 ### ServiceStack
 
@@ -374,9 +371,6 @@ applications to access those services.
 The [ServiceStack website](http://servicestack.net/) explains the purpose of the project and links to document and code
 samples. The examples include a complete server-side implementation of a web
 service as well as various client-side applications that can access it.
-
-There is a [Xamarin.iOS example](http://www.servicestack.net/monotouch/remote-info/) on the ServiceStack website, and a code
-snippet in our [Web Services documentation](~/cross-platform/data-cloud/web-services/index.md).
 
 ### WCF
 
@@ -391,7 +385,7 @@ future service implementations that will fall outside of the scope supported by
 Xamarin’s client-subset domain. In addition, WCF support requires the use of
 tools only available in a Windows environment to generate the proxy.
 
- <a name="Threading" />
+ <a name="Threading"></a>
 
 ## Threading
 
@@ -409,7 +403,7 @@ perform background operations. Executing background tasks requires the use of
 threads, which means the background tasks needs a way to communicate back to the
 main thread to indicate progress or when they have completed.
 
- <a name="Parallel_Task_Library" />
+ <a name="Parallel_Task_Library"></a>
 
 ### Parallel Task Library
 
@@ -444,7 +438,7 @@ it:
 static Context uiContext = TaskScheduler.FromCurrentSynchronizationContext();
 ```
 
- <a name="Invoking_on_the_UI_Thread" />
+ <a name="Invoking_on_the_UI_Thread"></a>
 
 ### Invoking on the UI Thread
 
@@ -500,7 +494,7 @@ public class DispatchAdapter : IDispatchOnUIThread {
 Xamarin.Forms developers should use [`Device.BeginInvokeOnMainThread`](~/xamarin-forms/platform/device.md#interact-with-the-ui-from-background-threads)
 in common code (Shared Projects or PCL).
 
- <a name="Platform_and_Device_Capabilities_and_Degradation" />
+ <a name="Platform_and_Device_Capabilities_and_Degradation"></a>
 
 ## Platform and Device Capabilities and Degradation
 

@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 ms.custom: xamu-video
 author: davidbritch
 ms.author: dabritch
-ms.date: 11/04/2019
+ms.date: 07/28/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 # Styling Xamarin.Forms apps using Cascading Style Sheets (CSS)
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-monkeyappcss)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-styles-monkeyappcss)
 
 _Xamarin.Forms supports styling visual elements using Cascading Style Sheets (CSS)._
 
@@ -70,7 +71,7 @@ In Xamarin.Forms, CSS style sheets are parsed and evaluated at runtime, rather t
 > [!NOTE]
 > Currently, all of the styling that's possible with XAML styling cannot be performed with CSS. However, XAML styles can be used to supplement CSS for properties that are currently unsupported by Xamarin.Forms. For more information about XAML styles, see [Styling Xamarin.Forms Apps using XAML Styles](~/xamarin-forms/user-interface/styles/xaml/index.md).
 
-The [MonkeyAppCSS](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-monkeyappcss) sample demonstrates using CSS to style a simple app, and is shown in the following screenshots:
+The [MonkeyAppCSS](/samples/xamarin/xamarin-forms-samples/userinterface-styles-monkeyappcss) sample demonstrates using CSS to style a simple app, and is shown in the following screenshots:
 
 [![MonkeyApp Main Page with CSS styling](css-images/MonkeyAppMainPage.png "MonkeyApp Main Page with CSS styling")](css-images/MonkeyAppMainPage-Large.png#lightbox "MonkeyApp Main Page with CSS styling")
 
@@ -86,6 +87,9 @@ The process for adding a style sheet to a solution is as follows:
 ### Loading a style sheet
 
 There are a number of approaches that can be used to load a style sheet.
+
+> [!NOTE]
+> It's not currently possible to change a style sheet at runtime and have the new style sheet applied.
 
 ### XAML
 
@@ -149,6 +153,15 @@ The argument to the `StyleSheet.FromReader` method is the `TextReader` that has 
 CSS uses selectors to determine which elements to target. Styles with matching selectors are applied consecutively, in definition order. Styles defined on a specific item are always applied last. For more information about supported selectors, see [Selector Reference](#selector-reference).
 
 CSS uses properties to style a selected element. Each property has a set of possible values, and some properties can affect any type of element, while others apply to groups of elements. For more information about supported properties, see [Property Reference](#property-reference).
+
+Child stylesheets always override parent stylesheets if they set the same properties. Therefore, the following precedence rules are followed when applying styles that set the same properties:
+
+- A style defined in the application resources will be overwritten by a style defined in the page resources, if they set the same properties.
+- A style defined in page resources will be overwritten by a style defined in the control resources, if they set the same properties.
+- A style defined in the application resources will be overwritten by a style defined in the control resources, if they set the same properties.
+
+> [!IMPORTANT]
+> CSS variables are unsupported.
 
 ### Selecting elements by type
 
@@ -388,6 +401,7 @@ The following CSS properties are supported by Xamarin.Forms (in the **Values** c
 |`row-gap`|`Grid`| _double_ \| `initial`|`row-gap: 12;`|
 |`text-align`| `Entry`, `EntryCell`, `Label`, `SearchBar`|`left` \| `top` \| `right` \| `bottom` \| `start` \| `center` \| `middle` \| `end` \| `initial`. `left` and `right` should be avoided in right-to-left environments.| `text-align: right;`|
 |`text-decoration`|`Label`, `Span`|`none` \| `underline` \| `strikethrough` \| `line-through` \| `initial`|`text-decoration: underline, line-through;`|
+|`text-transform`|`Button`,`Editor`, `Entry`, `Label`, `SearchBar`, `SearchHandler`|`none` \| `default` \| `uppercase` \| `lowercase` \| `initial` |`text-transform: uppercase;`|
 |`transform`|`VisualElement`| `none`, `rotate`, `rotateX`, `rotateY`, `scale`, `scaleX`, `scaleY`, `translate`, `translateX`, `translateY`, `initial` |`transform: rotate(180), scaleX(2.5);`|
 |`transform-origin`|`VisualElement`| _double_, _double_ \| `initial` |`transform-origin: 7.5, 12.5;`|
 |`vertical-align`|`Label`|`left` \| `top` \| `right` \| `bottom` \| `start` \| `center` \| `middle` \| `end` \| `initial`|`vertical-align: bottom;`|
@@ -416,7 +430,7 @@ The following Xamarin.Forms specific CSS properties are also supported (in the *
 |`-xf-bar-background-color`|`NavigationPage`, `TabbedPage`|_color_ \| `initial` |`-xf-bar-background-color: teal;`|
 |`-xf-bar-text-color`|`NavigationPage`, `TabbedPage`|_color_ \| `initial` |`-xf-bar-text-color: gray`|
 |`-xf-horizontal-scroll-bar-visibility`|`ScrollView`| `default` \| `always` \| `never` \| `initial` |`-xf-horizontal-scroll-bar-visibility: never;`|
-|`-xf-max-length`|`Entry`, `Editor`|_int_ \| `initial` |`-xf-max-length: 20;`|
+|`-xf-max-length`|`Entry`, `Editor`, `SearchBar`|_int_ \| `initial` |`-xf-max-length: 20;`|
 |`-xf-max-track-color`|`Slider`|_color_ \| `initial` |`-xf-max-track-color: red;`|
 |`-xf-min-track-color`|`Slider`|_color_ \| `initial` |`-xf-min-track-color: yellow;`|
 |`-xf-orientation`|`ScrollView`, `StackLayout`| `horizontal` \| `vertical` \| `both` \| `initial`. `both` is only supported on a `ScrollView`. |`-xf-orientation: horizontal;`|
@@ -450,7 +464,7 @@ The following Xamarin.Forms Shell specific CSS properties are also supported (in
 
 The following `color` values are supported:
 
-- `X11` [colors](https://en.wikipedia.org/wiki/X11_color_names/), which match CSS colors, UWP pre-defined colors, and Xamarin.Forms colors. Note that these color values are case insensitive.
+- `X11` [colors](https://en.wikipedia.org/wiki/X11_color_names), which match CSS colors, UWP pre-defined colors, and Xamarin.Forms colors. Note that these color values are case insensitive.
 - hex colors: `#rgb`, `#argb`, `#rrggbb`, `#aarrggbb`
 - rgb colors: `rgb(255,0,0)`, `rgb(100%,0%,0%)`. Values are in the range 0-255, or 0%-100%.
 - rgba colors: `rgba(255, 0, 0, 0.8)`, `rgba(100%, 0%, 0%, 0.8)`. The opacity value is in the range 0.0-1.0.
@@ -481,6 +495,10 @@ The following case insensitive `namedsize` values are supported:
 
 The exact meaning of each `namedsize` value is platform-dependent and view-dependent.
 
+## Functions
+
+Linear and radial gradients can be specified using the `linear-gradient()` and `radial-gradient()` CSS functions, respectively. The result of these functions should be assigned to the `background` property of a control.
+
 ## CSS in Xamarin.Forms with Xamarin.University
 
 > [!VIDEO https://youtube.com/embed/va-Vb7vtan8]
@@ -489,6 +507,6 @@ The exact meaning of each `namedsize` value is platform-dependent and view-depen
 
 ## Related Links
 
-- [MonkeyAppCSS (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-monkeyappcss)
+- [MonkeyAppCSS (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-styles-monkeyappcss)
 - [Resource Dictionaries](~/xamarin-forms/xaml/resource-dictionaries.md)
 - [Styling Xamarin.Forms Apps using XAML Styles](~/xamarin-forms/user-interface/styles/xaml/index.md)

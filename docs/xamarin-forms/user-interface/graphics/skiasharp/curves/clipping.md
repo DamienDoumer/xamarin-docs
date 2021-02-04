@@ -7,11 +7,12 @@ ms.assetid: 8022FBF9-2208-43DB-94D8-0A4E9A5DA07F
 author: davidbritch
 ms.author: dabritch
 ms.date: 06/16/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Clipping with Paths and Regions
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
 
 _Use paths to clip graphics to specific areas, and to create regions_
 
@@ -507,5 +508,5 @@ It doesn't really look like a four-leaf clover, but it's an image that might oth
 
 ## Related Links
 
-- [SkiaSharp APIs](https://docs.microsoft.com/dotnet/api/skiasharp)
-- [SkiaSharpFormsDemos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+- [SkiaSharp APIs](/dotnet/api/skiasharp)
+- [SkiaSharpFormsDemos (sample)](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)

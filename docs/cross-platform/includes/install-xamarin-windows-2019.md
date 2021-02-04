@@ -29,14 +29,14 @@ Xamarin can be installed as part of a _new_ Visual Studio 2019 installation, wit
 
     ![Location of Launch button](~/get-started/installation/windows-images/vs2019-launch.png)
 
-<a name="vs2019" />
+<a name="vs2019"></a>
 
 ### Adding Xamarin to Visual Studio 2019
 
 If Visual Studio 2019 is already installed, add Xamarin by
 re-running the Visual Studio 2019 installer to modify workloads (see
-[Modify Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio)
+[Modify Visual Studio](/visualstudio/install/modify-visual-studio)
 for details). Next, follow the steps listed above to install Xamarin.
 
 For more information about downloading and installing Visual Studio
-2019, see [Install Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio).
+2019, see [Install Visual Studio 2019](/visualstudio/install/install-visual-studio).

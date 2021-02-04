@@ -53,7 +53,7 @@ public static class UITextViewExtensions
 
 Then, when an instance of a `UITextView` is created in code, the method will be available in the autocomplete list as shown below:
 
- ![](primer-images/01-extensionmethodintellisense.png "The method available in the autocomplete")
+ ![The method available in the autocomplete](primer-images/01-extensionmethodintellisense.png)
 
 When the extension method is called the instance is passed to the argument, such as the `textView` in this example.
 
@@ -80,7 +80,7 @@ Being a superset of C, Objective-C uses headers for public declarations that are
 For example, the following code includes the `UIKit` namespace, making every class in that namespace available to the implementation:
 
 ```csharp
-using UIKit
+using UIKit;
 namespace MyAppNamespace
 {
     // implementation of classes
@@ -138,7 +138,7 @@ Objective-C uses *blocks* to create closures, where you can create a function in
 };
 ```
 
-For more information on lambda expressions, see Microsoft’s [C# Programming Guide](https://msdn.microsoft.com/library/vstudio/bb397687.aspx).
+For more information on lambda expressions, see Microsoft’s [C# Programming Guide](/dotnet/csharp/language-reference/operators/lambda-expressions).
 
 ## Summary
 

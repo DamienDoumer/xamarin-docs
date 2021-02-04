@@ -62,7 +62,7 @@ This includes profiles that are combinations of:
 - UWP apps
 
 You can read more about the different profiles' capabilities on
-[Microsoft’s website](https://msdn.microsoft.com/library/gg597391(v=vs.110).aspx)
+[Microsoft’s website](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library)
 and see another community member's [PCL profile summary](https://portablelibraryprofiles.stephencleary.com/)
 which includes supported framework info and other notes.
 
@@ -85,7 +85,7 @@ To some extent both disadvantages can be circumvented using the Provider pattern
 
 This diagram shows the architecture of a cross-platform application using a Portable Class Library to share code, but also using Dependency Injection to pass in platform-dependent features:
 
-[![](pcl-images/image1.png "This diagram shows the architecture of a cross-platform application using a Portable Class Library to share code, but also using Dependency Injection to pass in platform-dependent features")](pcl-images/image1.png#lightbox)
+[![This diagram shows the architecture of a cross-platform application using a Portable Class Library to share code, but also using Dependency Injection to pass in platform-dependent features](pcl-images/image1.png)](pcl-images/image1.png#lightbox)
 
 # [Visual Studio for Mac](#tab/macos)
 
@@ -213,18 +213,18 @@ The output from a PCL (ie. the resulting assembly DLL) can also be added as a re
 
 ## PCL example
 
-The [TaskyPortable](https://docs.microsoft.com/samples/xamarin/mobile-samples/taskyportable/)
+The [TaskyPortable](/samples/xamarin/mobile-samples/taskyportable/)
 sample application demonstrates how a Portable Class Library can be used with Xamarin.
 Here are some screenshots of the resulting apps running on iOS and Android:
 
-[![](pcl-images/image18.png "Here are some screenshots of the resulting apps running on iOS, Android and Windows Phone")](pcl-images/image18.png#lightbox)
+[![Here are some screenshots of the resulting apps running on iOS, Android and Windows Phone](pcl-images/image18.png)](pcl-images/image18.png#lightbox)
 
 It shares a number of data and logic classes that are purely portable code, and it also demonstrates how to
   incorporate platform-specific requirements using Dependency Injection for the SQLite database implementation.
 
 The solution structure is shown below (in Visual Studio for Mac and Visual Studio respectively):
 
-[![](pcl-images/image19.png "The solution structure is shown here in Visual Studio for Mac and Visual Studio respectively")](pcl-images/image19.png#lightbox)
+[![The solution structure is shown here in Visual Studio for Mac and Visual Studio respectively](pcl-images/image19.png)](pcl-images/image19.png#lightbox)
 
 Because the SQLite-NET code has platform-specific pieces (to work with the SQLite implementations on each different operating system) for demonstration purposes it has been refactored into an abstract class that can be compiled into a Portable Class Library, and the actual code implemented as subclasses in the iOS and Android projects.
 
@@ -291,9 +291,9 @@ This article has briefly discussed the benefits and pitfalls of Portable Class L
 
 ## Related links
 
-- [TaskyPortable (sample)](https://docs.microsoft.com/samples/xamarin/mobile-samples/taskyportable/)
+- [TaskyPortable (sample)](/samples/xamarin/mobile-samples/taskyportable/)
 - [Building Cross Platform Applications](~/cross-platform/app-fundamentals/building-cross-platform-applications/index.md)
 - [Portable Visual Basic](~/cross-platform/platform/visual-basic/index.md)
 - [Shared Projects](~/cross-platform/app-fundamentals/shared-projects.md)
 - [Sharing Code Options](~/cross-platform/app-fundamentals/code-sharing.md)
-- [Cross-Platform Development with the .NET Framework (Microsoft)](https://docs.microsoft.com/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library)
+- [Cross-Platform Development with the .NET Framework (Microsoft)](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library)

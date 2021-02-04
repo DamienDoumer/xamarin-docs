@@ -19,7 +19,7 @@ the BeginXXX methods as well as the full range of APIs that
 support the Task Parallel Library.
 
 Xamarin strongly recommends that you use
-the [Task Parallel Library](https://msdn.microsoft.com/library/dd460717.aspx) (TPL) for building applications for a few reasons:
+the [Task Parallel Library](/dotnet/standard/parallel-programming/task-parallel-library-tpl) (TPL) for building applications for a few reasons:
 
 - The default TPL scheduler will delegate Task execution to the thread pool, which in turn will dynamically grow the number of threads needed as process takes place, while avoiding a scenario where too many threads end up competing for CPU time. 
 - It is easier to think about operations in terms of TPL Tasks. You can easily manipulate them, schedule them, serialize their execution or launch many in parallel with a rich set of APIs. 
@@ -34,7 +34,7 @@ Typically developers use threads when they need to create
 responsive applications and they do not want to block the main
 UI run loop.
 
- <a name="Developing_Responsive_Applications" />
+ <a name="Developing_Responsive_Applications"></a>
 
 ## Developing Responsive Applications
 
@@ -62,7 +62,7 @@ The above invokes the code inside the delegate in the
 context of the main thread, without causing any race
 conditions that could potentially crash your application.
 
- <a name="Threading_and_Garbage_Collection" />
+ <a name="Threading_and_Garbage_Collection"></a>
 
 ## Threading and Garbage Collection
 

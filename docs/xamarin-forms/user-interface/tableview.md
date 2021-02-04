@@ -7,17 +7,16 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 09/25/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms TableView
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-tableview)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-tableview)
 
 [`TableView`](xref:Xamarin.Forms.TableView) is a view for displaying scrollable lists of data or choices where there are rows that don't share the same template. Unlike [ListView](~/xamarin-forms/user-interface/listview/index.md), `TableView` does not have the concept of an `ItemsSource`, so items must be manually added as children.
 
 ![TableView Example](tableview-images/tableview-all-sml.png)
-
-<a name="Use_Cases" />
 
 ## Use cases
 
@@ -28,8 +27,6 @@ ms.date: 09/25/2019
 - showing data that is presented differently from row to row (e.g. numbers, percentages and images).
 
 [`TableView`](xref:Xamarin.Forms.TableView) handles scrolling and laying out rows in attractive sections, a common need for the above scenarios. The `TableView` control uses each platform's underlying equivalent view when available, creating a native look for each platform.
-
-<a name="TableView_Structure" />
 
 ## Structure
 
@@ -64,8 +61,6 @@ Content = new TableView
 };
 ```
 
-<a name="TableView_Appearance" />
-
 ## Appearance
 
 [`TableView`](xref:Xamarin.Forms.TableView) exposes the [`Intent`](xref:Xamarin.Forms.TableView.Intent) property, which can be set to any of the [`TableIntent`](xref:Xamarin.Forms.TableIntent) enumeration members:
@@ -79,15 +74,11 @@ The [`TableIntent`](xref:Xamarin.Forms.TableIntent) value you choose may impact 
 
 In addition, the color of the text displayed for each [`TableSection`](xref:Xamarin.Forms.TableSection) can be changed by setting the `TextColor` property to a [`Color`](xref:Xamarin.Forms.Color).
 
-<a name="Built-In_Cells" />
-
 ## Built-in cells
 
 Xamarin.Forms comes with built-in cells for collecting and displaying information. Although [`ListView`](xref:Xamarin.Forms.ListView) and [`TableView`](xref:Xamarin.Forms.TableView) can use all of the same cells, [`SwitchCell`](xref:Xamarin.Forms.SwitchCell) and [`EntryCell`](xref:Xamarin.Forms.EntryCell) are the most relevant for a `TableView` scenario.
 
 See [ListView Cell Appearance](~/xamarin-forms/user-interface/listview/customizing-cell-appearance.md) for a detailed description of [TextCell](~/xamarin-forms/user-interface/listview/customizing-cell-appearance.md#textcell) and [ImageCell](~/xamarin-forms/user-interface/listview/customizing-cell-appearance.md#imagecell).
-
-<a name="switchcell" />
 
 ### SwitchCell
 
@@ -102,8 +93,6 @@ All of these properties are bindable.
 [`SwitchCell`](xref:Xamarin.Forms.SwitchCell) also exposes the `OnChanged` event, allowing you to respond to changes in the cell's state.
 
 ![SwitchCell Example](tableview-images/switch-cell.png)
-
-<a name="entrycell" />
 
 ### EntryCell
 
@@ -120,8 +109,6 @@ All of these properties are bindable.
 [`EntryCell`](xref:Xamarin.Forms.EntryCell) also exposes the `Completed` event, which is fired when the user hits the 'done' button on the keyboard while editing text.
 
 ![EntryCell Example](tableview-images/entry-cell.png)
-
-<a name="Custom_Cells" />
 
 ## Custom cells
 
@@ -259,4 +246,4 @@ The following screenshots show the cell after being tapped upon:
 
 ## Related links
 
-- [TableView (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-tableview)
+- [TableView (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-tableview)

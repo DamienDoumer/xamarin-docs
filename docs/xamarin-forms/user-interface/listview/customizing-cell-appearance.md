@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 09/12/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Customizing ListView Cell Appearance
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-listview-customcells)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-listview-customcells)
 
 The Xamarin.Forms [`ListView`](xref:Xamarin.Forms.ListView) class is used to present scrollable lists, which can be customized through the use of `ViewCell` elements. A `ViewCell` element can display text and images, indicate a true/false state, and receive user input.
 
@@ -29,7 +30,7 @@ The [`SwitchCell`](~/xamarin-forms/user-interface/tableview.md#switchcell) and [
 
 [`TextCell`](xref:Xamarin.Forms.TextCell) is a cell for displaying text, optionally with a second line as detail text. The following screenshot shows `TextCell` items on iOS and Android:
 
-![](customizing-cell-appearance-images/text-cell-default.png "Default TextCell Example")
+![Default TextCell Example](customizing-cell-appearance-images/text-cell-default.png)
 
 TextCells are rendered as native controls at runtime, so performance is very good compared to a custom `ViewCell`. TextCells are customizable, allowing you to set the following properties:
 
@@ -40,7 +41,7 @@ TextCells are rendered as native controls at runtime, so performance is very goo
 
 The following screenshot shows `TextCell` items with customized color properties:
 
-![](customizing-cell-appearance-images/text-cell-custom.png "Custom TextCell Example")
+![Custom TextCell Example](customizing-cell-appearance-images/text-cell-custom.png)
 
 ### ImageCell
 
@@ -252,6 +253,6 @@ On iOS and Android, if the [`ListView`](xref:Xamarin.Forms.ListView) is recyclin
 
 ## Related Links
 
-- [Built in Cells (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-listview-builtincells)
-- [Custom Cells (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-listview-customcells)
-- [Binding Context Changed (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-listview-bindingcontextchanged)
+- [Built in Cells (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-listview-builtincells)
+- [Custom Cells (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-listview-customcells)
+- [Binding Context Changed (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-listview-bindingcontextchanged)

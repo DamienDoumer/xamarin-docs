@@ -42,11 +42,11 @@ The following sections will cover the CallKit architecture, the incoming and out
 
 In iOS 10, Apple has adopted CallKit in all of the System Services such that calls made on CarPlay, for example, are known to the System UI via CallKit. In the example given below, since MonkeyCall adopts CallKit, it is known to the System in the same way as these built-in System Services and gets all of the same features:
 
-[![](callkit-images/callkit01.png "The CallKit Service Stack")](callkit-images/callkit01.png#lightbox)
+[![The CallKit Service Stack](callkit-images/callkit01.png)](callkit-images/callkit01.png#lightbox)
 
 Take a closer look at the MonkeyCall App from the diagram above. The app contains all of its code to communicate with its own network and contains its own User Interfaces. It links in CallKit to communicate with the system:
 
-[![](callkit-images/callkit02.png "MonkeyCall App Architecture")](callkit-images/callkit02.png#lightbox)
+[![MonkeyCall App Architecture](callkit-images/callkit02.png)](callkit-images/callkit02.png#lightbox)
 
 There are two main interfaces in CallKit that the app uses:
 
@@ -65,7 +65,7 @@ An app should use the `CXProvider` for the following:
 
 When the app wants to communicate to the system, it uses the `CXCallUpdate` class and when the System needs to communicate with the app, it uses the `CXAction` class:
 
-[![](callkit-images/callkit03.png "Communicating with the system via a CXProvider")](callkit-images/callkit03.png#lightbox)
+[![Communicating with the system via a CXProvider](callkit-images/callkit03.png)](callkit-images/callkit03.png#lightbox)
 
 ### The CXCallController
 
@@ -79,7 +79,7 @@ An app should use the `CXCallController` for the following:
 
 When the app wants to communicate local user actions to the system, it uses the `CXTransaction` class:
 
-[![](callkit-images/callkit04.png "Reporting to the system using a CXCallController")](callkit-images/callkit04.png#lightbox)
+[![Reporting to the system using a CXCallController](callkit-images/callkit04.png)](callkit-images/callkit04.png#lightbox)
 
 ## Implementing CallKit
 
@@ -629,7 +629,7 @@ Provider = new CXProvider (Configuration);
 Provider.SetDelegate (this, null);
 ```
 
-When using CallKit, the app will no longer create and handle its own audio sessions, instead it will need to configure and use an audio session that the System will create and handle for it. 
+When using CallKit, the app will no longer create and handle its own audio sessions, instead it will need to configure and use an audio session that the System will create and handle for it.
 
 If this were a real app, the `DidActivateAudioSession` method would be used to start the call with a pre-configured `AVAudioSession` that the System provided:
 
@@ -691,7 +691,7 @@ namespace MonkeyCall
             // Found?
             if (handle == null) {
                 // No, report to system
-                Console.WriteLine ("Unable to get call handle from URL: {0}", url); 
+                Console.WriteLine ("Unable to get call handle from URL: {0}", url);
                 return false;
             } else {
                 // Yes, start call and inform system
@@ -738,7 +738,7 @@ The following sections will take a detailed look at how an app can use CallKit t
 
 When a remote user has started a VOIP conversation with the local user, the following occurs:
 
-[![](callkit-images/callkit05.png "A remote user has started a VOIP conversation")](callkit-images/callkit05.png#lightbox)
+[![A remote user has started a VOIP conversation](callkit-images/callkit05.png)](callkit-images/callkit05.png#lightbox)
 
 1. The app gets a notification from its Communications Network that there is an incoming VOIP call.
 2. The app uses the `CXProvider` to send a `CXCallUpdate` to the System informing it of the call.
@@ -773,7 +773,7 @@ This code creates a new `CXCallUpdate` instance and attaches a handle to it that
 
 If the user wants to answer the incoming VOIP call, the following occurs:
 
-[![](callkit-images/callkit06.png "The user answers the incoming VOIP call")](callkit-images/callkit06.png#lightbox)
+[![The user answers the incoming VOIP call](callkit-images/callkit06.png)](callkit-images/callkit06.png#lightbox)
 
 1. The System UI informs the System that the user wants to answer the VOIP call.
 2. The System sends a `CXAnswerCallAction` to the app's `CXProvider` informing it of the Answer Intent.
@@ -814,7 +814,7 @@ This code first searches for the given call in its list of active calls. If the 
 
 If the user wishes to terminate the call from within the app's UI, the following occurs:
 
-[![](callkit-images/callkit07.png "The user terminates the call from within the app's UI")](callkit-images/callkit07.png#lightbox)
+[![The user terminates the call from within the app's UI](callkit-images/callkit07.png)](callkit-images/callkit07.png#lightbox)
 
 1. The app creates `CXEndCallAction` that gets bundled into a `CXTransaction` that is sent to the System to inform it that the call is ending.
 2. The System verifies the End Call Intent and sends the `CXEndCallAction` back to the app via the `CXProvider`.
@@ -864,14 +864,14 @@ In the situation give above, the System will send a `CXTransaction` to the app t
 
 If the user taps an entry from the Recents list (in the Phone app), for example, that is from a call belonging to the app, it will be sent a _Start Call Intent_ by the system:
 
-[![](callkit-images/callkit08.png "Receiving a Start Call Intent")](callkit-images/callkit08.png#lightbox)
+[![Receiving a Start Call Intent](callkit-images/callkit08.png)](callkit-images/callkit08.png#lightbox)
 
-1. The app will create a _Start Call Action_ based on the Start Call Intent that it received from the System. 
+1. The app will create a _Start Call Action_ based on the Start Call Intent that it received from the System.
 2. The app will use the `CXCallController` to request the Start Call Action from the system.
 3. If the System accepts the Action, it will be returned to the app via the `XCProvider` delegate.
 4. The app starts the outgoing call with its Communication Network.
 
-For more information on Intents, please see our [Intents and Intents UI Extensions](~/ios/platform/sirikit/understanding-sirikit.md) documentation. 
+For more information on Intents, please see our [Intents and Intents UI Extensions](~/ios/platform/sirikit/understanding-sirikit.md) documentation.
 
 ### The outgoing call lifecycle
 
@@ -1019,7 +1019,7 @@ public void EndCall (ActiveCall call)
 }
 ```
 
-If creates a `CXEndCallAction` with the UUID of the call to end, bundles it in a `CXTransaction` that is sent to the System using the `RequestTransaction` method of the `CXCallController` class. 
+If creates a `CXEndCallAction` with the UUID of the call to end, bundles it in a `CXTransaction` that is sent to the System using the `RequestTransaction` method of the `CXCallController` class.
 
 ## Additional CallKit details
 
@@ -1038,11 +1038,11 @@ An app can make the following types of customizations:
 
 - Display a localized name.
 - Enable video call support.
-- Customize the buttons on the In-Call UI by presenting its own template image icon. User interaction with custom buttons is sent directly to the app to be processed. 
+- Customize the buttons on the In-Call UI by presenting its own template image icon. User interaction with custom buttons is sent directly to the app to be processed.
 
 ### Action errors
 
-iOS 10 VOIP apps using CallKit need to handle Actions failing gracefully and keep the user informed of the Action state at all times. 
+iOS 10 VOIP apps using CallKit need to handle Actions failing gracefully and keep the user informed of the Action state at all times.
 
 Take the following example into consideration:
 
@@ -1076,7 +1076,7 @@ public class ProviderDelegate : CXProviderDelegate
         // Create update to describe the incoming call and caller
         var update = new CXCallUpdate ();
         update.RemoteHandle = new CXHandle (CXHandleType.Generic, handle);
-    
+
         // Report incoming call to system
         Provider.ReportNewIncomingCall (uuid, update, (error) => {
             // Was the call accepted
@@ -1109,7 +1109,7 @@ Additionally, CallKit has access to other audio routing hints that can enhance t
 
 During the lifecycle of a typical VOIP call using CallKit, the app will need to configure the Audio Stream that CallKit will provide it. Take a look at the following example:
 
-[![](callkit-images/callkit09.png "The Start Call Action Sequence")](callkit-images/callkit09.png#lightbox)
+[![The Start Call Action Sequence](callkit-images/callkit09.png)](callkit-images/callkit09.png#lightbox)
 
 1. A Start Call Action is received by the app to answer an incoming call.
 2. Before this Action is fulfilled by the app, it provides the configuration that is will require for its `AVAudioSession`.
@@ -1128,23 +1128,23 @@ To implement a Call Directory Extension in a Xamarin.iOS app, do the following:
 
 1. Open the app's solution in Visual Studio for Mac.
 2. Right-click on the Solution Name in the **Solution Explorer** and select **Add** > **Add New Project**.
-3. Select **iOS** > **Extensions** > **Call Directory Extensions** and click the **Next** button: 
+3. Select **iOS** > **Extensions** > **Call Directory Extensions** and click the **Next** button:
 
-    [![](callkit-images/calldir01.png "Creating a new Call Directory Extension")](callkit-images/calldir01.png#lightbox)
-4. Enter a **Name** for the extension and click the **Next** button: 
+    [![Creating a new Call Directory Extension](callkit-images/calldir01.png)](callkit-images/calldir01.png#lightbox)
+4. Enter a **Name** for the extension and click the **Next** button:
 
-    [![](callkit-images/calldir02.png "Entering a name for the extension")](callkit-images/calldir02.png#lightbox)
-5. Adjust the **Project Name** and/or **Solution Name** if required and click the **Create** button: 
+    [![Entering a name for the extension](callkit-images/calldir02.png)](callkit-images/calldir02.png#lightbox)
+5. Adjust the **Project Name** and/or **Solution Name** if required and click the **Create** button:
 
-    [![](callkit-images/calldir03.png "Creating the project")](callkit-images/calldir03.png#lightbox) 
+    [![Creating the project](callkit-images/calldir03.png)](callkit-images/calldir03.png#lightbox)
 
 # [Visual Studio](#tab/windows)
 
 1. Open the app's solution in Visual Studio.
 2. Right-click on the Solution Name in the **Solution Explorer** and select **Add** > **Add New Project**.
-3. Select **iOS** > **Extensions** > **Call Directory Extensions** and click the **Next** button: 
+3. Select **iOS** > **Extensions** > **Call Directory Extensions** and click the **Next** button:
 
-    [![](callkit-images/calldir01w.png "Creating a new Call Directory Extension")](callkit-images/calldir01.png#lightbox)
+    [![Creating a new Call Directory Extension](callkit-images/calldir01w.png)](callkit-images/calldir01.png#lightbox)
 4. Enter a **Name** for the extension and click the **OK** button
 
 -----
@@ -1255,4 +1255,4 @@ This article has covered the new CallKit API that Apple released in iOS 10 and h
 
 ## Related links
 
-- [iOS 10 Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+iOS10)
+- [iOS 10 Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2biOS10)

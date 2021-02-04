@@ -23,7 +23,7 @@ The goal of a code-sharing strategy is to support the architecture shown in this
 
 This article compares the methods available to help you choose the right project type for your applications.
 
-<a name="Net_Standard" />
+<a name="Net_Standard"></a>
 
 ## .NET Standard Libraries
 
@@ -46,9 +46,9 @@ like Xamarin.Android and Xamarin.iOS. .NET Standard 2.0 is recommended for maxim
 
 ### Remarks
 
-.NET Standard is [similar to PCL](https://docs.microsoft.com/dotnet/standard/net-standard#comparison-to-portable-class-libraries), but with a simpler model for platform support and a greater number of classes from the BCL.
+.NET Standard is [similar to PCL](/dotnet/standard/net-standard#comparison-to-portable-class-libraries), but with a simpler model for platform support and a greater number of classes from the BCL.
 
-<a name="Shared_Projects" />
+<a name="Shared_Projects"></a>
 
 ## Shared Projects
 
@@ -96,13 +96,13 @@ shared across all three projects.
 - Refactorings that affect code inside 'inactive' compiler directives will not update the code inside those directives.
 - Unlike most other project types, a Shared Project has no 'output' assembly. During compilation, the files are treated as part of the referencing project and compiled into that assembly. If you wish to share your code as a assembly then .NET Standard or Portable Class Libraries are a better solution.
 
-<a name="Shared_Remarks" />
+<a name="Shared_Remarks"></a>
 
 ### Remarks
 
 A good solution for application developers writing code that is only intended for sharing in their app (and not distributing to other developers).
 
-<a name="Portable_Class_Libraries" />
+<a name="Portable_Class_Libraries"></a>
 
 ## Portable Class Libraries
 
@@ -120,7 +120,7 @@ Portable Class Libraries are [discussed in detail here](~/cross-platform/app-fun
 
 ### Disadvantages
 
-- Deprecated in the latest versions of Visual Studio, .NET Standard libraries are recommended instead. Refer to this [explanation of the differences](https://docs.microsoft.com/dotnet/standard/net-standard#comparison-to-portable-class-libraries) between PCL and .NET Standard.
+- Deprecated in the latest versions of Visual Studio, .NET Standard libraries are recommended instead. Refer to this [explanation of the differences](/dotnet/standard/net-standard#comparison-to-portable-class-libraries) between PCL and .NET Standard.
 - Cannot use compiler directives.
 - Only a subset of the .NET framework is available to use, determined by the profile selected (see the  [Introduction to PCL](~/cross-platform/app-fundamentals/pcl.md) for more info).
 

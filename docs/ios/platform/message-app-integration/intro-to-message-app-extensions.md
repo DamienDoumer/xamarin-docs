@@ -94,7 +94,7 @@ Sticker Packs can provide stickers in one of three available sizes:
 
 Use Xcode's Attributes Inspector to set the size for the entire Sticker Pack and only provide image assets that match the requested size, for the best results in the Sticker Browser inside of the Messages app.
 
-For more information, please see our [Ice cream Builder](https://docs.microsoft.com/samples/xamarin/ios-samples/ios10-icecreambuilder) app and Apple's [Messages Reference](https://developer.apple.com/reference/messages).
+For more information, please see our [Ice cream Builder](/samples/xamarin/ios-samples/ios10-icecreambuilder) app and Apple's [Messages Reference](https://developer.apple.com/reference/messages).
 
 ## Creating a Custom Sticker Experience
 
@@ -118,13 +118,13 @@ To creating a Custom Sticker Experience, do the following:
 2. Open the solution to add a Message App Extension to.
 3. Select **iOS** > **Extensions** > **iMessage Extension** and click the **Next** button:
 
-    [![](intro-to-message-app-extensions-images/message01.png "Select iMessage Extension")](intro-to-message-app-extensions-images/message01.png#lightbox)
+    [![Select iMessage Extension](intro-to-message-app-extensions-images/message01.png)](intro-to-message-app-extensions-images/message01.png#lightbox)
 4. Enter an **Extension Name** and click the **Next** button:
 
-    [![](intro-to-message-app-extensions-images/message02.png "Enter an Extension Name")](intro-to-message-app-extensions-images/message02.png#lightbox)
+    [![Enter an Extension Name](intro-to-message-app-extensions-images/message02.png)](intro-to-message-app-extensions-images/message02.png#lightbox)
 5. Click the **Create** button to build the Extension:
 
-    [![](intro-to-message-app-extensions-images/message03.png "Click the Create button")](intro-to-message-app-extensions-images/message03.png#lightbox)
+    [![Click the Create button](intro-to-message-app-extensions-images/message03.png)](intro-to-message-app-extensions-images/message03.png#lightbox)
 
 # [Visual Studio](#tab/windows)
 
@@ -157,7 +157,7 @@ Do the following:
 1. In the **Solution Pad**, right-click on the Extension's project name and select **Add** > **New File...** > **iOS | Apple Watch** > **Interface Controller**.
 2. Enter `StickerBrowserViewController` for the **Name** and click the **New** button:
 
-    [![](intro-to-message-app-extensions-images/browser01.png "Enter StickerBrowserViewController for the Name")](intro-to-message-app-extensions-images/browser01.png#lightbox)
+    [![Enter StickerBrowserViewController for the Name](intro-to-message-app-extensions-images/browser01.png)](intro-to-message-app-extensions-images/browser01.png#lightbox)
 3. Open the `StickerBrowserViewController.cs` file for editing.
 
 # [Visual Studio](#tab/windows)
@@ -165,7 +165,7 @@ Do the following:
 1. In the **Solution Explorer**, right-click on the Extension's project name and select **Add** > **New File...** > **iOS | Apple Watch** > **Interface Controller**.
 2. Enter `StickerBrowserViewController` for the **Name** and click the **New** button:
 
-    [![](intro-to-message-app-extensions-images/browser01.w157-sml.png "Enter StickerBrowserViewController for the Name")](intro-to-message-app-extensions-images/browser01.w157.png#lightbox)
+    [![Enter StickerBrowserViewController for the Name](intro-to-message-app-extensions-images/browser01.w157-sml.png)](intro-to-message-app-extensions-images/browser01.w157.png#lightbox)
 3. Open the `StickerBrowserViewController.cs` file for editing.
 
 -----
@@ -706,6 +706,6 @@ This article has covered include a Message App Extension in a Xamarin.iOS soluti
 
 ## Related Links
 
-- [Ice cream Builder (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/ios10-icecreambuilder)
+- [Ice cream Builder (sample)](/samples/xamarin/ios-samples/ios10-icecreambuilder)
 - [Messages Reference](https://developer.apple.com/reference/messages)
 - [App Extension Programming Guide](https://developer.apple.com/library/prerelease/content/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214)

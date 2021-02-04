@@ -7,9 +7,13 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/07/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Introduction to Enterprise App Development
+
+> [!NOTE]
+> This eBook was published in the spring of 2017, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated.
 
 Regardless of platform, developers of enterprise apps face several challenges:
 
@@ -57,7 +61,7 @@ This guide includes a sample application, eShopOnContainers, that's an online st
 
 Figure 1-1 provides a high-level overview of the architecture of the sample application.
 
-![](introduction-images/architecture.png "eShopOnContainers high-level architecture")
+![eShopOnContainers high-level architecture](introduction-images/architecture.png)
 
 **Figure 1-1**: eShopOnContainers high-level architecture
 
@@ -84,7 +88,7 @@ For information about the implementation of the backend services, see [.NET Micr
 
 This guide focuses on building cross-platform enterprise apps using Xamarin.Forms, and uses the eShopOnContainers mobile app as an example. Figure 1-2 shows the pages from the eShopOnContainers mobile app that provide the functionality outlined earlier.
 
-[![](introduction-images/screenshots.png "The eShopOnContainers mobile app")](introduction-images/screenshots-large.png#lightbox "The eShopOnContainers mobile app")
+[![The eShopOnContainers mobile app](introduction-images/screenshots.png)](introduction-images/screenshots-large.png#lightbox "The eShopOnContainers mobile app")
 
 **Figure 1-2**: The eShopOnContainers mobile app
 
@@ -106,7 +110,7 @@ The eShopOnContainers mobile app exercises the following Xamarin.Forms functiona
 - MessagingCenter
 - Custom Controls
 
-For more information about this functionality, see the [Xamarin.Forms documentation](~/xamarin-forms/index.yml), and [Creating Mobile Apps with Xamarin.Forms](https://aka.ms/xamebook).
+For more information about this functionality, see the [Xamarin.Forms documentation](~/xamarin-forms/index.yml), and [Creating Mobile Apps with Xamarin.Forms](https://aka.ms/xamformsebook).
 
 In addition, unit tests are provided for some of the classes in the eShopOnContainers mobile app.
 

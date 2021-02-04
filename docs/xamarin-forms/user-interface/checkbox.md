@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 06/11/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms CheckBox
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-checkboxdemos/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-checkboxdemos/)
 
 The Xamarin.Forms `CheckBox` is a type of button that can either be checked or empty. When a checkbox is checked, it's considered to be on. When a checkbox is empty, it's considered to be off.
 
@@ -67,7 +68,7 @@ void OnCheckBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
 }
 ```
 
-The `sender` argument is the `CheckBox` responsible for this event. You can use this to access the `CheckBox` object, or to distinguish between multiple `CheckBox` objects sharing the same `CheckedChanged` event.
+The `sender` argument is the `CheckBox` responsible for this event. You can use this to access the `CheckBox` object, or to distinguish between multiple `CheckBox` objects sharing the same `CheckedChanged` event handler.
 
 Alternatively, an event handler for the `CheckedChanged` event can be registered in code:
 
@@ -157,6 +158,6 @@ For more information about visual states, see [Xamarin.Forms Visual State Manage
 
 ## Related links
 
-- [CheckBox Demos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-checkboxdemos/)
+- [CheckBox Demos (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-checkboxdemos/)
 - [Xamarin.Forms Triggers](~/xamarin-forms/app-fundamentals/triggers.md)
 - [Xamarin.Forms Visual State Manager](~/xamarin-forms/user-interface/visual-state-manager.md)

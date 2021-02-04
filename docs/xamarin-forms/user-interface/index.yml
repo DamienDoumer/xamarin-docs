@@ -11,7 +11,8 @@ metadata:
   ms.assetid: 391B4A77-7CAC-42D2-9E77-BD8E170E9BE6
   author: davidbritch
   ms.author: dabritch
-  ms.date: 12/30/2019
+  ms.date: 07/22/2020
+  no-loc: [Xamarin.Forms, Xamarin.Essentials]
 
 landingContent:
   - title: Controls reference
@@ -45,6 +46,8 @@ landingContent:
             url: text/label.md
           - text: Map
             url: map/index.md
+          - text: Shapes
+            url: shapes/index.md
           - text: WebView
             url: webview.md
 
@@ -56,6 +59,8 @@ landingContent:
             url: button.md
           - text: ImageButton
             url: imagebutton.md
+          - text: RadioButton
+            url: radiobutton.md
           - text: RefreshView
             url: refreshview.md
           - text: SearchBar
@@ -143,7 +148,7 @@ landingContent:
           - text: Styles
             url: styles/index.md
           - text: Theming
-            url: theming.md
+            url: theming/index.md
           - text: Visual
             url: visual/index.md
           - text: Visual State Manager
@@ -156,7 +161,7 @@ landingContent:
           - text: Choose a layout
             url: layouts/choose-layout.md
           - text: AbsoluteLayout
-            url: layouts/absolute-layout.md
+            url: layouts/absolutelayout.md
           - text: ContentView
             url: layouts/contentview.md
           - text: FlexLayout
@@ -166,11 +171,11 @@ landingContent:
           - text: Grid
             url: layouts/grid.md
           - text: RelativeLayout
-            url: layouts/relative-layout.md
+            url: layouts/relativelayout.md
           - text: ScrollView
-            url: layouts/scroll-view.md
+            url: layouts/scrollview.md
           - text: StackLayout
-            url: layouts/stack-layout.md
+            url: layouts/stacklayout.md
 
   - title: Layout concepts
     linkLists:

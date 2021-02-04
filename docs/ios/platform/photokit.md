@@ -11,7 +11,7 @@ ms.date: 06/14/2017
 
 # PhotoKit in Xamarin.iOS
 
-[![Download Sample](~/media/shared/download.png) Download a code sample](https://docs.microsoft.com/samples/xamarin/ios-samples/ios11-samplephotoapp/)
+[![Download Sample](~/media/shared/download.png) Download a code sample](/samples/xamarin/ios-samples/ios11-samplephotoapp/)
 
 PhotoKit is a framework that allows applications to query the system image library and create custom user interfaces to view and modify its contents. It includes a number of classes that represent image and video assets, as well as collections of assets such as albums and folders.
 
@@ -57,7 +57,7 @@ public override UICollectionViewCell GetCell (UICollectionView collectionView, N
 
 This results in a grid of images as shown below:
 
-![](photokit-images/image4.png "The running app displaying a grid of images")
+![The running app displaying a grid of images](photokit-images/image4.png)
 
 ## Saving Changes to the Photo Library
 

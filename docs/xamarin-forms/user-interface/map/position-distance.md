@@ -6,12 +6,13 @@ ms.assetid: 2F4EA3D2-1351-40AD-A71D-CF7F1F18F1E8
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 10/30/2019
+ms.date: 03/10/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Map Position and Distance
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithmaps)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/workingwithmaps)
 
 The [`Xamarin.Forms.Maps`](xref:Xamarin.Forms.Maps) namespace contains a [`Position`](xref:Xamarin.Forms.Maps.Position) struct that's typically used when positioning a map and its pins, and a [`Distance`](xref:Xamarin.Forms.Maps.Distance) struct that can optionally be used when positioning a map.
 
@@ -28,8 +29,10 @@ The [`Position`](xref:Xamarin.Forms.Maps.Position) struct encapsulates a positio
 Position position = new Position(36.9628066, -122.0194722);
 ```
 
+When creating a `Position` object, the latitude value will be clamped between -90.0 and 90.0, and the longitude value will be clamped between -180.0 and 180.0.
+
 > [!NOTE]
-> When creating a `Position` object, the latitude value will be clamped between -90.0 and 90.0, and the longitude value will be clamped between -180.0 and 180.0.
+> The `GeographyUtils` class has a `ToRadians` extension method that converts a `double` value from degrees to radians, and a `ToDegrees` extension method that converts a `double` value from radians to degrees.
 
 ## Distance
 
@@ -45,14 +48,15 @@ The [`Distance`](xref:Xamarin.Forms.Maps.Distance) struct encapsulates a distanc
 Distance distance = new Distance(1450.5);
 ```
 
-Alternatively, [`Distance`](xref:Xamarin.Forms.Maps.Distance) objects can be created with the [`FromKilometers`](xref:Xamarin.Forms.Maps.Distance.FromKilometers*), [`FromMeters`](xref:Xamarin.Forms.Maps.Distance.FromMeters*), and [`FromMiles`](xref:Xamarin.Forms.Maps.Distance.FromMiles*) factory methods:
+Alternatively, [`Distance`](xref:Xamarin.Forms.Maps.Distance) objects can be created with the [`FromKilometers`](xref:Xamarin.Forms.Maps.Distance.FromKilometers*), [`FromMeters`](xref:Xamarin.Forms.Maps.Distance.FromMeters*), [`FromMiles`](xref:Xamarin.Forms.Maps.Distance.FromMiles*), and `BetweenPositions` factory methods:
 
 ```csharp
 Distance distance1 = Distance.FromKilometers(1.45); // argument represents the number of kilometers
 Distance distance2 = Distance.FromMeters(1450.5);   // argument represents the number of meters
 Distance distance3 = Distance.FromMiles(0.969);     // argument represents the number of miles
+Distance distance4 = Distance.BetweenPositions(position1, position2);
 ```
 
 ## Related links
 
-- [Maps Sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithmaps)
+- [Maps Sample](/samples/xamarin/xamarin-forms-samples/workingwithmaps)

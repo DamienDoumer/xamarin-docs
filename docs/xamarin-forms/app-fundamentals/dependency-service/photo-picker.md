@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 03/06/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Picking a Photo from the Picture Library
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/dependencyservice/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/dependencyservice/)
 
 This article walks through the creation of an application that allows the user to pick a photo from the phone's picture library. Because Xamarin.Forms does not include this functionality, it is necessary to use [`DependencyService`](xref:Xamarin.Forms.DependencyService) to access native APIs on each platform.
 
@@ -64,7 +65,7 @@ namespace DependencyServiceDemos.iOS
             // Present UIImagePickerController;
             UIWindow window = UIApplication.SharedApplication.KeyWindow;
             var viewController = window.RootViewController;
-            viewController.PresentModalViewController(imagePicker, true);
+            viewController.PresentViewController(imagePicker, true, null);
 
             // Return Task object
             taskCompletionSource = new TaskCompletionSource<Stream>();
@@ -76,9 +77,9 @@ namespace DependencyServiceDemos.iOS
 
 ```
 
-The `GetImageStreamAsync` method creates a `UIImagePickerController` and initializes it to select images from the photo library. Two event handlers are required: One for when the user selects a photo and the other for when the user cancels the display of the photo library. The `PresentModalViewController` then displays the photo library to the user.
+The `GetImageStreamAsync` method creates a `UIImagePickerController` and initializes it to select images from the photo library. Two event handlers are required: One for when the user selects a photo and the other for when the user cancels the display of the photo library. The `PresentViewController` method then displays the photo library to the user.
 
-At this point, the `GetImageStreamAsync` method must return a `Task<Stream>` object to the code that's calling it. This task is completed only when the user has finished interacting with the photo library and one of the event handlers is called. For situations like this, the [`TaskCompletionSource`](https://msdn.microsoft.com/library/dd449174(v=vs.110).aspx) class is essential. The class provides a `Task` object of the proper generic type to return from the `GetImageStreamAsync` method, and the class can later be signaled when the task is completed.
+At this point, the `GetImageStreamAsync` method must return a `Task<Stream>` object to the code that's calling it. This task is completed only when the user has finished interacting with the photo library and one of the event handlers is called. For situations like this, the [`TaskCompletionSource`](/dotnet/api/system.threading.tasks.taskcompletionsource-1) class is essential. The class provides a `Task` object of the proper generic type to return from the `GetImageStreamAsync` method, and the class can later be signaled when the task is completed.
 
 The `FinishedPickingMedia` event handler is called when the user has selected a picture. However, the handler provides a `UIImage` object and the `Task` must return a .NET `Stream` object. This is done in two steps: The `UIImage` object is first converted to an in memory PNG or JPEG file stored in an `NSData` object, and then the `NSData` object is converted to a .NET `Stream` object. A call to the `SetResult` method of the `TaskCompletionSource` object completes the task by providing the `Stream` object:
 
@@ -151,7 +152,14 @@ The Android implementation uses the technique described in the [**Select an Imag
 ```csharp
 public class MainActivity : FormsAppCompatActivity
 {
-    ...
+    internal static MainActivity Instance { get; private set; }  
+
+    protected override void OnCreate(Bundle savedInstanceState)
+    {
+        // ...
+        Instance = this;
+    }
+    // ...
     // Field, property, and method for Picture Picker
     public static readonly int PickImageId = 1000;
 
@@ -282,6 +290,6 @@ async void OnPickPhotoButtonClicked(object sender, EventArgs e)
 
 ## Related links
 
-- [DependencyService (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/dependencyservice/)
+- [DependencyService (sample)](/samples/xamarin/xamarin-forms-samples/dependencyservice/)
 - [Choose a Photo from the Gallery (iOS)](https://github.com/xamarin/recipes/tree/master/Recipes/ios/media/video_and_photos/choose_a_photo_from_the_gallery)
 - [Select an Image (Android)](https://github.com/xamarin/recipes/tree/master/Recipes/android/other_ux/pick_image)

@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 06/21/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # File Handling in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithfiles)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/workingwithfiles)
 
 _File handling with Xamarin.Forms can be achieved using code in a .NET Standard library, or by using embedded resources._
 
@@ -20,8 +21,6 @@ _File handling with Xamarin.Forms can be achieved using code in a .NET Standard 
 Xamarin.Forms code runs on multiple platforms - each of which has its own filesystem. Previously, this meant that reading and writing files was most easily performed using the native file APIs on each platform. Alternatively, embedded resources are a simpler solution to distribute data files with an app. However, with .NET Standard 2.0 it's possible to share file access code in .NET Standard libraries.
 
 For information on handling image files, refer to the [Working with Images](~/xamarin-forms/user-interface/images.md) page.
-
-<a name="Loading_and_Saving_Files" />
 
 ## Saving and Loading Files
 
@@ -55,8 +54,6 @@ These operations are demonstrated in the sample app, which includes a page that 
 
 [![Saving and loading text](files-images/saveandload-sml.png "Saving and Loading Files in App")](files-images/saveandload.png#lightbox "Saving and Loading Files in App")
 
-<a name="Loading_Files_Embedded_as_Resources" />
-
 ## Loading Files Embedded as Resources
 
 To embed a file into a **.NET Standard** assembly, create or add a file and ensure that **Build Action: EmbeddedResource**.
@@ -83,7 +80,7 @@ using (var reader = new System.IO.StreamReader (stream))
 }
 ```
 
-The `text` variable can then be used to display the text or otherwise use it in code. This screenshot of the [sample app](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithfiles) shows the text rendered in a `Label` control.
+The `text` variable can then be used to display the text or otherwise use it in code. This screenshot of the [sample app](/samples/xamarin/xamarin-forms-samples/workingwithfiles) shows the text rendered in a `Label` control.
 
  [![Text file embedded in .NET standard library](files-images/pcltext-sml.png "Embedded Text File in .NET Standard Library Displayed in App")](files-images/pcltext.png#lightbox "Embedded Text File in .NET Standard Library Displayed in App")
 
@@ -102,8 +99,6 @@ listView.ItemsSource = monkeys;
 ```
 
  [![Xml file embedded in .NET standard library, displayed in ListView](files-images/pclxml-sml.png "Embedded XML File in .NET standard library Displayed in ListView")](files-images/pclxml.png#lightbox "Embedded XML File in .NET standard library Displayed in ListView")
-
-<a name="Embedding_in_Shared_Projects" />
 
 ## Embedding in Shared Projects
 
@@ -131,15 +126,11 @@ Stream stream = assembly.GetManifestResourceStream
     (resourcePrefix + "SharedTextResource.txt");
 ```
 
-<a name="Organizing_Resources" />
-
 ### Organizing Resources
 
 The above examples assume that the file is embedded in the root of the .NET Standard library project, in which case the resource ID is of the form **Namespace.Filename.Extension**, such as `WorkingWithFiles.LibTextResource.txt` and `WorkingWithFiles.iOS.SharedTextResource.txt`.
 
 It is possible to organize embedded resources in folders. When an embedded resource is placed in a folder, the folder name becomes part of the resource ID (separated by periods), so that the resource ID format becomes **Namespace.Folder.Filename.Extension**. Placing the files used in the sample app into a folder **MyFolder** would make the corresponding resource IDs `WorkingWithFiles.MyFolder.LibTextResource.txt` and `WorkingWithFiles.iOS.MyFolder.SharedTextResource.txt`.
-
-<a name="Debugging_Embedded_Resources" />
 
 ### Debugging Embedded Resources
 
@@ -161,6 +152,6 @@ This article has shown some simple file operations for saving and loading text o
 
 ## Related Links
 
-- [FilesSample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithfiles)
+- [FilesSample](/samples/xamarin/xamarin-forms-samples/workingwithfiles)
 - [Xamarin.Forms Samples](https://github.com/xamarin/xamarin-forms-samples)
 - [Working with the File System in Xamarin.iOS](~/ios/app-fundamentals/file-system.md)

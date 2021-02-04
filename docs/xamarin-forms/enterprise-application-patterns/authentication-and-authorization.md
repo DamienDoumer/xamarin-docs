@@ -7,9 +7,13 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/08/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Authentication and Authorization
+
+> [!NOTE]
+> This eBook was published in the spring of 2017, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated.
 
 Authentication is the process of obtaining identification credentials such as name and password from a user, and validating those credentials against an authority. If the credentials are valid, the entity that submitted the credentials is considered an authenticated identity. Once an identity has been authenticated, an authorization process determines whether that identity has access to a given resource.
 
@@ -32,9 +36,9 @@ OpenID Connect is an authentication layer on top of the OAuth 2.0 protocol. OAut
 
 The combination of OpenID Connect and OAuth 2.0 combine the two fundamental security concerns of authentication and API access, and IdentityServer 4 is an implementation of these protocols.
 
-In applications that use direct client-to-microservice communication, such as the eShopOnContainers reference application, a dedicated authentication microservice acting as a Security Token Service (STS) can be used to authenticate users, as shown in Figure 9-1. For more information about direct client-to-microservice communication, see [Communication Between Client and Microservices](~/xamarin-forms/enterprise-application-patterns/containerized-microservices.md#communication_between_client_and_microservices).
+In applications that use direct client-to-microservice communication, such as the eShopOnContainers reference application, a dedicated authentication microservice acting as a Security Token Service (STS) can be used to authenticate users, as shown in Figure 9-1. For more information about direct client-to-microservice communication, see [Communication Between Client and Microservices](~/xamarin-forms/enterprise-application-patterns/containerized-microservices.md#communication-between-client-and-microservices).
 
-![](authentication-and-authorization-images/authentication.png "Authentication by a dedicated authentication microservice")
+![Authentication by a dedicated authentication microservice](authentication-and-authorization-images/authentication.png)
 
 **Figure 9-1:** Authentication by a dedicated authentication microservice
 
@@ -95,7 +99,7 @@ After calling the `services.AddIdentityServer` method, additional fluent APIs ar
 > [!TIP]
 > Dynamically load the IdentityServer 4 configuration. IdentityServer 4's APIs allow for configuring IdentityServer from an in-memory list of configuration objects. In the eShopOnContainers reference application, these in-memory collections are hard-coded into the application. However, in production scenarios they can be loaded dynamically from a configuration file or from a database.
 
-For information about configuring IdentityServer to use ASP.NET Core Identity, see [Using ASP.NET Core Identity](https://identityserver4.readthedocs.io/en/latest/quickstarts/8_aspnet_identity.html) in the IdentityServer documentation.
+For information about configuring IdentityServer to use ASP.NET Core Identity, see [Using ASP.NET Core Identity](https://identityserver4.readthedocs.io/en/latest/quickstarts/6_aspnet_identity.html) in the IdentityServer documentation.
 
 #### Configuring API Resources
 
@@ -187,7 +191,7 @@ This configuration specifies data for the following properties:
 
 - `ClientId`: A unique ID for the client.
 - `ClientName`: The client display name, which is used for logging and the consent screen.
-- `AllowedGrantTypes`: Specifies how a client wants to interact with IdentityServer. For more information see [Configuring the Authentication Flow](#configuring_the_authentication_flow).
+- `AllowedGrantTypes`: Specifies how a client wants to interact with IdentityServer. For more information see [Configuring the Authentication Flow](#configuring-the-authentication-flow).
 - `ClientSecrets`: Specifies the client secret credentials that are used when requesting tokens from the token endpoint.
 - `RedirectUris`: Specifies the allowed URIs to which to return tokens or authorization codes.
 - `RequireConsent`: Specifies whether a consent screen is required.
@@ -196,8 +200,6 @@ This configuration specifies data for the following properties:
 - `AllowedCorsOrigins`: Specifies the origin of the client so that IdentityServer can allow cross-origin calls from the origin.
 - `AllowedScopes`: Specifies the resources the client has access to. By default, a client has no access to any resources.
 - `AllowOfflineAccess`: Specifies whether the client can request refresh tokens.
-
-<a name="configuring_the_authentication_flow" />
 
 #### Configuring the Authentication Flow
 
@@ -218,7 +220,7 @@ For IdentityServer to issue tokens on behalf of a user, the user must sign-in to
 
 The eShopOnContainers mobile app authenticates with IdentityServer with the hybrid authentication flow, which is illustrated in Figure 9-2.
 
-![](authentication-and-authorization-images/sign-in.png "High-level overview of the sign-in process")
+![High-level overview of the sign-in process](authentication-and-authorization-images/sign-in.png)
 
 **Figure 9-2:** High-level overview of the sign-in process
 
@@ -226,7 +228,7 @@ A sign-in request is made to `<base endpoint>:5105/connect/authorize`. Following
 
 The eShopOnContainers mobile app signs-out of IdentityServer by sending a request to `<base endpoint>:5105/connect/endsession`, with additional parameters. After sign-out occurs, IdentityServer responds by sending a post logout redirect URI back to the mobile app. Figure 9-3 illustrates this process.
 
-![](authentication-and-authorization-images/sign-out.png "High-level overview of the sign-out process")
+![High-level overview of the sign-out process](authentication-and-authorization-images/sign-out.png)
 
 **Figure 9-3:** High-level overview of the sign-out process
 
@@ -282,7 +284,7 @@ This method creates the URI for IdentityServer's [authorization endpoint](https:
 
 The returned URI is stored in the `LoginUrl` property of the `LoginViewModel` class. When the `IsLogin` property becomes `true`, the [`WebView`](xref:Xamarin.Forms.WebView) in the `LoginView` becomes visible. The `WebView` data binds its [`Source`](xref:Xamarin.Forms.WebView.Source) property to the `LoginUrl` property of the `LoginViewModel` class, and so makes a sign-in request to IdentityServer when the `LoginUrl` property is set to IdentityServer's authorization endpoint. When IdentityServer receives this request and the user isn't authenticated, the `WebView` will be redirected to the configured login page, which is shown in Figure 9-4.
 
-![](authentication-and-authorization-images/login.png "Login page displayed by the WebView")
+![Login page displayed by the WebView](authentication-and-authorization-images/login.png)
 
 **Figure 9-4:** Login page displayed by the WebView
 
@@ -318,14 +320,14 @@ This method parses the authentication response that's contained in the return UR
 
 If the token endpoint receives a valid authorization code and PKCE secret verifier, it responds with an access token, identity token, and refresh token. The access token (which allows access to API resources) and identity token are then stored as application settings, and page navigation is performed. Therefore, the overall effect in the eShopOnContainers mobile app is this: provided that users are able to successfully authenticate with IdentityServer, they are navigated to the `MainView` page, which is a [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) that displays the `CatalogView` as its selected tab.
 
-For information about page navigation, see [Navigation](~/xamarin-forms/enterprise-application-patterns/navigation.md). For information about how [`WebView`](xref:Xamarin.Forms.WebView) navigation causes a view model method to be executed, see [Invoking Navigation using Behaviors](~/xamarin-forms/enterprise-application-patterns/navigation.md#invoking_navigation_using_behaviors). For information about application settings, see [Configuration Management](~/xamarin-forms/enterprise-application-patterns/configuration-management.md).
+For information about page navigation, see [Navigation](~/xamarin-forms/enterprise-application-patterns/navigation.md). For information about how [`WebView`](xref:Xamarin.Forms.WebView) navigation causes a view model method to be executed, see [Invoking Navigation using Behaviors](~/xamarin-forms/enterprise-application-patterns/navigation.md#invoking-navigation-using-behaviors). For information about application settings, see [Configuration Management](~/xamarin-forms/enterprise-application-patterns/configuration-management.md).
 
 > [!NOTE]
 > The eShopOnContainers also allows a mock sign-in when the app is configured to use mock services in the `SettingsView`. In this mode, the app doesn't communicate with IdentityServer, instead allowing the user to sign-in using any credentials.
 
 #### Signing-out
 
-When the user taps the **LOG OUT** button in the `ProfileView`, the `LogoutCommand` in the `ProfileViewModel` class is executed, which in turn executes the `LogoutAsync` method. This method performs page navigation to the `LoginView` page, passing a `LogoutParameter` instance set to `true` as a parameter. For more information about passing parameters during page navigation, see [Passing Parameters During Navigation](~/xamarin-forms/enterprise-application-patterns/navigation.md#passing_parameters_during_navigation).
+When the user taps the **LOG OUT** button in the `ProfileView`, the `LogoutCommand` in the `ProfileViewModel` class is executed, which in turn executes the `LogoutAsync` method. This method performs page navigation to the `LoginView` page, passing a `LogoutParameter` instance set to `true` as a parameter. For more information about passing parameters during page navigation, see [Passing Parameters During Navigation](~/xamarin-forms/enterprise-application-patterns/navigation.md#passing-parameters-during-navigation).
 
 When a view is created and navigated to, the `InitializeAsync` method of the view's associated view model is executed, which then executes the `Logout` method of the `LoginViewModel` class, which is shown in the following code example:
 
@@ -377,12 +379,10 @@ private async Task NavigateAsync(string url)
 
 This method clears both the identity token and the access token from application settings, and sets the `IsLogin` property to `false`, which causes the [`WebView`](xref:Xamarin.Forms.WebView) on the `LoginView` page to become invisible. Finally, the `LoginUrl` property is set to the URI of IdentityServer's [authorization endpoint](https://identityserver4.readthedocs.io/en/latest/endpoints/authorize.html), with the required parameters, in preparation for the next time the user initiates a sign-in.
 
-For information about page navigation, see [Navigation](~/xamarin-forms/enterprise-application-patterns/navigation.md). For information about how [`WebView`](xref:Xamarin.Forms.WebView) navigation causes a view model method to be executed, see [Invoking Navigation using Behaviors](~/xamarin-forms/enterprise-application-patterns/navigation.md#invoking_navigation_using_behaviors). For information about application settings, see [Configuration Management](~/xamarin-forms/enterprise-application-patterns/configuration-management.md).
+For information about page navigation, see [Navigation](~/xamarin-forms/enterprise-application-patterns/navigation.md). For information about how [`WebView`](xref:Xamarin.Forms.WebView) navigation causes a view model method to be executed, see [Invoking Navigation using Behaviors](~/xamarin-forms/enterprise-application-patterns/navigation.md#invoking-navigation-using-behaviors). For information about application settings, see [Configuration Management](~/xamarin-forms/enterprise-application-patterns/configuration-management.md).
 
 > [!NOTE]
 > The eShopOnContainers also allows a mock sign-out when the app is configured to use mock services in the SettingsView. In this mode, the app doesn't communicate with IdentityServer, and instead clears any stored tokens from application settings.
-
-<a name="authorization" />
 
 ## Authorization
 
@@ -405,7 +405,7 @@ If an unauthorized user attempts to access a controller or action that's marked 
 
 IdentityServer can be integrated into the authorization workflow so that the access tokens it provides control authorization. This approach is shown in Figure 9-5.
 
-![](authentication-and-authorization-images/authorization.png "Authorization by access token")
+![Authorization by access token](authentication-and-authorization-images/authorization.png)
 
 **Figure 9-5:** Authorization by access token
 

@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 04/06/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Attached Behaviors
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/behaviors-attachednumericvalidationbehavior)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/behaviors-attachednumericvalidationbehavior)
 
 _Attached behaviors are static classes with one or more attached properties. This article demonstrates how to create and consume attached behaviors._
 
@@ -24,7 +25,7 @@ An attached property can define a `propertyChanged` delegate that will be execut
 1. The `propertyChanged` delegate casts the control reference, which is received as a [`BindableObject`](xref:Xamarin.Forms.BindableObject), to the control type that the behavior is designed to enhance.
 1. The `propertyChanged` delegate modifies properties of the control, calls methods of the control, or registers event handlers for events exposed by the control, to implement the core behavior functionality.
 
-An issue with attached behaviors is that they are defined in a `static` class, with `static` properties and methods. This makes it difficult to create attached behaviors that have state. In addition, Xamarin.Forms behaviors have replaced attached behaviors as the preferred approach to behavior construction. For more information about Xamarin.Forms behaviors, see [Xamarin.Forms Behaviors](~/xamarin-forms/app-fundamentals/behaviors/creating.md) and [Reusable Behaviors](~/xamarin-forms/app-fundamentals/behaviors/reusable/index.md).
+An issue with attached behaviors is that they are defined in a `static` class, with `static` properties and methods. This makes it difficult to create attached behaviors that have state. In addition, Xamarin.Forms behaviors have replaced attached behaviors as the preferred approach to behavior construction. For more information about Xamarin.Forms behaviors, see [Xamarin.Forms Behaviors](~/xamarin-forms/app-fundamentals/behaviors/creating.md).
 
 ## Creating an Attached Behavior
 
@@ -75,7 +76,7 @@ public static class NumericValidationBehavior
 }
 ```
 
-The `NumericValidationBehavior` class contains an attached property named `AttachBehavior` with a `static` getter and setter, which controls the addition or removal of the behavior to the control to which it will be attached. This attached property registers the `OnAttachBehaviorChanged` method that will be executed when the value of the property changes. This method registers or de-registers an event handler for the [`TextChanged`](xref:Xamarin.Forms.Entry.TextChanged) event, based on the value of the `AttachBehavior` attached property. The core functionality of the behavior is provided by the `OnEntryTextChanged` method, which parses the value entered into the [`Entry`](xref:Xamarin.Forms.Entry) by the user, and sets the `TextColor` property to red if the value isn't a `double`.
+The `NumericValidationBehavior` class contains an attached property named `AttachBehavior` with a `static` getter and setter, which controls the addition or removal of the behavior to the control to which it will be attached. This attached property registers the `OnAttachBehaviorChanged` method that will be executed when the value of the property changes. This method registers or de-registers an event handler for the [`TextChanged`](xref:Xamarin.Forms.InputView.TextChanged) event, based on the value of the `AttachBehavior` attached property. The core functionality of the behavior is provided by the `OnEntryTextChanged` method, which parses the value entered into the [`Entry`](xref:Xamarin.Forms.Entry) by the user, and sets the `TextColor` property to red if the value isn't a `double`.
 
 ## Consuming an Attached Behavior
 
@@ -98,7 +99,7 @@ NumericValidationBehavior.SetAttachBehavior (entry, true);
 
 At runtime, the behavior will respond to interaction with the control, according to the behavior implementation. The following screenshots demonstrate the attached behavior responding to invalid input:
 
-[![](attached-images/screenshots-sml.png "Sample Application with Attached Behavior")](attached-images/screenshots.png#lightbox "Sample Application with Attached Behavior")
+[![Sample Application with Attached Behavior](attached-images/screenshots-sml.png)](attached-images/screenshots.png#lightbox "Sample Application with Attached Behavior")
 
 > [!NOTE]
 > Attached behaviors are written for a specific control type (or a superclass that can apply to many controls), and they should only be added to a compatible control. Attempting to attach a behavior to an incompatible control will result in unknown behavior, and depends on the behavior implementation.
@@ -118,7 +119,7 @@ var entry = new Entry { Placeholder = "Enter a System.Double" };
 NumericValidationBehavior.SetAttachBehavior (entry, false);
 ```
 
-At runtime, the `OnAttachBehaviorChanged` method will be executed when the value of the `AttachBehavior` attached property is set to `false`. The `OnAttachBehaviorChanged` method will then de-register the event handler for the [`TextChanged`](xref:Xamarin.Forms.Entry.TextChanged) event, ensuring that the behavior isn't executed as the user interacts with the control.
+At runtime, the `OnAttachBehaviorChanged` method will be executed when the value of the `AttachBehavior` attached property is set to `false`. The `OnAttachBehaviorChanged` method will then de-register the event handler for the [`TextChanged`](xref:Xamarin.Forms.InputView.TextChanged) event, ensuring that the behavior isn't executed as the user interacts with the control.
 
 ## Summary
 
@@ -126,4 +127,4 @@ This article demonstrated how to create and consume attached behaviors. Attached
 
 ## Related Links
 
-- [Attached Behaviors (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/behaviors-attachednumericvalidationbehavior)
+- [Attached Behaviors (sample)](/samples/xamarin/xamarin-forms-samples/behaviors-attachednumericvalidationbehavior)

@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/08/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms and Azure Cognitive Services Introduction
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-todocognitiveservices)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/webservices-todocognitiveservices)
 
 _Microsoft Cognitive Services are a set of APIs, SDKs, and services available to developers to make their applications more intelligent by adding features such as facial recognition, speech recognition, and language understanding. This article provides an introduction to the sample application that demonstrates how to invoke some of the Microsoft Cognitive Service APIs._
 
@@ -20,28 +21,31 @@ _Microsoft Cognitive Services are a set of APIs, SDKs, and services available to
 The accompanying sample is a todo list application that provides functionality to:
 
 - View a list of tasks.
-- Add and edit tasks through the soft keyboard, or by performing speech recognition with the Microsoft Speech API. For more information about performing speech recognition, see [Speech Recognition using the Microsoft Speech API](speech-recognition.md).
+- Add and edit tasks through the soft keyboard, or by performing speech recognition with the Microsoft Speech API.
 - Spell check tasks using the Bing Spell Check API. For more information, see [Spell Checking using the Bing Spell Check API](spell-check.md).
 - Translate tasks from English to German using the Translator API. For more information, see [Text Translation using the Translator API](text-translation.md).
 - Delete tasks.
 - Set a task's status to 'done'.
 - Rate the application with emotion recognition, using the Face API. For more information, see [Emotion Recognition using the Face API](emotion-recognition.md).
 
+> [!WARNING]
+> The Bing Speech API has been deprecated in favor of the Azure Speech Service. For a sample dedicated to Azure Speech Service, see [Speech recognition with the Speech Service API](~/xamarin-forms/data-cloud/azure-cognitive-services/speech-recognition.md).
+
 Tasks are stored in a local SQLite database. For more information about using a local SQLite database, see [Working with a Local Database](~/xamarin-forms/data-cloud/data/databases.md).
 
 The `TodoListPage` is displayed when the application is launched. This page displays a list of any tasks stored in the local database, and allows the user to create a new task or to rate the application:
 
-![](introduction-images/sample-application-1.png "TodoListPage")
+![TodoListPage](introduction-images/sample-application-1.png)
 
 New items can be created by clicking on the *+* button, which navigates to the `TodoItemPage`. This page can also be navigated to by selecting a task:
 
-![](introduction-images/sample-application-2.png "TodoItemPage")
+![TodoItemPage](introduction-images/sample-application-2.png)
 
 The `TodoItemPage` allows tasks to be created, edited, spell-checked, translated, saved, and deleted. Speech recognition can be used to create or edit a task. This is achieved by pressing the microphone button to start recording, and by pressing the same button a second time to stop recording, which sends the recording to the Bing Speech Recognition API.
 
 Clicking the smilies button on the `TodoListPage` navigates to the `RateAppPage`, which is used to perform emotion recognition on an image of a facial expression:
 
-![](introduction-images/sample-application-3.png "RateAppPage")
+![RateAppPage](introduction-images/sample-application-3.png)
 
 The `RateAppPage` allows the user to take a photo of their face, which is submitted to the Face API with the returned emotion being displayed.
 
@@ -119,5 +123,6 @@ The sample application invokes the following Microsoft Cognitive Services:
 
 ## Related links
 
+- [Speech recognition with the Speech Service API](~/xamarin-forms/data-cloud/azure-cognitive-services/speech-recognition.md)
 - [Microsoft Cognitive Services Documentation](https://www.microsoft.com/cognitive-services/documentation)
-- [Todo Cognitive Services (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-todocognitiveservices)
+- [Todo Cognitive Services (sample)](/samples/xamarin/xamarin-forms-samples/webservices-todocognitiveservices)

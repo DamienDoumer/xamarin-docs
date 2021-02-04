@@ -7,10 +7,11 @@ ms.technology: xamarin-forms
 author: profexorgeek
 ms.author: jusjohns
 ms.date: 07/09/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms ProgressBar
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-progressbardemos/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-progressbardemos/)
 
 The Xamarin.Forms [`ProgressBar`](xref:Xamarin.Forms.ProgressBar) control visually represents progress as a horizontal bar that is filled to a percentage represented by a `float` value. The `ProgressBar` class inherits from [`View`](xref:Xamarin.Forms.View).
 
@@ -78,4 +79,4 @@ For more information about the `Easing` enumeration, see [Easing functions in Xa
 
 ## Related links
 
-* [ProgressBar Demos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-progressbardemos/)
+* [ProgressBar Demos](/samples/xamarin/xamarin-forms-samples/userinterface-progressbardemos/)

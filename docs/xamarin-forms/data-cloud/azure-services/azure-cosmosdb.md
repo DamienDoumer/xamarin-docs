@@ -8,11 +8,12 @@ ms.custom: xamu-video
 author: davidbritch
 ms.author: dabritch
 ms.date: 06/16/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Consume an Azure Cosmos DB Document Database in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-tododocumentdb)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/webservices-tododocumentdb)
 
 _An Azure Cosmos DB document database is a NoSQL database that provides low latency access to JSON documents, offering a fast, highly available, scalable database service for applications that require seamless scale and global replication. This article explains how to use the Azure Cosmos DB .NET Standard client library to integrate an Azure Cosmos DB document database into a Xamarin.Forms application._
 
@@ -112,8 +113,6 @@ Optionally, the `CreateDocumentCollectionIfNotExistsAsync` method can also speci
 > [!IMPORTANT]
 > Note that the `CreateDocumentCollectionIfNotExistsAsync` method will create a new collection with a reserved throughput, which has pricing implications.
 
-<a name="document_query" />
-
 ### Retrieving Document Collection Documents
 
 The contents of a document collection can be retrieved by creating and executing a document query. A document query is created with the `DocumentClient.CreateDocumentQuery` method:
@@ -152,8 +151,6 @@ var query = client.CreateDocumentQuery<TodoItem>(collectionLink)
 
 This query retrieves all documents from the collection whose `Done` property is equal to `false`.
 
-<a name="inserting_document" />
-
 ### Inserting a Document into a Document Collection
 
 Documents are user defined JSON content, and can be inserted into a document collection with the `DocumentClient.CreateDocumentAsync` method:
@@ -183,8 +180,6 @@ public async Task SaveTodoItemAsync(TodoItem item, bool isNewItem = false)
 ```
 
 The `ReplaceDocumentAsync` method specifies a `Uri` argument that represents the document in the collection that should be replaced, and an `object` argument that represents the updated document data.
-
-<a name="deleting_document" />
 
 ### Deleting a Document from a Document Collection
 
@@ -227,7 +222,7 @@ This article explained how to use the Azure Cosmos DB .NET Standard client libra
 
 ## Related Links
 
-- [Todo Azure Cosmos DB (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-tododocumentdb)
+- [Todo Azure Cosmos DB (sample)](/samples/xamarin/xamarin-forms-samples/webservices-tododocumentdb)
 - [Azure Cosmos DB Documentation](/azure/cosmos-db/)
 - [Azure Cosmos DB .NET Standard client library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
-- [Azure Cosmos DB API](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb/client?view=azure-dotnet)
+- [Azure Cosmos DB API](/dotnet/api/overview/azure/cosmosdb/client?view=azure-dotnet)

@@ -6,16 +6,15 @@ ms.assetid: 11A1D327-2DF3-4F3B-810D-6C95B71D27B2
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 12/09/2015
+ms.date: 04/24/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Device Orientation
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-responsivelayout)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-responsivelayout)
 
 It is important to consider how your application will be used and how landscape orientation can be incorporated to improve the user experience. Individual layouts can be designed to accommodate multiple orientations and best use the available space. At the application level, rotation can be disabled or enabled.
-
-<a name="Controlling_Orientation" />
 
 ## Controlling Orientation
 
@@ -23,27 +22,23 @@ When using Xamarin.Forms, the supported method of controlling device orientation
 
 ### iOS
 
-On iOS, device orientation is configured for applications using the **Info.plist** file. This file will include orientation settings for iPhone & iPod, as well as settings for iPad if the app includes it as a target. The following are instructions specific to your IDE. Use the IDE options at the top of this document to select which instructions you'd like to see:
+On iOS, device orientation is configured for applications using the **Info.plist** file. Use the IDE options at the top of this document to select which instructions you'd like to see:
 
 # [Visual Studio](#tab/windows)
 
 In Visual Studio, open the iOS project and open **Info.plist**. The file will open into a configuration panel, starting with the iPhone Deployment Info tab:
 
-![iPhone Deployment Info in Visual Studio](device-orientation-images/orientation-vs-iphone.png)
-
-To configure iPad orientation, select the **iPad Deployment Info** tab at the top left of the panel, then select from the available orientations:
-
-![Supported Device Orientations in Visual Studio](device-orientation-images/orientation-vs-ipad.png)
+![iPhone Deployment Info in Visual Studio](device-orientation-images/orientation-vs.png)
 
 # [Visual Studio for Mac](#tab/macos)
 
 In Visual Studio for Mac, open the iOS project and open **Info.plist**. Under the **Application** tab, sections will be available to set orientation:
 
-![iPhone Deployment Info in Visual Studio for Mac](device-orientation-images/orientation-xam-ui.png)
+![iPhone Deployment Info in Visual Studio for Mac](device-orientation-images/orientation-vsmac.png)
 
 If you'd prefer to edit the values using a key-value editor interface, select the **Source**> tab at the bottom of the screen:
 
-![Supported Device Orientations in Visual Studio for Mac](device-orientation-images/orientation-xam-source.png)
+![Supported Device Orientations in Visual Studio for Mac](device-orientation-images/orientation-source-vsmac.png)
 
 -----
 
@@ -84,14 +79,11 @@ Note that the native Android APIs provide a lot of control over how orientation 
 
 On the Universal Windows Platform (UWP), supported orientations are set in the **Package.appxmanifest** file. Opening the manifest will reveal a configuration panel where supported orientations can be selected.
 
-<a name="Reacting_to_Changes_in_Orientation" />
-
 ## Reacting to Changes in Orientation
 
-Xamarin.Forms does not offer any native events for notifying your app of orientation changes in shared code. However, the `SizeChanged` event of the `Page` fires when either the width or height of the `Page` changes. When the width of the `Page` is greater than the height, the device is in landscape mode. For more information, see [Display an Image based on Screen Orientation](https://github.com/xamarin/recipes/tree/master/Recipes/xamarin-forms/Controls/screen-orientation).
+Xamarin.Forms does not offer any native events for notifying your app of orientation changes in shared code. However,[Xamarin.Essentials](~/essentials/index.md) contains a [`DeviceDisplay`] class that provides notifications of orientation changes.
 
-> [!NOTE]
-> There is an existing, free NuGet package for receiving notifications of orientation changes in shared code. See the [GitHub repo](https://github.com/aliozgur/Xamarin.Plugins/tree/master/DeviceOrientation) for more information.
+To detect orientations without Xamarin.Essentials, monitor the `SizeChanged` event of the `Page`, which fires when either the width or height of the `Page` changes. When the width of the `Page` is greater than the height, the device is in landscape mode. For more information, see [Display an Image based on Screen Orientation](https://github.com/xamarin/recipes/tree/master/Recipes/xamarin-forms/Controls/screen-orientation).
 
 Alternatively, it's possible to override the [`OnSizeAllocated`](xref:Xamarin.Forms.Page.OnSizeAllocated*) method on a `Page`, inserting any layout change logic there. The `OnSizeAllocated` method is called whenever a `Page` is allocated a new size, which happens whenever the device is rotated. Note that the base implementation of `OnSizeAllocated` performs important layout functions, so it is important to call the base implementation in the override:
 
@@ -124,15 +116,13 @@ protected override void OnSizeAllocated(double width, double height)
 
 Once a change in device orientation has been detected, you may want to add or remove additional views to/from your user interface to react to the change in available space. For example, consider the built-in calculator on each platform in portrait:
 
-![](device-orientation-images/calculator-portrait.png "Calculator Application in Portrait")
+![Calculator Application in Portrait](device-orientation-images/calculator-portrait.png)
 
 and landscape:
 
-![](device-orientation-images/calculator-landscape.png "Calculator Application in Landscape")
+![Calculator Application in Landscape](device-orientation-images/calculator-landscape.png)
 
 Notice that the apps take advantage of the available space by adding more functionality in landscape.
-
-<a name="Responsive_Layout" />
 
 ## Responsive Layout
 
@@ -150,11 +140,11 @@ The above rules also apply when implementing interfaces for multiple screen size
 
 Consider the following application, displayed in portrait:
 
-![](device-orientation-images/photo-stack-portrait.png "Photo Application in Portrait")
+![Screenshot shows Photo Application StackLayout in Portrait.](device-orientation-images/photo-stack-portrait.png)
 
 and landscape:
 
-![](device-orientation-images/photo-stack-landscape.png "Photo Application in Landscape")
+![Screenshot shows Photo Application StackLayout in Landscape.](device-orientation-images/photo-stack-landscape.png)
 
 That is accomplished with the following XAML:
 
@@ -224,11 +214,11 @@ Note the following:
 
 Consider the following application, displayed in portrait:
 
-![](device-orientation-images/photo-abs-portrait.png "Photo Application in Portrait")
+![Screenshot shows Photo Application AbsoluteLayout in Portrait.](device-orientation-images/photo-abs-portrait.png)
 
 and landscape:
 
-![](device-orientation-images/photo-abs-landscape.png "Photo Application in Landscape")
+![Screenshot shows Photo Application AbsoluteLayout in Landscape.](device-orientation-images/photo-abs-landscape.png)
 
 That is accomplished with the following XAML:
 
@@ -276,11 +266,11 @@ Note the following:
 
 Consider the following application, displayed in portrait:
 
-![](device-orientation-images/photo-rel-portrait.png "Photo Application in Portrait")
+![Screenshot shows Photo Application RelativeLayout in Portrait.](device-orientation-images/photo-rel-portrait.png)
 
 and landscape:
 
-![](device-orientation-images/photo-rel-landscape.png "Photo Application in Landscape")
+![Screenshot shows Photo Application RelativeLayout in Landscape.](device-orientation-images/photo-rel-landscape.png)
 
 That is accomplished with the following XAML:
 
@@ -367,11 +357,11 @@ Note the following:
 
 Consider the following application, displayed in portrait:
 
-![](device-orientation-images/photo-grid-portrait.png "Photo Application in Portrait")
+![Screenshot shows Photo Application Grid in Portrait.](device-orientation-images/photo-grid-portrait.png)
 
 and landscape:
 
-![](device-orientation-images/photo-grid-landscape.png "Photo Application in Landscape")
+![Screenshot shows Photo Application Grid in Landscape.](device-orientation-images/photo-grid-landscape.png)
 
 That is accomplished with the following XAML:
 
@@ -467,7 +457,7 @@ Note the following:
 
 ## Related Links
 
-- [Layout (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-layout)
-- [BusinessTumble Example (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-businesstumble)
-- [Responsive Layout (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-responsivelayout)
+- [Layout (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-layout)
+- [BusinessTumble Example (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-businesstumble)
+- [Responsive Layout (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-responsivelayout)
 - [Display an Image based on Screen Orientation](https://github.com/xamarin/recipes/tree/master/Recipes/xamarin-forms/Controls/screen-orientation)

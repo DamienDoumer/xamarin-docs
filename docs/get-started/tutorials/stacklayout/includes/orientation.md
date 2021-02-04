@@ -13,7 +13,7 @@
 
     This code sets the [`Orientation`](xref:Xamarin.Forms.StackLayout.Orientation) property to [`Horizontal`](xref:Xamarin.Forms.StackOrientation.Horizontal).
 
-1. In the Visual Studio toolbar, press the **Start** button (the triangular button that resembles a Play button) to launch the application inside your chosen remote iOS simulator or Android emulator:
+1. If the application is still running, save the changes to the file and the application user interface will automatically be updated in your simulator or emulator. Otherwise, in the Visual Studio toolbar, press the **Start** button (the triangular button that resembles a Play button) to launch the application inside your chosen remote iOS simulator or Android emulator:
 
     [![Screenshot of a horizontally oriented child views in a StackLayout, on iOS and Android](../images/orientation.png "StackLayout containing horizontally oriented Label instances")](../images/orientation-large.png#lightbox "StackLayout containing horizontally oriented Label instances")
 
@@ -34,13 +34,8 @@
 
     This code sets the [`Orientation`](xref:Xamarin.Forms.StackLayout.Orientation) property to [`Horizontal`](xref:Xamarin.Forms.StackOrientation.Horizontal).
 
-1. In the Visual Studio for Mac toolbar, press the **Start** button (the triangular button that resembles a Play button) to launch the application inside your chosen iOS simulator or Android emulator:
+1. If the application is still running, save the changes to the file and the application user interface will automatically be updated in your simulator or emulator. Otherwise, in the Visual Studio for Mac toolbar, press the **Start** button (the triangular button that resembles a Play button) to launch the application inside your chosen iOS simulator or Android emulator:
 
     [![Screenshot of a horizontally oriented child views in a StackLayout, on iOS and Android](../images/orientation.png "StackLayout containing horizontally oriented Label instances")](../images/orientation-large.png#lightbox "StackLayout containing horizontally oriented Label instances")
 
     Note that the [`Label`](xref:Xamarin.Forms.Label) instances within the [`StackLayout`](xref:Xamarin.Forms.StackLayout) are now aligned horizontally, instead of vertically.
-
------
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://github.com/MicrosoftDocs/xamarin-docs/issues/new?title=StackLayout+Tutorial+Step+2+Feedback&template=tutorial_template.md)

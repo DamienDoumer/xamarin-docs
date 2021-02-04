@@ -27,7 +27,7 @@ There are some restrictions to be aware of:
 - CoreNFC can only be tested on real devices (not on the simulator).
 
 This page describes the configuration required to use CoreNFC
-and shows how to use the API using the ["NFCTagReader" sample code](https://docs.microsoft.com/samples/xamarin/ios-samples/ios11-nfctagreader).
+and shows how to use the API using the ["NFCTagReader" sample code](/samples/xamarin/ios-samples/ios11-nfctagreader).
 
 ## Configuration
 
@@ -125,7 +125,7 @@ public void DidInvalidate(NFCNdefReaderSession session, NSError error)
 Once a session has been invalidated, a new session object must
 be created to scan again.
 
-<a name="step2" />
+<a name="step2"></a>
 
 ### 2. Start an `NFCNdefReaderSession`
 
@@ -168,5 +168,5 @@ not support writing or formatting.
 
 ## Related Links
 
-- [NFCTagReader (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/ios11-nfctagreader)
+- [NFCTagReader (sample)](/samples/xamarin/ios-samples/ios11-nfctagreader)
 - [Introducing Core NFC (WWDC) (video)](https://developer.apple.com/videos/play/wwdc2017/718/)

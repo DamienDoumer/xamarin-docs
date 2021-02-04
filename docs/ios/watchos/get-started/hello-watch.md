@@ -18,7 +18,7 @@ After you have created a solution following the steps in
 - The Watch Extension which contains the program code for the watch app; and
 - The Watch App, which holds the storyboard and image resources that are rendered on the watch.
 
-Check that your [references are correct](~/ios/watchos/get-started/project-references.md): that the Parent app has a reference to the Extension, and that the Extension has a reference to the Watch App.
+Check that your [references are correct](~/ios/watchos/get-started/project-references.md): that the Parent app has a reference to the Watch App, and that the Watch App has a reference to the Extension.
 
 Confirm that your Bundle Identifiers follow the \*.watchkitextension \*.watchkitapp convention and that your Extension’s Info.plist file has it's **WKApp Bundle ID** value set to the Bundle Identifier of your Watch App.
 
@@ -26,11 +26,11 @@ You should be able to run your Watch App now, but because the storyboard file wi
 
 # [Visual Studio for Mac](#tab/macos)
 
-![](hello-watch-images/projectstructure.png "The Solution Explorer")
+![The Solution Explorer](hello-watch-images/projectstructure.png)
 
 # [Visual Studio](#tab/windows)
 
-![](hello-watch-images/vs-projectstructure.png "The Solution Explorer")
+![The Solution Explorer](hello-watch-images/vs-projectstructure.png)
 
 -----
 
@@ -45,7 +45,7 @@ Double-click on the Interface.storyboard in your Watch App to
 1. Set the Identifier and Title of the Interface Controller to **interfaceController** and **Hi Watch**,
 1. Verify the **Class** is set to  **InterfaceController**
 
-    ![](hello-watch-images/interfacecontrollerattributes.png "Set the Identifier and Title of the Interface Controller to interfaceController and Hi Watch")
+    ![Set the Identifier and Title of the Interface Controller to interfaceController and Hi Watch](hello-watch-images/interfacecontrollerattributes.png)
 
 # [Visual Studio](#tab/windows)
 
@@ -57,7 +57,7 @@ Double-click on the Interface.storyboard in your Watch App
 1. Click the Interface Controller; and
 1. Set the Identifier and Title of the Interface Controller to **interfaceController** and **Hi Watch**.
 
-    ![](hello-watch-images/vs-interfacecontrollerattributes.png "Set the Identifier and Title of the Interface Controller to interfaceController and Hi Watch")
+    ![Set the Identifier and Title of the Interface Controller to interfaceController and Hi Watch](hello-watch-images/vs-interfacecontrollerattributes.png)
 
 -----
 
@@ -69,11 +69,11 @@ Create your UI:
 
 # [Visual Studio for Mac](#tab/macos)
 
-![](hello-watch-images/draganddrop.png "Set the text and attributes of the controls as shown")
+![Set the text and attributes of the controls as shown](hello-watch-images/draganddrop.png)
 
 # [Visual Studio](#tab/windows)
 
-![](hello-watch-images/vs-draganddrop.png "Set the text and attributes of the controls as shown")
+![Set the text and attributes of the controls as shown](hello-watch-images/vs-draganddrop.png)
 
 -----
 
@@ -87,7 +87,7 @@ Create your UI:
   The action will appear in the list, and a partial method will automatically
   be created in C#.
 
-![](hello-watch-images/buttonaction.png "The OnButtonPress Action added to a button")
+![The OnButtonPress Action added to a button](hello-watch-images/buttonaction.png)
 
 After you save the storyboard, the **InterfaceController.designer.cs**
   gets updated with the control names and actions.. If you open this file after it
@@ -155,15 +155,14 @@ If it is not already the Startup Project,
 
 1. Press the **Debug** button to trigger a build and simulator launch.
 
-    [![](hello-watch-images/readytodebug-sml.png "The Visual Studio interface elements")](hello-watch-images/readytodebug.png#lightbox)
+    [![The Visual Studio interface elements](hello-watch-images/readytodebug-sml.png)](hello-watch-images/readytodebug.png#lightbox)
 
 When the Simulator launches, press the button to increment the label.
   Congratulations, you’ve got yourself a Watch App!
 
-![](hello-watch-images/running.png "The app running in the Simulator")
+![The app running in the Simulator](hello-watch-images/running.png)
 
 ## Related Links
 
-- [Getting Started (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/watchkit-gettingstarted)
 - [Setup and Installation](~/ios/watchos/get-started/installation.md)
 - [First Watch App video](https://blog.xamarin.com/your-first-watch-kit-app/)

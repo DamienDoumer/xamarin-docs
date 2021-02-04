@@ -7,11 +7,12 @@ ms.assetid: F1DA55E4-0182-4388-863C-5C340213BF3C
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/10/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Three Ways to Draw an Arc
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
 
 _Learn how to use SkiaSharp to define arcs in three different ways_
 
@@ -249,7 +250,7 @@ If the two lines meet at any angle, that circle can be inserted between those li
 
 The curve that is added to the contour does not touch either of the points specified in the `ArcTo` method. It consists of a straight line from the current point to the first tangent point, and an arc that ends at the second tangent point, shown here in red:
 
-![The highlighted tangent arc between the two lines](arcs-images/tangentarchighlight.png)
+![Diagram shows the previous diagram annotated with a red line that shows the highlighted tangent arc between the two lines.](arcs-images/tangentarchighlight.png)
 
 Here's the final straight line and arc that is added to the contour:
 
@@ -663,5 +664,5 @@ Although the connections between the arcs and straight lines are mathematically 
 
 ## Related Links
 
-- [SkiaSharp APIs](https://docs.microsoft.com/dotnet/api/skiasharp)
-- [SkiaSharpFormsDemos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+- [SkiaSharp APIs](/dotnet/api/skiasharp)
+- [SkiaSharpFormsDemos (sample)](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)

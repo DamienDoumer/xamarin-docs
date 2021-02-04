@@ -21,7 +21,7 @@ been purchased.
 
 ## Non-Consumable Products Sample
 
-The [InAppPurchaseSample code](https://docs.microsoft.com/samples/xamarin/ios-samples/storekit) contains a project called *NonConsumables*. The code sample
+The [InAppPurchaseSample code](/samples/xamarin/ios-samples/storekit) contains a project called *NonConsumables*. The code sample
 demonstrates how to implement non-consumable products using photo-filters as an
 example. Once you’ve purchased a filter you can apply it to the photo over and
 over again. You never need to re-purchase it.   
@@ -30,7 +30,7 @@ The purchase
 process is shown in this series of screenshots – the **Buy**
 button becomes the feature-activation button:   
 
- [![](purchasing-non-consumable-products-images/image34.png "The purchase process is shown in this series of screenshots")](purchasing-non-consumable-products-images/image34.png#lightbox)   
+ [![The purchase process is shown in this series of screenshots](purchasing-non-consumable-products-images/image34.png)](purchasing-non-consumable-products-images/image34.png#lightbox)   
 
 The purchasing process is the same as a consumable product; the key
 difference is in how the purchase is tracked in the application code. In this
@@ -40,7 +40,7 @@ purchased, otherwise the button activates the feature itself.
 The following diagram shows the interactions between classes and the App Store
 server to perform a non-consumable product purchase:   
 
- [![](purchasing-non-consumable-products-images/image35.png "The interactions between classes and the App Store server to perform a non-consumable product purchase")](purchasing-non-consumable-products-images/image35.png#lightbox)   
+ [![The interactions between classes and the App Store server to perform a non-consumable product purchase](purchasing-non-consumable-products-images/image35.png)](purchasing-non-consumable-products-images/image35.png#lightbox)   
 
 The key difference from the Consumable example is that once the
 purchase is complete the user-interface is updated to prevent re-purchasing. In
@@ -67,4 +67,4 @@ purchase, the only differences are:
 
 - The user does not get charged again for the product.
 - The  `SKPaymentTransaction` object passed to the application will have an  `OriginalTransaction` property that refers to the transaction that was generated when the product was initially purchased. 
-- Applications that sell Non-Consumable products must also implement StoreKit’s  **Restore** feature to help users retrieve existing purchases. 
+- Applications that sell Non-Consumable products must also implement StoreKit’s  **Restore** feature to help users retrieve existing purchases.

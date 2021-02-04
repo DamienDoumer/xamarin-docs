@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/22/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Authenticate a RESTful Web Service
@@ -23,11 +24,11 @@ Basic authentication is the simplest authentication mechanism supported by HTTP,
 
 - If a web service receives a request for a protected resource, it rejects the request with an HTTP status code 401 (access denied) and sets the WWW-Authenticate response header, as shown in the following diagram:
 
-![](rest-images/basic-authentication-fail.png "Basic Authentication Failing")
+![Basic Authentication Failing](rest-images/basic-authentication-fail.png)
 
 - If a web service receives a request for a protected resource, with the `Authorization` header correctly set, the web service responds with an HTTP status code 200, which indicates that the request succeeded and that the requested information is in the response. This scenario is shown in the following diagram:
 
-![](rest-images/basic-authentication-success.png "Basic Authentication Succeeding")
+![Basic Authentication Succeeding](rest-images/basic-authentication-success.png)
 
 > [!NOTE]
 > Basic authentication should only be used over an HTTPS connection. When used over an HTTP connection, the `Authorization` header can easily be decoded if the HTTP traffic is captured by an attacker.
@@ -67,8 +68,8 @@ public class RestService : IRestService
 
 Then when a request is made to a web service operation the request is signed with the `Authorization` header, indicating whether or not the user has permission to invoke the operation.
 
-> [!NOTE]
-> While this code stores credentials as constants, they should not be stored in an insecure format in a published application. The [Xamarith.Auth](https://www.nuget.org/packages/Xamarin.Auth/) NuGet provides functionality for securely storing credentials. For more information see [Storing and retrieving account information on devices](~/xamarin-forms/data-cloud/authentication/oauth.md).
+> [!IMPORTANT]
+> While this code stores credentials as constants, they should not be stored in an insecure format in a published application.
 
 ## Processing the Authorization Header Server Side
 
@@ -82,4 +83,4 @@ In the basic authentication module used by IIS, users are authenticated against 
 ## Related Links
 
 - [Consume a RESTful web service](~/xamarin-forms/data-cloud/web-services/rest.md)
-- [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
+- [HttpClient](/dotnet/api/system.net.http.httpclient)

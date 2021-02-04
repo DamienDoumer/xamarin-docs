@@ -6,12 +6,13 @@ ms.assetid: B540910C-9C51-416A-AAB9-057BF76489C3
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 01/22/2018
+ms.date: 02/03/2021
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Consume a RESTful Web Service
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-todorest)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/webservices-todorest)
 
 _Integrating a web service into an application is a common scenario. This article demonstrates how to consume a RESTful web service from a Xamarin.Forms application._
 
@@ -35,7 +36,7 @@ The simplicity of REST has helped make it the primary method for accessing web s
 
 When the sample application is run, it will connect to a locally hosted REST service, as shown in the following screenshot:
 
-![](rest-images/portal.png "Sample Application")
+![Sample Application](rest-images/portal.png)
 
 > [!NOTE]
 > In iOS 9 and greater, App Transport Security (ATS) enforces secure connections between internet resources (such as the app's back-end server) and the app, thereby preventing accidental disclosure of sensitive information. Since ATS is enabled by default in apps built for iOS 9, all connections will be subject to ATS security requirements. If connections do not meet these requirements, they will fail with an exception.
@@ -84,12 +85,12 @@ The `HttpClient` instance is declared at the class-level so that the object live
 ```csharp
 public class RestService : IRestService
 {
-  HttpClient _client;
+  HttpClient client;
   ...
 
   public RestService ()
   {
-    _client = new HttpClient ();
+    client = new HttpClient ();
   }
   ...
 }
@@ -103,12 +104,12 @@ The `HttpClient.GetAsync` method is used to send the GET request to the web serv
 public async Task<List<TodoItem>> RefreshDataAsync ()
 {
   ...
-  var uri = new Uri (string.Format (Constants.TodoItemsUrl, string.Empty));
+  Uri uri = new Uri (string.Format (Constants.TodoItemsUrl, string.Empty));
   ...
-  var response = await _client.GetAsync (uri);
+  HttpResponseMessage response = await client.GetAsync (uri);
   if (response.IsSuccessStatusCode)
   {
-      var content = await response.Content.ReadAsStringAsync ();
+      string content = await response.Content.ReadAsStringAsync ();
       Items = JsonConvert.DeserializeObject <List<TodoItem>> (content);
   }
   ...
@@ -119,6 +120,9 @@ The REST service sends an HTTP status code in the `HttpResponseMessage.IsSuccess
 
 If the HTTP operation was successful, the content of the response is read, for display. The `HttpResponseMessage.Content` property represents the content of the HTTP response, and the `HttpContent.ReadAsStringAsync` method asynchronously writes the HTTP content to a string. This content is then converted from JSON to a `List` of `TodoItem` instances.
 
+> [!WARNING]
+> Using the `ReadAsStringAsync` method to retrieve a large response can have a negative performance impact. In such circumstances the response should be directly deserialized to avoid having to fully buffer it.
+
 ### Creating Data
 
 The `HttpClient.PostAsync` method is used to send the POST request to the web service specified by the URI, and then to receive the response from the web service, as shown in the following code example:
@@ -126,23 +130,22 @@ The `HttpClient.PostAsync` method is used to send the POST request to the web se
 ```csharp
 public async Task SaveTodoItemAsync (TodoItem item, bool isNewItem = false)
 {
-  var uri = new Uri (string.Format (Constants.TodoItemsUrl, string.Empty));
+  Uri uri = new Uri (string.Format (Constants.TodoItemsUrl, string.Empty));
 
   ...
-  var json = JsonConvert.SerializeObject (item);
-  var content = new StringContent (json, Encoding.UTF8, "application/json");
+  string json = JsonConvert.SerializeObject (item);
+  StringContent content = new StringContent (json, Encoding.UTF8, "application/json");
 
   HttpResponseMessage response = null;
   if (isNewItem)
   {
-    response = await _client.PostAsync (uri, content);
+    response = await client.PostAsync (uri, content);
   }
   ...
 
   if (response.IsSuccessStatusCode)
   {
     Debug.WriteLine (@"\tTodoItem successfully saved.");
-
   }
   ...
 }
@@ -164,7 +167,7 @@ The `HttpClient.PutAsync` method is used to send the PUT request to the web serv
 public async Task SaveTodoItemAsync (TodoItem item, bool isNewItem = false)
 {
   ...
-  response = await _client.PutAsync (uri, content);
+  response = await client.PutAsync (uri, content);
   ...
 }
 ```
@@ -184,9 +187,9 @@ The `HttpClient.DeleteAsync` method is used to send the DELETE request to the we
 ```csharp
 public async Task DeleteTodoItemAsync (string id)
 {
-  var uri = new Uri (string.Format (Constants.TodoItemsUrl, id));
+  Uri uri = new Uri (string.Format (Constants.TodoItemsUrl, id));
   ...
-  var response = await _client.DeleteAsync (uri);
+  HttpResponseMessage response = await client.DeleteAsync (uri);
   if (response.IsSuccessStatusCode)
   {
     Debug.WriteLine (@"\tTodoItem successfully deleted.");
@@ -201,8 +204,17 @@ The REST service sends an HTTP status code in the `HttpResponseMessage.IsSuccess
 - **400 (BAD REQUEST)** – the request is not understood by the server.
 - **404 (NOT FOUND)** – the requested resource does not exist on the server.
 
+### Local Development
+
+If you are developing your REST web service locally with a framework such as ASP.NET Core Web API, you can debug your web service and mobile app at the same time. In this scenario you must enable clear-text HTTP traffic for the iOS simualtor and Android emulator. For information about configuration your project to allow communication, see [Connect to local web services](~/cross-platform/deploy-test/connect-to-local-web-services.md).
+
 ## Related Links
 
+- [Microsoft Learn: Consume REST web services in Xamarin Apps](/learn/modules/consume-rest-services/)
+- [Microsoft Learn: Create a web API with ASP.NET Core](/learn/modules/build-web-api-aspnet-core/)
 - [Creating Backend Services for Native Mobile Applications](/aspnet/core/mobile/native-mobile-backend/)
-- [TodoREST (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-todorest)
-- [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
+- [TodoREST (sample)](/samples/xamarin/xamarin-forms-samples/webservices-todorest)
+- [HttpClient API](xref:System.Net.Http.HttpClient)
+- [Android Network Security Configuration](https://devblogs.microsoft.com/xamarin/cleartext-http-android-network-security/)
+- [iOS App Transport Security](~/ios/app-fundamentals/ats.md)
+- [Connect to local web services](~/cross-platform/deploy-test/connect-to-local-web-services.md)

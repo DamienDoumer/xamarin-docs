@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: profexorgeek
 ms.author: jusjohns
 ms.date: 11/25/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Material Visual
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-visualdemos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-visualdemos)
 
 [Material Design](https://material.io) is an opinionated design system created by Google, that prescribes the size, color, spacing, and other aspects of how views and layouts should look and behave.
 
@@ -33,7 +34,7 @@ Material Visual currently supports the following controls:
 
 - [`ActivityIndicator`](xref:Xamarin.Forms.ActivityIndicator)
 - [`Button`](xref:Xamarin.Forms.Button)
-- `CheckBox`
+- [`CheckBox`](xref:Xamarin.Forms.CheckBox)
 - [`DatePicker`](xref:Xamarin.Forms.DatePicker)
 - [`Editor`](xref:Xamarin.Forms.Editor)
 - [`Entry`](xref:Xamarin.Forms.Entry)
@@ -149,7 +150,7 @@ For more information about custom renderers, see [Custom Renderers](~/xamarin-fo
 
 ## Related links
 
-- [Material Visual (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-visualdemos)
+- [Material Visual (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-visualdemos)
 - [Create a Xamarin.Forms Visual Renderer](create.md)
 - [Xamarin.Forms Effects](~/xamarin-forms/app-fundamentals/effects/index.md)
 - [Custom Renderers](~/xamarin-forms/app-fundamentals/custom-renderer/index.md)

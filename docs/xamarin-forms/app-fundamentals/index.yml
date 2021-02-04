@@ -12,6 +12,7 @@ metadata:
   author: davidbritch
   ms.author: dabritch
   ms.date: 12/30/2019
+  no-loc: [Xamarin.Forms, Xamarin.Essentials]
 
 landingContent:
   - title: Core concepts
@@ -60,6 +61,8 @@ landingContent:
             url: accessibility/index.md
           - text: Application indexing and deep linking
             url: deep-linking.md
+          - text: Dual-screen
+            url: dual-screen/index.md
           - text: Local notifications
             url: local-notifications.md
           - text: Localization

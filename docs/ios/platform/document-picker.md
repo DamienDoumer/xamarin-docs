@@ -11,7 +11,7 @@ ms.date: 06/05/2017
 
 # Document Picker in Xamarin.iOS
 
-The Document Picker allows documents to be shared between apps. These documents may be stored in iCloud or in a different app’s directory. Documents are shared via the set of [Document Provider Extensions](~/ios/platform/extensions.md) the user has installed on their device. 
+The Document Picker allows documents to be shared between apps. These documents may be stored in iCloud or in a different app’s directory. Documents are shared via the set of [Document Provider Extensions](~/ios/platform/extensions.md) the user has installed on their device.
 
 Because of the difficulty of keeping documents synchronized across apps and the cloud, they introduce a certain amount of necessary complexity.
 
@@ -34,8 +34,8 @@ To implement the new features of the Document Picker, the following changes have
 - iOS devices can access the contents of the Mac OS iCloud folder.
 
 > [!IMPORTANT]
-> Apple [provides tools](https://developer.apple.com/support/allowing-users-to-manage-data/) 
-> to help developers properly handle the European Union's General Data 
+> Apple [provides tools](https://developer.apple.com/support/allowing-users-to-manage-data/)
+> to help developers properly handle the European Union's General Data
 > Protection Regulation (GDPR).
 
 ## What is a Document?
@@ -52,7 +52,7 @@ Before diving into the code required to use the Document Picker with Xamarin, th
 
 Because a file can be modified from several different locations, coordination must be used to prevent data loss.
 
- [![](document-picker-images/image1.png "Using File Coordination")](document-picker-images/image1.png#lightbox)
+ [![Using File Coordination](document-picker-images/image1.png)](document-picker-images/image1.png#lightbox)
 
 Let's take a look at the above illustration:
 
@@ -191,7 +191,7 @@ The way to discover and list Documents is by using the existing `NSMetadataQuery
 
 Prior to iOS 8, `NSMetadataQuery` was slow to pickup local file changes such as: deletes, creates and renames.
 
- [![](document-picker-images/image2.png "NSMetadataQuery local file changes overview")](document-picker-images/image2.png#lightbox)
+ [![NSMetadataQuery local file changes overview](document-picker-images/image2.png)](document-picker-images/image2.png#lightbox)
 
 In the above diagram:
 
@@ -205,7 +205,7 @@ Because of the delay in the creation of the `NSMetadata` record, the application
 
 In iOS 8, `NSMetadataQuery` is easier to use directly with a new feature called Stitching:
 
- [![](document-picker-images/image3.png "NSMetadataQuery with a new feature called Stitching")](document-picker-images/image3.png#lightbox)
+ [![NSMetadataQuery with a new feature called Stitching](document-picker-images/image3.png)](document-picker-images/image3.png#lightbox)
 
 Using Stitching in the above diagram:
 
@@ -224,14 +224,14 @@ By using Stitching the application no longer has to open a data source to monito
 The following new features have been added to `NSMetadataQuery` in iOS 8:
 
 - `NSMetatadataQuery` can now list non-local documents stored in the cloud.
-- New APIs have been added to access metadata information on the cloud-based documents. 
+- New APIs have been added to access metadata information on the cloud-based documents.
 - There is a new  `NSUrl_PromisedItems` API that will to access the file attributes of files that may or may not have their content available locally.
 - Use the  `GetPromisedItemResourceValue` method to get information about a given file or use the  `GetPromisedItemResourceValues` method to get information on more than one file at a time.
 
 Two new file coordination flags have been added for dealing with metadata:
 
-- `NSFileCoordinatorReadImmediatelyAvailableMetadataOnly` 
-- `NSFileCoordinatorWriteContentIndependentMetadataOnly` 
+- `NSFileCoordinatorReadImmediatelyAvailableMetadataOnly`
+- `NSFileCoordinatorWriteContentIndependentMetadataOnly`
 
 With the above flags, the contents of the Document file do not need to be available locally for them to be used.
 
@@ -248,7 +248,7 @@ using ObjCRuntime;
 using System.IO;
 
 #region Static Properties
-public const string TestFilename = "test.txt"; 
+public const string TestFilename = "test.txt";
 #endregion
 
 #region Computed Properties
@@ -358,7 +358,7 @@ public void CreateNewDocument() {
     var docPath = Path.Combine (docsFolder, TestFilename);
     var ubiq = new NSUrl (docPath, false);
 
-    // Create new document at path 
+    // Create new document at path
     Console.WriteLine ("Creating Document at:" + ubiq.AbsoluteString);
     Document = new GenericTextDocument (ubiq);
 
@@ -418,7 +418,7 @@ Apple feels that the best user experience when listing documents for an applicat
 
 Prior to iOS 8, showing document previews required a custom implementation. New to iOS 8 are file system attributes that allow the developer to quickly work with Document Thumbnails.
 
-#### Retrieving Document Thumbnails 
+#### Retrieving Document Thumbnails
 
 By calling the `GetPromisedItemResourceValue` or `GetPromisedItemResourceValues` methods, `NSUrl_PromisedItems` API, a `NSUrlThumbnailDictionary`, is returned. The only key currently in this dictionary is the `NSThumbnial1024X1024SizeKey` and its matching `UIImage`.
 
@@ -430,7 +430,7 @@ With the basics of working with iCloud based Documents in place, along with the 
 
 ## Enabling iCloud in Xamarin
 
-Before the Document Picker can be used in a Xamarin.iOS Application, iCloud support needs to be enabled both in your application and via Apple. 
+Before the Document Picker can be used in a Xamarin.iOS Application, iCloud support needs to be enabled both in your application and via Apple.
 
 The following steps walkthrough the process of provisioning for iCloud.
 
@@ -446,7 +446,7 @@ Do the following:
 
 1. Open the project in Visual Studio for Mac or Visual Studio.
 2. In the **Solution Explorer**, right-click the project and select Options.
-3. In the Options Dialog Box select **iOS Application**, ensure that the **Bundle Identifier** matches the one that was defined in **App ID** created above for the application. 
+3. In the Options Dialog Box select **iOS Application**, ensure that the **Bundle Identifier** matches the one that was defined in **App ID** created above for the application.
 4. Select **iOS Bundle Signing**, select the **Developer Identity** and the **Provisioning Profile** created above.
 5. Click the **OK** button to save the changes and close the dialog box.
 6. Right-click on `Entitlements.plist` in the **Solution Explorer** to open it in the editor.
@@ -483,7 +483,7 @@ namespace DocPicker
     public partial class AppDelegate : UIApplicationDelegate
     {
         #region Static Properties
-        public const string TestFilename = "test.txt"; 
+        public const string TestFilename = "test.txt";
         #endregion
 
         #region Computed Properties
@@ -596,7 +596,7 @@ namespace DocPicker
             var docPath = Path.Combine (docsFolder, TestFilename);
             var ubiq = new NSUrl (docPath, false);
 
-            // Create new document at path 
+            // Create new document at path
             Console.WriteLine ("Creating Document at:" + ubiq.AbsoluteString);
             Document = new GenericTextDocument (ubiq);
 
@@ -686,15 +686,15 @@ namespace DocPicker
                 CheckingForiCloud = false;
 
             })).Start();
-                
+
         }
-        
+
         // This method is invoked when the application is about to move from active to inactive state.
         // OpenGL applications should use this method to pause.
         public override void OnResignActivation (UIApplication application)
         {
         }
-        
+
         // This method should be used to release shared resources and it should store the application state.
         // If your application supports background execution this method is called instead of WillTerminate
         // when the user quits.
@@ -726,7 +726,7 @@ namespace DocPicker
                 Console.WriteLine ("Error: {0}", e.Message);
             }
         }
-        
+
         // This method is called as part of the transition from background to active state.
         public override void WillEnterForeground (UIApplication application)
         {
@@ -755,7 +755,7 @@ namespace DocPicker
             }
 
         }
-        
+
         // This method is called when the application is about to terminate. Save data, if needed.
         public override void WillTerminate (UIApplication application)
         {
@@ -810,7 +810,7 @@ Prior to iOS 8, it was very difficult to access Documents from another applicati
 
 ### Existing Behavior
 
- [![](document-picker-images/image31.png "Existing Behavior overview")](document-picker-images/image31.png#lightbox)
+ [![Existing Behavior overview](document-picker-images/image31.png)](document-picker-images/image31.png#lightbox)
 
 Let's take a look at accessing an external document prior to iOS 8:
 
@@ -824,7 +824,7 @@ From there the Document is available for the second application to open and edit
 
 In iOS 8, an application is able to access Documents outside of its own Application Container with ease:
 
- [![](document-picker-images/image32.png "Discovering Documents Outside of an App's Container")](document-picker-images/image32.png#lightbox)
+ [![Discovering Documents Outside of an App's Container](document-picker-images/image32.png)](document-picker-images/image32.png#lightbox)
 
 Using the new iCloud Document Picker ( `UIDocumentPickerViewController`), an iOS application can directly discover and access outside of its Application Container. The `UIDocumentPickerViewController` provides a mechanism for the user to grant access to and edit those discovered Documents via permissions.
 
@@ -895,16 +895,16 @@ Here is an example of how the code above would display a Document Picker when ru
 
 1. The user starts the application and the main interface is displayed:   
 
-    [![](document-picker-images/image33.png "The main interface is displayed")](document-picker-images/image33.png#lightbox)
+    [![The main interface is displayed](document-picker-images/image33.png)](document-picker-images/image33.png#lightbox)
 1. The user taps the **Action** Button at the top of the screen and is asked to select a **Document Provider** from the list of available providers:   
 
-    [![](document-picker-images/image34.png "Select a Document Provider from the list of available providers")](document-picker-images/image34.png#lightbox)
+    [![Select a Document Provider from the list of available providers](document-picker-images/image34.png)](document-picker-images/image34.png#lightbox)
 1. The **Document Picker View Controller** is displayed for the selected **Document Provider**:   
 
-    [![](document-picker-images/image35.png "The Document Picker View Controller is displayed")](document-picker-images/image35.png#lightbox)
+    [![The Document Picker View Controller is displayed](document-picker-images/image35.png)](document-picker-images/image35.png#lightbox)
 1. The user taps on a **Document Folder** to display its contents:   
 
-    [![](document-picker-images/image36.png "The Document Folder contents")](document-picker-images/image36.png#lightbox)
+    [![The Document Folder contents](document-picker-images/image36.png)](document-picker-images/image36.png#lightbox)
 1. The user selects a **Document** and the **Document Picker** is closed.
 1. The main interface is redisplayed, the **Document** is loaded from the external Container and its contents displayed.
 
@@ -914,7 +914,7 @@ The actual display of the Document Picker View Controller depends on the Documen
 
 As discussed above, prior to iOS 8, an application could only access documents that were a part of its Application Container. In iOS 8 an application can access Documents from external sources:
 
- [![](document-picker-images/image37.png "Managing External Documents overview")](document-picker-images/image37.png#lightbox)
+ [![Managing External Documents overview](document-picker-images/image37.png)](document-picker-images/image37.png#lightbox)
 
 When the user selects a Document from an external source, a Reference Document is written to the Application Container that points to the original Document.
 
@@ -1005,10 +1005,10 @@ The Document Picker View Controller features two different modes of operation:
 
 1. **Open Mode** – In this mode, when the user selects and external Document, the Document Picker will create a Security Scoped Bookmark in the Application Container.   
 
-    [![](document-picker-images/image37.png "A Security Scoped Bookmark in the Application Container")](document-picker-images/image37.png#lightbox)
+    [![A Security Scoped Bookmark in the Application Container](document-picker-images/image37.png)](document-picker-images/image37.png#lightbox)
 1. **Import Mode** – In this mode, when the user selects and external Document, the Document Picker will not create a Bookmark, but instead, copy the file into a Temporary Location and provide the application access to the Document at this location:   
 
-    [![](document-picker-images/image38.png "The Document Picker will copy the file into a Temporary Location and provide the application access to the Document at this location")](document-picker-images/image38.png#lightbox)   
+    [![The Document Picker will copy the file into a Temporary Location and provide the application access to the Document at this location](document-picker-images/image38.png)](document-picker-images/image38.png#lightbox)   
  Once the application terminates for any reason, the Temporary Location is emptied and the file removed. If the application needs to maintain access to the file, it should make a copy and place it in its Application Container.
 
 The Open Mode is useful when the application wishes to collaborate with another application and share any changes made to the document with that application. The Import Mode is used when the application does not want to share its modifications to a Document with other applications.
@@ -1021,7 +1021,7 @@ To move a Document to an external location, do the following:
 
 1. First create a new Document in a local or temporary location.
 1. Create a  `NSUrl` that points to the new Document.
-1. Open a new Document Picker View Controller and pass it the  `NSUrl` with the Mode of `MoveToService` . 
+1. Open a new Document Picker View Controller and pass it the  `NSUrl` with the Mode of `MoveToService` .
 1. Once the user chooses a new location, the Document will be moved from its current location to the new location.
 1. A Reference Document will be written to the app's Application Container so that the file can still be accessed by the creating application.
 
@@ -1050,7 +1050,7 @@ This is implemented using two different extensions:
 
 The following diagram shows the typical data flow when working with Document Provider Extensions:
 
- [![](document-picker-images/image39.png "This diagram shows the typical data flow when working with Document Provider Extensions")](document-picker-images/image39.png#lightbox)
+ [![This diagram shows the typical data flow when working with Document Provider Extensions](document-picker-images/image39.png)](document-picker-images/image39.png#lightbox)
 
 The following process occurs:
 
@@ -1075,12 +1075,12 @@ For security purposes, iOS 8 has an Isolation Layer that persists the informatio
 
 The following diagram shows the data flow when working with Bookmarks and a Document Provider Extension:
 
- [![](document-picker-images/image40.png "This diagram shows the data flow when working with Bookmarks and a Document Provider Extension")](document-picker-images/image40.png#lightbox)
+ [![This diagram shows the data flow when working with Bookmarks and a Document Provider Extension](document-picker-images/image40.png)](document-picker-images/image40.png#lightbox)
 
 The following process occurs:
 
 1. The application is about to enter the background and needs to persist its state. It calls `NSUrl` to create a bookmark to a file in alternative storage.
-1. `NSUrl` calls the File Provider Extension to get a persistent URL to the Document. 
+1. `NSUrl` calls the File Provider Extension to get a persistent URL to the Document.
 1. The File Provider Extension returns the URL as a string to the `NSUrl` .
 1. The `NSUrl` bundles the URL into a Bookmark and returns it to the application.
 1. When the Application awakes from being in the background and needs to restore state, it passes the Bookmark to `NSUrl` .
@@ -1113,7 +1113,7 @@ On Mac OS X Yosemite, Apple does not provide the backwards compatibility so all 
 After a user's account has been migrated to iCloud Drive, only devices using iCloud Drive will be able to propagate changes to Documents across those devices.
 
 > [!IMPORTANT]
-> Developers should be aware that the new features covered in this article are only available if the user's account has been migrated to iCloud Drive. 
+> Developers should be aware that the new features covered in this article are only available if the user's account has been migrated to iCloud Drive.
 
 ## Summary
 
@@ -1123,6 +1123,6 @@ In addition, this article briefly covered Document Provider Extensions and why t
 
 ## Related Links
 
-- [DocPicker (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/ios8-docpicker)
+- [DocPicker (sample)](/samples/xamarin/ios-samples/ios8-docpicker)
 - [Introduction to iOS 8](~/ios/platform/introduction-to-ios8.md)
 - [Introduction to App Extensions](~/ios/platform/extensions.md)

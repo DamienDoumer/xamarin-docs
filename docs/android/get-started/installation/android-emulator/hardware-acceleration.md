@@ -5,9 +5,9 @@ zone_pivot_groups: platform
 ms.prod: xamarin
 ms.assetid: 915874C3-2F0F-4D83-9C39-ED6B90BB2C8E
 ms.technology: xamarin-android
-author: davidortinau
-ms.author: daortin
-ms.date: 08/27/2018
+author: jondouglas
+ms.author: jodou
+ms.date: 02/13/2020
 ---
 
 # Hardware acceleration for emulator performance (Hyper-V & HAXM)
@@ -40,16 +40,16 @@ The following virtualization technologies are available for
 accelerating the Android emulator:
 
 1. **Microsoft's Hyper-V and the Windows Hypervisor Platform (WHPX)**.
-   [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/)
+   [Hyper-V](/virtualization/hyper-v-on-windows/)
    is a virtualization feature of Windows that makes it possible to run
    virtualized computer systems on a physical host computer.
 
 2. **Intel's Hardware Accelerated Execution Manager (HAXM)**.
    HAXM is a virtualization engine for computers running Intel CPUs.
 
-For the best experience on Windows, it is recommended that you use HAXM to
-accelerate the Android emulator. If HAXM is not available on your
-computer, then Windows Hypervisor Platform (WHPX) can be used. The Android emulator will
+For the best experience on Windows, it is recommended that you use WHPX to
+accelerate the Android emulator. If WHPX is not available on your
+computer, then HAXM can be used. The Android emulator will
 automatically make use of hardware acceleration if the following
 criteria are met:
 
@@ -61,14 +61,14 @@ criteria are met:
 
 > [!IMPORTANT]
 > You can't run a VM-accelerated emulator inside another VM, such as
-> a VM hosted by VirtualBox, VMWare, or Docker. You must run the Android
+> a VM hosted by VirtualBox, VMware, or Docker. You must run the Android
 > emulator [directly on your system hardware](https://developer.android.com/studio/run/emulator-acceleration.html#extensions).
 
 For information about launching and debugging with the Android
 emulator, see
 [Debugging on the Android Emulator](~/android/deploy-test/debugging/debug-on-emulator.md).
 
-<a name="hyper-v-win" />
+<a name="hyper-v-win"></a>
 
 ## Accelerating with Hyper-V
 
@@ -129,6 +129,12 @@ to accelerate the Android emulator with Hyper-V:
     [![Enabling Hyper-V and Windows Hypervisor Platform](hardware-acceleration-images/win/03-hyper-v-settings-w158-sml.png)](hardware-acceleration-images/win/03-hyper-v-settings-w158.png#lightbox)
 
    After making these changes, reboot your computer.
+   
+> [!IMPORTANT]
+>
+> On Windows 10 October 2018 Update (RS5) and higher, you
+> only need to enable Hyper-V, as it will use
+> Windows Hypervisor Platform (WHPX) automatically.
 
 2. **Install [Visual Studio 15.8 or later](https://visualstudio.microsoft.com/vs/)**
    (this version of Visual Studio provides IDE support for
@@ -147,10 +153,12 @@ When you create a virtual device (see
 be sure to select an **x86**-based system image. If you use an ARM-based system image,
 the virtual device will not be accelerated and will run slowly.
 
+Hyper-V should now be enabled and you can run your accelerated Android emulator.
+
 ## Accelerating with HAXM
 
-Use HAXM to accelerate the Android emulator if your computer
-does not support Hyper-V. You must
+If your computer
+does not support Hyper-V, you may use HAXM to accelerate the Android emulator. You must
 [disable Device Guard](~/android/get-started/installation/android-emulator/troubleshooting.md?tabs=vswin#disable-devguard)
 if you want to use HAXM.
 
@@ -179,16 +187,16 @@ following steps:
 If your computer can support HAXM but HAXM is not installed, use the
 steps in the next section to install HAXM.
 
-<a name="install-haxm-win" />
+<a name="install-haxm-win"></a>
 
 ### Installing HAXM
 
 HAXM install packages for Windows are available from the
-[Intel Hardware Accelerated Execution Manager](https://software.intel.com/android/articles/intel-hardware-accelerated-execution-manager)
+[Intel Hardware Accelerated Execution Manager](https://github.com/intel/haxm/releases) GitHub releases
 page. Use the following steps to download and install HAXM:
 
 1. From the Intel website, download the latest
-   [HAXM virtualization engine](https://software.intel.com/android/articles/intel-hardware-accelerated-execution-manager/)
+   [HAXM virtualization engine](https://github.com/intel/haxm/releases)
    installer for Windows. The advantage of downloading the HAXM
    installer directly from the Intel website is that you can be assured
    of using the latest version.
@@ -242,7 +250,7 @@ if the following criteria are met:
 > [!IMPORTANT]
 >
 > You can't run a  VM-accelerated emulator inside another VM,
-> such as a VM  hosted by VirtualBox, VMWare, or Docker. You
+> such as a VM  hosted by VirtualBox, VMware, or Docker. You
 > must run the Android emulator
 > [directly on your system hardware](https://developer.android.com/studio/run/emulator-acceleration.html#extensions).
 
@@ -250,7 +258,7 @@ For information about launching and debugging with the Android
 emulator, see
 [Debugging on the Android Emulator](~/android/deploy-test/debugging/debug-on-emulator.md).
 
-<a name="hypervisor" />
+<a name="hypervisor"></a>
 
 ## Accelerating with the Hypervisor Framework
 
@@ -270,7 +278,7 @@ guide for ways to verify that your Mac supports Hypervisor.
 If the Hypervisor Framework is not supported by your Mac, you can use
 HAXM to accelerate the Android emulator (described next).
 
-<a name="haxm-mac" />
+<a name="haxm-mac"></a>
 
 ## Accelerating with HAXM
 
@@ -317,7 +325,7 @@ the following steps:
 If HAXM is not installed, use the steps in the next section to
 install HAXM.
 
-<a name="install-haxm-mac" />
+<a name="install-haxm-mac"></a>
 
 ### Installing HAXM
 

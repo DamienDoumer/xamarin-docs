@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/24/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # VisualElement Access Keys on Windows
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
 
 Access keys are keyboard shortcuts that improve the usability and accessibility of apps on the Universal Windows Platform (UWP) by providing an intuitive way for users to quickly navigate and interact with the app's visible UI through a keyboard instead of via touch or a mouse. They are combinations of the Alt key and one or more alphanumeric keys, typically pressed sequentially. Keyboard shortcuts are automatically supported for access keys that use a single alphanumeric character.
 
@@ -95,10 +96,13 @@ The result is that access key tips can be displayed next to any [`VisualElement`
 
 When a user activates an access key, by pressing the Alt key followed by the access key, the default action for the `VisualElement` will be executed. For example, when a user activates the access key on a [`Switch`](xref:Xamarin.Forms.Switch), the `Switch` is toggled. When a user activates the access key on an [`Entry`](xref:Xamarin.Forms.Entry), the `Entry` gains focus. When a user activates the access key on a [`Button`](xref:Xamarin.Forms.Button), the event handler for the [`Clicked`](xref:Xamarin.Forms.Button.Clicked) event is executed.
 
-For more information about access keys, see [Access keys](/windows/uwp/design/input/access-keys#key-tip-positioning).
+> [!WARNING]
+> By default, when a modal dialog is displayed any access keys that are defined on the page behind the dialog can still be activated. However, custom logic can be written to disable access keys in this scenario. This can be achieved by handling the `Dispatcher.AcceleratorKeyActivated` event in the `MainPage` class of your UWP project, and in the event handler setting the `Handled` property of the event arguments to `true` when a modal dialog is displayed.
+
+For more information about access keys, see [Access keys](/windows/uwp/design/input/access-keys).
 
 ## Related links
 
-- [PlatformSpecifics (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
+- [PlatformSpecifics (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
 - [Creating Platform-Specifics](~/xamarin-forms/platform/platform-specifics/index.md#creating-platform-specifics)
 - [WindowsSpecific API](xref:Xamarin.Forms.PlatformConfiguration.WindowsSpecific)

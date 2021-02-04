@@ -28,7 +28,7 @@ linker by default.
 As the linker is a static tool, it can not mark for inclusion types and
 methods that are called through reflection, or dynamically instantiated. Several options exists to workaround this limitation.
 
-<a name="Linker_Behavior" />
+<a name="Linker_Behavior"></a>
 
 ## Linker Behavior
 
@@ -39,7 +39,7 @@ dropdown in **Project Options**. To access
 this double-click on the iOS project and browse to **iOS Build > Linker Options**, as illustrated
 below:
 
-[![](linker-images/image1.png "Linker Options")](linker-images/image1.png#lightbox)
+[![Linker Options](linker-images/image1.png)](linker-images/image1.png#lightbox)
 
 # [Visual Studio](#tab/windows)
 
@@ -49,10 +49,10 @@ Do the following:
 
 1. Right-click on the **Project Name** in the **Solution Explorer** and select **Properties**:
 
-    ![](linker-images/linking01w.png "Right-click on the Project Name in the Solution Explorer and select Properties")
+    ![Right-click on the Project Name in the Solution Explorer and select Properties](linker-images/linking01w.png)
 2. In the **Project Properties**, select **IOS Build**:
 
-    ![](linker-images/linking02w.png "Select IOS Build")
+    ![Select IOS Build](linker-images/linking02w.png)
 3. Follow the instructions below to change the linking options.
 
 -----
@@ -71,7 +71,7 @@ please submit a [bug report](https://github.com/xamarin/xamarin-macios/issues/ne
 This corresponds to the *-nolink* option when using the command-line
 tool mtouch.
 
-<a name="Link_SDK_assemblies_only" />
+<a name="Link_SDK_assemblies_only"></a>
 
 ### Link SDK assemblies only
 
@@ -89,7 +89,7 @@ size.
 This correspond to the *-linksdk* option when using the command-line
 tool mtouch.
 
-<a name="Link_all_assemblies" />
+<a name="Link_all_assemblies"></a>
 
 ### Link all assemblies
 
@@ -103,7 +103,7 @@ might be required in your application to link everything.
 This correspond to the *-linkall* option when using the command-line
 tool **mtouch**.
 
-<a name="Controlling_the_Linker" />
+<a name="Controlling_the_Linker"></a>
 
 ## Controlling the Linker
 
@@ -112,7 +112,7 @@ have called dynamically, even indirectly. To cover those cases the linker
 provides a few features and options to allow you greater control on its
 actions.
 
-<a name="Preserving_Code" />
+<a name="Preserving_Code"></a>
 
 ### Preserving Code
 
@@ -156,7 +156,7 @@ public sealed class PreserveAttribute : System.Attribute {
 It does not really matter in which namespace this is defined, the
 linker looks this attribute by type name.
 
- <a name="Skipping_Assemblies" />
+ <a name="Skipping_Assemblies"></a>
 
 ### Skipping Assemblies
 
@@ -185,7 +185,7 @@ Visual Studio for Mac Project Options dialog or the Visual Studio project Proper
 field. (E.g. *--linkskip=mscorlib* would not link mscorlib.dll but would link
 other assemblies in the solution).
 
-<a name="Disabling_Link_Away" />
+<a name="Disabling_Link_Away"></a>
 
 ### Disabling "Link Away"
 

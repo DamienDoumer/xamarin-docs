@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 06/27/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Web Service Authentication
@@ -14,10 +15,6 @@ ms.date: 06/27/2019
 ## [Authenticate a RESTful Web Service](rest.md)
 
 HTTP supports the use of several authentication mechanisms to control access to resources. Basic authentication provides access to resources to only those clients that have the correct credentials. This article explains how to use basic authentication to protect access to RESTful web service resources.
-
-## [Authenticate Users with an Identity Provider](oauth.md)
-
-Xamarin.Auth is a cross-platform SDK for authenticating users and storing their accounts. It includes OAuth authenticators that provide support for consuming identity providers such as Google, Microsoft, Facebook, and Twitter. This article explains how to use Xamarin.Auth to manage the authentication process in a Xamarin.Forms application.
 
 ## [Authenticate Users with Azure Active Directory B2C](azure-ad-b2c.md)
 

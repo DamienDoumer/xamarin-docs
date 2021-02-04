@@ -19,7 +19,7 @@ Widgets (also known as Today Extensions) are a special type of iOS Extension tha
 
 Widgets are highly customizable and may contain UI elements such as text, images, buttons, etc. Additionally, the developer can further customize the layout of their widgets.
 
-[![](widgets-images/widgets01.png "Example widgets")](widgets-images/widgets01.png#lightbox)
+[![Example widgets](widgets-images/widgets01.png)](widgets-images/widgets01.png#lightbox)
 
 There are two main places that a user can view and interact with an app's Widgets:
 
@@ -189,7 +189,7 @@ This article has covered the enhancements Apple has made to the Widget System in
 
 ## Related Links
 
-- [iOS 10 Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+iOS10)
+- [iOS 10 Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2biOS10)
 - [Introduction to Extensions](~/ios/platform/extensions.md)
 - [Introduction to 3D Touch](~/ios/platform/3d-touch.md)
 - [App Extension Programming Guide](https://developer.apple.com/library/prerelease/content/documentation/General/Conceptual/ExtensibilityPG/index.html)

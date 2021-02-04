@@ -15,8 +15,8 @@ _This guide provides troubleshooting steps for issues that may be encountered us
 
 ## Log File Location
 
-- **Mac** – ~/Library/Logs/Xamarin-[MAJOR.MINOR]
-- **Windows** – %LOCALAPPDATA%\Xamarin\Logs
+- **Mac** – `~/Library/Logs/Xamarin-[MAJOR.MINOR]`
+- **Windows** – `%LOCALAPPDATA%\Xamarin\Logs`
 
 The log files can be located by browsing to **Help &gt; Xamarin &gt; Zip Logs** in Visual Studio.
 
@@ -39,15 +39,15 @@ The Xamarin Build Host from older versions of Xamarin.iOS is no longer required.
 
 2. Make sure that **Remote Login** is enabled on the Mac. Set access for **Only these users**, and make sure your Mac user is included in the list or group:
 
-    [![](troubleshooting-images/troubleshooting-image1.png "Set access for Only these users")](troubleshooting-images/troubleshooting-image1.png#lightbox)
+    [![Set access for Only these users](troubleshooting-images/troubleshooting-image1.png)](troubleshooting-images/troubleshooting-image1.png#lightbox)
 
 3. Check that your firewall allows incoming connections through port 22 - the default for SSH:
 
-    [![](troubleshooting-images/troubleshooting-image2.png "Check that the firewall allows incoming connections through port 22")](troubleshooting-images/troubleshooting-image2.png#lightbox)
+    [![Check that the firewall allows incoming connections through port 22](troubleshooting-images/troubleshooting-image2.png)](troubleshooting-images/troubleshooting-image2.png#lightbox)
 
     If you have disabled **Automatically allow signed software to receive incoming connections**, OS X will present a dialog during the pairing process asking to allow `mono-sgen` or `mono-sgen32` to receive incoming connections. Be sure to click **Allow** on this dialog:
 
-    [![](troubleshooting-images/troubleshooting-image4a.png "Click Allow on this dialog")](troubleshooting-images/troubleshooting-image4a.png#lightbox)
+    [![Click Allow on this dialog](troubleshooting-images/troubleshooting-image4a.png)](troubleshooting-images/troubleshooting-image4a.png#lightbox)
 
 4. Confirm that you are logged in to the user account on that Mac and have an active GUI session.
 
@@ -57,11 +57,11 @@ The Xamarin Build Host from older versions of Xamarin.iOS is no longer required.
 
     For example, from the screenshot below, the account name will be **amyb** and not **Amy Burns**:
 
-    [![](troubleshooting-images/troubleshooting-image5a.png "Getting the account name from the Terminal app")](troubleshooting-images/troubleshooting-image5a.png#lightbox)
+    [![Getting the account name from the Terminal app](troubleshooting-images/troubleshooting-image5a.png)](troubleshooting-images/troubleshooting-image5a.png#lightbox)
 
 6. Check that the IP address you are using for the Mac is correct. You can find the IP address under **System Preferences > Sharing > Remote Login** on the Mac.
 
-    [![](troubleshooting-images/troubleshooting-image17.png "The IP address in the System Preferences app")](troubleshooting-images/troubleshooting-image17.png#lightbox)
+    [![The IP address in the System Preferences app](troubleshooting-images/troubleshooting-image17.png)](troubleshooting-images/troubleshooting-image17.png#lightbox)
 
 7. Once you have confirmed the IP address of the Mac, try a `ping` to that address in `cmd.exe` on Windows:
 
@@ -77,7 +77,7 @@ The Xamarin Build Host from older versions of Xamarin.iOS is no longer required.
     ssh amyb@10.1.8.95
     ```
 
-    <a name="stepnine" />
+    <a name="stepnine"></a>
 
 9. If **step 8 succeeds**, you can try running a simple command like `ls` over the connection:
 
@@ -107,7 +107,7 @@ The Xamarin Build Host from older versions of Xamarin.iOS is no longer required.
 
 12. If step 8 fails and **step 10 fails**, then the problem is likely that the SSH server process on the Mac is not running or is not configured to allow the current user to log in. In this case be sure to double-check the Remote Login settings from step 2 before you investigate any more complicated possibilities.
 
-<a name="knownissues" />
+<a name="knownissues"></a>
 
 ### Known Issues and Limitations
 
@@ -130,7 +130,7 @@ Known cause:
 
 - **Bug [#52264](https://bugzilla.xamarin.com/show_bug.cgi?id=52264)** – This problem can happen on Xamarin 4.1 if the **Login shell** in the **Advanced Options** context menu for the Mac user in **System Preferences &gt; Users &amp; Groups** is set to a value other than **/bin/bash**. (Starting with Xamarin 4.2, this scenario instead leads to the "Couldn't connect" error message.) **Workaround**: Change the **Login shell** back to the original default of **/bin/bash**.
 
-<a name="tryagain" />
+<a name="tryagain"></a>
 
 #### "Couldn't connect to MacBuildHost.local. Please try again."
 
@@ -154,7 +154,7 @@ Reported causes:
 
     1. Confirm the location of the **sshd\_config** file by running `ls /etc/ssh/sshd_config` and `ls /etc/sshd_config` in a Terminal command prompt. For all of the remaining steps, be sure to use the location that does _not_ return "No such file or directory".
 
-        [![](troubleshooting-images/troubleshooting-image18.png "Running `ls /etc/ssh/sshd_config` and `ls /etc/sshd_config` in the Terminal")](troubleshooting-images/troubleshooting-image18.png#lightbox)
+        [![Running `ls /etc/ssh/sshd_config` and `ls /etc/sshd_config` in the Terminal](troubleshooting-images/troubleshooting-image18.png)](troubleshooting-images/troubleshooting-image18.png#lightbox)
 
     2. Run `cp /etc/ssh/sshd_config "$HOME/Desktop/"` in Terminal to copy the file to your desktop.
 
@@ -174,7 +174,7 @@ Reported causes:
 
     8. Disable and re-enable **Remote Login** under **System Preferences &gt; Sharing &gt; Remote Login** to restart the SSH server.
 
-<a name="clearing" />
+<a name="clearing"></a>
 
 #### Clearing the Broker, IDB, Build, and Designer Agents on the Mac
 
@@ -188,7 +188,7 @@ If your log files show a problem during the "Installing", "Uploading", or "Start
     
 2. Control-click the **XMA** folder and select **Move to Trash**:
 
-    [![](troubleshooting-images/troubleshooting-image8.png "Move the XMA folder to Trash")](troubleshooting-images/troubleshooting-image8.png#lightbox)
+    [![Move the XMA folder to Trash](troubleshooting-images/troubleshooting-image8.png)](troubleshooting-images/troubleshooting-image8.png#lightbox)
 
 3. There is a cache on Windows as well that it may help to clear. Open a cmd prompt as Administrator on Windows:
 
@@ -228,7 +228,7 @@ The Output window is the best place to start. It displays messages about the mai
 2. Click the **Show output from** drop-down menu.
 3. Select **Xamarin**.
 
-[![](troubleshooting-images/troubleshooting-image11.png "Select Xamarin in the Output tab")](troubleshooting-images/troubleshooting-image11.png#lightbox)
+[![Select Xamarin in the Output tab](troubleshooting-images/troubleshooting-image11.png)](troubleshooting-images/troubleshooting-image11.png#lightbox)
 
 #### Log Files
 
@@ -243,19 +243,19 @@ If the Output window does not include enough information to diagnose the problem
 
 3. After Visual Studio hits the connection error, collect the logs from **Help > Xamarin > Zip Logs**:
 
-    [![](troubleshooting-images/troubleshooting-image12.png "Collect the logs from Help > Xamarin > Zip Logs")](troubleshooting-images/troubleshooting-image12.png#lightbox)
+    [![Collect the logs from Help > Xamarin > Zip Logs](troubleshooting-images/troubleshooting-image12.png)](troubleshooting-images/troubleshooting-image12.png#lightbox)
 
 4. When you open the .zip file, you will see a list of files similar to the example below. For connection errors, the most important files are the **\*Ide.log** and **\*Ide.svclog** files. These files contain the same messages in two slightly different formats. The **.svclog** is XML and is useful if you want to browse through the messages. The **.log** is plain text and is useful if you want to filter the messages using command line tools.
 
     To browse through all the messages, select and open the **.svclog** file:
 
-    [![](troubleshooting-images/troubleshooting-image13.png "Select the svclog file")](troubleshooting-images/troubleshooting-image13.png#lightbox)
+    [![Select the svclog file](troubleshooting-images/troubleshooting-image13.png)](troubleshooting-images/troubleshooting-image13.png#lightbox)
 
 5. The **.svclog** file will open in **Microsoft Service Trace Viewer**. You can browse the messages by thread to see related groups of messages. To browse by thread, first select the **Graph** tab, then click the **Layout Mode** drop-down menu and select **Thread**:
 
-    [![](troubleshooting-images/troubleshooting-image14.png "Click the Layout Mode drop-down menu and select Thread")](troubleshooting-images/troubleshooting-image14.png#lightbox)
+    [![Click the Layout Mode drop-down menu and select Thread](troubleshooting-images/troubleshooting-image14.png)](troubleshooting-images/troubleshooting-image14.png#lightbox)
 
-<a name="verboselogs" />
+<a name="verboselogs"></a>
 
 #### Verbose Log Files
 
@@ -263,7 +263,7 @@ If the normal log files still do not provide sufficient information to diagnose 
 
 1. Quit Visual Studio.
 
-2. Start a [**Developer Command Prompt**](https://msdn.microsoft.com/library/ms229859(v=vs.110).aspx).
+2. Start a [**Developer Command Prompt**](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 3. Run the following command in the command prompt to launch Visual Studio with verbose logging:
 
@@ -322,7 +322,7 @@ related bug: [#36195](https://bugzilla.xamarin.com/show_bug.cgi?id=36195)
 
 Launch Xcode on the Mac and ensure that your Apple developer account is logged in and your iOS Development Profile is downloaded:
 
-[![](troubleshooting-images/troubleshooting-image7.png "Ensuring that the Apple developer account is logged in and the iOS Development Profile is downloaded")](troubleshooting-images/troubleshooting-image7.png#lightbox)
+[![Ensuring that the Apple developer account is logged in and the iOS Development Profile is downloaded](troubleshooting-images/troubleshooting-image7.png)](troubleshooting-images/troubleshooting-image7.png#lightbox)
 
 ### "A socket operation was attempted to an unreachable network"
 
@@ -338,7 +338,7 @@ This issue may happen when Visual Studio fails to refresh the MEF component cach
 
 This will clear the Visual Studio MEF component cache to fix issues with cache corruption.
 
-<a name="errors" />
+<a name="errors"></a>
 
 ### Errors due to existing Build Host Processes on the Mac
 
@@ -348,7 +348,7 @@ Processes from previous build host connections can sometimes interfere with the 
 ps -A | grep mono
 ```
 
-[![](troubleshooting-images/troubleshooting-image10.png "Running commands in Terminal on the Mac")](troubleshooting-images/troubleshooting-image10.png#lightbox)
+[![Running commands in Terminal on the Mac](troubleshooting-images/troubleshooting-image10.png)](troubleshooting-images/troubleshooting-image10.png#lightbox)
 
 To kill the existing processes use the following command:
 
@@ -368,7 +368,7 @@ If you are troubleshooting a build problem and want to make sure the behavior is
 
 2. Control-click the **mtbs** folder and select **Move to Trash**:
 
-    [![](troubleshooting-images/troubleshooting-image9.png "Move the mtbs folder to Trash")](troubleshooting-images/troubleshooting-image9.png#lightbox)
+    [![Move the mtbs folder to Trash](troubleshooting-images/troubleshooting-image9.png)](troubleshooting-images/troubleshooting-image9.png#lightbox)
 
 ## Related Links
 

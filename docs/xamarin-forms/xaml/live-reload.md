@@ -8,12 +8,16 @@ author: pierceboggan
 ms.author: piboggan
 robots: noindex
 ms.date: 10/26/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin Live Reload (Preview)
 
 > [!NOTE]
-> The preview of Xamarin Live Reload has ended, and we want to thank everyone for your feedback and comments. Please read through our [roadmap](https://docs.microsoft.com/visualstudio/productinfo/vs-roadmap) for Visual Studio 2019 to learn more about new productivity features that we are working on for Xamarin.Forms. This extension will remain available for Visual Studio 2017, but will not be receiving future updates.
+> The preview of Xamarin Live Reload has ended, and we want to thank everyone for your feedback and comments. 
+>
+> To edit your XAML while your app is running, use [XAML Hot Reload for Xamarin.Forms](~/xamarin-forms/xaml/hot-reload.md).
+>
 
 Xamarin Live Reload enables you to **make changes to your XAML and see them reflected live, without requiring another compile and deploy**. Any changes made to your XAML will be redeployed on save and reflected on your deploy target.
 
@@ -175,7 +179,7 @@ Probably the easiest way is to install the [mosquitto](https://mosquitto.org) se
 
 1. Create a new Ubuntu Server VM in Azure Portal
 2. Add a new inbound port rule for 1883 (default MQTT port) in the Networking tab
-3. Open the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) (bash mode)
+3. Open the [Cloud Shell](/azure/cloud-shell/overview) (bash mode)
 4. Type `ssh [USERNAME]@[PUBLIC_IP]` using the username you chose in 1) and the public IP shown in your VM overview page
 5. Run `sudo apt-get install mosquitto`, entering the password you chose in 1)
 

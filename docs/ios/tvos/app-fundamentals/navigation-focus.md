@@ -15,13 +15,13 @@ _This article covers the concept of Focus and how it is used to present and hand
 
 This article covers the concept of [Focus](#Focus-and-Selection) and how it is used to handle [Navigation](#Navigation) in a Xamarin.tvOS app's User Interface. We'll examine how the built-in tvOS Navigation controls use Focus, Highlighting and Selection to provide your Xamarin.tvOS app's User Interface Navigation.
 
-[![](navigation-focus-images/intro01.png "tvOS apps User Interface Navigation")](navigation-focus-images/intro01.png#lightbox)
+[![tvOS apps User Interface Navigation](navigation-focus-images/intro01.png)](navigation-focus-images/intro01.png#lightbox)
 
 Next, we'll take a look at how Focus can be used with [Parallax](#Focus-and-Parallax) and *Layered Images* to provide visual clues for the current Navigation State to the end user.
 
 Finally, we'll look at working with [Focus](#Working-with-Focus), [Focus Updates](#Working-with-Focus-Updates), [Focus Guides](#Working-with-Focus-Guides), [Focus in Collections](#Working-with-Focus-in-Collections) and [Enabling Parallax](#enabling-parallax) on Image Views in your Xamarin.tvOS apps.
 
-<a name="Navigation" />
+<a name="Navigation"></a>
 
 ## Navigation
 
@@ -29,7 +29,7 @@ Users of your Xamarin.tvOS app will not be interacting with it's interface direc
 
 A successful tvOS app implements navigation in a way that smoothly supports the purpose of the app and the structure of the data it presents without calling attention to the navigation itself. Design your navigation so that it feels natural and familiar without dominating the User Interface or drawing focus away from the content and the apps user experience.
 
-[![](navigation-focus-images/nav01.png "The tvOS settings app")](navigation-focus-images/nav01.png#lightbox)
+[![The tvOS settings app](navigation-focus-images/nav01.png)](navigation-focus-images/nav01.png#lightbox)
 
 While using an Apple TV, the user typically navigates through a stacked set of screens, each presenting a given set of content. In turn, every new screen may lead to one or more sub-screens of content using standard UI controls such as [Buttons](~/ios/tvos/user-interface/buttons.md), [Tab Bars](~/ios/tvos/user-interface/tab-bars.md), Tables, [Collection Views](~/ios/tvos/user-interface/collection-views.md) or [Split Views](~/ios/tvos/user-interface/split-views.md).
 
@@ -46,13 +46,13 @@ Apple suggests keeping the following in mind when designing the navigation for y
 - **Use Standard Controls for Navigation** - Again, to create an easy and familiar user experience, wherever possible, use built-in `UIKit` controls such as Page Controls, Tab Bars, Segmented Controls, Table Views, Collection Views and Split Views for your app's navigation. Since user are already familiar with these elements, they will intuitively be able to navigate your app.
 - **Favor Horizontal Content Navigation** - Because of the nature of the Apple TV, swiping left to right on the Siri Remote is more natural than up and down. Consider this option when designing content layouts for your app.
 
-<a name="Focus-and-Selection" />
+<a name="Focus-and-Selection"></a>
 
 ## Focus and Selection
 
 On the Apple TV, an image, button or other UI element is considered to be _in focus_ when it is the target of the current navigation.
 
-[![](navigation-focus-images/focus01.png "Focus and Selection example")](navigation-focus-images/focus01.png#lightbox)
+[![Focus and Selection example](navigation-focus-images/focus01.png)](navigation-focus-images/focus01.png#lightbox)
 
 Unlike, iOS devices where the user is directly interacting with elements on the device's touchscreen, users interact with tvOS elements from across the room using the Siri Remote. To present and handle this user interaction, the Apple TV uses a _Focus_ based model.
 
@@ -71,7 +71,7 @@ Apple has the following suggestions for working with Focus and Selection:
 - **Represent Focus Changes Fluidly** - Use animation to smoothly fade between an items **Focused** and **Unfocused** state to keep transitions from being jarring.
 - **Don't Display a Cursor** - Users expect to navigate your app's UI using Focus and not by moving a cursor around the screen. Your User Interface should always use the Focus Model to present a consistent user experience.
 
-<a name="Working-with-Focus" />
+<a name="Working-with-Focus"></a>
 
 ### Working with Focus
 
@@ -103,7 +103,7 @@ While you cannot directly move focus to another UI element via code, you can spe
 playButton.PreferredFocusedView = true;
 ```
 
-<a name="Working-with-Focus-Updates" />
+<a name="Working-with-Focus-Updates"></a>
 
 ### Working with Focus Updates 
 
@@ -119,7 +119,7 @@ To request that the Focus Engine moves focus back to the `PreferredFocusedView` 
 > [!IMPORTANT]
 > Calling `SetNeedsUpdateFocus` only has effect if the View Controller it is being called against contains the View that currently has focus.
 
-<a name="Working-with-Focus-Guides" />
+<a name="Working-with-Focus-Guides"></a>
 
 ### Working with Focus Guides
 
@@ -129,7 +129,7 @@ However, there might be times, because of the necessities of your UI design, whe
 
 Take the following UI layout for an example:
 
- [![](navigation-focus-images/guide01.png "Working with Focus Guides example")](navigation-focus-images/guide01.png#lightbox)
+ [![Working with Focus Guides example](navigation-focus-images/guide01.png)](navigation-focus-images/guide01.png#lightbox)
 
 Because the **More Info** button does not fall on a horizontal and vertical grid with the **Buy** button it would be inaccessible to the user. However, this can be easily corrected using a _Focus Guide_ to provide movement hints to the Focus Engine. 
 
@@ -161,7 +161,7 @@ First, a new `UIFocusGuide` is created and added to the View's Layout Guide coll
 
 Next, the Focus Guide's Top, Left, Width and Height Anchors are adjusted relative to the **More Info** and **Buy** buttons to position it between them. See:
 
-[![](navigation-focus-images/guide02.png "Example Focus Guide")](navigation-focus-images/guide02.png#lightbox)
+[![Example Focus Guide](navigation-focus-images/guide02.png)](navigation-focus-images/guide02.png#lightbox)
 
 It's also important to note that the new constraints are being activated as they are created by setting their `Active` property to `true`:
 
@@ -213,7 +213,7 @@ In the event that neither button is the source of the Focus shift, the `Preferre
 FocusGuide.PreferredFocusedView = null;
 ```
 
-<a name="Working-with-Focus-in-Collections" />
+<a name="Working-with-Focus-in-Collections"></a>
 
 ### Working with Focus in Collections
 
@@ -239,7 +239,7 @@ The `CanFocusItem` method returns `true` if the current item can be in focus, el
 
 If you want a `UICollectionView` or a `UITableView` to remember and restore focus to the last item when it loses and regains focus, set the `RemembersLastFocusedIndexPath` property to `true`.
 
-<a name="Focus-and-Parallax" />
+<a name="Focus-and-Parallax"></a>
 
 ## Focus and Parallax
 
@@ -263,7 +263,7 @@ myImageView.AdjustsImageWhenAncestorFocused = true;
 
 With this property set to `true`, the Image View will automatically get the Parallax Effect when it is selected by the user and in focus.
 
-<a name="Summary" />
+<a name="Summary"></a>
 
 ## Summary
 
@@ -271,7 +271,7 @@ This article has covered the concept of Focus and how it is used to handle Navig
 
 ## Related Links
 
-- [tvOS Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+tvOS)
+- [tvOS Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2btvOS)
 - [tvOS](https://developer.apple.com/tvos/)
 - [tvOS Human Interface Guides](https://developer.apple.com/tvos/human-interface-guidelines/)
 - [App Programming Guide for tvOS](https://developer.apple.com/library/prerelease/tvos/documentation/General/Conceptual/AppleTV_PG/)

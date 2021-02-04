@@ -6,14 +6,13 @@ ms.assetid: 92D7B618-07FA-4343-9D0F-212525E92C39
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 10/14/2019
+ms.date: 09/24/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms CarouselView Scrolling
 
-![](~/media/shared/preview.png "This API is currently pre-release")
-
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-carouselviewdemos/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-carouselviewdemos/)
 
 [`CarouselView`](xref:Xamarin.Forms.CarouselView) defines the following scroll related properties:
 
@@ -161,11 +160,11 @@ This example code results in the item being scrolled to the end of the view.
 
 [`CarouselView`](xref:Xamarin.Forms.CarouselView) defines a `ItemsUpdatingScrollMode` property, which is backed by a bindable property. This property gets or sets a `ItemsUpdatingScrollMode` enumeration value that represents the scrolling behavior of the `CarouselView` when new items are added to it. The `ItemsUpdatingScrollMode` enumeration defines the following members:
 
-- `KeepItemsInView` adjusts the scroll offset to keep the first visible item displayed when new items are added.
-- `KeepScrollOffset` maintains the scroll offset relative to the beginning of the list when new items are added.
-- `KeepLastItemInView` adjusts the scroll offset to keep the last item visible when new items are added.
+- `KeepItemsInView` keeps the first item in the list displayed when new items are added.
+- `KeepScrollOffset` ensures that the current scroll position is maintained when new items are added.
+- `KeepLastItemInView` adjusts the scroll offset to keep the last item in the list displayed when new items are added.
 
-The default value of the `ItemsUpdatingScrollMode` property is `KeepItemsInView`. Therefore, when new items are added to a [`CarouselView`](xref:Xamarin.Forms.CarouselView) the first visible item in the list will remain displayed. To ensure that newly added items are always visible at the bottom of the list, the `ItemsUpdatingScrollMode` property should be set to `KeepLastItemInView`:
+The default value of the `ItemsUpdatingScrollMode` property is `KeepItemsInView`. Therefore, when new items are added to a [`CarouselView`](xref:Xamarin.Forms.CarouselView) the first item in the list will remain displayed. To ensure that the last item in the list is displayed when new items are added, set the `ItemsUpdatingScrollMode` property to `KeepLastItemInView`:
 
 ```xaml
 <CarouselView ItemsUpdatingScrollMode="KeepLastItemInView">
@@ -212,6 +211,10 @@ The [`SnapPointsType`](xref:Xamarin.Forms.SnapPointsType) enumeration defines th
 
 By default on a [`CarouselView`](xref:Xamarin.Forms.CarouselView), the [`SnapPointsType`](xref:Xamarin.Forms.ItemsLayout.SnapPointsType) property is set to `SnapPointsType.MandatorySingle`, which ensures that scrolling only scrolls one item at a time.
 
+The following screenshots show a [`CarouselView`](xref:Xamarin.Forms.CarouselView) with snapping turned off:
+
+[![Screenshot of a CarouselView without snap points, on iOS and Android](scrolling-images/snappoints-none.png "CarouselView without snap points")](scrolling-images/snappoints-none-large.png#lightbox "CarouselView without snap points")
+
 ### Snap points alignment
 
 The [`SnapPointsAlignment`](xref:Xamarin.Forms.SnapPointsAlignment) enumeration defines `Start`, `Center`, and `End` members.
@@ -249,7 +252,9 @@ CarouselView carouselView = new CarouselView
 };
 ```
 
-When a user swipes to initiate a scroll in a horizontally scrolling [`CarouselView`](xref:Xamarin.Forms.CarouselView), the left item will be aligned with the left of the view.
+When a user swipes to initiate a scroll in a horizontally scrolling [`CarouselView`](xref:Xamarin.Forms.CarouselView), the left item will be aligned with the left of the view:
+
+[![Screenshot of a CarouselView with start snap points, on iOS and Android](scrolling-images/snappoints-start.png "CarouselView with start snap points")](scrolling-images/snappoints-start-large.png#lightbox "CarouselView with start snap points")
 
 #### Center
 
@@ -283,7 +288,9 @@ CarouselView carouselView = new CarouselView
 };
 ```
 
-When a user swipes to initiate a scroll in a horizontally scrolling [`CarouselView`](xref:Xamarin.Forms.CarouselView), the center item will be aligned with the center of the view.
+When a user swipes to initiate a scroll in a horizontally scrolling [`CarouselView`](xref:Xamarin.Forms.CarouselView), the center item will be aligned with the center of the view:
+
+[![Screenshot of a CarouselView with center snap points, on iOS and Android](scrolling-images/snappoints-center.png "CarouselView with center snap points")](scrolling-images/snappoints-center-large.png#lightbox "CarouselView with center snap points")
 
 #### End
 
@@ -317,6 +324,8 @@ CarouselView carouselView = new CarouselView
 
 When a user swipes to initiate a scroll in a horizontally scrolling [`CarouselView`](xref:Xamarin.Forms.CarouselView), the right item will be aligned with the right of the view.
 
+[![Screenshot of a CarouselView with end snap points, on iOS and Android](scrolling-images/snappoints-end.png "CarouselView with end snap points")](scrolling-images/snappoints-end-large.png#lightbox "CarouselView with end snap points")
+
 ## Related links
 
-- [CarouselView (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-carouselviewdemos/)
+- [CarouselView (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-carouselviewdemos/)

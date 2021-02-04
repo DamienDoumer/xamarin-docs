@@ -6,6 +6,7 @@ author: jamesmontemagno
 ms.author: jamont
 ms.date: 04/02/2019
 ms.custom: video
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: Secure Storage
@@ -58,7 +59,7 @@ Auto Backup can be configured to disable specific content from backing up. You c
 
 # [iOS](#tab/ios)
 
-When developing on the **iOS simulator**, enable the **Keychain** entitlement and add a keychain access group for the application's bundle identifier. 
+When developing on the **iOS simulator**, enable the **Keychain** entitlement and add a keychain access group for the application's bundle identifier.
 
 Open the **Entitlements.plist** in the iOS project and find the **Keychain** entitlement and enable it. This will automatically add the application's identifier as a group.
 
@@ -123,17 +124,20 @@ To remove all keys, call:
 SecureStorage.RemoveAll();
 ```
 
+> [!TIP]
+> It is possible that an exception is thrown when calling `GetAsync` or `SetAsync`. This can be caused by a device not supporting secure storage, encryption keys changing, or corruption of data. It is best to handle this by removing and adding the setting back if possible.
+
 ## Platform Implementation Specifics
 
 # [Android](#tab/android)
 
 The [Android KeyStore](https://developer.android.com/training/articles/keystore.html) is used to store the cipher key used to encrypt the value before it is saved into a [Shared Preferences](https://developer.android.com/training/data-storage/shared-preferences.html) with a filename of **[YOUR-APP-PACKAGE-ID].xamarinessentials**.  The key (not a cryptographic key, the _key_ to the _value_) used in the shared preferences file is a _MD5 Hash_ of the key passed into the `SecureStorage` APIs.
 
-## API Level 23 and Higher
+**API Level 23 and Higher**
 
 On newer API levels, an **AES** key is obtained from the Android KeyStore and used with an **AES/GCM/NoPadding** cipher to encrypt the value before it is stored in the shared preferences file.
 
-## API Level 22 and Lower
+**API Level 22 and Lower**
 
 On older API levels, the Android KeyStore only supports storing **RSA** keys, which is used with an **RSA/ECB/PKCS1Padding** cipher to encrypt an **AES** key (randomly generated at runtime) and stored in the shared preferences file under the key _SecureStorageKey_, if one has not already been generated.
 
@@ -147,7 +151,7 @@ In some cases KeyChain data is synchronized with iCloud, and uninstalling the ap
 
 # [UWP](#tab/uwp)
 
-[DataProtectionProvider](https://docs.microsoft.com/uwp/api/windows.security.cryptography.dataprotection.dataprotectionprovider) is used to encrypt values securely on UWP devices.
+[DataProtectionProvider](/uwp/api/windows.security.cryptography.dataprotection.dataprotectionprovider) is used to encrypt values securely on UWP devices.
 
 Encrypted values are stored in `ApplicationData.Current.LocalSettings`, inside a container with a name of **[YOUR-APP-ID].xamarinessentials**.
 
@@ -157,11 +161,11 @@ Encrypted values are stored in `ApplicationData.Current.LocalSettings`, inside a
 
 ## Limitations
 
-This API is intended to store small amounts of text.  Performance may be slow if you try to use it to store large amounts of text. 
+This API is intended to store small amounts of text.  Performance may be slow if you try to use it to store large amounts of text.
 
 ## API
 
-- [SecureStorage source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/SecureStorage)
+- [SecureStorage source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/SecureStorage)
 - [SecureStorage API documentation](xref:Xamarin.Essentials.SecureStorage)
 
 ## Related Video

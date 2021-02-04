@@ -6,12 +6,13 @@ ms.assetid: 57079D89-D1CB-48BD-9FEE-539CEC29EABB
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 05/06/2019
+ms.date: 10/06/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Shell Navigation
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
 
 Xamarin.Forms Shell includes a URI-based navigation experience that uses routes to navigate to any page in the application, without having to follow a set navigation hierarchy. In addition, it also provides the ability to navigate backwards without having to visit all of the pages on the navigation stack.
 
@@ -19,6 +20,7 @@ Xamarin.Forms Shell includes a URI-based navigation experience that uses routes 
 
 - `BackButtonBehavior`, of type `BackButtonBehavior`, an attached property that defines the behavior of the back button.
 - `CurrentItem`, of type `FlyoutItem`, the currently selected `FlyoutItem`.
+- `CurrentPage`, of type `Page`, the currently presented page.
 - `CurrentState`, of type `ShellNavigationState`, the current navigation state of the `Shell`.
 - `Current`, of type `Shell`, a type-casted alias for `Application.Current.MainPage`.
 
@@ -141,20 +143,24 @@ This example navigates to the page for the `monkeys` route, with the route being
 
 ### Relative routes
 
-Navigation can also be performed by specifying a valid relative URI as an argument to the `GoToAsync` method. The routing system will attempt to match the URI to a `ShellContent` object. Therefore, if all the routes in an application are unique, navigation can be performed by only specifying the unique route name as a relative URI:
+Navigation can also be performed by specifying a valid relative URI as an argument to the `GoToAsync` method. The routing system will attempt to match the URI to a `ShellContent` object. Therefore, if all the routes in an application are unique, navigation can be performed by only specifying the unique route name as a relative URI.
+
+The following relative route formats are supported:
+
+| Format | Description |
+| --- | --- |
+| *route* | The route hierarchy will be searched for the specified route, upwards from from the current position. The matching page will be pushed to the navigation stack. |
+| /*route* | The route hierarchy will be searched from the specified route, downwards from the current position. The matching page will be pushed to the navigation stack. |
+| //*route* | The route hierarchy will be searched for the specified route, upwards from the current position. The matching page will replace the navigation stack. |
+| ///*route* | The route hierarchy will be searched for the specified route, downwards from the current position. The matching page will replace the navigation stack. |
+
+The following example navigates to the page for the `monkeydetails` route:
 
 ```csharp
 await Shell.Current.GoToAsync("monkeydetails");
 ```
 
-This example navigates to the page for the `monkeydetails` route.
-
-In addition, the following relative route formats are supported:
-
-| Format | Description |
-| --- | --- |
-| //*route* | The route hierarchy will be searched for the specified route, upwards from the currently displayed route. |
-| ///*route* | The route hierarchy will be searched for the specified route, downwards from the currently displayed route. |
+In this example, the `monkeyDetails` route is searched for up the hierarchy until the matching page is found. When the page is found, it's pushed to the navigation stack.
 
 #### Contextual navigation
 
@@ -168,6 +174,46 @@ bears
 ```
 
 When the registered page for the `monkeys` route is displayed, navigating to the `details` route will display the registered page for the `monkeys/details` route. Similarly, when the registered page for the `bears` route is displayed, navigating to the `details` route will display the registered page for the `bears/details` route. For information on how to register the routes in this example, see [Register page routes](#register-page-routes).
+
+### Backwards navigation
+
+Backwards navigation can be performed by specifying ".." as the argument to the `GotoAsync` method:
+
+```csharp
+await Shell.Current.GoToAsync("..");
+```
+
+Backwards navigation with ".." can also be combined with a route:
+
+```csharp
+await Shell.Current.GoToAsync("../route");
+```
+
+In this example, backwards navigation is performed, and then navigation to the specified route.
+
+> [!IMPORTANT]
+> Navigating backwards and into a specified route is only possible if the backwards navigation places you at the current location in the route hierarchy to navigate to the specified route.
+
+Similarly, it's possible to navigate backwards multiple times, and then navigate to a specified route:
+
+```csharp
+await Shell.Current.GoToAsync("../../route");
+```
+
+In this example, backwards navigation is performed twice, and then navigation to the specified route.
+
+In addition, data can be passed through query properties when navigating backwards:
+
+```csharp
+await Shell.Current.GoToAsync($"..?parameterToPassBack={parameterValueToPassBack}");
+```
+
+In this example, backwards navigation is performed, and the query parameter value is passed to the query parameter on the previous page.
+
+> [!NOTE]
+> Query parameters can be appended to any backwards navigation request.
+
+For more information about passing data when navigating, see [Pass data](#pass-data).
 
 ### Invalid routes
 
@@ -202,6 +248,22 @@ The `Tab` class defines a `Stack` property, of type `IReadOnlyList<Page>`, which
 - `OnPushAsync`, returns `Task`, and is called when `INavigation.PushAsync` is called.
 - `OnRemovePage`, that's called when `INavigation.RemovePage` is called.
 
+For example, the following code example shows how to override the `OnRemovePage` method:
+
+```csharp
+public class MyTab : Tab
+{
+    protected override void OnRemovePage(Page page)
+    {
+        base.OnRemovePage(page);
+
+        // Custom logic
+    }
+}
+```
+
+`MyTab` objects can then be consumed in your Shell visual hierarchy instead of `Tab` objects.
+
 ## Navigation events
 
 The `Shell` class defines a `Navigating` event, which is fired when navigation is about to be performed, either due to programmatic navigation or user interaction. The `ShellNavigatingEventArgs` object that accompanies the `Navigating` event provides the following properties:
@@ -214,10 +276,7 @@ The `Shell` class defines a `Navigating` event, which is fired when navigation i
 | `CanCancel`  | `bool` | A value indicating if it's possible to cancel the navigation. |
 | `Cancelled`  | `bool` | A value indicating if the navigation was cancelled. |
 
-In addition, the `ShellNavigatingEventArgs` class provides a `Cancel` method that can be used to cancel navigation.
-
-> [!NOTE]
-> The `Navigated` event is fired by the overridable `OnNavigating` method in the `Shell` class.
+In addition, the `ShellNavigatingEventArgs` class provides a `Cancel` method that can be used to cancel navigation, and a `GetDeferral` method that returns a `ShellNavigatingDeferral` token that can be used to complete navigation. For more information about navigation deferral, see [Navigation deferral](#navigation-deferral).
 
 The `Shell` class also defines a `Navigated` event, which is fired when navigation has completed. The `ShellNavigatedEventArgs` object that accompanies the `Navigating` event provides the following properties:
 
@@ -226,9 +285,6 @@ The `Shell` class also defines a `Navigated` event, which is fired when navigati
 | `Current` | `ShellNavigationState` | The URI of the current page. |
 | `Previous`| `ShellNavigationState` | The URI of the previous page. |
 | `Source`  | `ShellNavigationSource` | The type of navigation that occurred. |
-
-> [!NOTE]
-> The `Navigating` event is fired by the overridable `OnNavigated` method in the `Shell` class.
 
 The `ShellNavigatedEventArgs` and `ShellNavigatingEventArgs` classes both have `Source` properties, of type `ShellNavigationSource`. This enumeration provides the following values:
 
@@ -254,6 +310,35 @@ void OnNavigating(object sender, ShellNavigatingEventArgs e)
     }
 }
 ```
+
+## Navigation deferral
+
+Shell navigation can be intercepted and completed or cancelled based on user choice. This can be achieved by overriding the `OnNavigating` method in your `Shell` subclass, and by calling the `GetDeferral` method on the `ShellNavigatingEventArgs` object. This method returns a `ShellNavigatingDeferral` token that has a `Complete` method, which can be used to complete the navigation request:
+
+```csharp
+public MyShell : Shell
+{
+    // ...
+    protected override async void OnNavigating(ShellNavigatingEventArgs args)
+    {
+        base.OnNavigating(args);
+
+        ShellNavigatingDeferral token = args.GetDeferral();
+        var result = await DisplayActionSheet("Navigate?", "Cancel", "Yes", "No");
+
+        if (result != "Yes")
+        {
+            args.Cancel();
+        }
+        token.Complete();
+    }    
+}
+```
+
+In this example, an action sheet is displayed that invites the user to complete the navigation request, or cancel it. Navigation is cancelled by invoking the `Cancel` method on the `ShellNavigatingEventArgs` object. Navigation is completed by invoking the `Complete` method on the `ShellNavigatingDeferral` token that was retrieved by the `GetDeferral` method on the `ShellNavigatingEventArgs` object.
+
+> [!IMPORTANT]
+> The `GoToAsync` method will throw a `InvalidOperationException` if a user tries to navigate while there is a pending navigation deferral.
 
 ## Pass data
 
@@ -334,4 +419,4 @@ The `Command` property is set to an `ICommand` to be executed when the back butt
 
 ## Related links
 
-- [Xaminals (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
+- [Xaminals (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)

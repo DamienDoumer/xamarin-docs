@@ -6,6 +6,7 @@ author: jamesmontemagno
 ms.author: jamont
 ms.date: 01/29/2019
 ms.custom: video
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: App Information
@@ -86,7 +87,7 @@ App information is taken from the `Package.appxmanifest` for the following field
 
 ## API
 
-- [AppInfo source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/AppInfo)
+- [AppInfo source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/AppInfo)
 - [AppInfo API documentation](xref:Xamarin.Essentials.AppInfo)
 
 ## Related Video

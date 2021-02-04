@@ -35,11 +35,9 @@ information about downloading and installing Android SDK components,
 see [Android SDK Setup](~/android/get-started/installation/android-sdk.md).
 
 > [!NOTE]
-> Beginning in August 2018, the Google Play Console
-will require that new apps target API level 26 (Android 8.0) or higher.
-Existing apps will be required to target API level 26 or higher
-beginning in November 2018. For more information, see
-[Improving app security and performance on Google Play for years to come](https://android-developers.googleblog.com/2017/12/improving-app-security-and-performance.html).
+> Beginning in August 2020, the Google Play Console requires that new apps target API level 29 (Android 10.0) or higher.
+Existing apps are required to target API level 29 or higher beginning in November 2020. For more information, see 
+[Target API level requirements for the Play Console](https://support.google.com/googleplay/android-developer/answer/9859152#targetsdk) in "Create and set up your app" in the Play Console documentation.
 
 <!-- markdownlint-disable MD001 -->
 
@@ -197,7 +195,7 @@ installed, and you can use it to add any new API levels that you need
 for your app. If you are not familiar with how to install API levels,
 see [Android SDK Setup](~/android/get-started/installation/android-sdk.md).
 
-<a name="framework" />
+<a name="framework"></a>
 
 ### Target Framework
 
@@ -251,7 +249,7 @@ menu to the right of **Target framework** as shown above.
 
 -----
 
-<a name="minimum" />
+<a name="minimum"></a>
 
 ### Minimum Android Version
 
@@ -308,7 +306,7 @@ setting.
 
 -----
 
-<a name="target" />
+<a name="target"></a>
 
 ### Target Android Version
 
@@ -371,7 +369,7 @@ For more information about SDK levels, see the Android Developer
 [uses-sdk](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html)
 documentation.
 
-<a name="runtimechecks" />
+<a name="runtimechecks"></a>
 
 ## Runtime checks for Android versions
 
@@ -450,7 +448,7 @@ implement alternate functionality for when
 `Android.OS.Build.VERSION.SdkInt` is detected to be less than the API
 level that your app needs to present its optimum experience.
 
-<a name="libraries" />
+<a name="libraries"></a>
 
 ## API levels and libraries
 

@@ -14,7 +14,7 @@ ms.date: 03/16/2017
 
 _This article covers know issues you might encounter while working with Xamarin's tvOS support._
 
-<a name="Known-Issues" />
+<a name="Known-Issues"></a>
 
 ## Known Issues
 
@@ -42,7 +42,7 @@ To solve this issue, do the following:
 1. In Visual Studio for Mac, right-click on your Xamarin.tvOS Project File in the **Solution Explorer** and select **Options**.
 2. Select **tvOS Build** and ensure that you are on the **Release** configuration: 
 
-    [![](troubleshooting-images/ts01.png "Select tvOS Build options")](troubleshooting-images/ts01.png#lightbox)
+    [![Select tvOS Build options](troubleshooting-images/ts01.png)](troubleshooting-images/ts01.png#lightbox)
 3. Add `--bitcode=asmonly` to the **Additional mtouch arguments** field and click the **OK** button.
 4. Rebuild your app in the **Release** configuration.
 
@@ -120,7 +120,7 @@ Recompile your app for release and resubmit to iTunes Connect.
 
 If you are using a 3rd party library (such as MonoGame) and your release compile failed with a long series of error messages ending in `Task "MTouch" execution -- FAILED`, try adding `-gcc_flags="-framework OpenAL"` to your **Additional touch arguments**:
 
-[![](troubleshooting-images/mtouch01.png "Task MTouch execution")](troubleshooting-images/mtouch01.png#lightbox)
+[![Task MTouch execution](troubleshooting-images/mtouch01.png)](troubleshooting-images/mtouch01.png#lightbox)
 
 You should also include `--bitcode=asmonly` in the **Additional touch arguments**, have your linker options set to **Link All** and do a clean compile.
 
@@ -197,7 +197,7 @@ With this file in place, you should be able to successfully add the PCL file to 
 
 ## Related Links
 
-- [tvOS Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+tvOS)
+- [tvOS Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2btvOS)
 - [tvOS](https://developer.apple.com/tvos/)
 - [tvOS Human Interface Guides](https://developer.apple.com/tvos/human-interface-guidelines/)
 - [App Programming Guide for tvOS](https://developer.apple.com/library/prerelease/tvos/documentation/General/Conceptual/AppleTV_PG/)

@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 12/04/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms ImageButton
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/formsgallery)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/formsgallery)
 
 _The ImageButton displays an image and responds to a tap or click that directs an application to carry out a particular task._
 
@@ -20,7 +21,7 @@ The `ImageButton` view combines the [`Button`](xref:Xamarin.Forms.Button) view a
 > [!NOTE]
 > While the [`Button`](xref:Xamarin.Forms.Button) view defines an [`Image`](xref:Xamarin.Forms.Button.Image) property, that allows you to display a image on the `Button`, this property is intended to be used when displaying a small icon next to the `Button` text.
 
-The code examples in this guide are taken from the [FormsGallery sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/formsgallery).
+The code examples in this guide are taken from the [FormsGallery sample](/samples/xamarin/xamarin-forms-samples/formsgallery).
 
 ## Setting the image source
 
@@ -274,4 +275,4 @@ For more information about visual states, see [The Xamarin.Forms Visual State Ma
 
 ## Related links
 
-- [FormsGallery sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/formsgallery)
+- [FormsGallery sample](/samples/xamarin/xamarin-forms-samples/formsgallery)

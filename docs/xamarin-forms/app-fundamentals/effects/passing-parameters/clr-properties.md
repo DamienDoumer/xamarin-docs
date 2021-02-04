@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/05/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Passing Effect Parameters as Common Language Runtime Properties
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/effects-shadoweffect)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/effects-shadoweffect)
 
 _Common Language Runtime (CLR) properties can be used to define effect parameters that don't respond to runtime property changes. This article demonstrates using CLR properties to pass parameters to an effect._
 
@@ -25,11 +26,11 @@ Parameters can then be passed to the effect by specifying values for each proper
 
 The sample application demonstrates a `ShadowEffect` that adds a shadow to the text displayed by a [`Label`](xref:Xamarin.Forms.Label) control. The following diagram illustrates the responsibilities of each project in the sample application, along with the relationships between them:
 
-![](clr-properties-images/shadow-effect.png "Shadow Effect Project Responsibilities")
+![Shadow Effect Project Responsibilities](clr-properties-images/shadow-effect.png)
 
 A [`Label`](xref:Xamarin.Forms.Label) control on the `HomePage` is customized by the `LabelShadowEffect` in each platform-specific project. Parameters are passed to each `LabelShadowEffect` through properties in the `ShadowEffect` class. Each `LabelShadowEffect` class derives from the `PlatformEffect` class for each platform. This results in a shadow being added to the text displayed by the `Label` control, as shown in the following screenshots:
 
-![](clr-properties-images/screenshots.png "Shadow Effect on each Platform")
+![Shadow Effect on each Platform](clr-properties-images/screenshots.png)
 
 ## Creating Effect Parameters
 
@@ -126,7 +127,7 @@ namespace EffectsDemo.iOS
             try {
                 var effect = (ShadowEffect)Element.Effects.FirstOrDefault (e => e is ShadowEffect);
                 if (effect != null) {
-                    Control.Layer.CornerRadius = effect.Radius;
+                    Control.Layer.ShadowRadius = effect.Radius;
                     Control.Layer.ShadowColor = effect.Color.ToCGColor ();
                     Control.Layer.ShadowOffset = new CGSize (effect.DistanceX, effect.DistanceY);
                     Control.Layer.ShadowOpacity = 1.0f;
@@ -239,4 +240,4 @@ This article has demonstrated using CLR properties to pass parameters to an effe
 - [Effect](xref:Xamarin.Forms.Effect)
 - [PlatformEffect](xref:Xamarin.Forms.PlatformEffect`2)
 - [RoutingEffect](xref:Xamarin.Forms.RoutingEffect)
-- [Shadow Effect (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/effects-shadoweffect)
+- [Shadow Effect (sample)](/samples/xamarin/xamarin-forms-samples/effects-shadoweffect)

@@ -1,4 +1,3 @@
-- name: Xamarin.Forms
   href: index.yml
   items:
     - name: Get Started
@@ -6,22 +5,81 @@
       items:
         - name: What is Xamarin.Forms
           href: ~/get-started/what-is-xamarin-forms.md
-        - name: Requirements
-          href: ~/get-started/requirements.md
         - name: Installation
           href: ~/get-started/installation/index.md
-        - name: Build your first app
+          items:
+            - name: Installing Xamarin on Windows
+              href: ~/get-started/installation/windows.md
+              items:
+                - name: Installing Xamarin Previews (Windows)
+                  href: ~/get-started/installation/windows-preview.md
+                - name: Uninstalling Xamarin from Visual Studio
+                  href: ~/get-started/installation/uninstalling-xamarin.md
+            - name: Installing Visual Studio for Mac
+              href: /visualstudio/mac/installation/
+              items:
+                - name: Installing Xamarin Previews (Mac)
+                  href: /visualstudio/mac/update/
+                - name: Uninstalling Visual Studio for Mac
+                  href: /visualstudio/mac/uninstall
+            - name: Xamarin Firewall Configuration Instructions
+              href: ~/get-started/installation/firewall.md
+        - name: Supported platforms
+          href: ~/get-started/supported-platforms.md
+        - name: First App
           href: ~/get-started/first-app/index.md
-        - name: Single page quickstart
-          href: ~/get-started/quickstarts/single-page.md
-        - name: Multi-page quickstart
-          href: ~/get-started/quickstarts/multi-page.md
-        - name: Local database quickstart
-          href: ~/get-started/quickstarts/database.md
-        - name: Styling quickstart
-          href: ~/get-started/quickstarts/styling.md
-        - name: Deep dive
-          href: ~/get-started/quickstarts/deepdive.md
+        - name: Quickstarts
+          href: ~/get-started/quickstarts/index.md
+          items:
+            - name: File > New
+              href: ~/get-started/quickstarts/single-page.md
+            - name: Multipage
+              href: ~/get-started/quickstarts/multi-page.md
+            - name: Database
+              href: ~/get-started/quickstarts/database.md
+            - name: Styling
+              href: ~/get-started/quickstarts/styling.md
+            - name: Deep dive
+              href: ~/get-started/quickstarts/deepdive.md
+        - name: Tutorials
+          href: ~/get-started/tutorials/index.yml
+          items:
+            - name: Stack Layout
+              href: ~/get-started/tutorials/stacklayout/index.yml
+            - name: Label
+              href: ~/get-started/tutorials/label/index.yml
+            - name: Button
+              href: ~/get-started/tutorials/button/index.yml
+            - name: Text entry
+              href: ~/get-started/tutorials/entry/index.yml
+            - name: Text editor
+              href: ~/get-started/tutorials/editor/index.yml
+            - name: Images
+              href: ~/get-started/tutorials/image/index.yml
+            - name: Grid Layout
+              href: ~/get-started/tutorials/grid/index.yml
+            - name: Lists
+              href: ~/get-started/tutorials/collectionview/index.yml
+            - name: Pop-ups
+              href: ~/get-started/tutorials/pop-ups/index.yml
+            - name: App lifecycle
+              href: ~/get-started/tutorials/app-lifecycle/index.yml
+            - name: Local database
+              href: ~/get-started/tutorials/local-database/index.yml
+            - name: Web services
+              href: ~/get-started/tutorials/web-service/index.yml
+        - name: Learn about Xamarin
+          items:
+            - name: .NET developers
+              href: ~/cross-platform/desktop/index.md
+            - name: Java developers
+              href: ~/android/get-started/java-developers.md
+            - name: Objective-C developers
+              href: ~/ios/get-started/objective-c-developers/index.md
+            - name: Azure
+              href: ~/xamarin-forms/data-cloud/index.yml
+        - name: Development guidance
+          href: ~/cross-platform/index.yml
     - name: XAML
       items:
         - name: Overview
@@ -81,10 +139,14 @@
               href: xaml/resource-dictionaries.md
             - name: Passing Arguments
               href: xaml/passing-arguments.md
+            - name: Generics
+              href: xaml/generics.md
             - name: Field Modifiers
               href: xaml/field-modifiers.md
             - name: Loading XAML at Runtime
               href: xaml/runtime-load.md
+        - name: Xamarin.Forms XAML on Q&A
+          href: /answers/topics/dotnet-xamarinforms-xaml.html
     - name: Application Fundamentals
       items:
         - name: Overview
@@ -111,13 +173,8 @@
               href: app-fundamentals/behaviors/attached.md
             - name: Xamarin.Forms Behaviors
               href: app-fundamentals/behaviors/creating.md
-            - name: Reusable Behaviors
-              href: app-fundamentals/behaviors/reusable/index.md
-              items:
-                - name: EffectBehavior
-                  href: app-fundamentals/behaviors/reusable/effect-behavior.md
-                - name: EventToCommandBehavior
-                  href: app-fundamentals/behaviors/reusable/event-to-command-behavior.md
+            - name: Reusable EffectBehavior
+              href: app-fundamentals/behaviors/effect-behavior.md
         - name: Custom Renderers
           href: app-fundamentals/custom-renderer/index.md
           items:
@@ -129,13 +186,8 @@
               href: app-fundamentals/custom-renderer/entry.md
             - name: Customizing a ContentPage
               href: app-fundamentals/custom-renderer/contentpage.md
-            - name: Customizing a Map
-              href: app-fundamentals/custom-renderer/map/index.md
-              items:
-                - name: Customizing a Map Pin
-                  href: app-fundamentals/custom-renderer/map/customized-pin.md
-                - name: Highlighting a Circular Area on a Map
-                  href: app-fundamentals/custom-renderer/map/circle-map-overlay.md
+            - name: Customizing a Map Pin
+              href: app-fundamentals/custom-renderer/map-pin.md
             - name: Customizing a ListView
               href: app-fundamentals/custom-renderer/listview.md
             - name: Customizing a ViewCell
@@ -144,23 +196,6 @@
               href: app-fundamentals/custom-renderer/hybridwebview.md
             - name: Implementing a View
               href: app-fundamentals/custom-renderer/view.md
-            - name: Implementing a Video Player
-              href: app-fundamentals/custom-renderer/video-player/index.md
-              items:
-                - name: Creating the Platform Video Players
-                  href: app-fundamentals/custom-renderer/video-player/player-creation.md
-                - name: Playing a Web Video
-                  href: app-fundamentals/custom-renderer/video-player/web-videos.md
-                - name: Binding Video Sources to the Player
-                  href: app-fundamentals/custom-renderer/video-player/source-bindings.md
-                - name: Loading Application Resource Videos
-                  href: app-fundamentals/custom-renderer/video-player/loading-resources.md
-                - name: Accessing the Device's Video Library
-                  href: app-fundamentals/custom-renderer/video-player/accessing-library.md
-                - name: Custom Video Transport Controls
-                  href: app-fundamentals/custom-renderer/video-player/custom-transport.md
-                - name: Custom Video Positioning
-                  href: app-fundamentals/custom-renderer/video-player/custom-positioning.md
         - name: Data Binding
           href: app-fundamentals/data-binding/index.md
           items:
@@ -178,6 +213,8 @@
               href: app-fundamentals/data-binding/relative-bindings.md
             - name: Binding Fallbacks
               href: app-fundamentals/data-binding/binding-fallbacks.md
+            - name: Multi-Bindings
+              href: app-fundamentals/data-binding/multibinding.md
             - name: The Command Interface
               href: app-fundamentals/data-binding/commanding.md
             - name: Compiled Bindings
@@ -191,6 +228,18 @@
               href: app-fundamentals/dependency-service/registration-and-resolution.md
             - name: Picking from the Photo Library
               href: app-fundamentals/dependency-service/photo-picker.md
+        - name: Dual-screen
+          items:
+            - name: Get started
+              href: app-fundamentals/dual-screen/index.md
+            - name: Dual-screen patterns
+              href: app-fundamentals/dual-screen/design-patterns.md
+            - name: TwoPaneView layout
+              href: app-fundamentals/dual-screen/twopaneview.md
+            - name: DualScreenInfo helper class
+              href: app-fundamentals/dual-screen/dual-screen-info.md
+            - name: Dual-screen triggers
+              href: app-fundamentals/dual-screen/triggers.md
         - name: Effects
           href: app-fundamentals/effects/index.md
           items:
@@ -220,6 +269,8 @@
               href: app-fundamentals/gestures/pan.md
             - name: Swipe
               href: app-fundamentals/gestures/swipe.md
+            - name: Drag and Drop
+              href: app-fundamentals/gestures/drag-and-drop.md
         - name: Local Notifications
           href: app-fundamentals/local-notifications.md
         - name: Localization
@@ -240,8 +291,8 @@
               href: app-fundamentals/navigation/tabbed-page.md
             - name: CarouselPage
               href: app-fundamentals/navigation/carousel-page.md
-            - name: MasterDetailPage
-              href: app-fundamentals/navigation/master-detail-page.md
+            - name: FlyoutPage
+              href: app-fundamentals/navigation/flyoutpage.md
             - name: Modal Pages
               href: app-fundamentals/navigation/modal.md
         - name: Shell
@@ -266,17 +317,11 @@
             - name: Custom Renderers
               href: app-fundamentals/shell/customrenderers.md
         - name: Templates
-          href: app-fundamentals/templates/index.md
           items:
+            - name: Overview
+              href: app-fundamentals/templates/index.md
             - name: Control Templates
-              href: app-fundamentals/templates/control-templates/index.md
-              items:
-                - name: Introduction
-                  href: app-fundamentals/templates/control-templates/introduction.md
-                - name: Control Template Creation
-                  href: app-fundamentals/templates/control-templates/creating.md
-                - name: Template Bindings
-                  href: app-fundamentals/templates/control-templates/template-binding.md
+              href: app-fundamentals/templates/control-template.md
             - name: Data Templates
               href: app-fundamentals/templates/data-templates/index.md
               items:
@@ -328,12 +373,38 @@
                   href: user-interface/map/position-distance.md
                 - name: Pins
                   href: user-interface/map/pins.md
-                - name: Polygons and Polylines
+                - name: Polygons, Polylines, and Circles
                   href: user-interface/map/polygons.md
                 - name: Geocoding
                   href: user-interface/map/geocoder.md
                 - name: Launch the Native Map App
                   href: user-interface/map/native-map-app.md
+            - name: Shapes
+              items:
+                - name: Overview
+                  href: user-interface/shapes/index.md
+                - name: Ellipse
+                  href: user-interface/shapes/ellipse.md
+                - name: Fill rules
+                  href: user-interface/shapes/fillrules.md
+                - name: Geometries
+                  href: user-interface/shapes/geometries.md
+                - name: Line
+                  href: user-interface/shapes/line.md
+                - name: Paths
+                  items:
+                  - name: Path
+                    href: user-interface/shapes/path.md
+                  - name: Path markup syntax
+                    href: user-interface/shapes/path-markup-syntax.md
+                  - name: Path transforms
+                    href: user-interface/shapes/path-transforms.md
+                - name: Polygon
+                  href: user-interface/shapes/polygon.md
+                - name: Polyline
+                  href: user-interface/shapes/polyline.md
+                - name: Rectangle
+                  href: user-interface/shapes/rectangle.md
             - name: WebView
               href: user-interface/webview.md
         - name: Initiate commands
@@ -342,6 +413,8 @@
               href: user-interface/button.md
             - name: ImageButton
               href: user-interface/imagebutton.md
+            - name: RadioButton
+              href: user-interface/radiobutton.md
             - name: RefreshView
               href: user-interface/refreshview.md
             - name: SearchBar
@@ -449,15 +522,22 @@
                   href: user-interface/animation/easing.md
                 - name: Custom Animations
                   href: user-interface/animation/custom.md
+            - name: Brushes
+              items:
+                - name: Overview
+                  href: user-interface/brushes/index.md
+                - name: Solid Colors
+                  href: user-interface/brushes/solidcolor.md
+                - name: Gradients
+                  items:
+                  - name: Overview
+                    href: user-interface/brushes/gradient.md
+                  - name: Linear Gradients
+                    href: user-interface/brushes/lineargradient.md
+                  - name: Radial Gradients
+                    href: user-interface/brushes/radialgradient.md
             - name: Colors
               href: user-interface/colors.md
-            - name: DataPages
-              href: user-interface/datapages/index.md
-              items:
-                - name: Get Started
-                  href: user-interface/datapages/get-started.md
-                - name: Controls Reference
-                  href: user-interface/datapages/controls.md
             - name: Display pop-ups
               href: user-interface/pop-ups.md
             - name: Fonts
@@ -491,7 +571,12 @@
                 - name: Styling Xamarin.Forms Apps using Cascading Style Sheets (CSS)
                   href: user-interface/styles/css/index.md
             - name: Theming
-              href: user-interface/theming.md
+              href: user-interface/theming/index.md
+              items:
+              - name: Theme an Application
+                href: user-interface/theming/theming.md
+              - name: Respond to System Theme Changes
+                href: user-interface/theming/system-theme-changes.md
             - name: Visual
               href: user-interface/visual/index.md
               items:
@@ -510,15 +595,15 @@
             - name: Core layouts
               items:
                 - name: AbsoluteLayout
-                  href: user-interface/layouts/absolute-layout.md
+                  href: user-interface/layouts/absolutelayout.md
                 - name: FlexLayout
                   href: user-interface/layouts/flex-layout.md
                 - name: Grid
                   href: user-interface/layouts/grid.md
                 - name: RelativeLayout
-                  href: user-interface/layouts/relative-layout.md
+                  href: user-interface/layouts/relativelayout.md
                 - name: StackLayout
-                  href: user-interface/layouts/stack-layout.md
+                  href: user-interface/layouts/stacklayout.md
             - name: Additional layouts
               items:
                 - name: ContentView
@@ -526,7 +611,7 @@
                 - name: Frame
                   href: user-interface/layouts/frame.md
                 - name: ScrollView
-                  href: user-interface/layouts/scroll-view.md
+                  href: user-interface/layouts/scrollview.md
             - name: Concepts
               items:
                 - name: Bindable Layouts
@@ -551,8 +636,8 @@
           items:
             - name: Overview
               href: platform/android/index.md
-            - name: AppCompat & Material Design
-              href: platform/android/appcompat-material-design.md
+            - name: AndroidX Migration
+              href: platform/android/androidx-migration.md
             - name: Button Padding and Shadows
               href: platform/android/button-padding-shadow.md
             - name: Entry Input Method Editor Options
@@ -593,10 +678,14 @@
               href: platform/ios/named-font-size-scaling.md
             - name: Cell Background Color
               href: platform/ios/cell-background-color.md
+            - name: DatePicker Item Selection
+              href: platform/ios/datepicker-selection.md
             - name: Entry Cursor Color
               href: platform/ios/entry-cursor-color.md
             - name: Entry Font Size
               href: platform/ios/entry-font-size.md
+            - name: FlyoutPage Shadow
+              href: platform/ios/flyoutpage-shadow.md
             - name: Formatting
               href: platform/ios/formatting.md
             - name: Modal Page Presentation Style
@@ -627,28 +716,38 @@
               href: platform/ios/page-safe-area-layout.md
             - name: ScrollView Content Touches
               href: platform/ios/scrollview-content-touches.md
+            - name: SearchBar Style
+              href: platform/ios/searchbar-style.md
             - name: Simultaneous Pan Gesture Recognition
               href: platform/ios/application-pan-gesture.md
             - name: Slider Thumb Tap
               href: platform/ios/slider-thumb.md
             - name: SwipeView Swipe Transition Mode
               href: platform/ios/swipeview-swipetransitionmode.md
+            - name: TabbedPage Translucent TabBar
+              href: platform/ios/tabbedpage-translucent-tabbar.md
+            - name: TimePicker Item Selection
+              href: platform/ios/timepicker-selection.md
             - name: VisualElement Blur
               href: platform/ios/visualelement-blur.md
             - name: VisualElement Drop Shadows
               href: platform/ios/visualelement-drop-shadow.md
             - name: VisualElement Legacy Color Mode
               href: platform/ios/legacy-color-mode.md
+            - name: VisualElement First Responder
+              href: platform/ios/visualelement-first-responder.md
         - name: Windows
           items:
             - name: Overview
               href: platform/windows/index.md
+            - name: Default Image Directory
+              href: platform/windows/default-image-directory.md
+            - name: FlyoutPage Navigation Bar
+              href: platform/windows/flyoutpage-navigation-bar.md
             - name: InputView Reading Order
               href: platform/windows/inputview-reading-order.md
             - name: ListView SelectionMode
               href: platform/windows/listview-selectionmode.md
-            - name: MasterDetailPage Navigation Bar
-              href: platform/windows/masterdetailpage-navigation-bar.md
             - name: Page Toolbar Placement
               href: platform/windows/page-toolbar-placement.md
             - name: Platform Setup
@@ -663,6 +762,8 @@
               href: platform/windows/visualelement-access-keys.md
             - name: VisualElement Legacy Color Mode
               href: platform/windows/legacy-color-mode.md
+            - name: WebView Execution Mode
+              href: platform/windows/webview-executionmode.md
             - name: WebView JavaScript Alerts
               href: platform/windows/webview-javascript-alert.md
         - name: Create Platform-Specifics
@@ -707,8 +808,12 @@
           href: ~/essentials/platform-feature-support.md?context=xamarin/xamarin-forms
         - name: Accelerometer
           href: ~/essentials/accelerometer.md?context=xamarin/xamarin-forms
+        - name: App Actions
+          href: ~/essentials/app-actions.md?context=xamarin/xamarin-forms
         - name: App Information
           href: ~/essentials/app-information.md?context=xamarin/xamarin-forms
+        - name: App Theme
+          href: ~/essentials/app-theme.md?context=xamarin/xamarin-forms
         - name: Barometer
           href: ~/essentials/barometer.md?context=xamarin/xamarin-forms
         - name: Battery
@@ -721,6 +826,8 @@
           href: ~/essentials/compass.md?context=xamarin/xamarin-forms
         - name: Connectivity
           href: ~/essentials/connectivity.md?context=xamarin/xamarin-forms
+        - name: Contacts
+          href: ~/essentials/contacts.md?context=xamarin/xamarin-forms
         - name: Detect Shake
           href: ~/essentials/detect-shake.md?context=xamarin/xamarin-forms
         - name: Device Display Information
@@ -729,6 +836,8 @@
           href: ~/essentials/device-information.md?context=xamarin/xamarin-forms
         - name: Email
           href: ~/essentials/email.md?context=xamarin/xamarin-forms
+        - name: File Picker
+          href: ~/essentials/file-picker.md?context=xamarin/xamarin-forms
         - name: File System Helpers
           href: ~/essentials/file-system-helpers.md?context=xamarin/xamarin-forms
         - name: Flashlight
@@ -739,6 +848,8 @@
           href: ~/essentials/geolocation.md?context=xamarin/xamarin-forms
         - name: Gyroscope
           href: ~/essentials/gyroscope.md?context=xamarin/xamarin-forms
+        - name: Haptic Feedback
+          href: ~/essentials/haptic-feedback.md?context=xamarin/xamarin-forms
         - name: Launcher
           href: ~/essentials/launcher.md?context=xamarin/xamarin-forms
         - name: Magnetometer
@@ -747,16 +858,22 @@
           href: ~/essentials/main-thread.md?context=xamarin/xamarin-forms
         - name: Maps
           href: ~/essentials/maps.md?context=xamarin/xamarin-forms
+        - name: Media Picker
+          href: ~/essentials/media-picker.md?context=xamarin/xamarin-forms
         - name: Open Browser
           href: ~/essentials/open-browser.md?context=xamarin/xamarin-forms
         - name: Orientation Sensor
           href: ~/essentials/orientation-sensor.md?context=xamarin/xamarin-forms
+        - name: Permissions
+          href: ~/essentials/permissions.md?context=xamarin/xamarin-forms
         - name: Phone Dialer
           href: ~/essentials/phone-dialer.md?context=xamarin/xamarin-forms
         - name: Platform Extensions(Size, Rect, Point)
           href: ~/essentials/platform-extensions.md?context=xamarin/xamarin-forms
         - name: Preferences
           href: ~/essentials/preferences.md?context=xamarin/xamarin-forms
+        - name: Screenshot
+          href: ~/essentials/screenshot.md?context=xamarin/xamarin-forms
         - name: Secure Storage
           href: ~/essentials/secure-storage.md?context=xamarin/xamarin-forms
         - name: Share
@@ -771,10 +888,14 @@
           href: ~/essentials/version-tracking.md?context=xamarin/xamarin-forms
         - name: Vibrate
           href: ~/essentials/vibrate.md?context=xamarin/xamarin-forms
+        - name: Web Authenticator
+          href: ~/essentials/web-authenticator.md?context=xamarin/xamarin-forms
         - name: Xamarin.Essentials release notes
-          href: https://docs.microsoft.com/xamarin/essentials/release-notes/
+          href: /xamarin/essentials/release-notes/
         - name: Troubleshooting
           href: ~/essentials/troubleshooting.md?context=xamarin/xamarin-forms
+        - name: Xamarin.Essentials on Q&A
+          href: /answers/topics/dotnet-xamarinessentials.html
     - name: Data & Azure Cloud Services
       items:
         - name: Overview
@@ -794,15 +915,13 @@
             - name: Azure Cosmos DB Document Database
               href: data-cloud/azure-services/azure-cosmosdb.md
             - name: Azure Notification Hubs
-              href: data-cloud/azure-services/azure-notification-hub.md
+              href: /azure/developer/mobile-apps/notification-hubs-backend-service-xamarin-forms
             - name: Azure Storage
               href: data-cloud/azure-services/azure-storage.md
             - name: Azure Search
               href: data-cloud/azure-services/azure-search.md
             - name: Azure Functions
               href: data-cloud/azure-services/azure-functions.md
-            - name: Azure SignalR Service
-              href: data-cloud/azure-services/azure-signalr.md
         - name: Azure Cognitive Services
           items:
             - name: Cognitive services overview
@@ -835,8 +954,6 @@
               href: data-cloud/authentication/index.md
             - name: REST
               href: data-cloud/authentication/rest.md
-            - name: OAuth
-              href: data-cloud/authentication/oauth.md
             - name: Azure Active Directory B2C
               href: data-cloud/authentication/azure-ad-b2c.md
             - name: Azure Cosmos DB Authentication
@@ -847,6 +964,8 @@
           href: deploy-test/index.yml
         - name: Improve Performance
           href: deploy-test/performance.md
+        - name: Hot Restart
+          href: deploy-test/hot-restart.md
         - name: Automate Testing with Visual Studio App Center
           href: /appcenter/test-cloud/uitest/get-started-xamarin-forms
         - name: Publish iOS apps
@@ -865,6 +984,8 @@
           href: internals/class-hierarchy.md
         - name: Dependency Resolution
           href: internals/dependency-resolution.md
+        - name: Experimental Flags
+          href: internals/experimental-flags.md
         - name: Fast Renderers
           href: internals/fast-renderers.md
         - name: Source Link
@@ -875,6 +996,8 @@
         - name: Frequently Asked Questions
           href: troubleshooting/questions/index.md
           items:
+            - name: How do I migrate my app to Xamarin.Forms 5.0?
+              href: troubleshooting/questions/forms5-migration.md
             - name: Can I update the Xamarin.Forms default template to a newer NuGet package?
               href: troubleshooting/questions/update-forms-template.md
             - name: Why doesn't the Visual Studio XAML designer work for Xamarin.Forms XAML files?
@@ -883,8 +1006,10 @@
               href: troubleshooting/questions/android-linkassemblies-error.md
             - name: "Why does my Xamarin.Forms.Maps Android project fail with COMPILETODALVIK : UNEXPECTED TOP-LEVEL ERROR?"
               href: troubleshooting/questions/maps-compiletodalvik-error.md
+    - name: Xamarin.Forms on Q&A
+      href: /answers/topics/dotnet-xamarinforms.html
     - name: Release notes
-      href: https://docs.microsoft.com/xamarin/xamarin-forms/release-notes/
+      href: /xamarin/xamarin-forms/release-notes/
     - name: Samples
       href: samples/index.md
     - name: Creating Mobile Apps with Xamarin.Forms Book

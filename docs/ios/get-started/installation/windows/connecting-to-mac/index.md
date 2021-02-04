@@ -48,7 +48,7 @@ Pair to Mac enables the following development workflow:
 > Before following the instructions in this guide, complete the following steps:
 >
 > - On a Windows machine, [install Visual Studio 2019](~/get-started/installation/windows.md)
-> - On a Mac, [install Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and [Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation)
+> - On a Mac, [install Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) and [Visual Studio for Mac](/visualstudio/mac/installation)
 >   - _You must manually open Xcode after installing_ so that it can add any additional components.
 >
 > If you would prefer not to install Visual Studio for Mac, Visual Studio 2019
@@ -106,7 +106,7 @@ Now that remote login is enabled, connect Visual Studio 2019 to the Mac.
 
 4. Enter your username and password.
 
-    - The first time you connect to any paticular Mac, you are
+    - The first time you connect to any particular Mac, you are
       prompted to enter your username and password for that machine:
 
       ![Entering a username and password for the Mac](images/auth.png "Entering a username and password for the Mac")
@@ -122,7 +122,7 @@ Now that remote login is enabled, connect Visual Studio 2019 to the Mac.
 5. Pair to Mac automatically configures the Mac.
 
     [Starting with Visual Studio 2019 version
-    15.6](https://docs.microsoft.com/visualstudio/releasenotes/vs2017-relnotes#automatic-macos-provisioning),
+    15.6](/visualstudio/releasenotes/vs2017-relnotes#automatic-macos-provisioning),
     Visual Studio 2019 installs or updates Mono and Xamarin.iOS on a
     connected Mac build host as needed (note that Xcode must still be
     installed manually). See [Automatic Mac
@@ -199,7 +199,7 @@ add it manually:
 
 ## Automatic Mac provisioning
 
-Starting with [Visual Studio 2019 version 15.6](https://docs.microsoft.com/visualstudio/releasenotes/vs2017-relnotes#automatic-macos-provisioning),
+Starting with [Visual Studio 2019 version 15.6](/visualstudio/releasenotes/vs2017-relnotes#automatic-macos-provisioning),
 Pair to Mac automatically provisions a Mac with software necessary for
 building Xamarin.iOS applications: Mono, Xamarin.iOS (the software
 framework, not the Visual Studio for Mac IDE), and various Xcode-related
@@ -228,9 +228,9 @@ of Mono on the Mac.
 Progress is indicated by various prompts, as shown by the following
 screenshots (click to zoom):
 
-||Install Check|Downloading|Installing
+|Mono|Install Check|Downloading|Installing
 |---|---|---|---|
-|Mono|[![Missing Mono installation](images/mono-missing.png "Missing Mono installation")](images/mono-missing-large.png#lightbox)|[![Downloading Mono](images/mono-downloading.png "Downloading Mono")](images/mono-downloading-large.png#lightbox)|[![Installing Mono](images/mono-installing.png "Installing Mono")](images/mono-installing-large.png#lightbox)|
+||[![Missing Mono installation](images/mono-missing.png "Missing Mono installation")](images/mono-missing-large.png#lightbox)|[![Downloading Mono](images/mono-downloading.png "Downloading Mono")](images/mono-downloading-large.png#lightbox)|[![Installing Mono](images/mono-installing.png "Installing Mono")](images/mono-installing-large.png#lightbox)|
 
 ### Xamarin.iOS
 
@@ -240,7 +240,7 @@ installed on the Windows machine.
 > [!IMPORTANT]
 > Pair to Mac will not downgrade Xamarin.iOS on the Mac from alpha/beta
 > to stable. If you have Visual Studio for Mac installed, set your
-> [release channel](https://docs.microsoft.com/visualstudio/mac/update) as
+> [release channel](/visualstudio/mac/update) as
 > follows:
 >
 > - If you use Visual Studio 2019, select the **Stable** updates channel in
@@ -251,9 +251,9 @@ installed on the Windows machine.
 Progress is indicated by various prompts, as shown by the following
 screenshots (click to zoom):
 
-||Install Check|Downloading|Installing
+|Xamarin.iOS|Install Check|Downloading|Installing
 |---|---|---|---|
-|Xamarin.iOS|[![Missing Xamarin.iOS installation](images/xamios-missing.png "Missing Xamarin.iOS installation")](images/xamios-missing-large.png#lightbox)|[![Downloading Xamarin.iOS](images/xamios-downloading.png "Downloading Xamarin.iOS")](images/xamios-downloading-large.png#lightbox)|[![Installing Xamarin.iOS](images/xamios-installing.png "Installing Xamarin.iOS")](images/xamios-installing-large.png#lightbox)|
+||[![Missing Xamarin.iOS installation](images/xamios-missing.png "Missing Xamarin.iOS installation")](images/xamios-missing-large.png#lightbox)|[![Downloading Xamarin.iOS](images/xamios-downloading.png "Downloading Xamarin.iOS")](images/xamios-downloading-large.png#lightbox)|[![Installing Xamarin.iOS](images/xamios-installing.png "Installing Xamarin.iOS")](images/xamios-installing-large.png#lightbox)|
 
 ### Xcode tools and license
 
@@ -262,9 +262,9 @@ and its license accepted. While Pair to Mac does not install Xcode, it
 does prompt for license acceptance, as shown in the following screenshots
 (click to zoom):
 
-||Install Check|License Acceptance|
+|Xcode|Install Check|License Acceptance|
 |---|---|---|
-|Xcode|[![Missing Xcode installation](images/xcode-missing.png "Missing Xcode installation")](images/xcode-missing-large.png#lightbox)|[![Xcode license](images/xcode-license.png "Xcode license")](images/xcode-license-large.png#lightbox)|
+||[![Missing Xcode installation](images/xcode-missing.png "Missing Xcode installation")](images/xcode-missing-large.png#lightbox)|[![Xcode license](images/xcode-license.png "Xcode license")](images/xcode-license-large.png#lightbox)|
 
 Additionally, Pair to Mac will install or update various packages
 distributed with Xcode. For example:

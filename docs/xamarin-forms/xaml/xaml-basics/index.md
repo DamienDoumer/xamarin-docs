@@ -8,11 +8,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/25/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms XAML Basics
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/xamlsamples)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/xamlsamples)
 
 The eXtensible Application Markup Language (XAML) is an XML-based language created by Microsoft as an alternative to programming code for instantiating and initializing objects, and organizing those objects in parent-child hierarchies. XAML has been adapted to several technologies within the .NET framework, but it has found its greatest utility in defining the layout of user interfaces within the Windows Presentation Foundation (WPF), Silverlight, the Windows Runtime, and the Universal Windows Platform (UWP).
 
@@ -52,9 +53,9 @@ When you're familiar with Xamarin.Forms and XML, start reading [Part 1. Getting 
 
 ## Related links
 
-- [XamlSamples](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/xamlsamples)
+- [XamlSamples](/samples/xamarin/xamarin-forms-samples/xamlsamples)
 - [Creating Mobile Apps book](~/xamarin-forms/creating-mobile-apps-xamarin-forms/index.md)
-- [Xamarin.Forms Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.Forms)
+- [Xamarin.Forms Samples](/samples/browse/?products=xamarin&term=Xamarin.Forms)
 
 ## Related video
 

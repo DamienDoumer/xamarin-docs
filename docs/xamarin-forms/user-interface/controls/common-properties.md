@@ -6,7 +6,8 @@ ms.assetId: 85A0CCF5-C1D8-40BB-927F-A4D944E5534D
 ms.technology: xamarin-forms
 author: profexorgeek
 ms.author: jusjohns
-ms.date: 08/21/2019
+ms.date: 07/22/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms common control properties, methods, and events
@@ -15,7 +16,7 @@ The Xamarin.Forms `VisualElement` class is the base class for most of the contro
 
 ## Properties
 
-The following properties are available on `VisualElement` instances. For a complete list, see the [VisualElement API Properties](xref:Xamarin.Forms.VisualElement#properties).
+The following properties are available on [`VisualElement`](xref:Xamarin.Forms.VisualElement) objects.
 
 ### [`AnchorX`](xref:Xamarin.Forms.VisualElement.AnchorX)
 
@@ -23,7 +24,11 @@ The `AnchorX` property is a `double` value that defines the center point on the 
 
 ### [`AnchorY`](xref:Xamarin.Forms.VisualElement.AnchorY)
 
-The `AnchorY` property is a `double` value that defines the center point on the X axis for transforms such as scale and rotation. The default value is 0.5.
+The `AnchorY` property is a `double` value that defines the center point on the Y axis for transforms such as scale and rotation. The default value is 0.5.
+
+### `Background`
+
+The `Background` property is a `Brush` value that enables brushes to be used as the background in any control. The default value is `Brush.Default`.
 
 ### [`BackgroundColor`](xref:Xamarin.Forms.VisualElement.BackgroundColor)
 
@@ -37,9 +42,13 @@ The `Behaviors` property is a `List` of `Behavior` objects. Behaviors enable you
 
 The `Bounds` property is a read-only `Rectangle` object that represents the space occupied by the control. The `Bounds` property value is assigned during the layout cycle. The `Rectangle` `struct` contains useful properties and methods for testing intersection and containment of rectangles. For more information, see the [Xamarin.Forms Rectangle API](xref:Xamarin.Forms.Rectangle).
 
+### `Clip`
+
+The `Clip` property is a `Geometry` object that defines the outline of the contents of an element. To define a clip, use a `Geometry` object such as `EllipseGeometry` to set the element's `Clip` property. Only the area that is within the region of the geometry will be visible. For more information, see [Clip with a Geometry](~/xamarin-forms/user-interface/shapes/geometries.md#clip-with-a-geometry).
+
 ### [`Effects`](xref:Xamarin.Forms.Element.Effects)
 
-The `Effects` property is a `List` of `Effect` objects, inherited from the `Element`(xref:Xamarin.Forms.Element) class. Effects allow native controls to be customized, and are typically used for small styling changes. For more information about the `Effect` class, see [Xamarin.Forms Effects](~/xamarin-forms/app-fundamentals/effects/index.md).
+The `Effects` property is a `List` of `Effect` objects, inherited from the [`Element`](xref:Xamarin.Forms.Element) class. Effects allow native controls to be customized, and are typically used for small styling changes. For more information about the `Effect` class, see [Xamarin.Forms Effects](~/xamarin-forms/app-fundamentals/effects/index.md).
 
 ### [`FlowDirection`](xref:Xamarin.Forms.VisualElement.FlowDirection)
 
@@ -252,7 +261,7 @@ If the desired behavior is for the first `BoxView` instance to scale down with n
 
 ### Minimum and absolute property values
 
-Behavior is undefined when the minimum value is greater than the absolute value. For example, if `MinimumWidthRequest` is set to 100, the `WidthRequest` property should never exceed 100. When specifying a minimum property value, you should always specify an absolute value to ensure the absolute value is greater than the minimum value.
+The behavior is undefined when the minimum value is greater than the absolute value. For example, if `WidthRequest` is set to 100, the `MinimumWidthRequest` property should never exceed 100. When specifying a minimum property value, you should always specify an absolute value to ensure the absolute value is greater than the minimum value.
 
 ### Minimum properties within a Grid
 
@@ -260,4 +269,4 @@ Behavior is undefined when the minimum value is greater than the absolute value.
 
 ## Related links
 
-* [VisualElement API Documentation](xref:Xamarin.Forms.VisualElement)
+- [VisualElement API](xref:Xamarin.Forms.VisualElement)

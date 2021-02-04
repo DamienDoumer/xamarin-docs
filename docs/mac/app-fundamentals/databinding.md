@@ -25,7 +25,7 @@ In this article, we'll cover the basics of working with key-value coding and dat
 
 You may want to take a look at the [Exposing C# classes / methods to Objective-C](~/mac/internals/how-it-works.md) section of the [Xamarin.Mac Internals](~/mac/internals/how-it-works.md) document as well, it explains the `Register` and `Export` attributes used to wire up your C# classes to Objective-C objects and UI elements.
 
-<a name="What_is_Key-Value_Coding" />
+<a name="What_is_Key-Value_Coding"></a>
 
 ## What is key-value coding
 
@@ -150,7 +150,7 @@ Person.SetValueForKey(new NSString("Jane Doe"), new NSString("Name"));
 
 Would change the value of the `Name` property to `Jane Doe`.
 
-<a name="Observing_Value_Changes" />
+<a name="Observing_Value_Changes"></a>
 
 ### Observing value changes
 
@@ -172,7 +172,7 @@ For more information, please see Apple's [Introduction to Key-Value Observing Pr
 
 The following sections will show how you can use a key-value coding and key-value observing compliant class to bind data to UI elements in Xcode's Interface Builder, instead of reading and writing values using C# code. In this way you separate your _Data Model_ from the views that are used to display them, making the Xamarin.Mac application more flexible and easier to maintain. You also greatly decrease the amount of code that has to be written.
 
-<a name="Defining_your_Data_Model" />
+<a name="Defining_your_Data_Model"></a>
 
 ### Defining your data model
 
@@ -408,7 +408,7 @@ Note that in addition to its own Key, the `isManager` accessor is also sending t
 
 We'll be using the `PersonModel` Data Model throughout the rest of this article.
 
-<a name="Simple_Data_Binding" />
+<a name="Simple_Data_Binding"></a>
 
 ### Simple data binding
 
@@ -416,7 +416,7 @@ With our Data Model defined, let's look at a simple example of data binding in X
 
 First, let's add a new **View Controller** to our **Main.storyboard** file in Interface Builder and name its class `SimpleViewController`:
 
-[![Adding a new view controller](databinding-images/simple01.png "Adding a new view controller")](databinding-images/simple01-large.png#lightbox)
+[![Adding a new view controller with a class named SimpleViewController.](databinding-images/simple01.png "Adding a new view controller")](databinding-images/simple01-large.png#lightbox)
 
 Next, return to Visual Studio for Mac, edit the **SimpleViewController.cs** file (that was automatically added to our project) and expose an instance of the `PersonModel` that we will be data binding our form to. Add the following code:
 
@@ -463,20 +463,20 @@ To Data Bind the form to the `PersonModel` that we exposed via the `Person` Key,
 1. Select the **Employee Name** Text Field and switch to the **Bindings Inspector**.
 2. Check the **Bind to** box and select **Simple View Controller** from the dropdown. Next enter `self.Person.Name` for the **Key Path**:
 
-    [![Entering the key path](databinding-images/simple03.png "Entering the key path")](databinding-images/simple03-large.png#lightbox)
+    [![Entering self dot person dot name for the Key Path.](databinding-images/simple03.png "Entering the key path")](databinding-images/simple03-large.png#lightbox)
 3. Select the **Occupation** Text Field and check the **Bind to** box and select **Simple View Controller** from the dropdown. Next enter `self.Person.Occupation` for the **Key Path**:
 
-    [![Entering the key path](databinding-images/simple04.png "Entering the key path")](databinding-images/simple04-large.png#lightbox)
+    [![Entering self dot Person dot Occupation for the Key Path.](databinding-images/simple04.png "Entering the key path")](databinding-images/simple04-large.png#lightbox)
 4. Select the **Employee is a Manager** Checkbox and check the **Bind to** box and select **Simple View Controller** from the dropdown. Next enter `self.Person.isManager` for the **Key Path**:
 
-    [![Entering the key path](databinding-images/simple05.png "Entering the key path")](databinding-images/simple05-large.png#lightbox)
+    [![Entering self dot Person dot isManager for the Key Path.](databinding-images/simple05.png "Entering the key path")](databinding-images/simple05-large.png#lightbox)
 5. Select the **Number of Employees Managed** Text Field and check the **Bind to** box and select **Simple View Controller** from the dropdown. Next enter `self.Person.NumberOfEmployees` for the **Key Path**:
 
-    [![Entering the key path](databinding-images/simple06.png "Entering the key path")](databinding-images/simple06-large.png#lightbox)
+    [![Entering self dot Person dot NumberOfEmployees for the Key Path.](databinding-images/simple06.png "Entering the key path")](databinding-images/simple06-large.png#lightbox)
 6. If the employee is not a manager, we want to hide the Number of Employees Managed Label and Text Field.
 7. Select the **Number of Employees Managed** Label, expand the **Hidden** turndown and check the **Bind to** box and select **Simple View Controller** from the dropdown. Next enter `self.Person.isManager` for the **Key Path**:
 
-    [![Entering the key path](databinding-images/simple07.png "Entering the key path")](databinding-images/simple07-large.png#lightbox)
+    [![Entering self dot Person dot isManager for the Key Path for non-managers.](databinding-images/simple07.png "Entering the key path")](databinding-images/simple07-large.png#lightbox)
 8. Select `NSNegateBoolean` from the **Value Transformer** dropdown:
 
     ![Selecting the NSNegateBoolean key transformation](databinding-images/simple08.png "Selecting the NSNegateBoolean key transformation")
@@ -492,7 +492,7 @@ Any changes that the users makes to the form will be written back to the `Person
 
 [![Hiding the number of employees for non-managers](databinding-images/simple10.png "Hiding the number of employees for non-managers")](databinding-images/simple10-large.png#lightbox)
 
-<a name="Table_View_Data_Binding" />
+<a name="Table_View_Data_Binding"></a>
 
 ### Table view data binding
 
@@ -500,7 +500,7 @@ Now that we have the basics of data binding out of the way, let's look at a more
 
 First, let's add a new **View Controller** to our **Main.storyboard** file in Interface Builder and name its class `TableViewController`:
 
-[![Adding a new view controller](databinding-images/table01.png "Adding a new view controller")](databinding-images/table01-large.png#lightbox)
+[![Adding a new view controller with a class named TableViewController.](databinding-images/table01.png "Adding a new view controller")](databinding-images/table01-large.png#lightbox)
 
 Next, let's edit the **TableViewController.cs** file (that was automatically added to our project) and expose an array (`NSArray`) of `PersonModel` classes that we will be data binding our form to. Add the following code:
 
@@ -579,7 +579,7 @@ We need to add an **Array Controller** to provide bound data to our table, do th
     [![Selecting the Attributes Inspector](databinding-images/table04.png "Selecting the Attributes Inspector")](databinding-images/table04-large.png#lightbox)
 3. Enter `PersonModel` for the **Class Name**, click the **Plus** button and add three Keys. Name them `Name`, `Occupation` and `isManager`:
 
-    ![Adding the required key paths](databinding-images/table05.png "Adding the required key paths")
+    ![Adding the required key paths to the Object Controller.](databinding-images/table05.png "Adding the required key paths")
 4. This tells the Array Controller what it is managing an array of, and which properties it should expose (via Keys).
 5. Switch to the **Bindings Inspector** and under **Content Array** select **Bind to** and **Table View Controller**. Enter a **Model Key Path** of `self.personModelArray`:
 
@@ -590,24 +590,24 @@ Now we need to bind our Table View to the Array Controller, do the following:
 
 1. Select the Table View and the **Binding Inspector**:
 
-    [![Selecting the Binding Inspector](databinding-images/table07.png "Selecting the Binding Inspector")](databinding-images/table07-large.png#lightbox)
+    [![Selecting the Table View and Binding Inspector.](databinding-images/table07.png "Selecting the Binding Inspector")](databinding-images/table07-large.png#lightbox)
 2. Under the **Table Contents** turndown, select **Bind to** and **Array Controller**. Enter `arrangedObjects` for the **Controller Key** field:
 
     ![Defining the controller key](databinding-images/table08.png "Defining the controller key")
 3. Select the **Table View Cell** under the **Employee** column. In the **Bindings Inspector** under the **Value** turndown, select **Bind to** and **Table Cell View**. Enter `objectValue.Name` for the **Model Key Path**:
 
-    [![Setting the model key path](databinding-images/table09.png "Setting the model key path")](databinding-images/table09-large.png#lightbox)
+    [![Setting the model key path for the Employee column.](databinding-images/table09.png "Setting the model key path")](databinding-images/table09-large.png#lightbox)
 4. `objectValue` is the current `PersonModel` in the array being managed by the Array Controller.
 5. Select the **Table View Cell** under the **Occupation** column. In the **Bindings Inspector** under the **Value** turndown, select **Bind to** and **Table Cell View**. Enter `objectValue.Occupation` for the **Model Key Path**:
 
-    [![Setting the model key path](databinding-images/table10.png "Setting the model key path")](databinding-images/table10-large.png#lightbox)
+    [![Setting the model key path for the Occupation column.](databinding-images/table10.png "Setting the model key path")](databinding-images/table10-large.png#lightbox)
 6. Save your changes and return to Visual Studio for Mac to sync with Xcode.
 
 If we run the application, the table will be populated with our array of `PersonModels`:
 
-[![Running the application](databinding-images/table11.png "Running the application")](databinding-images/table11-large.png#lightbox)
+[![Running the application, which populates the array of PersonModels.](databinding-images/table11.png "Running the application")](databinding-images/table11-large.png#lightbox)
 
-<a name="Outline_View_Data_Binding" />
+<a name="Outline_View_Data_Binding"></a>
 
 ### Outline view data binding
 
@@ -615,7 +615,7 @@ data binding against an Outline View is very similar to binding against a Table 
 
 First, let's add a new **View Controller** to our **Main.storyboard** file in Interface Builder and name its class `OutlineViewController`:
 
-[![Adding a new view controller](databinding-images/outline01.png "Adding a new view controller")](databinding-images/outline01-large.png#lightbox)
+[![Adding a new view controller with a class named OutlineViewController.](databinding-images/outline01.png "Adding a new view controller")](databinding-images/outline01-large.png#lightbox)
 
 Next, let's edit the **OutlineViewController.cs** file (that was automatically added to our project) and expose an array (`NSArray`) of `PersonModel` classes that we will be data binding our form to. Add the following code:
 
@@ -697,7 +697,7 @@ We need to add an **Tree Controller** to provide bound data to our outline, do t
     [![Selecting the Attribute Inspector](databinding-images/outline04.png "Selecting the Attribute Inspector")](databinding-images/outline04-large.png#lightbox)
 3. Enter `PersonModel` for the **Class Name**, click the **Plus** button and add three Keys. Name them `Name`, `Occupation` and `isManager`:
 
-    ![Adding the required key paths](databinding-images/outline05.png "Adding the required key paths")
+    ![Adding the required key paths for PersonModel.](databinding-images/outline05.png "Adding the required key paths")
 4. This tells the Tree Controller what it is managing an array of, and which properties it should expose (via Keys).
 5. Under the **Tree Controller** section, enter `personModelArray` for **Children**, enter `NumberOfEmployees` under the **Count** and enter `isEmployee` under **Leaf**:
 
@@ -712,22 +712,22 @@ Now we need to bind our Outline View to the Tree Controller, do the following:
 
 1. Select the Outline View and in the **Binding Inspector** select :
 
-    [![Selecting the Binding Inspector](databinding-images/outline07.png "Selecting the Binding Inspector")](databinding-images/outline07-large.png#lightbox)
+    [![Selecting the Outline View and Binding Inspector.](databinding-images/outline07.png "Selecting the Binding Inspector")](databinding-images/outline07-large.png#lightbox)
 2. Under the **Outline View Contents** turndown, select **Bind to** and **Tree Controller**. Enter `arrangedObjects` for the **Controller Key** field:
 
     ![Setting the controller key](databinding-images/outline08.png "Setting the controller key")
 3. Select the **Table View Cell** under the **Employee** column. In the **Bindings Inspector** under the **Value** turndown, select **Bind to** and **Table Cell View**. Enter `objectValue.Name` for the **Model Key Path**:
 
-    [![Entering the model key path](databinding-images/outline09.png "Entering the model key path")](databinding-images/outline09-large.png#lightbox)
+    [![Entering the model key path value objectValue dot Name.](databinding-images/outline09.png "Entering the model key path")](databinding-images/outline09-large.png#lightbox)
 4. `objectValue` is the current `PersonModel` in the array being managed by the Tree Controller.
 5. Select the **Table View Cell** under the **Occupation** column. In the **Bindings Inspector** under the **Value** turndown, select **Bind to** and **Table Cell View**. Enter `objectValue.Occupation` for the **Model Key Path**:
 
-    [![Entering the model key path](databinding-images/outline10.png "Entering the model key path")](databinding-images/outline10-large.png#lightbox)
+    [![Entering the model key path value objectValue dot Occupation.](databinding-images/outline10.png "Entering the model key path")](databinding-images/outline10-large.png#lightbox)
 6. Save your changes and return to Visual Studio for Mac to sync with Xcode.
 
 If we run the application, the outline will be populated with our array of `PersonModels`:
 
-[![Running the application](databinding-images/outline11.png "Running the application")](databinding-images/outline11-large.png#lightbox)
+[![Running the application, which populates our array of PersonModels.](databinding-images/outline11.png "Running the application")](databinding-images/outline11-large.png#lightbox)
 
 ### Collection view data binding
 
@@ -740,7 +740,7 @@ Data binding with a Collection View is very much like binding with a Table View,
 
 First, let's add a new **View Controller** to our **Main.storyboard** file in Interface Builder and name its class `CollectionViewController`:
 
-![](databinding-images/collection01.png)
+![Add a View Controller](databinding-images/collection01.png)
 
 Next, let's edit the **CollectionViewController.cs** file (that was automatically added to our project) and expose an array (`NSArray`) of `PersonModel` classes that we will be data binding our form to. Add the following code:
 
@@ -807,7 +807,7 @@ public override void AwakeFromNib ()
 
 Now we need to create our Collection View, double-click the **Main.storyboard** file to open it for editing in Interface Builder. Layout the Collection View to look something like the following:
 
-![](databinding-images/collection02.png)
+![Create the CollectionView](databinding-images/collection02.png)
 
 When you add a Collection View to a User Interface design, two extra elements are also added:
 
@@ -816,38 +816,38 @@ When you add a Collection View to a User Interface design, two extra elements ar
 
 Select the view and make it look like the following using an Image View and two Text Fields:
 
-![](databinding-images/collection03.png)
+![Add controls](databinding-images/collection03.png)
 
 One thing to note here, a `NSBox` was added behind everything in the view with the following attributes:
 
-![](databinding-images/collection04.png)
+![NSBox](databinding-images/collection04.png)
 
 We'll be using this box to provide feedback to the user when an item is selected in the Collection View.
 
 We need to add an **Array Controller** to provide bound data to our collection, do the following:
 
-1. Drag an **Array Controller** from the **Library Inspector** onto the **Interface Editor**: <br/>![](databinding-images/table03.png)
-2. Select **Array Controller** in the **Interface Hierarchy** and switch to the **Attribute Inspector**: <br/>![](databinding-images/collection05.png)
-3. Enter `PersonModel` for the **Class Name**, click the **Plus** button and add four Keys. Name them `Icon`, `Name`, `Occupation` and `isManager`: <br/>![](databinding-images/table05.png)
+1. Drag an **Array Controller** from the **Library Inspector** onto the **Interface Editor**: <br/>![Array Controller](databinding-images/table03.png)
+2. Select **Array Controller** in the **Interface Hierarchy** and switch to the **Attribute Inspector**: <br/>![Attribute inspector](databinding-images/collection05.png)
+3. Enter `PersonModel` for the **Class Name**, click the **Plus** button and add four Keys. Name them `Icon`, `Name`, `Occupation` and `isManager`: <br/>![Set the class and key names](databinding-images/table05.png)
 4. This tells the Array Controller what it is managing an array of, and which properties it should expose (via Keys).
-5. Switch to the **Bindings Inspector** and under **Content Array** select **Bind to** and **File's Owner**. Enter a **Model Key Path** of `self.personModelArray`: <br/>![](databinding-images/table06.png)
+5. Switch to the **Bindings Inspector** and under **Content Array** select **Bind to** and **File's Owner**. Enter a **Model Key Path** of `self.personModelArray`: <br/>![Bindings inspector](databinding-images/table06.png)
 6. This ties the Array Controller to the array of `PersonModels` that we exposed on our View Controller.
 
 Now we need to bind our Collection View to the Array Controller, do the following:
 
-1. Select the Collection View and the **Binding Inspector**: <br/>![](databinding-images/collection06.png)
-2. Under the **Contents** turndown, select **Bind to** and **Array Controller**. Enter `arrangedObjects` for the **Controller Key** field: <br/>![](databinding-images/collection07.png)
-3. Under the **Selection Indexes** turndown, select **Bind to** and **Array Controller**. Enter `selectionIndexes` for the **Controller Key** field: <br/>![](databinding-images/collection08.png)
-4. Select the **Image View**. In the **Bindings Inspector** under the **Value** turndown, select **Bind to** and **Person** (the name of our Collection View Item). Enter `representedObject.Icon` for the **Model Key Path**: <br/>![](databinding-images/collection09.png)
+1. Select the Collection View and the **Binding Inspector**: <br/>![Binding inspector](databinding-images/collection06.png)
+2. Under the **Contents** turndown, select **Bind to** and **Array Controller**. Enter `arrangedObjects` for the **Controller Key** field: <br/>![Contents](databinding-images/collection07.png)
+3. Under the **Selection Indexes** turndown, select **Bind to** and **Array Controller**. Enter `selectionIndexes` for the **Controller Key** field: <br/>![Selection indexes](databinding-images/collection08.png)
+4. Select the **Image View**. In the **Bindings Inspector** under the **Value** turndown, select **Bind to** and **Person** (the name of our Collection View Item). Enter `representedObject.Icon` for the **Model Key Path**: <br/>![Binding inspector values](databinding-images/collection09.png)
 5. `representedObject` is the current `PersonModel` in the array being managed by the Array Controller.
-6. Select the first **Label**. In the **Bindings Inspector** under the **Value** turndown, select **Bind to** and **Collection View Item**. Enter `representedObject.Name` for the **Model Key Path**: <br/>![](databinding-images/collection10.png)
-7. Select the second **Label**. In the **Bindings Inspector** under the **Value** turndown, select **Bind to** and **Collection View Item**. Enter `representedObject.Occupation` for the **Model Key Path**: <br/>![](databinding-images/collection11.png)
-8. Select the `NSBox`. In the **Bindings Inspector** under the **Hidden** turndown, select **Bind to** and **Collection View Item**. Enter `selected` for the **Model Key Path** and `NSNegateBoolean` for the **Value Transformer**: <br/>![](databinding-images/collection12.png)
+6. Select the first **Label**. In the **Bindings Inspector** under the **Value** turndown, select **Bind to** and **Collection View Item**. Enter `representedObject.Name` for the **Model Key Path**: <br/>![Label value](databinding-images/collection10.png)
+7. Select the second **Label**. In the **Bindings Inspector** under the **Value** turndown, select **Bind to** and **Collection View Item**. Enter `representedObject.Occupation` for the **Model Key Path**: <br/>![Label value](databinding-images/collection11.png)
+8. Select the `NSBox`. In the **Bindings Inspector** under the **Hidden** turndown, select **Bind to** and **Collection View Item**. Enter `selected` for the **Model Key Path** and `NSNegateBoolean` for the **Value Transformer**: <br/>![NSBox value](databinding-images/collection12.png)
 9. Save your changes and return to Visual Studio for Mac to sync with Xcode.
 
 If we run the application, the table will be populated with our array of `PersonModels`:
 
-![](databinding-images/collection13.png)
+![Populated table](databinding-images/collection13.png)
 
 For more information on working with Collection Views, please see our [Collection Views](~/mac/user-interface/collection-view.md) documentation.-->
 
@@ -886,8 +886,8 @@ This article has taken a detailed look at working with data binding and key-valu
 
 ## Related Links
 
-- [MacDatabinding Storyboard (sample)](https://docs.microsoft.com/samples/xamarin/mac-samples/macdatabinding-storyboard)
-- [MacDatabinding XIBs (sample)](https://docs.microsoft.com/samples/xamarin/mac-samples/macdatabinding-xibs)
+- [MacDatabinding Storyboard (sample)](/samples/xamarin/mac-samples/macdatabinding-storyboard)
+- [MacDatabinding XIBs (sample)](/samples/xamarin/mac-samples/macdatabinding-xibs)
 - [Hello, Mac](~/mac/get-started/hello-mac.md)
 - [Standard controls](~/mac/user-interface/standard-controls.md)
 - [Table views](~/mac/user-interface/table-view.md)

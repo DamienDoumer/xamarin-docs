@@ -593,8 +593,392 @@
       "redirect_url": "/xamarin/ios/user-interface/controls/webview/"
     },
     {
+      "source_path": "docs/ios/user-interface/ios-use-xcode.md",
+      "redirect_url": "/xamarin/ios/user-interface/storyboards/"
+    },
+    {
       "source_path": "docs/xamarin-forms/internals/net-standard.md",
       "redirect_url": "/xamarin/cross-platform/app-fundamentals/net-standard/"
-    }
+    },
+    {
+      "source_path": "docs/xamarin-forms/app-fundamentals/templates/control-templates/index.md",
+      "redirect_url": "/xamarin/xamarin-forms/app-fundamentals/templates/control-template/"
+    },
+    {
+      "source_path": "docs/xamarin-forms/app-fundamentals/templates/control-templates/introduction.md",
+      "redirect_url": "/xamarin/xamarin-forms/app-fundamentals/templates/control-template/"
+    },
+    {
+      "source_path": "docs/xamarin-forms/app-fundamentals/templates/control-templates/creating.md",
+      "redirect_url": "/xamarin/xamarin-forms/app-fundamentals/templates/control-template/"
+    },
+    {
+      "source_path": "docs/xamarin-forms/app-fundamentals/templates/control-templates/template-binding.md",
+      "redirect_url": "/xamarin/xamarin-forms/app-fundamentals/templates/control-template/"
+    },
+    {
+      "source_path": "docs/get-started/requirements.md",
+      "redirect_url": "/xamarin/get-started/supported-platforms/"
+    },
+    {
+      "source_path": "docs/ios/deploy-test/provisioning/fastlane/index.md",
+      "redirect_url": "/xamarin/ios/get-started/installation/device-provisioning/"
+    },
+    {
+      "source_path": "docs/ios/deploy-test/provisioning/fastlane/cert.md",
+      "redirect_url": "/xamarin/ios/get-started/installation/device-provisioning/"
+    },
+    {
+      "source_path": "docs/ios/deploy-test/provisioning/fastlane/sigh.md",
+      "redirect_url": "/xamarin/ios/get-started/installation/device-provisioning/"
+    },
+    {
+      "source_path": "docs/ios/deploy-test/provisioning/fastlane/match.md",
+      "redirect_url": "/xamarin/ios/get-started/installation/device-provisioning/"
+    },
+    {
+      "source_path": "docs/xamarin-forms/app-fundamentals/custom-renderer/map/index.md",
+      "redirect_url": "/xamarin/xamarin-forms/app-fundamentals/custom-renderer/map-pin"
+    },
+    {
+      "source_path": "docs/xamarin-forms/app-fundamentals/custom-renderer/map/customized-pin.md",
+      "redirect_url": "/xamarin/xamarin-forms/app-fundamentals/custom-renderer/map-pin"
+    },
+    {
+      "source_path": "docs/xamarin-forms/app-fundamentals/custom-renderer/map/circle-map-overlay.md",
+      "redirect_url": "/xamarin/xamarin-forms/user-interface/map/polygons"
+    },
+    {
+      "source_path": "docs/xamarin-forms/data-cloud/authentication/oauth.md",
+      "redirect_url": "/xamarin/essentials/web-authenticator/"
+    },
+    {
+        "source_path": "docs/xamarin-forms/user-interface/theming/dark-mode.md",
+        "redirect_url": "/xamarin/xamarin-forms/user-interface/theming/system-theme-changes/"
+    },
+    {
+        "source_path": "docs/xamarin-forms/user-interface/layouts/stack-layout.md",
+        "redirect_url": "/xamarin/xamarin-forms/user-interface/layouts/stacklayout"
+    },
+    {
+        "source_path": "docs/xamarin-forms/user-interface/layouts/scroll-view.md",
+        "redirect_url": "/xamarin/xamarin-forms/user-interface/layouts/scrollview"
+    },
+    {
+        "source_path": "docs/xamarin-forms/user-interface/layouts/absolute-layout.md",
+        "redirect_url": "/xamarin/xamarin-forms/user-interface/layouts/absolutelayout"
+    },
+    {
+        "source_path": "docs/xamarin-forms/user-interface/layouts/relative-layout.md",
+        "redirect_url": "/xamarin/xamarin-forms/user-interface/layouts/relativelayout"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/behaviors/reusable/index.md",
+        "redirect_url": "/xamarin/xamarin-forms/app-fundamentals/behaviors"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/behaviors/reusable/effect-behavior.md",
+        "redirect_url": "/xamarin/xamarin-forms/app-fundamentals/behaviors/effect-behavior"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/behaviors/reusable/event-to-command-behavior.md",
+        "redirect_url": "/xamarin/xamarin-forms/app-fundamentals/behaviors"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/navigation/master-detail-page.md",
+        "redirect_url": "/xamarin/xamarin-forms/app-fundamentals/navigation/flyoutpage"
+    },
+    {
+        "source_path": "docs/xamarin-forms/platform/windows/masterdetailpage-navigation-bar.md",
+        "redirect_url": "/xamarin/xamarin-forms/platform/windows/flyoutpage-navigation-bar"
+    },
+    {
+        "source_path": "docs/xamarin-forms/platform/ios/masterdetailpage-shadow.md",
+        "redirect_url": "/xamarin/xamarin-forms/platform/ios/flyoutpage-shadow"
+    },
+    {
+        "source_path": "docs/xamarin-forms/user-interface/mediaelement.md",
+        "redirect_url": "/xamarin/community-toolkit/views/mediaelement"
+    },
+    {
+        "source_path": "docs/xamarin-forms/user-interface/expander.md",
+        "redirect_url": "/xamarin/community-toolkit/views/expander"
+    },
+    {
+        "source_path": "docs/xamarin-forms/user-interface/csharp-markup.md",
+        "redirect_url": "/xamarin/community-toolkit/markup"
+    },
+    {
+        "source_path": "docs/ios/platform/introduction-to-ios11/arkit/urhosharp.md",
+        "redirect_url": "/xamarin/ios/platform/introduction-to-ios11/arkit"
+    },
+    {
+        "source_path": "docs/xamarin-forms/user-interface/graphics/index.md",
+        "redirect_url": "/xamarin/xamarin-forms/user-interface/graphics/skiasharp"
+    },
+    {
+        "source_path": "docs/xamarin-forms/user-interface/graphics/cocossharp.md",
+        "redirect_url": "/xamarin/xamarin-forms/user-interface/graphics/skiasharp"
+    },
+    {
+        "source_path": "docs/xamarin-forms/user-interface/graphics/urhosharp.md",
+        "redirect_url": "/xamarin/xamarin-forms/user-interface/graphics/skiasharp"
+    },
+    {
+        "source_path": "docs/graphics-games/index.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/game-development/index.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/monogame/3d/index.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/monogame/3d/part1.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/monogame/3d/part2.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/monogame/3d/part3.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/monogame/index.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/monogame/input.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/monogame/introduction/index.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/monogame/introduction/part1.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/monogame/introduction/part2.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/monogame/platforms/index.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/monogame/platforms/uwp.md",
+        "redirect_url": "https://www.monogame.net"
+    },
+    {
+        "source_path": "docs/graphics-games/skiasharp/introduction.md",
+        "redirect_url": "/xamarin/xamarin-forms/user-interface/graphics/skiasharp"
+    },
+    {
+        "source_path": "docs/graphics-games/skiasharp/platform.md",
+        "redirect_url": "/xamarin/xamarin-forms/user-interface/graphics/skiasharp"
+    },
+    {
+        "source_path": "docs/graphics-games/urhosharp/fsharp.md",
+        "redirect_url": "/xamarin/"
+    },
+    {
+        "source_path": "docs/graphics-games/urhosharp/index.md",
+        "redirect_url": "/xamarin/"
+    },
+    {
+        "source_path": "docs/graphics-games/urhosharp/introduction.md",
+        "redirect_url": "/xamarin/"
+    },
+    {
+        "source_path": "docs/graphics-games/urhosharp/platform/android.md",
+        "redirect_url": "/xamarin/"
+    },
+    {
+        "source_path": "docs/graphics-games/urhosharp/platform/index.md",
+        "redirect_url": "/xamarin/"
+    },
+    {
+        "source_path": "docs/graphics-games/urhosharp/platform/ios.md",
+        "redirect_url": "/xamarin/"
+    },
+    {
+        "source_path": "docs/graphics-games/urhosharp/platform/mac.md",
+        "redirect_url": "/xamarin/"
+    },
+    {
+        "source_path": "docs/graphics-games/urhosharp/platform/windows.md",
+        "redirect_url": "/xamarin/"
+    },
+    {
+        "source_path": "docs/graphics-games/urhosharp/platform/xamarin-forms.md",
+        "redirect_url": "/xamarin/"
+    },
+    {
+        "source_path": "docs/graphics-games/urhosharp/using.md",
+        "redirect_url": "/xamarin/"
+    },
+    {
+        "source_path": "docs/xamarin-forms/data-cloud/azure-services/azure-signalr.md",
+        "redirect_url": "/azure/azure-signalr/signalr-quickstart-azure-functions-csharp"
+    },
+    {
+        "source_path": "docs/tools/workbooks/index.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/install.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/workbook.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/keybindings.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/troubleshooting/index.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/troubleshooting/general.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/troubleshooting/android.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/sdk/index.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/sdk/architecture.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/sdk/integrations.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/sdk/representations.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/sdk/debugging.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/workbooks/sdk/samples.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/index.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/get-started/index.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/get-started/install/install.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/get-started/c.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/get-started/java/index.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/get-started/java/android.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/get-started/objective-c/index.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/get-started/objective-c/ios.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/get-started/objective-c/macos.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/android/index.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/android/callbacks.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/objective-c/index.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/objective-c/best-practices.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/objective-c/platforms.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/tools/dotnet-embedding/limitations.md",
+        "redirect_url": "/xamarin/tools/"
+    },
+    {
+        "source_path": "docs/get-started/tutorials/listview/index.yml",
+        "redirect_url": "/xamarin/get-started/tutorial/collectionview/"
+    },
+    {
+        "source_path": "docs/xamarin-forms/data-cloud/azure-services/azure-notification-hub.md",
+        "redirect_url": "/azure/developer/mobile-apps/notification-hubs-backend-service-xamarin-forms"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/custom-renderer/video-player/index.md",
+        "redirect_url": "/xamarin/community-toolkit/views/mediaelement"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/custom-renderer/video-player/player-creation.md",
+        "redirect_url": "/xamarin/community-toolkit/views/mediaelement"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/custom-renderer/video-player/web-videos.md",
+        "redirect_url": "/xamarin/community-toolkit/views/mediaelement"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/custom-renderer/video-player/source-bindings.md",
+        "redirect_url": "/xamarin/community-toolkit/views/mediaelement"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/custom-renderer/video-player/loading-resources.md",
+        "redirect_url": "/xamarin/community-toolkit/views/mediaelement"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/custom-renderer/video-player/accessing-library.md",
+        "redirect_url": "/xamarin/community-toolkit/views/mediaelement"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/custom-renderer/video-player/custom-transport.md",
+        "redirect_url": "/xamarin/community-toolkit/views/mediaelement"
+    },
+    {
+        "source_path": "docs/xamarin-forms/app-fundamentals/custom-renderer/video-player/custom-positioning.md",
+        "redirect_url": "/xamarin/community-toolkit/views/mediaelement"
+    }    
   ]
 }

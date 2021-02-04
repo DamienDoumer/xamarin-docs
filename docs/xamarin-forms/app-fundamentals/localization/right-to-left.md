@@ -7,12 +7,13 @@ ms.technology: xamarin-forms
 ms.custom: xamu-video
 author: davidbritch
 ms.author: dabritch
-ms.date: 05/07/2018
+ms.date: 11/05/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Right-to-left localization
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/todolocalizedrtl)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/todolocalizedrtl)
 
 _Right-to-left localization adds support for right-to-left flow direction to Xamarin.Forms applications._
 
@@ -69,7 +70,7 @@ The required right-to-left locale should be added as a supported language to the
 
 ![Info.plist supported languages](rtl-images/ios-locales.png "Info.plist supported languages")
 
-For more information, see [Localization Basics in iOS](https://docs.microsoft.com/xamarin/ios/app-fundamentals/localization/#localization-basics-in-ios).
+For more information, see [Localization Basics in iOS](../../../ios/app-fundamentals/localization/index.md#localization-basics-in-ios).
 
 Right-to-left localization can then be tested by changing the language and region on the device/simulator to a right-to-left locale that was specified in **Info.plist**.
 
@@ -120,7 +121,6 @@ Xamarin.Forms right-to-left localization currently has a number of limitations:
 - [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) button location, toolbar item location, and transition animation is controlled by the device locale, rather than the [`FlowDirection`](xref:Xamarin.Forms.VisualElement.FlowDirection) property.
 - [`CarouselPage`](xref:Xamarin.Forms.CarouselPage) swipe direction does not flip.
 - [`Image`](xref:Xamarin.Forms.Image) visual content does not flip.
-- [`DisplayAlert`](xref:Xamarin.Forms.Page.DisplayAlert(System.String,System.String,System.String)) and [`DisplayActionSheet`](xref:Xamarin.Forms.Page.DisplayActionSheet(System.String,System.String,System.String,System.String[])) orientation is controlled by the device locale, rather than the [`FlowDirection`](xref:Xamarin.Forms.VisualElement.FlowDirection) property.
 - [`WebView`](xref:Xamarin.Forms.WebView) content does not respect the [`FlowDirection`](xref:Xamarin.Forms.VisualElement.FlowDirection) property.
 - A `TextDirection` property needs to be added, to control text alignment.
 
@@ -138,7 +138,7 @@ Xamarin.Forms right-to-left localization currently has a number of limitations:
 ### UWP
 
 - [`Editor`](xref:Xamarin.Forms.Editor) text alignment is controlled by the device locale, rather than the [`FlowDirection`](xref:Xamarin.Forms.VisualElement.FlowDirection) property.
-- [`FlowDirection`](xref:Xamarin.Forms.VisualElement.FlowDirection) property is not inherited by [`MasterDetailPage`](xref:Xamarin.Forms.MasterDetailPage) children.
+- [`FlowDirection`](xref:Xamarin.Forms.VisualElement.FlowDirection) property is not inherited by [`FlyoutPage`](xref:Xamarin.Forms.FlyoutPage) children.
 - [`ContextActions`](xref:Xamarin.Forms.Cell.ContextActions) text alignment is controlled by the device locale, rather than the [`FlowDirection`](xref:Xamarin.Forms.VisualElement.FlowDirection) property.
 
 ## Force right-to-left layout
@@ -179,7 +179,10 @@ Xamarin.Android applications can be forced to always use a right-to-left layout 
 Window.DecorView.LayoutDirection = LayoutDirection.Rtl;
 ```
 
-This approach is useful for applications that always require a right-to-left layout, and removes the requirement to set the [`FlowDirection`](xref:Xamarin.Forms.VisualElement.FlowDirection) property.
+> [!NOTE]
+> This approach requires that the application is setup to support right-to-left layout. For more information, see [Android platform setup](#android).
+
+This approach is useful for applications that always require a right-to-left layout, and removes the requirement to set the [`FlowDirection`](xref:Xamarin.Forms.VisualElement.FlowDirection) property for most controls. However, some controls, such as [`CollectionView`](xref:Xamarin.Forms.CollectionView), don't respect the `LayoutDirection` property and still require the `FlowDirection` property to be set.
 
 ## Right to left language support with Xamarin.University
 
@@ -189,4 +192,4 @@ This approach is useful for applications that always require a right-to-left lay
 
 ## Related links
 
-- [TodoLocalizedRTL Sample App](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/todolocalizedrtl)
+- [TodoLocalizedRTL Sample App](/samples/xamarin/xamarin-forms-samples/todolocalizedrtl)

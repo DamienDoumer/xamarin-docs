@@ -99,7 +99,7 @@ Most modern macOS applications present auxiliary controls and options that affec
 
 [![An example inspector](window-images/panel02.png)](window-images/panel02.png#lightbox)
 
-For more information, see the [Panels](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/WindowPanels.html#//apple_ref/doc/uid/20000957-CH42-SW1) section of Apple's [macOS design themes](https://developer.apple.com/design/human-interface-guidelines/macos/overview/themes/) and our [MacInspector](https://docs.microsoft.com/samples/xamarin/mac-samples/macinspector) sample app for a full implementation of an **Inspector Interface** in a Xamarin.Mac app.
+For more information, see the [Panels](https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/WindowPanels.html#//apple_ref/doc/uid/20000957-CH42-SW1) section of Apple's [macOS design themes](https://developer.apple.com/design/human-interface-guidelines/macos/overview/themes/) and our [MacInspector](/samples/xamarin/mac-samples/macinspector) sample app for a full implementation of an **Inspector Interface** in a Xamarin.Mac app.
 
 ## Creating and maintaining windows in Xcode
 
@@ -514,7 +514,7 @@ There might be times where you need to monitor changes in a Window's size inside
 
 To monitor size changes, first ensure that you have assigned a custom class for the Window Controller in Xcode's Interface Builder. For example, `MasterWindowController` in the following:
 
-[![](window-images/resize01.png "The Identity Inspector")](window-images/resize01.png#lightbox)
+[![The Identity Inspector](window-images/resize01.png)](window-images/resize01.png#lightbox)
 
 Next, edit the custom Window Controller class and monitor the `DidResize` event on the Controller's Window to be notified of live size changes. For example:
 
@@ -596,11 +596,11 @@ public override void AwakeFromNib ()
 
 We are also monitoring the `WillClose` event on the window and checking the state of the `DocumentEdited` property. If it is `true` we need to give the user the ability to save the changes to the file. If we run our app and enter some text, the dot will be displayed:
 
-[![](window-images/file01.png "A changed window")](window-images/file01.png#lightbox)
+[![A changed window](window-images/file01.png)](window-images/file01.png#lightbox)
 
 If you try to close the window, you get an alert:
 
-[![](window-images/file02.png "Displaying a save dialog")](window-images/file02.png#lightbox)
+[![Displaying a save dialog](window-images/file02.png)](window-images/file02.png#lightbox)
 
 If you are loading a document from a file, set the title of the window to the file's name using the `window.SetTitleWithRepresentedFilename (Path.GetFileName(path));` method (given that `path` is a string representing the file being opened). Additionally, you can set the URL of the file using the `window.RepresentedUrl = url;` method.
 
@@ -745,7 +745,7 @@ If we run our application, the panel will be displayed:
 [![The panel in a running app](window-images/panels04.png)](window-images/panels04.png#lightbox)
 
 > [!IMPORTANT]
-> Panel Windows have been deprecated by Apple and should be replaced with **Inspector Interfaces**. For a full example of creating an **Inspector** in a Xamarin.Mac app, please see our [MacInspector](https://docs.microsoft.com/samples/xamarin/mac-samples/macinspector) sample app.
+> Panel Windows have been deprecated by Apple and should be replaced with **Inspector Interfaces**. For a full example of creating an **Inspector** in a Xamarin.Mac app, please see our [MacInspector](/samples/xamarin/mac-samples/macinspector) sample app.
 
 ## Summary
 
@@ -753,8 +753,8 @@ This article has taken a detailed look at working with Windows and Panels in a X
 
 ## Related links
 
-- [MacWindows (sample)](https://docs.microsoft.com/samples/xamarin/mac-samples/macwindows)
-- [MacInspector (sample)](https://docs.microsoft.com/samples/xamarin/mac-samples/macinspector)
+- [MacWindows (sample)](/samples/xamarin/mac-samples/macwindows)
+- [MacInspector (sample)](/samples/xamarin/mac-samples/macinspector)
 - [Hello, Mac](~/mac/get-started/hello-mac.md)
 - [Working with Menus](~/mac/user-interface/menu.md)
 - [macOS design themes (Apple)](https://developer.apple.com/design/human-interface-guidelines/macos/overview/themes/)

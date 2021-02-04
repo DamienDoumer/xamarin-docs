@@ -7,11 +7,15 @@ ms.assetid: 575EAE55-BD4D-470F-A583-3D065FA102E2
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/19/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 10. XAML markup extensions
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter10)
+
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 Normally, the XAML parser converts any string set as an attribute value to the type of the property based on standard conversions for the basic .NET data types, or a [`TypeConverter`](xref:Xamarin.Forms.TypeConverter) derivative attached to the property or its type with a [`TypeConverterAttribute`](xref:Xamarin.Forms.TypeConverterAttribute).
 

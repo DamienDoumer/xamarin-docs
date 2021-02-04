@@ -6,12 +6,13 @@ ms.assetid: 58DFFA52-4057-49A8-8682-50A58C7E842C
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 12/03/2019
+ms.date: 03/31/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Customizing a WebView
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/customrenderers-hybridwebview)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/customrenderers-hybridwebview)
 
 _A Xamarin.Forms `WebView` is a view that displays web and HTML content in your app. This article explains how to create a custom renderer that extends the `WebView` to allow C# code to be invoked from JavaScript._
 
@@ -19,7 +20,7 @@ Every Xamarin.Forms view has an accompanying renderer for each platform that cre
 
 The following diagram illustrates the relationship between the [`View`](xref:Xamarin.Forms.View) and the corresponding native controls that implement it:
 
-![](hybridwebview-images/webview-classes.png "Relationship Between the WebView Class and its Implementing Native Classes")
+![Relationship Between the WebView Class and its Implementing Native Classes](hybridwebview-images/webview-classes.png)
 
 The rendering process can be used to implement platform customizations by creating a custom renderer for a [`WebView`](xref:Xamarin.Forms.WebView) on each platform. The process for doing this is as follows:
 
@@ -147,11 +148,11 @@ The process for creating the custom renderer class is as follows:
 
 The following diagram illustrates the responsibilities of each project in the sample application, along with the relationships between them:
 
-![](hybridwebview-images/solution-structure.png "HybridWebView Custom Renderer Project Responsibilities")
+![HybridWebView Custom Renderer Project Responsibilities](hybridwebview-images/solution-structure.png)
 
 The `HybridWebView` custom control is rendered by platform renderer classes, which derive from the `WkWebViewRenderer` class on iOS, and from the `WebViewRenderer` class on Android and UWP. This results in each `HybridWebView` custom control being rendered with native web controls, as shown in the following screenshots:
 
-![](hybridwebview-images/screenshots.png "HybridWebView on each Platform")
+![HybridWebView on each Platform](hybridwebview-images/screenshots.png)
 
 The `WkWebViewRenderer` and `WebViewRenderer` classes expose the `OnElementChanged` method, which is called when the Xamarin.Forms custom control is created to render the corresponding native web control. This method takes a `VisualElementChangedEventArgs` parameter that contains `OldElement` and `NewElement` properties. These properties represent the Xamarin.Forms element that the renderer *was* attached to, and the Xamarin.Forms element that the renderer *is* attached to, respectively. In the sample application the `OldElement` property will be `null` and the `NewElement` property will contain a reference to the `HybridWebView` instance.
 
@@ -263,6 +264,15 @@ namespace CustomRenderer.iOS
         {
             ((HybridWebView)Element).InvokeAction(message.Body.ToString());
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                ((HybridWebView)Element).Cleanup();
+            }
+            base.Dispose(disposing);
+        }        
     }
 }
 ```
@@ -277,8 +287,8 @@ This functionality is achieved as follows:
 - The renderer constructor calls the [`WKUserContentController.AddScriptMessageHandler`](xref:WebKit.WKUserContentController.AddScriptMessageHandler(WebKit.IWKScriptMessageHandler,System.String)) method to add a script message handler named `invokeAction` to the [`WKUserContentController`](xref:WebKit.WKUserContentController) object, which will cause the JavaScript function `window.webkit.messageHandlers.invokeAction.postMessage(data)` to be defined in all frames in all `WebView` instances that use the `WKUserContentController` object.
 - Provided that the custom renderer is attached to a new Xamarin.Forms element:
   - The [`WKWebView.LoadRequest`](xref:WebKit.WKWebView.LoadRequest(Foundation.NSUrlRequest)) method loads the HTML file that's specified by the `HybridWebView.Uri` property. The code specifies that the file is stored in the `Content` folder of the project. Once the web page is displayed, the `invokeCSharpAction` JavaScript function will be injected into the web page.
-- When the element the renderer is attached to changes:
-  - Resources are released.
+- Resources are released when the element the renderer is attached to changes.
+- The Xamarin.Forms element is cleaned up when the renderer is disposed of.
 
 > [!NOTE]
 > The `WKWebView` class is only supported in iOS 8 and later.
@@ -322,11 +332,20 @@ namespace CustomRenderer.Droid
             }
             if (e.NewElement != null)
             {
-                Control.SetWebViewClient(new JavascriptWebViewClient($"javascript: {JavascriptFunction}"));
+                Control.SetWebViewClient(new JavascriptWebViewClient(this, $"javascript: {JavascriptFunction}"));
                 Control.AddJavascriptInterface(new JSBridge(this), "jsBridge");
                 Control.LoadUrl($"file:///android_asset/Content/{((HybridWebView)Element).Uri}");
             }
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                ((HybridWebView)Element).Cleanup();
+            }
+            base.Dispose(disposing);
+        }        
     }
 }
 ```
@@ -334,11 +353,11 @@ namespace CustomRenderer.Droid
 The `HybridWebViewRenderer` class loads the web page specified in the `HybridWebView.Uri` property into a native [`WebView`](xref:Android.Webkit.WebView) control, and the `invokeCSharpAction` JavaScript function is injected into the web page, after the web page has finished loading, with the `OnPageFinished` override in the `JavascriptWebViewClient` class:
 
 ```csharp
-public class JavascriptWebViewClient : WebViewClient
+public class JavascriptWebViewClient : FormsWebViewClient
 {
     string _javascript;
 
-    public JavascriptWebViewClient(string javascript)
+    public JavascriptWebViewClient(HybridWebViewRenderer renderer, string javascript) : base(renderer)
     {
         _javascript = javascript;
     }
@@ -358,8 +377,8 @@ Once the user enters their name and clicks the HTML `button` element, the `invok
   - The [`WebView.AddJavascriptInterface`](xref:Android.Webkit.WebView.AddJavascriptInterface*) method injects a new `JSBridge` instance into the main frame of the WebView's JavaScript context, naming it `jsBridge`. This allows methods in the `JSBridge` class to be accessed from JavaScript.
   - The [`WebView.LoadUrl`](xref:Android.Webkit.WebView.LoadUrl*) method loads the HTML file that's specified by the `HybridWebView.Uri` property. The code specifies that the file is stored in the `Content` folder of the project.
   - In the `JavascriptWebViewClient` class, the `invokeCSharpAction` JavaScript function is injected into the web page once the page has finished loading.
-- When the element the renderer is attached to changes:
-  - Resources are released.
+- Resources are released when the element the renderer is attached to changes.
+- The Xamarin.Forms element is cleaned up when the renderer is disposed of.
 
 When the `invokeCSharpAction` JavaScript function is executed, it in turn invokes the `JSBridge.InvokeAction` method, which is shown in the following code example:
 
@@ -436,6 +455,15 @@ namespace CustomRenderer.UWP
         {
             ((HybridWebView)Element).InvokeAction(e.Value);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                ((HybridWebView)Element).Cleanup();
+            }
+            base.Dispose(disposing);
+        }        
     }
 }
 ```
@@ -447,9 +475,9 @@ This functionality is achieved as follows:
 - Provided that the custom renderer is attached to a new Xamarin.Forms element:
   - Event handlers for the `NavigationCompleted` and `ScriptNotify` events are registered. The `NavigationCompleted` event fires when either the native `WebView` control has finished loading the current content or if navigation has failed. The `ScriptNotify` event fires when the content in the native `WebView` control uses JavaScript to pass a string to the application. The web page fires the `ScriptNotify` event by calling `window.external.notify` while passing a `string` parameter.
   - The `WebView.Source` property is set to the URI of the HTML file that's specified by the `HybridWebView.Uri` property. The code assumes that the file is stored in the `Content` folder of the project. Once the web page is displayed, the `NavigationCompleted` event will fire and the `OnWebViewNavigationCompleted` method will be invoked. The `invokeCSharpAction` JavaScript function will then be injected into the web page with the `WebView.InvokeScriptAsync` method, provided that the navigation completed successfully.
-- When the element the renderer is attached to changes:
-  - Events are unsubscribed from.
+- Event are unsubscribed from when the element the renderer is attached to changes.
+- The Xamarin.Forms element is cleaned up when the renderer is disposed of.
 
 ## Related links
 
-- [HybridWebView (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/customrenderers-hybridwebview)
+- [HybridWebView (sample)](/samples/xamarin/xamarin-forms-samples/customrenderers-hybridwebview)

@@ -6,6 +6,7 @@ author: jamesmontemagno
 ms.author: jamont
 ms.date: 01/22/2019
 ms.custom: video
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: Battery
@@ -165,7 +166,7 @@ No platform differences.
 
 # [iOS](#tab/ios)
 
-- Device must be used to test APIs. 
+- Device must be used to test APIs.
 - Only will return `AC` or `Battery` for `PowerSource`.
 
 # [UWP](#tab/uwp)
@@ -176,7 +177,7 @@ No platform differences.
 
 ## API
 
-- [Battery source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/Battery)
+- [Battery source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/Battery)
 - [Battery API documentation](xref:Xamarin.Essentials.Battery)
 
 ## Related Video

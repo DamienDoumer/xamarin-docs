@@ -7,9 +7,13 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/07/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Communicating Between Loosely Coupled Components
+
+> [!NOTE]
+> This eBook was published in the spring of 2017, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated.
 
 The publish-subscribe pattern is a messaging pattern in which publishers send messages without having knowledge of any receivers, known as subscribers. Similarly, subscribers listen for specific messages, without having knowledge of any publishers.
 
@@ -21,7 +25,7 @@ The Xamarin.Forms [`MessagingCenter`](xref:Xamarin.Forms.MessagingCenter) class 
 
 The [`MessagingCenter`](xref:Xamarin.Forms.MessagingCenter) class provides multicast publish-subscribe functionality. This means that there can be multiple publishers that publish a single message, and there can be multiple subscribers listening for the same message. Figure 4-1 illustrates this relationship:
 
-![](communicating-between-loosely-coupled-components-images/messagingcenter.png "Multicast publish-subscribe functionality")
+![Multicast publish-subscribe functionality](communicating-between-loosely-coupled-components-images/messagingcenter.png)
 
 **Figure 4-1:** Multicast publish-subscribe functionality
 
@@ -50,7 +54,7 @@ For more information about [`MessagingCenter`](xref:Xamarin.Forms.MessagingCente
 [`MessagingCenter`](xref:Xamarin.Forms.MessagingCenter) messages are strings that are used to identify messages. The following code example shows the messages defined within the eShopOnContainers mobile app:
 
 ```csharp
-public class MessengerKeys  
+public class MessageKeys  
 {  
     // Add product to basket  
     public const string AddProduct = "AddProduct";  
@@ -70,7 +74,7 @@ In this example, messages are defined using constants. The advantage of this app
 Publishers notify subscribers of a message with one of the [`MessagingCenter.Send`](xref:Xamarin.Forms.MessagingCenter.Send*) overloads. The following code example demonstrates publishing the `AddProduct` message:
 
 ```csharp
-MessagingCenter.Send(this, MessengerKeys.AddProduct, catalogItem);
+MessagingCenter.Send(this, MessageKeys.AddProduct, catalogItem);
 ```
 
 In this example, the [`Send`](xref:Xamarin.Forms.MessagingCenter.Send*) method specifies three arguments:
@@ -110,7 +114,7 @@ A subscriber might not need to handle every instance of a published message, and
 Subscribers can unsubscribe from messages they no longer want to receive. This is achieved with one of the [`MessagingCenter.Unsubscribe`](xref:Xamarin.Forms.MessagingCenter.Unsubscribe*) overloads, as demonstrated in the following code example:
 
 ```csharp
-MessagingCenter.Unsubscribe<CatalogViewModel, CatalogItem>(this, MessengerKeys.AddProduct);
+MessagingCenter.Unsubscribe<CatalogViewModel, CatalogItem>(this, MessageKeys.AddProduct);
 ```
 
 In this example, the [`Unsubscribe`](xref:Xamarin.Forms.MessagingCenter.Unsubscribe*) method syntax reflects the type arguments specified when subscribing to receive the `AddProduct` message.

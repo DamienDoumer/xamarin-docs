@@ -1,8 +1,10 @@
+A [`StackLayout`](xref:Xamarin.Forms.StackLayout) is a layout that organizes its children in a one-dimensional stack, either horizontally or vertically. By default, a `StackLayout` is oriented vertically.
+
 # [Visual Studio](#tab/vswin)
 
 To complete this tutorial you should have Visual Studio 2019 (latest release), with the **Mobile development with .NET** workload installed. In addition, you will require a paired Mac to build the tutorial application on iOS. For information about installing the Xamarin platform, see [Installing Xamarin](~/get-started/installation/index.md). For information about connecting Visual Studio 2019 to a Mac build host, see [Pair to Mac for Xamarin.iOS development](~/ios/get-started/installation/windows/connecting-to-mac/index.md).
 
-1. Launch Visual Studio, and create a new blank Xamarin.Forms app named **StackLayoutTutorial**. Ensure that the app uses .NET Standard as the shared code mechanism.
+1. Launch Visual Studio, and create a new blank Xamarin.Forms app named **StackLayoutTutorial**.
 
     > [!IMPORTANT]
     > The C# and XAML snippets in this tutorial requires that the solution is named **StackLayoutTutorial**. Using a different name will result in build errors when you copy code from this tutorial into the solution.
@@ -33,13 +35,13 @@ To complete this tutorial you should have Visual Studio 2019 (latest release), w
 
     [![Screenshot of child views in a StackLayout, on iOS and Android](../images/create-stacklayout.png "StackLayout containing Label instances")](../images/create-stacklayout-large.png#lightbox "StackLayout containing Label instances")
 
-    For more information about the [`StackLayout`](xref:Xamarin.Forms.StackLayout), see [Xamarin.Forms StackLayout](~/xamarin-forms/user-interface/layouts/stack-layout.md).
+    For more information about the [`StackLayout`](xref:Xamarin.Forms.StackLayout), see [Xamarin.Forms StackLayout](~/xamarin-forms/user-interface/layouts/stacklayout.md).
 
 # [Visual Studio for Mac](#tab/vsmac)
 
 To complete this tutorial you should have Visual Studio for Mac (latest release), with iOS and Android platform support installed. In addition, you will also require Xcode (latest release). For more information about installing the Xamarin platform, see [Installing Xamarin](~/get-started/installation/index.md).
 
-1. Launch Visual Studio for Mac, and create a new blank Xamarin.Forms app named **StackLayoutTutorial**. Ensure that the app uses .NET Standard as the shared code mechanism.
+1. Launch Visual Studio for Mac, and create a new blank Xamarin.Forms app named **StackLayoutTutorial**.
 
     > [!IMPORTANT]
     > The C# and XAML snippets in this tutorial requires that the solution is named **StackLayoutTutorial**. Using a different name will result in build errors when you copy code from this tutorial into the solution.
@@ -70,9 +72,4 @@ To complete this tutorial you should have Visual Studio for Mac (latest release)
 
     [![Screenshot of child views in a StackLayout, on iOS and Android](../images/create-stacklayout.png "StackLayout containing Label instances")](../images/create-stacklayout-large.png#lightbox "StackLayout containing Label instances")
 
-    For more information about the [`StackLayout`](xref:Xamarin.Forms.StackLayout), see [Xamarin.Forms StackLayout](~/xamarin-forms/user-interface/layouts/stack-layout.md).
-
------
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://github.com/MicrosoftDocs/xamarin-docs/issues/new?title=StackLayout+Tutorial+Step+1+Feedback&template=tutorial_template.md)
+    For more information about the [`StackLayout`](xref:Xamarin.Forms.StackLayout), see [Xamarin.Forms StackLayout](~/xamarin-forms/user-interface/layouts/stacklayout.md).

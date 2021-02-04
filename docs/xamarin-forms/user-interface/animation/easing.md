@@ -6,12 +6,13 @@ ms.assetid: E6F124C7-A161-4C1F-AF40-52F0935E54DE
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 07/14/2016
+ms.date: 09/28/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Easing Functions in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-animation-easing)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-animation-easing)
 
 _Xamarin.Forms includes an Easing class that allows you to specify a transfer function that controls how animations speed up or slow down as they're running. This article demonstrates how to consume the pre-defined easing functions, and how to create custom easing functions._
 
@@ -31,7 +32,7 @@ The [`Easing`](xref:Xamarin.Forms.Easing) class defines a number of easing funct
 
 The `In` and `Out` suffixes indicate if the effect provided by the easing function is noticeable at the beginning of the animation, at the end, or both.
 
-In addition, custom easing functions can be created. For more information, see [Custom Easing Functions](#customeasing).
+In addition, custom easing functions can be created. For more information, see [Custom Easing Functions](#custom-easing-functions).
 
 ## Consuming an Easing Function
 
@@ -47,9 +48,10 @@ await image.TranslateTo(0, -200, 2000, Easing.BounceOut);
 
 By specifying an easing function for an animation, the animation velocity becomes non-linear and produces the effect provided by the easing function. Omitting an easing function when creating an animation causes the animation to use the default [`Linear`](xref:Xamarin.Forms.Easing.Linear) easing function, which produces a linear velocity.
 
-For more information about using the animation extension methods in the [`ViewExtensions`](xref:Xamarin.Forms.ViewExtensions) class, see [Simple Animations](~/xamarin-forms/user-interface/animation/simple.md). Easing functions can also be consumed by the [`Animation`](xref:Xamarin.Forms.Animation) class. For more information, see [Custom Animations](~/xamarin-forms/user-interface/animation/custom.md).
+> [!NOTE]
+> Xamarin.Forms 5.0 includes a type converter that converts a string representation of an easing function to the appropriate [`Easing`](xref:Xamarin.Forms.Easing) enumeration member. This type converter is automatically invoked on any properties of type `Easing` that are set in XAML.
 
-<a name="customeasing" />
+For more information about using the animation extension methods in the [`ViewExtensions`](xref:Xamarin.Forms.ViewExtensions) class, see [Simple Animations](~/xamarin-forms/user-interface/animation/simple.md). Easing functions can also be consumed by the [`Animation`](xref:Xamarin.Forms.Animation) class. For more information, see [Custom Animations](~/xamarin-forms/user-interface/animation/custom.md).
 
 ## Custom Easing Functions
 
@@ -104,6 +106,6 @@ This article demonstrated how to consume the pre-defined easing functions, and h
 ## Related Links
 
 - [Async Support Overview](~/cross-platform/platform/async.md)
-- [Easing Functions (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-animation-easing)
+- [Easing Functions (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-animation-easing)
 - [Easing](xref:Xamarin.Forms.Easing)
 - [ViewExtensions](xref:Xamarin.Forms.ViewExtensions)

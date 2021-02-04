@@ -5,12 +5,12 @@ ms.prod: xamarin
 ms.assetid: FD8FE199-898B-4841-8041-CC9CA1A00917
 author: davidbritch
 ms.author: dabritch
-ms.date: 10/16/2019
+ms.date: 02/04/2021
 ---
 
-# Connect to Local Web Services from iOS Simulators and Android Emulators
+# Connect to local web services from iOS simulators and Android emulators
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-todorest/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/webservices-todorest/)
 
 Many mobile applications consume web services. During the development phase, it's common to deploy a web service locally and consume it from a mobile application running in the iOS simulator or Android emulator. This avoids having to deploy the web service to a hosted endpoint, and enables a straightforward debugging experience because both the mobile application and web service are running locally.
 
@@ -55,9 +55,7 @@ Xamarin applications running on iOS and Android can specify which networking sta
 
 ### iOS
 
-Xamarin applications running on iOS can use the managed network stack, or the native `CFNetwork` or `NSUrlSession` network stacks. By default, new iOS platform projects use the `NSUrlSession` network stack, to support TLS 1.2, and use native APIs for better performance and smaller executable size.
-
-However, when an application needs to connect to a secure web service running locally, for developer testing, it's easier to use the managed network stack. Therefore, it's recommended to set debug simulator build profiles to use the managed network stack, and release build profiles to use the `NSUrlSession` network stack. Each network stack can be set programmatically or via a selector in the project options. For more information, see [HttpClient and SSL/TLS implementation selector for iOS/macOS](~/cross-platform/macios/http-stack.md).
+Xamarin applications running on iOS can use the managed network stack, or the native `CFNetwork` or `NSUrlSession` network stacks. By default, new iOS platform projects use the `NSUrlSession` network stack, to support TLS 1.2, and use native APIs for better performance and smaller executable size. For more information, see [HttpClient and SSL/TLS implementation selector for iOS/macOS](~/cross-platform/macios/http-stack.md).
 
 ### Android
 
@@ -80,50 +78,28 @@ Each instance of the Android emulator is isolated from your development machine 
 
 However, the virtual router for each emulator manages a special network space that includes pre-allocated addresses, with the `10.0.2.2` address being an alias to your host loopback interface (127.0.0.1 on your development machine). Therefore, given a local secure web service that exposes a GET operation via the `/api/todoitems/` relative URI, an application running on the Android emulator can consume the operation by sending a GET request to `https://10.0.2.2:<port>/api/todoitems/`.
 
-### Xamarin.Forms example
+### Detect the operating system
 
-In a Xamarin.Forms application, the [`Device`](xref:Xamarin.Forms.Device) class can be used to detect the platform the application is running on. The appropriate hostname, that enables access to local secure web services, can then be set as follows:
+The [`DeviceInfo`](xref:Xamarin.Essentials.DeviceInfo) class can be used to detect the platform the application is running on. The appropriate hostname, that enables access to local secure web services, can then be set as follows:
 
 ```csharp
 public static string BaseAddress =
-    Device.RuntimePlatform == Device.Android ? "https://10.0.2.2:5001" : "https://localhost:5001";
+    DeviceInfo.Platform == DevicePlatform.Android ? "https://10.0.2.2:5001" : "https://localhost:5001";
 public static string TodoItemsUrl = $"{BaseAddress}/api/todoitems/";
 ```
 
+For more information about the `DeviceInfo` class, see [Xamarin.Essentials: Device Information](~/essentials/device-information.md).
+
 ## Bypass the certificate security check
 
-Attempting to invoke a local secure web service from an application running in the iOS simulator or Android emulator will result in a `HttpRequestException` being thrown, even when using the managed network stack on each platform. This is because the local HTTPS development certificate is self-signed, and self-signed certificates aren't trusted by iOS or Android.
-
-Therefore, it's necessary to ignore SSL errors when an application consumes a local secure web service. The mechanism for accomplishing this is currently different on iOS and Android.
-
-### iOS
-
-SSL errors can be ignored on iOS for local secure web services, when using the managed network stack, by setting the `ServicePointManager.ServerCertificateValidationCallback` property to a callback that ignores the result of the certificate security check for the local HTTPS development certificate:
+Attempting to invoke a local secure web service from an application running in the iOS simulator or Android emulator will result in a `HttpRequestException` being thrown, even when using the managed network stack on each platform. This is because the local HTTPS development certificate is self-signed, and self-signed certificates aren't trusted by iOS or Android. Therefore, it's necessary to ignore SSL errors when an application consumes a local secure web service. This can be accomplished when using both the managed and native network stacks on iOS and Android, by setting the `ServerCertificateCustomValidationCallback` property on a `HttpClientHandler` object to a callback that ignores the result of the certificate security check for the local HTTPS development certificate:
 
 ```csharp
-#if DEBUG
-    System.Net.ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) =>
-    {
-        if (certificate.Issuer.Equals("CN=localhost"))
-            return true;
-        return sslPolicyErrors == System.Net.Security.SslPolicyErrors.None;
-    };
-#endif
-```
-
-In this code example, the server certificate validation result is returned when the certificate that underwent validation is not the `localhost` certificate. For this certificate, the validation result is ignored and `true` is returned, indicating that the certificate is valid. This code should be added to the `AppDelegate.FinishedLaunching` method on iOS, prior to the `LoadApplication(new App())` method call.
-
-> [!NOTE]
-> The native network stacks on iOS don't hook into the `ServerCertificateValidationCallback`.
-
-### Android
-
-SSL errors can be ignored on Android for local secure web services, when using both the managed and native `AndroidClientHandler` network stacks, by setting the `ServerCertificateCustomValidationCallback` property on a `HttpClientHandler` object to a callback that ignores the result of the certificate security check for the local HTTPS development certificate:
-
-```csharp
+// This method must be in a class in a platform project, even if
+// the HttpClient object is constructed in a shared project.
 public HttpClientHandler GetInsecureHandler()
 {
-    var handler = new HttpClientHandler();
+    HttpClientHandler handler = new HttpClientHandler();
     handler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) =>
     {
         if (cert.Issuer.Equals("CN=localhost"))
@@ -134,11 +110,69 @@ public HttpClientHandler GetInsecureHandler()
 }
 ```
 
-In this code example, the server certificate validation result is returned when the certificate that underwent validation is not the `localhost` certificate. For this certificate, the validation result is ignored and `true` is returned, indicating that the certificate is valid. The resulting `HttpClientHandler` object should be passed as an argument to the `HttpClient` constructor.
+In this code example, the server certificate validation result is returned when the certificate that underwent validation is not the `localhost` certificate. For this certificate, the validation result is ignored and `true` is returned, indicating that the certificate is valid. The resulting `HttpClientHandler` object should be passed as an argument to the `HttpClient` constructor for debug builds:
+
+```csharp
+#if DEBUG
+    HttpClientHandler insecureHandler = GetInsecureHandler();
+    HttpClient client = new HttpClient(insecureHandler);
+#else
+    HttpClient client = new HttpClient();
+#endif
+```
+
+## Enable HTTP clear-text traffic
+
+Optionally, you can configure your iOS and Android projects to allow clear-text HTTP traffic. If the backend service is configured to allow HTTP traffic you can specify HTTP in the base URLs and then configure your projects to allow clear-text traffic:
+
+```csharp
+public static string BaseAddress =
+    DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5001" : "http://localhost:5001";
+public static string TodoItemsUrl = $"{BaseAddress}/api/todoitems/";
+```
+
+### iOS ATS opt-out
+
+To enable clear-text local traffic on iOS you should [opt-out of ATS](~/ios/app-fundamentals/ats.md#optout) by adding the following to your **Info.plist** file:
+
+```xml
+<key>NSAppTransportSecurity</key>    
+<dict>
+    <key>NSAllowsLocalNetworking</key>
+    <true/>
+</dict>
+```
+
+### Android network security configuration
+
+To enable clear-text local traffic on Android you should create a network security configuration by adding a new XML file named **network_security_config.xml** in the **Resources/xml** folder. The XML file should specify the following configuration:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+  <domain-config cleartextTrafficPermitted="true">
+    <domain includeSubdomains="true">10.0.2.2</domain>
+  </domain-config>
+</network-security-config>
+```
+
+Then, configure the **networkSecurityConfig** property on the **application** node in the Android Manifest:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+    <application android:networkSecurityConfig="@xml/network_security_config">
+        ...
+    </application>
+</manifest>
+```
 
 ## Related links
 
-- [TodoREST (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-todorest/)
+- [TodoREST (sample)](/samples/xamarin/xamarin-forms-samples/webservices-todorest/)
 - [Enable local HTTPS](/aspnet/core/getting-started#enable-local-https)
 - [HttpClient and SSL/TLS implementation selector for iOS/macOS](~/cross-platform/macios/http-stack.md)
 - [HttpClient Stack and SSL/TLS Implementation selector for Android](~/android/app-fundamentals/http-stack.md)
+- [Android Network Security Configuration](https://devblogs.microsoft.com/xamarin/cleartext-http-android-network-security/)
+- [iOS App Transport Security](~/ios/app-fundamentals/ats.md)
+- [Xamarin.Essentials: Device Information](~/essentials/device-information.md)

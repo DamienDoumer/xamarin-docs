@@ -7,11 +7,12 @@ ms.assetid: 342288C3-BB4C-4924-B178-72E112D777BA
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/25/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Part 4. Data Binding Basics
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/xamlsamples)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/xamlsamples)
 
 _Data bindings allow properties of two objects to be linked so that a change in one causes a change in the other. This is a very valuable tool, and while data bindings can be defined entirely in code, XAML provides shortcuts and convenience. Consequently, one of the most important markup extensions in Xamarin.Forms is Binding._
 
@@ -403,7 +404,7 @@ Data bindings provide a powerful mechanism for linking properties between two ob
 
 ## Related Links
 
-- [XamlSamples](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/xamlsamples)
+- [XamlSamples](/samples/xamarin/xamarin-forms-samples/xamlsamples)
 - [Part 1. Getting Started with XAML (sample)](~/xamarin-forms/xaml/xaml-basics/get-started-with-xaml.md)
 - [Part 2. Essential XAML Syntax (sample)](~/xamarin-forms/xaml/xaml-basics/essential-xaml-syntax.md)
 - [Part 3. XAML Markup Extensions (sample)](~/xamarin-forms/xaml/xaml-basics/xaml-markup-extensions.md)

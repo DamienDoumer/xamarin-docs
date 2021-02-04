@@ -7,11 +7,12 @@ ms.assetid: 8FE0F6DC-16BC-435F-9626-DD1790C0145A
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/25/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Three Types of Bézier Curves
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
 
 _Explore how to use SkiaSharp to render cubic, quadratic, and conic Bézier curves_
 
@@ -550,5 +551,5 @@ It is unfortunate in this case that `ConicTo` does not support negative weights,
 
 ## Related Links
 
-- [SkiaSharp APIs](https://docs.microsoft.com/dotnet/api/skiasharp)
-- [SkiaSharpFormsDemos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+- [SkiaSharp APIs](/dotnet/api/skiasharp)
+- [SkiaSharpFormsDemos (sample)](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)

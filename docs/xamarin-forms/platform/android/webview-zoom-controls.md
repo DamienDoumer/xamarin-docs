@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/09/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # WebView Zoom on Android
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
 
 This Android platform-specific enables pinch-to-zoom and a zoom control on a [`WebView`](xref:Xamarin.Forms.WebView). It's consumed in XAML by setting the `WebView.EnableZoomControls` and `WebView.DisplayZoomControls` bindable properties to `boolean` values:
 
@@ -49,7 +50,7 @@ The result is that pinch-to-zoom can be enabled on a [`WebView`](xref:Xamarin.Fo
 
 ## Related links
 
-- [PlatformSpecifics (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
+- [PlatformSpecifics (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
 - [Creating Platform-Specifics](~/xamarin-forms/platform/platform-specifics/index.md#creating-platform-specifics)
 - [AndroidSpecific API](xref:Xamarin.Forms.PlatformConfiguration.AndroidSpecific)
 - [AndroidSpecific.AppCompat API](xref:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat)

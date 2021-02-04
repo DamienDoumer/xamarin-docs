@@ -7,11 +7,15 @@ ms.assetid: 2B7F4346-414E-49FF-97FB-B85E92D98A21
 author: davidbritch
 ms.author: dabritch
 ms.date: 11/07/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 26. Custom layouts
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter26)
+
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 Xamarin.Forms includes several classes derived from [`Layout<View>`](xref:Xamarin.Forms.Layout`1):
 

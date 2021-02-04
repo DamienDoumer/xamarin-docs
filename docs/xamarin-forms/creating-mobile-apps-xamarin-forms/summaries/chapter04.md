@@ -7,11 +7,15 @@ ms.assetid: 7A39FD4F-15AD-4F94-960E-9FEEB63FFD44
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/19/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 4. Scrolling the stack
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter04)
+
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 This chapter is primarily devoted to introducing the concept of *layout*, which is the overall term for the classes and techniques that Xamarin.Forms uses to organize the visual display of multiple views on the page.
 
@@ -113,6 +117,6 @@ The **BlackCat** sample also demonstrates how to define and access program resou
 - [Chapter 4 full text (PDF)](https://download.xamarin.com/developer/xamarin-forms-book/XamarinFormsBook-Ch04-Apr2016.pdf)
 - [Chapter 4 samples](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter04)
 - [Chapter 4 F# samples](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter04/FS)
-- [StackLayout](~/xamarin-forms/user-interface/layouts/stack-layout.md)
-- [ScrollView](~/xamarin-forms/user-interface/layouts/scroll-view.md)
+- [StackLayout](~/xamarin-forms/user-interface/layouts/stacklayout.md)
+- [ScrollView](~/xamarin-forms/user-interface/layouts/scrollview.md)
 - [BoxView](~/xamarin-forms/user-interface/boxview.md)

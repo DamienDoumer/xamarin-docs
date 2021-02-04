@@ -7,11 +7,15 @@ ms.assetid: DDCDB49C-6008-4F72-B095-463EE21D7C23
 author: davidbritch
 ms.author: dabritch
 ms.date: 11/07/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 24. Page navigation
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter24)
+
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 Many applications consist of multiple pages among which the user navigates. The application always has a *main* page or *home* page, and from there the user navigates to other pages, which are maintained in a stack for navigating back. Additional navigation options are covered in [**Chapter 25. Page Varieties**](chapter25.md).
 
@@ -62,7 +66,7 @@ However, the standard page-navigation methods include the animation by default, 
 - [`SetHasBackButton`](xref:Xamarin.Forms.NavigationPage.SetHasBackButton(Xamarin.Forms.Page,System.Boolean)) and [`GetHasBackButton`](xref:Xamarin.Forms.NavigationPage.GetHasBackButton(Xamarin.Forms.Page))
 - [`SetHasNavigationBar`](xref:Xamarin.Forms.NavigationPage.SetHasNavigationBar(Xamarin.Forms.BindableObject,System.Boolean)) and [`GetHasNavigationBar`](xref:Xamarin.Forms.NavigationPage.GetHasNavigationBar(Xamarin.Forms.BindableObject))
 - [`SetBackButtonTitle`](xref:Xamarin.Forms.NavigationPage.SetBackButtonTitle(Xamarin.Forms.BindableObject,System.String)) and [`GetBackButtonTitle`](xref:Xamarin.Forms.NavigationPage.GetBackButtonTitle(Xamarin.Forms.BindableObject)) work on iOS only
-- [`SetTitleIcon`](xref:Xamarin.Forms.NavigationPage.SetTitleIcon(Xamarin.Forms.BindableObject,Xamarin.Forms.ImageSource)) and [`GetTitleIcon`](xref:Xamarin.Forms.NavigationPage.GetTitleIcon(Xamarin.Forms.BindableObject)) work on iOS and Android only
+- [`SetTitleIcon`](xref:Xamarin.Forms.NavigationPage.SetTitleIcon(Xamarin.Forms.BindableObject,Xamarin.Forms.FileImageSource)) and [`GetTitleIcon`](xref:Xamarin.Forms.NavigationPage.GetTitleIcon(Xamarin.Forms.BindableObject)) work on iOS and Android only
 
 ### Exploring the mechanics
 

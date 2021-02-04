@@ -7,11 +7,15 @@ ms.assetid: 2E5581A6-4D3E-4BD5-9FDB-ACBA0F0FC734
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/18/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 3. Deeper into text
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter03)
+
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 This chapter explores the [`Label`](xref:Xamarin.Forms.Label) view in more depth, including color, fonts, and formatting.
 
@@ -104,8 +108,7 @@ The `Color.Accent` value results in a platform-specific (and sometimes user-sele
 
 The various platforms have a default color scheme as shown in the list above.
 
-When targeting Android, it's possible to switch to a dark-on-light scheme by specifying a light theme in the Android.Manifest.xml file, or by
-[Adding AppCompat and Material Design](~/xamarin-forms/platform/android/appcompat-material-design.md).
+When targeting Android, it's possible to switch to a dark-on-light scheme by specifying a light theme in the Android.Manifest.xml file.
 
 For the Windows platforms, the color theme is normally selected by the user, but you can add a `RequestedTheme` attribute set to either `Light` or `Dark` in the platform's App.xaml file. By default, the App.xaml file in the UWP project contains a `RequestedTheme` attribute set to `Light`.
 

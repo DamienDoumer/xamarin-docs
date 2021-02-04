@@ -24,7 +24,7 @@ without prior search implementation experience. Because of this, Apple claims
 that it typically takes a few hours to make an iOS 9 app's content universally
 searchable using App Search.
 
-[![](images/intro01.png "An example of iOS 9 app content universally searchable using App Search")](images/intro01.png#lightbox)
+[![An example of iOS 9 app content universally searchable using App Search](images/intro01.png)](images/intro01.png#lightbox)
 
 App Search is composed of three separate APIs:
 
@@ -116,7 +116,7 @@ of when a given search approach should be used and what types of content should 
 
 ## Related Links
 
-- [iOS 9 Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+iOS9)
+- [iOS 9 Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2biOS9)
 - [iOS 9 for Developers](https://developer.apple.com/ios/pre-release/)
 - [iOS 9.0](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html)
 - [App Search Programming Guide](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/index.html#//apple_ref/doc/uid/TP40016308)

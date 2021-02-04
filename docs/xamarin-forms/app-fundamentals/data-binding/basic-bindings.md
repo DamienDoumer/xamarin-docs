@@ -7,12 +7,13 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/22/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ms.custom: video
 ---
 
 # Xamarin.Forms Basic Bindings
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/databindingdemos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/databindingdemos)
 
 A Xamarin.Forms data binding links a pair of properties between two objects, at least one of which is usually a user-interface object. These two objects are called the *target* and the *source*:
 
@@ -326,7 +327,7 @@ In the [next article](binding-mode.md), you'll see how the *binding mode* can ch
 
 ## Related Links
 
-- [Data Binding Demos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/databindingdemos)
+- [Data Binding Demos (sample)](/samples/xamarin/xamarin-forms-samples/databindingdemos)
 - [Data binding chapter from Xamarin.Forms book](~/xamarin-forms/creating-mobile-apps-xamarin-forms/summaries/chapter16.md)
 
 ## Related Video

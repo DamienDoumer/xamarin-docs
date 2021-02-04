@@ -7,23 +7,24 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/24/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # NavigationPage Bar Text Color Mode on iOS
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
 
 This platform-specific controls whether the status bar text color on a [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) is adjusted to match the luminosity of the navigation bar. It's consumed in XAML by setting the [`NavigationPage.StatusBarTextColorMode`](xref:Xamarin.Forms.PlatformConfiguration.iOSSpecific.NavigationPage.StatusBarTextColorModeProperty) attached property to a value of the [`StatusBarTextColorMode`](xref:Xamarin.Forms.PlatformConfiguration.iOSSpecific.StatusBarTextColorMode) enumeration:
 
 ```xaml
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     x:Class="PlatformSpecifics.iOSStatusBarTextColorModePage">
-    <MasterDetailPage.Master>
-        <ContentPage Title="Master Page Title" />
-    </MasterDetailPage.Master>
-    <MasterDetailPage.Detail>
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Flyout Page Title" />
+    </FlyoutPage.Flyout>
+    <FlyoutPage.Detail>
         <NavigationPage BarBackgroundColor="Blue" BarTextColor="White"
                         ios:NavigationPage.StatusBarTextColorMode="MatchNavigationBarTextLuminosity">
             <x:Arguments>
@@ -32,8 +33,8 @@ This platform-specific controls whether the status bar text color on a [`Navigat
                 </ContentPage>
             </x:Arguments>
         </NavigationPage>
-    </MasterDetailPage.Detail>
-</MasterDetailPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>
 
 ```
 
@@ -46,13 +47,13 @@ using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 IsPresentedChanged += (sender, e) =>
 {
-    var mdp = sender as MasterDetailPage;
-    if (mdp.IsPresented)
-        ((Xamarin.Forms.NavigationPage)mdp.Detail)
+    var flyoutPage = sender as FlyoutPage;
+    if (flyoutPage.IsPresented)
+        ((Xamarin.Forms.NavigationPage)flyoutPage.Detail)
           .On<iOS>()
           .SetStatusBarTextColorMode(StatusBarTextColorMode.DoNotAdjust);
     else
-        ((Xamarin.Forms.NavigationPage)mdp.Detail)
+        ((Xamarin.Forms.NavigationPage)flyoutPage.Detail)
           .On<iOS>()
           .SetStatusBarTextColorMode(StatusBarTextColorMode.MatchNavigationBarTextLuminosity);
 };
@@ -65,12 +66,12 @@ The `NavigationPage.On<iOS>` method specifies that this platform-specific will o
 
 In addition, the [`GetStatusBarTextColorMode`](xref:Xamarin.Forms.PlatformConfiguration.iOSSpecific.NavigationPage.GetStatusBarTextColorMode(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.NavigationPage})) method can be used to retrieve the current value of the [`StatusBarTextColorMode`](xref:Xamarin.Forms.PlatformConfiguration.iOSSpecific.StatusBarTextColorMode) enumeration that's applied to the [`NavigationPage`](xref:Xamarin.Forms.NavigationPage).
 
-The result is that the status bar text color on a [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) can be adjusted to match the luminosity of the navigation bar. In this example, the status bar text color changes as the user switches between the [`Master`](xref:Xamarin.Forms.MasterDetailPage.Master) and [`Detail`](xref:Xamarin.Forms.MasterDetailPage.Detail) pages of a [`MasterDetailPage`](xref:Xamarin.Forms.MasterDetailPage):
+The result is that the status bar text color on a [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) can be adjusted to match the luminosity of the navigation bar. In this example, the status bar text color changes as the user switches between the [`Flyout`](xref:Xamarin.Forms.FlyoutPage.Flyout) and [`Detail`](xref:Xamarin.Forms.FlyoutPage.Detail) pages of a [`FlyoutPage`](xref:Xamarin.Forms.FlyoutPage):
 
-![](status-bar-text-color-images/status-bar-text-color-mode.png "Status Bar Text Color Mode Platform-Specific")
+![Status Bar Text Color Mode Platform-Specific](status-bar-text-color-images/status-bar-text-color-mode.png)
 
 ## Related links
 
-- [PlatformSpecifics (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
+- [PlatformSpecifics (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
 - [Creating Platform-Specifics](~/xamarin-forms/platform/platform-specifics/index.md#creating-platform-specifics)
 - [iOSSpecific API](xref:Xamarin.Forms.PlatformConfiguration.iOSSpecific)

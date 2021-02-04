@@ -12,6 +12,7 @@ metadata:
   author: davidbritch
   ms.author: dabritch
   ms.date: 12/27/2019
+  no-loc: [Xamarin.Forms, Xamarin.Essentials]
 
 landingContent:
   - title: Get started
@@ -26,6 +27,10 @@ landingContent:
             url: xamlc.md
           - text: Markup extensions
             url: markup-extensions/index.md
+      - linkListType: get-started
+        links:
+          - text: Xamarin.Forms XAML on Q&A
+            url: /answers/topics/dotnet-xamarinforms-xaml.html
 
   - title: Tooling
     linkLists:
@@ -61,6 +66,8 @@ landingContent:
             url: resource-dictionaries.md
           - text: Passing arguments
             url: passing-arguments.md
+          - text: Generics
+            url: generics.md
           - text: Field modifiers
             url: field-modifiers.md
           - text: Load XAML at runtime

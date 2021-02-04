@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: profexorgeek
 ms.author: jusjohns
 ms.date: 08/14/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms ContentView
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-contentviewdemos/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-contentviewdemos/)
 
 The Xamarin.Forms [`ContentView`](xref:Xamarin.Forms.ContentView) class is a type of `Layout` that contains a single child element and is typically used to create custom, reusable controls. The `ContentView` class inherits from [`TemplatedView`](xref:Xamarin.Forms.TemplatedView). This article, and associated sample, explain how to create a custom `CardView` control based on the `ContentView` class.
 
@@ -199,11 +200,11 @@ The following screenshots show a standard `CardView` instance and `CardView` who
 
 [![CardView ControlTemplate screenshot](contentview-images/cardview-controltemplates-cropped.png)](contentview-images/cardview-controltemplates.png#lightbox)
 
-For more information about control templates, see [Xamarin.Forms Control Templates](~/xamarin-forms/app-fundamentals/templates/control-templates/index.md).
+For more information about control templates, see [Xamarin.Forms Control Templates](~/xamarin-forms/app-fundamentals/templates/control-template.md).
 
 ## Related links
 
-* [ContentView sample application](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-contentviewdemos/)
+* [ContentView sample application](/samples/xamarin/xamarin-forms-samples/userinterface-contentviewdemos/)
 * [Xamarin.Forms Data Binding](~/xamarin-forms/app-fundamentals/data-binding/index.md)
 * [Bindable Properties](~/xamarin-forms/xaml/bindable-properties.md).
-* [Xamarin.Forms Control Templates](~/xamarin-forms/app-fundamentals/templates/control-templates/index.md)
+* [Xamarin.Forms Control Templates](~/xamarin-forms/app-fundamentals/templates/control-template.md)

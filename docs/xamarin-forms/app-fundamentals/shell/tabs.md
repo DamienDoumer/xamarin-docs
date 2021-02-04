@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 11/06/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Shell Tabs
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
 
 When the navigation pattern for an application includes a flyout, the next level of navigation in the application is the bottom tab bar. In addition, when the flyout is closed the bottom tab bar can be considered to be the top level of navigation.
 
@@ -176,6 +177,7 @@ The `ShellContent` class includes the following properties that control tab cont
 - `Icon`, of type `ImageSource`, defines the icon to display in parts of the chrome which are not the flyout.
 - `IsChecked`, of type `boolean`, defines if the item is currently highlighted in the flyout.
 - `IsEnabled`, of type `boolean`, defines if the item is selectable in the chrome.
+- `IsVisible`, of type `bool`, indicates if the `ShellContent` is hidden from all UI structures. Its default value is `true`.
 - `MenuItems`, of type `MenuItemCollection`, the menu items to display in the flyout when this `ShellContent` is the presented page.
 - `Title`, of type `string`, the title to display in the UI.
 
@@ -260,7 +262,7 @@ In a Shell application, every [`ContentPage`](xref:Xamarin.Forms.ContentPage) ob
 </Shell>
 ```
 
-This XAML creates and displays `CatsPage`, because it's the first item of content declared in the subclassed `Shell` object. `CatsPage` and `MonkeysPage` can be navigated to via bottom tabs, and these pages are only created when the user navigates to them. The advantage of this approach is that the poor startup experience is avoided, as pages are created on demand in response to navigation, rather than at application startup.
+This XAML creates and displays `CatsPage`, because it's the first item of content declared in the subclassed `Shell` object. `DogsPage` and `MonkeysPage` can be navigated to via bottom tabs, and these pages are only created when the user navigates to them. The advantage of this approach is that the poor startup experience is avoided, as pages are created on demand in response to navigation, rather than at application startup.
 
 ## Tab appearance
 
@@ -292,6 +294,6 @@ In addition, tabs can also be styled using Cascading Style Sheets (CSS). For mor
 
 ## Related links
 
-- [Xaminals (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
+- [Xaminals (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
 - [Xamarin.Forms Shell Navigation](navigation.md)
 - [Xamarin.Forms CSS Shell specific properties](~/xamarin-forms/user-interface/styles/css/index.md#xamarinforms-shell-specific-properties)

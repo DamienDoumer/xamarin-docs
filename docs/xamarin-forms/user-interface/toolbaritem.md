@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: profexorgeek
 ms.author: jusjohns
 ms.date: 07/29/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms ToolbarItem
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-toolbaritem/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-toolbaritem/)
 
 The Xamarin.Forms [`ToolbarItem`](xref:Xamarin.Forms.ToolbarItem) class is a special type of button that can be added to a `Page` object's `ToolbarItems` collection. Each `ToolbarItem` object will appear as a button in the application's navigation bar. A `ToolbarItem` instance can have an icon and appear as a primary or secondary menu item. The `ToolbarItem` class inherits from [`MenuItem`](xref:Xamarin.Forms.MenuItem).
 
@@ -97,6 +98,12 @@ void OnItemClicked(object sender, EventArgs e)
 
 `ToolbarItem` objects can also use the `Command` and `CommandParameter` properties to react to user input without event handlers. For more information about the `ICommand` interface and MVVM data-binding, see [Xamarin.Forms MenuItem MVVM Behavior](~/xamarin-forms/user-interface/menuitem.md#define-menuitem-behavior-with-mvvm).
 
+## Enable or disable a ToolbarItem at runtime
+
+To enable of disable a `ToolbarItem` at runtime, bind its `Command` property to an `ICommand` implementation, and ensure that a `canExecute` delegate enables and disables the `ICommand` as appropriate.
+
+For more information, see [Enable or disable a MenuItem at runtime](menuitem.md#enable-or-disable-a-menuitem-at-runtime).
+
 ## Primary and secondary menus
 
 The `ToolbarItemOrder` enum has `Default`, `Primary`, and `Secondary` values.
@@ -114,6 +121,6 @@ When the `Order` property is set to `Secondary`, behavior varies across platform
 
 ## Related links
 
-* [ToolbarItem Demos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-toolbaritem/)
+* [ToolbarItem Demos](/samples/xamarin/xamarin-forms-samples/userinterface-toolbaritem/)
 * [Images in Xamarin.Forms](~/xamarin-forms/user-interface/images.md)
 * [Xamarin.Forms MenuItem](~/xamarin-forms/user-interface/menuitem.md)

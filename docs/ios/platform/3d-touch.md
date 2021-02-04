@@ -13,7 +13,7 @@ ms.date: 03/19/2017
 
 _This article covers using the new iPhone 6s and iPhone 6s Plus 3D Touch gestures in your app._
 
-[![](3d-touch-images/info01.png "Examples of 3D Touch enabled apps")](3d-touch-images/info01.png#lightbox)
+[![Examples of 3D Touch enabled apps](3d-touch-images/info01.png)](3d-touch-images/info01.png#lightbox)
 
 This article will provide and introduction to using the new 3D Touch APIs to add
 pressure sensitive gestures to your Xamarin.iOS apps that are running on the new
@@ -38,13 +38,13 @@ is exerting and respond to the different pressure levels.
   to functions in your app directly from the app icon on the Home screen.
 - [Testing 3D Touch in the Simulator](#Testing-3D-Touch-in-the-Simulator) - With the correct Mac hardware, you can test 3D Touch enabled apps in the iOS Simulator.
 
-<a name="Pressure-Sensitivity" />
+<a name="Pressure-Sensitivity"></a>
 
 ## Pressure Sensitivity
 
 As stated above, by using new properties of the [UITouch](xref:UIKit.UITouch) class you can measure the amount of pressure the user is applying to the iOS device's screen and use this information in your user interface. For example, making a brush stroke more translucent or opaque based on the amount of pressure.
 
-[![](3d-touch-images/pressure01.png "A brush stroke rendered as more translucent or opaque based on the amount of pressure")](3d-touch-images/pressure01.png#lightbox)
+[![A brush stroke rendered as more translucent or opaque based on the amount of pressure](3d-touch-images/pressure01.png)](3d-touch-images/pressure01.png#lightbox)
 
 As a result of 3D Touch, if your app is running on iOS 9 (or greater) and the iOS device is capable of supporting 3D Touch, changes in pressure will cause the `TouchesMoved` event to be raised.
 
@@ -75,7 +75,7 @@ The `MaximumPossibleForce` property returns the highest possible value for the `
 For more information, please see Apple's [TouchCanvas: Using UITouch efficiently and effectively](https://developer.apple.com/library/prerelease/ios/samplecode/TouchCanvas/)
 sample app and [UITouch Class Reference](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITouch_Class/).
 
-<a name="Peek-and-Pop" />
+<a name="Peek-and-Pop"></a>
 
 ## Peek and Pop
 
@@ -83,7 +83,7 @@ sample app and [UITouch Class Reference](https://developer.apple.com/library/pre
 
 For example, if your app is displaying a table of messages, the user can press hard on an item to preview its content in an overlay view (which Apple refers to as a *Peek*).
 
-[![](3d-touch-images/peekandpop01.png "An example of Peeking at content")](3d-touch-images/peekandpop01.png#lightbox)
+[![An example of Peeking at content](3d-touch-images/peekandpop01.png)](3d-touch-images/peekandpop01.png#lightbox)
 
 If the user presses harder, they will enter the regular message view (which is referred to as *Pop*-ping into the view).
 
@@ -201,10 +201,10 @@ public override void ViewDidLoad ()
 
 Here we are calling the `RegisterForPreviewingWithDelegate` method with an instance of the `PreviewingDelegate` we created above. On iOS devices that support 3D Touch, the user can press hard on an item to Peek at it. If they press even harder, the item will Pop into it standard display view.
 
-For more information, please see our [iOS 9 ApplicationShortcuts Sample](https://docs.microsoft.com/samples/xamarin/ios-samples/ios9-viewcontrollerpreview) and Apple's [ViewControllerPreviews: Using the UIViewController previewing APIs](https://developer.apple.com/library/prerelease/ios/samplecode/ViewControllerPreviews/Introduction/Intro.html)
+For more information, please see our [iOS 9 ApplicationShortcuts Sample](/samples/xamarin/ios-samples/ios9-viewcontrollerpreview) and Apple's [ViewControllerPreviews: Using the UIViewController previewing APIs](https://developer.apple.com/library/prerelease/ios/samplecode/ViewControllerPreviews/Introduction/Intro.html)
 sample app, [UIPreviewAction Class Reference](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIPreviewAction_Class/), [UIPreviewActionGroup Class Reference](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIPreviewActionGroup_Class/) and [UIPreviewActionItem Protocol Reference](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIPreviewActionItem_Protocol/).
 
-<a name="Quick-Actions" />
+<a name="Quick-Actions"></a>
 
 ## Quick Actions
 
@@ -216,7 +216,7 @@ can be popped-up when a user right-clicks on an item in a desktop app. You shoul
 use Quick Actions to provide shortcuts to the most common functions or features
 of your app.
 
-[![](3d-touch-images/quickactions01.png "An example of a Quick Actions menu")](3d-touch-images/quickactions01.png#lightbox)
+[![An example of a Quick Actions menu](3d-touch-images/quickactions01.png)](3d-touch-images/quickactions01.png#lightbox)
 
 ### Defining Static Quick Actions
 
@@ -281,7 +281,7 @@ Here we are defining two static Quick Action items with the following keys:
   - `UIApplicationShortcutIconTypeTime`
   - `UIApplicationShortcutIconTypeUpdate`
 
-  ![](3d-touch-images/uiapplicationshortcuticontype.png "UIApplicationShortcutIconType imagery")
+  ![UIApplicationShortcutIconType imagery](3d-touch-images/uiapplicationshortcuticontype.png)
 
 - `UIApplicationShortcutItemSubtitle` - Defines the subtitle for the item.
 - `UIApplicationShortcutItemTitle` - Defines the title for the item.
@@ -311,7 +311,7 @@ namespace AppSearch
 }
 ```
 
-<a name="Handling-a-Quick-Action" />
+<a name="Handling-a-Quick-Action"></a>
 
 ### Handling a Quick Action
 
@@ -431,9 +431,9 @@ The code we already added in the [Handling a Quick Action](#Handling-a-Quick-Act
 
 It should be noted that you can create a mixture of both static and dynamic Quick Action items (as we are doing here), you are not limited to one or the other.
 
-For more information, please our [iOS 9 ViewControllerPreview Sample](https://docs.microsoft.com/samples/xamarin/ios-samples/ios9-viewcontrollerpreview) and see Apple's [ApplicationShortcuts: Using UIApplicationShortcutItem](https://developer.apple.com/library/prerelease/ios/samplecode/ApplicationShortcuts/) sample app, [UIApplicationShortcutItem Class Reference](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIApplicationShortcutItem_class/), [UIMutableApplicationShortcutItem Class Reference](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIMutableApplicationShortcutItem_class/) and [UIApplicationShortcutIcon Class Reference](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIApplicationShortcutIcon_Class/).
+For more information, please our [iOS 9 ViewControllerPreview Sample](/samples/xamarin/ios-samples/ios9-viewcontrollerpreview) and see Apple's [ApplicationShortcuts: Using UIApplicationShortcutItem](https://developer.apple.com/library/prerelease/ios/samplecode/ApplicationShortcuts/) sample app, [UIApplicationShortcutItem Class Reference](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIApplicationShortcutItem_class/), [UIMutableApplicationShortcutItem Class Reference](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIMutableApplicationShortcutItem_class/) and [UIApplicationShortcutIcon Class Reference](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UIApplicationShortcutIcon_Class/).
 
-<a name="Testing-3D-Touch-in-the-Simulator" />
+<a name="Testing-3D-Touch-in-the-Simulator"></a>
 
 ## Testing 3D Touch in the Simulator
 
@@ -441,7 +441,7 @@ When using the latest version of Xcode and the iOS Simulator on a compatible Mac
 
 To enable this functionality, run any app in simulated iPhone hardware that supports 3D Touch (iPhone 6s and greater). Next, select the **Hardware** menu in the iOS Simulator and enable the **Use Trackpad Force for 3D touch** menu item:
 
-[![](3d-touch-images/simulator01.png "Select the Hardware menu in the iOS Simulator and enable the Use Trackpad Force for 3D touch menu item")](3d-touch-images/simulator01.png#lightbox)
+[![Select the Hardware menu in the iOS Simulator and enable the Use Trackpad Force for 3D touch menu item](3d-touch-images/simulator01.png)](3d-touch-images/simulator01.png#lightbox)
 
 With this feature active, you can press harder on the Mac's trackpad to enable 3D Touch just like you would on real iPhone hardware.
 
@@ -455,8 +455,8 @@ shortcuts to your app's most commonly used features.
 
 ## Related Links
 
-- [iOS 9 ViewControllerPreview Sample](https://docs.microsoft.com/samples/xamarin/ios-samples/ios9-viewcontrollerpreview)
-- [iOS 9 ApplicationShortcuts Sample](https://docs.microsoft.com/samples/xamarin/ios-samples/ios9-applicationshortcuts)
+- [iOS 9 ViewControllerPreview Sample](/samples/xamarin/ios-samples/ios9-viewcontrollerpreview)
+- [iOS 9 ApplicationShortcuts Sample](/samples/xamarin/ios-samples/ios9-applicationshortcuts)
 - [iOS 9 for Developers](https://developer.apple.com/ios/pre-release/)
 - [iOS 9.0](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html)
 - [Get your iPhone apps ready for 3D Touch](https://developer.apple.com/ios/3d-touch/)

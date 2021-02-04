@@ -6,6 +6,7 @@ author: jamesmontemagno
 ms.author: jamont
 ms.date: 05/28/2019
 ms.custom: video
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: Version Tracking
@@ -74,7 +75,7 @@ All version information is stored using the [Preferences](preferences.md) API in
 
 ## API
 
-- [Version Tracking source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/VersionTracking)
+- [Version Tracking source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/VersionTracking)
 - [Version Tracking API documentation](xref:Xamarin.Essentials.VersionTracking)
 
 ## Related Video

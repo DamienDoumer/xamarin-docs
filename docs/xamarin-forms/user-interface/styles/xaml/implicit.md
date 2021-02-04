@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/30/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Implicit Styles in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
 
 _An implicit style is one that's used by all controls of the same TargetType, without requiring each control to reference the style._
 
@@ -50,7 +51,7 @@ The [`ResourceDictionary`](xref:Xamarin.Forms.ResourceDictionary) defines a sing
 
 [![Implicit Styles Example](implicit-images/implicit-styles.png)](implicit-images/implicit-styles-large.png#lightbox)
 
-In addition, the fourth [`Entry`](xref:Xamarin.Forms.Entry) overrides the [`BackgroundColor`](xref:Xamarin.Forms.VisualElement.BackgroundColor) and [`TextColor`](xref:Xamarin.Forms.Entry.TextColor) properties of the implicit style to different `Color` values.
+In addition, the fourth [`Entry`](xref:Xamarin.Forms.Entry) overrides the [`BackgroundColor`](xref:Xamarin.Forms.VisualElement.BackgroundColor) and [`TextColor`](xref:Xamarin.Forms.InputView.TextColor) properties of the implicit style to different `Color` values.
 
 ### Create an implicit style at the control level
 
@@ -152,8 +153,8 @@ Resources = new ResourceDictionary { buttonStyle };
 ## Related links
 
 - [XAML Markup Extensions](~/xamarin-forms/xaml/xaml-basics/xaml-markup-extensions.md)
-- [Basic Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
-- [Working with Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithstyles)
+- [Basic Styles (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
+- [Working with Styles (sample)](/samples/xamarin/xamarin-forms-samples/workingwithstyles)
 - [ResourceDictionary](xref:Xamarin.Forms.ResourceDictionary)
 - [Style](xref:Xamarin.Forms.Style)
 - [Setter](xref:Xamarin.Forms.Setter)

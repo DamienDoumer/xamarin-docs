@@ -12,7 +12,7 @@ ms.date: 01/28/2016
 
 There are two options for sharing code between cross-platform mobile applications: Shared Asset Projects and Portable Class Libraries. These options are [discussed here](~/cross-platform/app-fundamentals/code-sharing.md); more information on [Portable Class Libraries](~/cross-platform/app-fundamentals/pcl.md) and [Shared Projects](~/cross-platform/app-fundamentals/shared-projects.md) is also available.
 
-<a name="Sections" />
+<a name="Sections"></a>
 
  [Overview](~/cross-platform/app-fundamentals/building-cross-platform-applications/overview.md)
 
@@ -28,7 +28,7 @@ There are two options for sharing code between cross-platform mobile application
 
  [Part 6 - Testing and App Store Approvals](~/cross-platform/app-fundamentals/building-cross-platform-applications/testing-and-app-store-approvals.md)
 
- <a name="Cross-Platform_Mobile_Application_Case_Studies" />
+ <a name="Cross-Platform_Mobile_Application_Case_Studies"></a>
 
 ## Case Studies
 
@@ -36,7 +36,7 @@ The principles outlined in this document are put into practice in the sample
 application *Tasky*, as well as [pre-built applications](https://xamarin.com/prebuilt)
 like [Xamarin CRM](https://xamarin.com/prebuilt/#xamarincrm).
 
- <a name="Tasky" />
+ <a name="Tasky"></a>
 
 ### Tasky
 
@@ -67,7 +67,6 @@ a case study that puts these principles into action.
 
 - [Sharing Code Options](~/cross-platform/app-fundamentals/code-sharing.md)
 - [Case Study: Tasky](~/cross-platform/app-fundamentals/building-cross-platform-applications/case-study-tasky.md)
-- [Tasky Sample App (github)](https://docs.microsoft.com/samples/xamarin/mobile-samples/taskyportable/)
+- [Tasky Sample App (github)](/samples/xamarin/mobile-samples/taskyportable/)
 - [Xamarin Mobile Application Development: Cross-Platform C# and Xamarin.Forms Fundamentals (Amazon)](https://www.amazon.com/Xamarin-Mobile-Application-Development-Cross-Platform/dp/1484202155/)
 - [Mobile Development with C# by Greg Shackles (O’Reilly)](https://shop.oreilly.com/product/0636920024002.do)
-- [Professional Cross-Platform Mobile Development in C# by Scott Olson, John Hunter, Ben Horgen, Kenny Goers (Wrox)](https://www.wrox.com/WileyCDA/WroxTitle/Professional-Cross-Platform-Mobile-Development-in-C-.productCd-1118157702.html)

@@ -7,11 +7,12 @@ ms.assetid: 66D1A537-A247-484E-B5B9-FBCB7838FBE9
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/23/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # The separable blend modes
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
 
 As you saw in the article [**SkiaSharp Porter-Duff blend modes**](porter-duff.md), the Porter-Duff blend modes generally perform clipping operations. The separable blend modes are different. The separable modes alter the individual red, green, and blue color components of an image. Separable blend modes can mix color to demonstrate that the combination of red, green, and blue is indeed white:
 
@@ -424,5 +425,5 @@ The `Darken` mode also works for this same effect.
 
 ## Related links
 
-- [SkiaSharp APIs](https://docs.microsoft.com/dotnet/api/skiasharp)
-- [SkiaSharpFormsDemos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+- [SkiaSharp APIs](/dotnet/api/skiasharp)
+- [SkiaSharpFormsDemos (sample)](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)

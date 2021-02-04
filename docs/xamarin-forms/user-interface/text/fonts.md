@@ -6,212 +6,211 @@ ms.assetid: 49DD2249-C575-41AE-AE06-08F890FD6031
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 11/04/2019
+ms.date: 11/04/2020
+ms.custom: contperf-fy21q2
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Fonts in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithfonts)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/workingwithfonts)
 
-This article describes how Xamarin.Forms lets you specify font attributes (including weight and size) on controls that display text. Font information can be [specified in code](#Setting_Font_in_Code) or [specified in XAML](#Setting_Font_in_Xaml). It's' also possible to use a [custom font](#Using_a_Custom_Font), and [display font icons](#display-font-icons).
+By default, Xamarin.Forms uses a system font defined by each platform. However, controls that display text define properties that you can use to change this font:
 
-<a name="Setting_Font_in_Code" />
+- `FontAttributes`, of type `FontAttributes`, which is an enumeration with three members: `None`, `Bold`, and `Italic`. The default value of this property is `None`.
+- `FontSize`, of type `double`.
+- `FontFamily`, of type `string`.
 
-## Set the font in code
+These properties are backed by [`BindableProperty`](xref:Xamarin.Forms.BindableProperty) objects, which means that they can be targets of data bindings, and styled.
 
-Use the three font-related properties of any controls that display text:
+## Set font attributes
 
-- **FontFamily** &ndash; the `string` font name.
-- **FontSize** &ndash; the font size as a `double`.
-- **FontAttributes** &ndash; a string specifying style information like *Italic* and **Bold** (using the `FontAttributes` enumeration in C#).
+Controls that display text can set the `FontAttributes` property to specify font attributes:
 
-This code shows how to create a label and specify the font size and weight to display:
+```xaml
+<Label Text="Italics"
+       FontAttributes="Italic" />
+<Label Text="Bold and italics"
+       FontAttributes="Bold, Italic" />
+```
+
+The equivalent C# code is:
 
 ```csharp
-var about = new Label {
-    FontSize = Device.GetNamedSize (NamedSize.Medium, typeof(Label)),
-    FontAttributes = FontAttributes.Bold,
-    Text = "Medium Bold Font"
+Label label1 = new Label
+{
+    Text = "Italics",
+    FontAttributes = FontAttributes.Italic
+};
+
+Label label2 = new Label
+{
+    Text = "Bold and italics",
+    FontAttributes = FontAttributes.Bold | FontAttributes.Italic
+};    
+```
+
+## Set the font size
+
+Controls that display text can set the `FontSize` property to specify the font size. The `FontSize` property can be set to a `double` value directly, or by a [`NamedSize`](xref:Xamarin.Forms.NamedSize) enumeration value:
+
+```xaml
+<Label Text="Font size 24"
+       FontSize="24" />
+<Label Text="Large font size"
+       FontSize="Large" />
+```
+
+The equivalent C# code is:
+
+```csharp
+Label label1 = new Label
+{
+    Text = "Font size 24",
+    FontSize = 24
+};
+
+Label label2 = new Label
+{
+    Text = "Large font size",
+    FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))
 };
 ```
 
-<a name="FontSize" />
-
-### Font size
-
-The `FontSize` property can be set to a double value, for instance:
+Alternatively, the `Device.GetNamedSize` method has an override that specifies the second argument as an [`Element`](xref:Xamarin.Forms.Element):
 
 ```csharp
-label.FontSize = 24;
+Label myLabel = new Label
+{
+    Text = "Large font size",
+};
+myLabel.FontSize = Device.GetNamedSize(NamedSize.Large, myLabel);
 ```
 
-The size value is measured in device independent units. For more information, see [Units of Measurement](~/xamarin-forms/user-interface/controls/common-properties.md#units-of-measurement).
+> [!NOTE]
+> The `FontSize` value, when specified as a `double`, is measured in device-independent units. For more information, see [Units of Measurement](~/xamarin-forms/user-interface/controls/common-properties.md#units-of-measurement).
 
-Xamarin.Forms also defines fields in the [`NamedSize`](xref:Xamarin.Forms.NamedSize) enumeration that represent specific font sizes. For more information about named font sizes, see [Named font sizes](#named-font-sizes).
+For more information about named font sizes, see [Understand named font sizes](#understand-named-font-sizes).
 
-<a name="FontAttributes" />
+## Set the font family
 
-### Font attributes
+Controls that display text can set the `FontFamily` property to a font family name, such as "Times Roman". However, this will only work if that font family is supported on the particular platform.
 
-Font styles such as **bold** and *italic* can be set on the `FontAttributes` property. The following values are currently supported:
+There are a number of techniques that can be used to attempt to derive the fonts that are available on a platform. However, the presence of a TTF (True Type Format) font file does not necessarily imply a font family, and TTFs are often included that are not intended for use in applications. In addition, the fonts installed on a platform can change with platform version. Therefore, the most reliable approach for specifying a font family is to use a custom font.
 
-- **None**
-- **Bold**
-- **Italic**
+Custom fonts can be added to your Xamarin.Forms shared project and consumed by platform projects without any additional work. The process for accomplishing this is as follows:
 
-The `FontAttribute` enumeration can be used as follows (you can specify a single attribute or `OR` them together):
+1. Add the font to your Xamarin.Forms shared project as an embedded resource (**Build Action: EmbeddedResource**).
+1. Register the font file with the assembly, in a file such as **AssemblyInfo.cs**, using the `ExportFont` attribute. An optional alias can also be specified.
+
+The following example shows the Lobster-Regular font being registered with the assembly, along with an alias:
 
 ```csharp
-label.FontAttributes = FontAttributes.Bold | FontAttributes.Italic;
+using Xamarin.Forms;
+
+[assembly: ExportFont("Lobster-Regular.ttf", Alias = "Lobster")]
 ```
 
-### Set font info per platform
+> [!NOTE]
+> The font can reside in any folder in the shared project, without having to specify the folder name when registering the font with the assembly.
+>
+> On Windows, the font file name and font name may be different. To discover the font name on Windows, right-click the .ttf file and select **Preview**. The font name can then be determined from the preview window.
 
-Alternatively, the `Device.RuntimePlatform` property can be used to set different
-font names on each platform, as demonstrated in this code:
+The font can then be consumed on each platform by referencing its name, without the file extension:
+
+```xaml
+<!-- Use font name -->
+<Label Text="Hello Xamarin.Forms"
+       FontFamily="Lobster-Regular" />
+```
+
+Alternatively, it can be consumed on each platform by referencing its alias:
+
+```xaml
+<!-- Use font alias -->
+<Label Text="Hello Xamarin.Forms"
+       FontFamily="Lobster" />
+```
+
+The equivalent C# code is:
 
 ```csharp
-label.FontFamily = Device.RuntimePlatform == Device.iOS ? "Lobster-Regular" :
-   Device.RuntimePlatform == Device.Android ? "Lobster-Regular.ttf#Lobster-Regular" : "Assets/Fonts/Lobster-Regular.ttf#Lobster",
-label.FontSize = Device.RuntimePlatform == Device.iOS ? 24 :
-   Device.RuntimePlatform == Device.Android ? Device.GetNamedSize(NamedSize.Medium, label) : Device.GetNamedSize(NamedSize.Large, label);
+// Use font name
+Label label1 = new Label
+{
+    Text = "Hello Xamarin.Forms!",
+    FontFamily = "Lobster-Regular"
+};
+
+// Use font alias
+Label label2 = new Label
+{
+    Text = "Hello Xamarin.Forms!",
+    FontFamily = "Lobster"
+};
 ```
 
-A good source of font information for iOS is [iosfonts.com](http://iosfonts.com).
+The following screenshots show the custom font:
 
-<a name="Setting_Font_in_Xaml" />
+[![Custom font on iOS and Android](fonts-images/custom-sml.png "Custom Fonts Example")](fonts-images/custom.png#lightbox "Custom Fonts Example")
 
-## Set the font in XAML
+> [!IMPORTANT]
+> For release builds on Windows, ensure the assembly containing the custom font is passed as an argument in the `Forms.Init` method call. For more information, see [Troubleshooting](~/xamarin-forms/platform/windows/installation/index.md#troubleshooting).
 
-Xamarin.Forms controls that display text all have a `FontSize` property that can be set in XAML. The simplest way to set the font in XAML is to use the named size enumeration values, as shown in this example:
+## Set font properties per platform
 
-```xaml
-<Label Text="Login" FontSize="Large"/>
-<Label Text="Instructions" FontSize="Small"/>
-```
-
-There is a built-in converter for the `FontSize` property that allows all font settings to be expressed as a string value in XAML. In addition, the `FontAttributes` property can be used to specify font attributes:
+The [`OnPlatform`](xref:Xamarin.Forms.OnPlatform`1) and [`On`](xref:Xamarin.Forms.On) classes can be used in XAML to set font properties per platform. The example below sets different font families and sizes on each platform:
 
 ```xaml
-<Label Text="Italics are supported" FontAttributes="Italic" />
-<Label Text="Biggest NamedSize" FontSize="Large" />
-<Label Text="Use size 72" FontSize="72" />
-```
-
-[`Device.RuntimePlatform`](~/xamarin-forms/platform/device.md#providing-platform-specific-values) can also be used in XAML to render a different font on each platform. The example below uses a custom font face on iOS (MarkerFelt-Thin) and specifies only size/attributes on the other platforms:
-
-```xaml
-<Label Text="Hello Forms with XAML">
+<Label Text="Different font properties on different platforms"
+       FontSize="{OnPlatform iOS=20, Android=Medium, UWP=24}">
     <Label.FontFamily>
         <OnPlatform x:TypeArguments="x:String">
-                <On Platform="iOS" Value="MarkerFelt-Thin" />
-                <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
-                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
+            <On Platform="iOS" Value="MarkerFelt-Thin" />
+            <On Platform="Android" Value="Lobster-Regular" />
+            <On Platform="UWP" Value="ArimaMadurai-Black" />
         </OnPlatform>
     </Label.FontFamily>
 </Label>
 ```
 
-When specifying a custom font face, it is always a good idea to use `OnPlatform`, as it is difficult to find a font that is available on all platforms.
+The [`Device.RuntimePlatform`](~/xamarin-forms/platform/device.md#provide-platform-specific-values) property can be used in code to set font properties per platform
 
-## Named font sizes
+```csharp
+Label label = new Label
+{
+    Text = "Different font properties on different platforms"
+};
+
+label.FontSize = Device.RuntimePlatform == Device.iOS ? 20 :
+    Device.RuntimePlatform == Device.Android ? Device.GetNamedSize(NamedSize.Medium, label) : 24;
+label.FontFamily = Device.RuntimePlatform == Device.iOS ? "MarkerFelt-Thin" :
+   Device.RuntimePlatform == Device.Android ? "Lobster-Regular" : "ArimaMadurai-Black";
+```
+
+For more information about providing platform-specific values, see [Provide platform-specific values](~/xamarin-forms/platform/device.md#provide-platform-specific-values). For information about the `OnPlatform` markup extension, see [OnPlatform markup extension](~/xamarin-forms/xaml/markup-extensions/consuming.md#onplatform-markup-extension).
+
+## Understand named font sizes
 
 Xamarin.Forms defines fields in the [`NamedSize`](xref:Xamarin.Forms.NamedSize) enumeration that represent specific font sizes. The following table shows the `NamedSize` members, and their default sizes on iOS, Android, and the Universal Windows Platform (UWP):
 
 | Member | iOS | Android | UWP |
 | --- | --- | --- | --- |
-| `Default` | 16 | 14 | 14 |
-| `Micro` | 11 | 10 | 15.667 |
-| `Small` | 13 | 14 | 18.667 |
-| `Medium` | 16 | 17 | 22.667 |
-| `Large` | 20 | 22 | 32 |
+| `Default` | 17 | 14 | 14 |
+| `Micro` | 12 | 10 | 15.667 |
+| `Small` | 14 | 14 | 18.667 |
+| `Medium` | 17 | 17 | 22.667 |
+| `Large` | 22 | 22 | 32 |
 | `Body` | 17 | 16 | 14 |
 | `Header` | 17 | 96 | 46 |
 | `Title` | 28 | 24 | 24 |
 | `Subtitle` | 22 | 16 | 20 |
 | `Caption` | 12 | 12 | 12 |
 
-The size values are measured in device independent units. For more information, see [Units of Measurement](~/xamarin-forms/user-interface/controls/common-properties.md#units-of-measurement).
-
-Named font sizes can be set through both XAML and code. In addition, the `Device.GetNamedSize` method can be called to return a `double` that represents the named font size:
-
-```csharp
-label.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label));
-```
+The size values are measured in device-independent units. For more information, see [Units of Measurement](~/xamarin-forms/user-interface/controls/common-properties.md#units-of-measurement).
 
 > [!NOTE]
 > On iOS and Android, named font sizes will autoscale based on operating system accessibility options. This behavior can be disabled on iOS with a platform-specific. For more information, see [Accessibility Scaling for Named Font Sizes on iOS](~/xamarin-forms/platform/ios/named-font-size-scaling.md).
-
-<a name="Using_a_Custom_Font" />
-
-## Use a custom font
-
-Using a font other than the built-in typefaces requires some platform-specific coding. This screenshot shows the custom font **Lobster** from [Google's open-source fonts](https://www.google.com/fonts) rendered using Xamarin.Forms.
-
- [![Custom font on iOS and Android](fonts-images/custom-sml.png "Custom Fonts Example")](fonts-images/custom.png#lightbox "Custom Fonts Example")
-
-The steps required for each platform are outlined below. When including custom font files with an application, be sure to verify that the font's license allows for distribution.
-
-### iOS
-
-It is possible to display a custom font by first ensuring that it is loaded,
-then referring to it by name using the Xamarin.Forms `Font` methods.
-Follow the instructions in [this blog post](https://devblogs.microsoft.com/xamarin/custom-fonts-in-ios/):
-
-1. Add the font file with **Build Action: BundleResource**, and
-2. Update the **Info.plist** file (**Fonts provided by application**, or `UIAppFonts`, key), then
-3. Refer to it by name wherever you define a font in Xamarin.Forms!
-
-```csharp
-new Label
-{
-    Text = "Hello, Forms!",
-    FontFamily = Device.RuntimePlatform == Device.iOS ? "Lobster-Regular" : null // set only for iOS
-}
-```
-
-### Android
-
-Xamarin.Forms for Android can reference a custom font that has been added to the project by following a specific naming standard. First add the font file to the **Assets** folder in the application project and set *Build Action: AndroidAsset*. Then use the full path and *Font Name* separated by a hash (#) as the font name in Xamarin.Forms, as the code snippet below demonstrates:
-
-```csharp
-new Label
-{
-  Text = "Hello, Forms!",
-  FontFamily = Device.RuntimePlatform == Device.Android ? "Lobster-Regular.ttf#Lobster-Regular" : null // set only for Android
-}
-```
-
-### Windows
-
-Xamarin.Forms for Windows platforms can reference a custom font that has been added to the project by following a specific naming standard. First add the font file to the **/Assets/Fonts/** folder in the application project and set the **Build Action:Content**. Then use the full path and font filename, followed by a hash (#) and the **Font Name**, as the code snippet below demonstrates:
-
-```csharp
-new Label
-{
-    Text = "Hello, Forms!",
-    FontFamily = Device.RuntimePlatform == Device.UWP ? "Assets/Fonts/Lobster-Regular.ttf#Lobster" : null // set only for UWP apps
-}
-```
-
-> [!NOTE]
-> Note that the font file name and font name may be different. To discover the font name on Windows, right-click the .ttf file and select **Preview**. The font name can then be determined from the preview window.
-
-### XAML
-
-You can also use [`Device.RuntimePlatform`](~/xamarin-forms/platform/device.md#interact-with-the-ui-from-background-threads) in XAML to render a custom font:
-
-```xaml
-<Label Text="Hello Forms with XAML">
-    <Label.FontFamily>
-        <OnPlatform x:TypeArguments="x:String">
-                <On Platform="iOS" Value="Lobster-Regular" />
-                <On Platform="Android" Value="Lobster-Regular.ttf#Lobster-Regular" />
-                <On Platform="UWP" Value="Assets/Fonts/Lobster-Regular.ttf#Lobster" />
-        </OnPlatform>
-    </Label.FontFamily>
-</Label>
-```
 
 ## Display font icons
 
@@ -251,13 +250,15 @@ image.Source = new FontImageSource
 };
 ```
 
-The following screenshots, from the [Bindable Layouts](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-bindablelayouts) sample, show several font icons being displayed by a bindable layout:
+The following screenshots, from the [Bindable Layouts](/samples/xamarin/xamarin-forms-samples/userinterface-bindablelayouts) sample, show several font icons being displayed by a bindable layout:
 
 ![Screenshot of font icons being displayed, on iOS and Android](fonts-images/font-image-source.png "Font icons being displayed in an Image view")
 
 ## Related links
 
-- [FontsSample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithfonts)
-- [Text (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-text)
-- [Bindable Layouts (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-bindablelayouts)
+- [FontsSample](/samples/xamarin/xamarin-forms-samples/workingwithfonts)
+- [Text (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-text)
+- [Bindable Layouts (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-bindablelayouts)
+- [Provide platform-specific values](~/xamarin-forms/platform/device.md#provide-platform-specific-values)
+- [OnPlatform markup extension](~/xamarin-forms/xaml/markup-extensions/consuming.md#onplatform-markup-extension)
 - [Bindable Layouts](~/xamarin-forms/user-interface/layouts/bindable-layouts.md)

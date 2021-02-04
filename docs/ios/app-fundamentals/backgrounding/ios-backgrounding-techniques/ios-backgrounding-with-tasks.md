@@ -100,7 +100,7 @@ Task.Factory.StartNew( () => {
 
 While expiration handlers are not required for the code to run, you should always use an expiration handler with a background task.
 
- <a name="background_tasks_in_iOS_7" />
+ <a name="background_tasks_in_iOS_7"></a>
 
 ## Background Tasks in iOS 7+
 
@@ -108,15 +108,15 @@ The biggest change in iOS 7 with regard to background tasks is not how the tasks
 
 Recall that pre-iOS 7, a task running in the background had 600 seconds to complete. One reason for this limit is that a task running in the background would keep the device awake for the duration of the task:
 
- [![](ios-backgrounding-with-tasks-images/ios6.png "Graph of the task keeping the app awake pre-iOS 7")](ios-backgrounding-with-tasks-images/ios6.png#lightbox)
+ [![Graph of the task keeping the app awake pre-iOS 7](ios-backgrounding-with-tasks-images/ios6.png)](ios-backgrounding-with-tasks-images/ios6.png#lightbox)
 
 iOS 7 background processing is optimized for longer battery life. In iOS 7, backgrounding becomes opportunistic: instead of keeping the device awake, tasks respect when the device goes to sleep, and instead do their processing in chunks when the device wakes up to handle phone calls, notifications, incoming emails, and other common interruptions. The following diagram provides insight into how a task might be broken up:
 
- [![](ios-backgrounding-with-tasks-images/ios7.png "Graph of the task being broken into chunks post-iOS 7")](ios-backgrounding-with-tasks-images/ios7.png#lightbox)
+ [![Graph of the task being broken into chunks post-iOS 7](ios-backgrounding-with-tasks-images/ios7.png)](ios-backgrounding-with-tasks-images/ios7.png#lightbox)
 
 Because the task run time is not longer continuous, tasks that perform network transfers must be handled differently in iOS 7. Developers are encouraged to use the `NSURlSession` API to handle network transfers. The next section is an overview of background transfers.
 
- <a name="background-transfers" />
+ <a name="background-transfers"></a>
 
 ## Background Transfers
 

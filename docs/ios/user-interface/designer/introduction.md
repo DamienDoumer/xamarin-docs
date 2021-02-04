@@ -13,6 +13,10 @@ ms.date: 01/31/2018
 
 _This guide introduces the Xamarin Designer for iOS. It demonstrates how to use the iOS Designer to visually lay out controls, how to access those controls in code, and how to edit properties._
 
+> [!WARNING]
+> The iOS Designer will start to be phased out in Visual Studio 2019 version 16.8 and Visual Studio 2019 for Mac version 8.8.
+> The recommended way to build iOS user interfaces is directly on a Mac running Xcode. For more information, see [Designing user interfaces with Xcode](../storyboards/index.md). 
+
 The Xamarin Designer for iOS is a visual interface designer similar to Xcode's Interface Builder and the Android Designer. Some of its many features include seamless integration with Visual Studio for Windows and Mac, drag-and-drop editing, an interface for setting up event handlers, and the ability to render custom controls.
 
 ## Requirements
@@ -21,7 +25,7 @@ The iOS Designer is available in Visual Studio for Mac and Visual Studio 2017 an
 
 This guide assumes a familiarity with the contents covered in the [Getting Started guides](~/ios/get-started/index.md).
 
-<a name="how-it-works" />
+<a name="how-it-works"></a>
 
 ## How the iOS Designer works
 
@@ -79,13 +83,13 @@ Now that the button has a name, it can be accessed in code. But how does this wo
 
 # [Visual Studio for Mac](#tab/macos)
 
-In the **Solution Pad**, navigating to **ViewController.cs** and clicking on the disclosure indicator reveals that the view controller's `ViewController` class definition spans two files, each of which contains a [partial class](https://docs.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods) definition:
+In the **Solution Pad**, navigating to **ViewController.cs** and clicking on the disclosure indicator reveals that the view controller's `ViewController` class definition spans two files, each of which contains a [partial class](/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods) definition:
 
 [![The two files that make up the ViewController class: ViewController.cs and ViewController.designer.cs](introduction-images/5-twoviewcontrollerfiles-vsmac.png "The two files that make up the ViewController class: ViewController.cs and ViewController.designer.cs")](introduction-images/5-twoviewcontrollerfiles-vsmac-large.png#lightbox)
 
 # [Visual Studio](#tab/windows)
 
-In the **Solution Explorer**, navigating to **ViewController.cs** and clicking on the disclosure indicator reveals that the view controller's `ViewController` class definition spans two files, each of which contains a [partial class](https://docs.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods) definition:
+In the **Solution Explorer**, navigating to **ViewController.cs** and clicking on the disclosure indicator reveals that the view controller's `ViewController` class definition spans two files, each of which contains a [partial class](/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods) definition:
 
 [![The two files that make up the ViewController class: ViewController.cs and ViewController.designer.cs](introduction-images/5-twoviewcontrollerfiles-vs.png "The two files that make up the ViewController class: ViewController.cs and ViewController.designer.cs")](introduction-images/5-twoviewcontrollerfiles-vs-large.png#lightbox)
 
@@ -154,7 +158,7 @@ Most Xamarin.iOS projects created with Visual Studio include a storyboard. To vi
 
 -----
 
-<a name="iOS_Designer_features"/>
+<a name="iOS_Designer_features"></a>
 
 ### iOS Designer features
 
@@ -494,6 +498,6 @@ This guide provided an introduction to the iOS Designer, describing its features
 - [Hello, iOS](~/ios/get-started/hello-ios/index.md)
 - [Hello, iOS Multiscreen](~/ios/get-started/hello-ios-multiscreen/index.md)
 - [Android Designer Overview](~/android/user-interface/android-designer/index.md)
-- [Partial Classes and Methods](https://docs.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods)
+- [Partial Classes and Methods](/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods)
 - [Diving into the Xamarin Designer for iOS - Evolve 2014 (video)](https://www.youtube.com/watch?v=W4H9uLjoEjM)
 - [Using the iOS Designer to Create a Launch Screen (video)](https://university.xamarin.com/lightninglectures/using-the-ios-designer-to-create-a-launch-screen)

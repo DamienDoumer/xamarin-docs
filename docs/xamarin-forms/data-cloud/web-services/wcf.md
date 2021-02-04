@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 03/28/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Consume a Windows Communication Foundation (WCF) Web Service
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-todowcf)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/webservices-todowcf)
 
 _WCF is Microsoft's unified framework for building service-oriented applications. It enables developers to build secure, reliable, transacted, and interoperable distributed applications. This article demonstrates how to consume an WCF Simple Object Access Protocol (SOAP) service from a Xamarin.Forms application._
 
@@ -33,7 +34,7 @@ There are differences between ASP.NET Web Services (ASMX) and WCF, but WCF suppo
 
 The sample application solution includes a WCF service which can be run locally, and is shown in the following screenshot:
 
-![](wcf-images/portal.png "Sample Application")
+![Sample Application](wcf-images/portal.png)
 
 > [!NOTE]
 > In iOS 9 and greater, App Transport Security (ATS) enforces secure connections between internet resources (such as the app's back-end server) and the app, thereby preventing accidental disclosure of sensitive information. Since ATS is enabled by default in apps built for iOS 9, all connections will be subject to ATS security requirements. If connections do not meet these requirements, they will fail with an exception.
@@ -63,7 +64,7 @@ For each call to *BeginOperationName*, the application should also call *EndOper
 
 The Task Parallel Library (TPL) can simplify the process of consuming an APM begin/end method pair by encapsulating the asynchronous operations in the same `Task` object. This encapsulation is provided by multiple overloads of the `TaskFactory.FromAsync` method.
 
-For more information about APM see [Asynchronous Programming Model](https://msdn.microsoft.com/library/ms228963(v=vs.110).aspx) and [TPL and Traditional .NET Framework Asynchronous Programming](https://msdn.microsoft.com/library/dd997423(v=vs.110).aspx) on MSDN.
+For more information about APM see [Asynchronous Programming Model](/dotnet/standard/asynchronous-programming-patterns/asynchronous-programming-model-apm) and [TPL and Traditional .NET Framework Asynchronous Programming](/dotnet/standard/parallel-programming/tpl-and-traditional-async-programming) on MSDN.
 
 ### Create the TodoServiceClient object
 
@@ -307,6 +308,6 @@ By default, IIS Express will only respond to requests to `localhost`. Remote dev
 
 ## Related links
 
-- [TodoWCF (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-todowcf)
-- [How to: Create a Windows Communication Foundation Client](https://docs.microsoft.com/dotnet/framework/wcf/how-to-create-a-wcf-client)
-- [ServiceModel Metadata Utility Tool (svcutil.exe)](https://docs.microsoft.com/dotnet/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe)
+- [TodoWCF (sample)](/samples/xamarin/xamarin-forms-samples/webservices-todowcf)
+- [How to: Create a Windows Communication Foundation Client](/dotnet/framework/wcf/how-to-create-a-wcf-client)
+- [ServiceModel Metadata Utility Tool (svcutil.exe)](/dotnet/framework/wcf/servicemodel-metadata-utility-tool-svcutil-exe)

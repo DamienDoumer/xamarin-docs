@@ -7,11 +7,15 @@ ms.assetid: 3EAE6BDC-8EFB-464B-A87B-1C35B8387BB3
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/19/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 12. Styles
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter12)
+
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 In Xamarin.Forms, styles allow multiple views to share a collection of property settings. This reduces markup and enables maintaining consistent visual themes.
 

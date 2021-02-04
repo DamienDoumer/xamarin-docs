@@ -7,11 +7,12 @@ ms.assetid: 57F172F8-BA03-43EC-A215-ED6B78696BB5
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/23/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Porter-Duff blend modes
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
 
 The Porter-Duff blend modes are named after Thomas Porter and Tom Duff, who developed an algebra of compositing while working for Lucasfilm. Their paper [_Compositing Digital Images_](https://graphics.pixar.com/library/Compositing/paper.pdf) was published in the July 1984 issue of _Computer Graphics_, pages 253 to 259. These blend modes are essential for compositing, which is assembling various images into a composite scene:
 
@@ -278,7 +279,7 @@ The **Brick-Wall Compositing** page shows an example of a classic compositing ta
 
 ![Seated Monkey](porter-duff-images/SeatedMonkey.jpg "Seated Monkey")
 
-In preparation for compositing, a corresponding _matte_ was created, which is another bitmap that is black where you want the image to appear and transparent otherwise. This file is named **SeatedMonkeyMatte.png** and is among the resources in the **Media** folder in the [**SkiaSharpFormsDemos**](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos) sample:
+In preparation for compositing, a corresponding _matte_ was created, which is another bitmap that is black where you want the image to appear and transparent otherwise. This file is named **SeatedMonkeyMatte.png** and is among the resources in the **Media** folder in the [**SkiaSharpFormsDemos**](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos) sample:
 
 ![Seated Monkey Matte](porter-duff-images/SeatedMonkeyMatte.png "Seated Monkey Matte")
 
@@ -897,5 +898,5 @@ The following screenshots show the three different transitions types, each at th
 
 ## Related links
 
-- [SkiaSharp APIs](https://docs.microsoft.com/dotnet/api/skiasharp)
-- [SkiaSharpFormsDemos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+- [SkiaSharp APIs](/dotnet/api/skiasharp)
+- [SkiaSharpFormsDemos (sample)](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)

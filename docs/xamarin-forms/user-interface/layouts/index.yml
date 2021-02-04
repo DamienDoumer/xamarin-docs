@@ -12,6 +12,7 @@ metadata:
   author: davidbritch
   ms.author: dabritch
   ms.date: 01/03/2020
+  no-loc: [Xamarin.Forms, Xamarin.Essentials]
 
 landingContent:
   - title: Core layouts
@@ -21,15 +22,15 @@ landingContent:
           - text: Choose a layout
             url: choose-layout.md
           - text: AbsoluteLayout
-            url: absolute-layout.md
+            url: absolutelayout.md
           - text: FlexLayout
             url: flex-layout.md
           - text: Grid
             url: grid.md
           - text: RelativeLayout
-            url: relative-layout.md
+            url: relativelayout.md
           - text: StackLayout
-            url: stack-layout.md
+            url: stacklayout.md
 
   - title: Additional layouts
     linkLists:
@@ -40,7 +41,7 @@ landingContent:
           - text: Frame
             url: frame.md
           - text: ScrollView
-            url: scroll-view.md
+            url: scrollview.md
 
   - title: Layout concepts
     linkLists:

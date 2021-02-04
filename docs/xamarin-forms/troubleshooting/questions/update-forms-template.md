@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 04/25/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Can I update the Xamarin.Forms default template to a newer NuGet package?
@@ -26,7 +27,7 @@ This guide uses the Xamarin.Forms .NET Standard library template as an example, 
 
     Example: `<package id="Xamarin.Forms" version="1.5.1.6471" />` -> `<package id="Xamarin.Forms" version="2.1.0.6529" />`
 
-4. Change the "name" element of the main [multi-project template file](https://msdn.microsoft.com/library/ms185308.aspx) (`Xamarin.Forms.PCL.vstemplate`) to make it unique. For example:
+4. Change the "name" element of the main [multi-project template file](/visualstudio/ide/how-to-create-multi-project-templates) (`Xamarin.Forms.PCL.vstemplate`) to make it unique. For example:
 
     > `<Name>Blank App (Xamarin.Forms Portable) - 2.1.0.6529</Name>`
 

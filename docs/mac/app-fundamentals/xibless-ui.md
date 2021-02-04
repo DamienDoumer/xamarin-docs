@@ -21,7 +21,7 @@ You also have the option of creating some or all of your Xamarin.Mac application
 
 [![The Visual Studio for Mac code editor](xibless-ui-images/intro01.png "The Visual Studio for Mac code editor")](xibless-ui-images/intro01-large.png#lightbox)
 
-<a name="Switching_a_Window_to_use_Code" />
+<a name="Switching_a_Window_to_use_Code"></a>
 
 ## Switching a window to use code
 
@@ -354,7 +354,7 @@ This article has taken a detailed look at creating a Xamarin.Mac application's u
 
 ## Related Links
 
-- [MacXibless (sample)](https://docs.microsoft.com/samples/xamarin/mac-samples/macxibless)
+- [MacXibless (sample)](/samples/xamarin/mac-samples/macxibless)
 - [Windows](~/mac/user-interface/window.md)
 - [Menus](~/mac/user-interface/menu.md)
 - [macOS Human Interface Guidelines](https://developer.apple.com/macos/human-interface-guidelines/overview/themes/)

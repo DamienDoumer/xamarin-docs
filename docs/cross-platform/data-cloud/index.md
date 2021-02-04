@@ -10,13 +10,13 @@ ms.date: 10/09/2017
 
 # Microsoft Azure and Xamarin
 
-[![](images/evolve-mikej-azure-sml.png "Azure App Services features are easy to add to Xamarin apps, including cloud data storage and cross-platform push notifications")](https://evolve.xamarin.com/session/56ec886fde91c6253c277bc6)
+[![Azure App Services features are easy to add to Xamarin apps, including cloud data storage and cross-platform push notifications](images/evolve-mikej-azure-sml.png)](https://evolve.xamarin.com/session/56ec886fde91c6253c277bc6)
 
 [Evolve 2016: Developing Connected Apps Using Azure and Xamarin](https://evolve.xamarin.com/session/56ec886fde91c6253c277bc6)
 
 ## Connected Services in Visual Studio for Mac
 
-The new [Connected Services](connected-services.md) feature of Visual Studio for Mac
+The new [Connected Services](/visualstudio/mac/connected-services) feature of Visual Studio for Mac
   helps developers to quickly and easily add Azure functionality to
   mobile applications from within the IDE. Currently available for testing in the Alpha channel.
 
@@ -35,9 +35,7 @@ Configure your apps on the [Azure App Services portal](https://portal.azure.com/
 ## Active Directory Authentication
 
 [Azure Active Directory](~/cross-platform/data-cloud/active-directory/index.md)
-  can be used to login users in Xamarin apps via the
-  [Xamarin.Auth Component](https://www.nuget.org/packages/Xamarin.Auth/).
-  The apps can then access additional services like Office 365.
+  can be used to login users to Xamarin apps. The apps can then access additional services like Office 365.
 
 ## WebAPI
 

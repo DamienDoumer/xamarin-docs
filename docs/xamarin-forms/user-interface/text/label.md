@@ -6,12 +6,13 @@ ms.assetid: 02E6C553-5670-49A0-8EE9-5153ED21EA91
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 10/28/2019
+ms.date: 07/21/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Label
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-text)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-text)
 
 _Display text in Xamarin.Forms_
 
@@ -46,7 +47,33 @@ The following screenshots show the `TextDecorations` enumeration members applied
 ![Labels with Text Decorations](label-images/label-textdecorations.png)
 
 > [!NOTE]
-> Text decorations can also be applied to [`Span`](xref:Xamarin.Forms.Span) instances. For more information about the `Span` class, see [Formatted Text](#Formatted_Text).
+> Text decorations can also be applied to [`Span`](xref:Xamarin.Forms.Span) instances. For more information about the `Span` class, see [Formatted Text](#formatted-text).
+
+## Transform text
+
+A [`Label`](xref:Xamarin.Forms.Entry) can transform the casing of its text, stored in the `Text` property, by setting the `TextTransform` property to a value of the `TextTransform` enumeration. This enumeration has four values:
+
+- `None` indicates that the text won't be transformed.
+- `Default` indicates that the default behavior for the platform will be used. This is the default value of the `TextTransform` property.
+- `Lowercase` indicates that the text will be transformed to lowercase.
+- `Uppercase` indicates that the text will be transformed to uppercase.
+
+The following example shows transforming text to uppercase:
+
+```xaml
+<Label Text="This text will be displayed in uppercase."
+       TextTransform="Uppercase" />
+```
+
+The equivalent C# code is:
+
+```csharp
+Label label = new Label
+{
+    Text = "This text will be displayed in uppercase.",
+    TextTransform = TextTransform.Uppercase
+};
+```
 
 ## Character spacing
 
@@ -64,6 +91,34 @@ Label label = new Label { Text = "Character spaced text", CharacterSpacing = 10 
 ```
 
 The result is that characters in the text displayed by the [`Label`](xref:Xamarin.Forms.Label) are spaced `CharacterSpacing` device-independent units apart.
+
+## New lines
+
+There are two main techniques for forcing text in a [`Label`](xref:Xamarin.Forms.Label) onto a new line, from XAML:
+
+1. Use the unicode line feed character, which is "&amp;#10;".
+1. Specify your text using *property element* syntax.
+
+The following code shows an example of both techniques:
+
+```xaml
+<!-- Unicode line feed character -->
+<Label Text="First line &#10; Second line" />
+
+<!-- Property element syntax -->
+<Label>
+    <Label.Text>
+        First line
+        Second line
+    </Label.Text>
+</Label>
+```
+
+In C#, text can be forced onto a new line with the "\n" character:
+
+```csharp
+Label label = new Label { Text = "First line\nSecond line" };
+```
 
 ## Colors
 
@@ -110,8 +165,6 @@ For more information about colors, see [Colors](~/xamarin-forms/user-interface/c
 ## Fonts
 
 For more information about specifying fonts on a `Label`, see [Fonts](~/xamarin-forms/user-interface/text/fonts.md).
-
-<a name="Truncation_and_Wrapping" />
 
 ## Truncation and wrapping
 
@@ -199,8 +252,6 @@ The following screenshots show a [`Label`](xref:Xamarin.Forms.Label) displaying 
 
 > [!IMPORTANT]
 > Displaying HTML in a [`Label`](xref:Xamarin.Forms.Label) is limited to the HTML tags that are supported by the underlying platform.
-
-<a name="Formatted_Text" />
 
 ## Formatted text
 
@@ -408,7 +459,7 @@ The text displayed by [`Label`](xref:Xamarin.Forms.Label) and [`Span`](xref:Xama
 1. Define the `ICommand` that will be executed by the [`TapGestureRecognizer`](xref:Xamarin.Forms.TapGestureRecognizer).
 1. Write the code that will be executed by the `ICommand`.
 
-The following code example, taken from the [Hyperlink Demos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-hyperlinks/) sample, shows a [`Label`](xref:Xamarin.Forms.Label) whose content is set from multiple [`Span`](xref:Xamarin.Forms.Span) instances:
+The following code example, taken from the [Hyperlink Demos](/samples/xamarin/xamarin-forms-samples/userinterface-hyperlinks/) sample, shows a [`Label`](xref:Xamarin.Forms.Label) whose content is set from multiple [`Span`](xref:Xamarin.Forms.Span) instances:
 
 ```xaml
 <Label>
@@ -457,7 +508,7 @@ The `TapCommand` executes the `Launcher.OpenAsync` method, passing the [`TapGest
 
 The previous approach to creating a hyperlink requires writing repetitive code every time you require a hyperlink in your application. However, both the [`Label`](xref:Xamarin.Forms.Label) and [`Span`](xref:Xamarin.Forms.Span) classes can be subclassed to create `HyperlinkLabel` and `HyperlinkSpan` classes, with the gesture recognizer and text formatting code added there.
 
-The following code example, taken from the [Hyperlink Demos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-hyperlinks/) sample, shows a `HyperlinkSpan` class:
+The following code example, taken from the [Hyperlink Demos](/samples/xamarin/xamarin-forms-samples/userinterface-hyperlinks/) sample, shows a `HyperlinkSpan` class:
 
 ```csharp
 public class HyperlinkSpan : Span
@@ -515,8 +566,8 @@ The previous sections covered setting [`Label`](xref:Xamarin.Forms.Label) and [`
 
 ## Related links
 
-- [Text (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-text)
-- [Hyperlinks (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-hyperlinks)
+- [Text (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-text)
+- [Hyperlinks (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-hyperlinks)
 - [Creating Mobile Apps with Xamarin.Forms, Chapter 3](https://developer.xamarin.com/r/xamarin-forms/book/chapter03.pdf)
 - [Label API](xref:Xamarin.Forms.Label)
 - [Span API](xref:Xamarin.Forms.Span)

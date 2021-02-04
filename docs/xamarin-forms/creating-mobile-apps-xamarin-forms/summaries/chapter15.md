@@ -7,11 +7,15 @@ ms.assetid: F54E86F4-1CDA-474E-9B09-242060C2C13D
 author: davidbritch
 ms.author: dabritch
 ms.date: 11/07/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 15. The interactive interface
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter15)
+
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 This chapter explores eight `View` derivatives that allow interaction with the user.
 
@@ -169,18 +173,18 @@ The [`KeyboardTypeConverter`](xref:Xamarin.Forms.KeyboardTypeConverter) allows s
 
 The single-line [`Entry`](xref:Xamarin.Forms.Entry) defines the following properties:
 
-- [`Text`](xref:Xamarin.Forms.Entry.Text) of type `string`, the text that appears in the `Entry`
-- [`TextColor`](xref:Xamarin.Forms.Entry.TextColor) of type `Color`
+- [`Text`](xref:Xamarin.Forms.InputView.Text) of type `string`, the text that appears in the `Entry`
+- [`TextColor`](xref:Xamarin.Forms.InputView.TextColor) of type `Color`
 - [`FontFamily`](xref:Xamarin.Forms.Entry.FontFamily) of type `string`
 - [`FontSize`](xref:Xamarin.Forms.Entry.FontSize) of type `double`
 - [`FontAttributes`](xref:Xamarin.Forms.Entry.FontAttributes) of type `FontAttributes`
 - [`IsPassword`](xref:Xamarin.Forms.Entry.IsPassword) of type `bool`, which causes characters to be masked
-- [`Placeholder`](xref:Xamarin.Forms.Entry.Placeholder) of type `string`, for dimly colored text that appears in the `Entry` before anything is typed
-- [`PlaceholderColor`](xref:Xamarin.Forms.Entry.PlaceholderColor) of type `Color`
+- [`Placeholder`](xref:Xamarin.Forms.InputView.Placeholder) of type `string`, for dimly colored text that appears in the `Entry` before anything is typed
+- [`PlaceholderColor`](xref:Xamarin.Forms.InputView.PlaceholderColor) of type `Color`
 
 The `Entry` also defines two events:
 
-- [`TextChanged`](xref:Xamarin.Forms.Entry.TextChanged) with a [`TextChangedEventArgs`](xref:Xamarin.Forms.TextChangedEventArgs) object, fired whenever the `Text` property changes
+- [`TextChanged`](xref:Xamarin.Forms.InputView.TextChanged) with a [`TextChangedEventArgs`](xref:Xamarin.Forms.TextChangedEventArgs) object, fired whenever the `Text` property changes
 - [`Completed`](xref:Xamarin.Forms.Entry.Completed), fired when the user is finished and the keyboard is dismissed. The user indicates completion in a platform-specific manner
 
 The [**QuadraticEquations**](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter15/QuadaticEquations) sample demonstrates these two events.
@@ -201,7 +205,7 @@ The [`SearchBar`](xref:Xamarin.Forms.SearchBar) does not derive from `InputView`
 
 The platform-specific cancel button erases the text. The `SearchBar` also has a platform-specific search button. Pressing either of those buttons raises one of the two events that `SearchBar` defines:
 
-- [`TextChanged`](xref:Xamarin.Forms.SearchBar.TextChanged) accompanied by a [`TextChangedEventArgs`](xref:Xamarin.Forms.TextChangedEventArgs) object
+- [`TextChanged`](xref:Xamarin.Forms.InputView.TextChanged) accompanied by a [`TextChangedEventArgs`](xref:Xamarin.Forms.TextChangedEventArgs) object
 - [`SearchButtonPressed`](xref:Xamarin.Forms.SearchBar.SearchButtonPressed)
 
 The [**SearchBarDemo**](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter15/SearchBarDemo) sample demonstrates the `SearchBar`.

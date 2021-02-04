@@ -6,12 +6,13 @@ ms.assetid: E44F5D0F-DB8E-46C7-8789-114F1652A6C5
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 11/04/2019
+ms.date: 05/06/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms WebView
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithwebview)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/workingwithwebview)
 
 [`WebView`](xref:Xamarin.Forms.WebView) is a view for displaying web and HTML content in your app:
 
@@ -22,7 +23,7 @@ ms.date: 11/04/2019
 `WebView` supports the following types of content:
 
 - HTML & CSS websites &ndash; WebView has full support for websites written using HTML & CSS, including JavaScript support.
-- Documents &ndash; Because WebView is implemented using native components on each platform, WebView is capable of showing documents that are viewable on each platform. That means that PDF files work on iOS and Android.
+- Documents &ndash; Because WebView is implemented using native components on each platform, WebView is capable of showing documents in the formats that are supported by the underlying platform.
 - HTML strings &ndash; WebView can show HTML strings from memory.
 - Local Files &ndash; WebView can present any of the content types above embedded in the app.
 
@@ -102,14 +103,14 @@ browser.Source = htmlSource;
 
 ![WebView Displaying HTML String](webview-images/html-string.png)
 
-In the above code, `@` is used to mark the HTML as a string literal, meaning all the usual escape characters are ignored.
+In the above code, `@` is used to mark the HTML as a [verbatim string literal](/dotnet/csharp/programming-guide/strings/#regular-and-verbatim-string-literals), meaning most escape characters are ignored.
 
 > [!NOTE]
 > It may be necessary to set the `WidthRequest` and `HeightRequest` properties of the [`WebView`](xref:Xamarin.Forms.WebView) to see the HTML content, depending upon the layout the `WebView` is a child of. For example, this is required in a [`StackLayout`](xref:Xamarin.Forms.StackLayout).
 
 ### Local HTML Content
 
-WebView can display content from HTML, CSS and Javascript embedded within the app. For example:
+WebView can display content from HTML, CSS and JavaScript embedded within the app. For example:
 
 ```html
 <html>
@@ -117,7 +118,7 @@ WebView can display content from HTML, CSS and Javascript embedded within the ap
     <title>Xamarin Forms</title>
   </head>
   <body>
-    <h1>Xamrin.Forms</h1>
+    <h1>Xamarin.Forms</h1>
     <p>This is an iOS web page.</p>
     <img src="XamarinLogo.png" />
   </body>
@@ -378,11 +379,11 @@ void webviewNavigated(object sender, WebNavigatedEventArgs e)
 
 This results in the following output (loading):
 
-![WebView Navigating Event Example](webview-images/loading-start.png)
+![Screenshot shows WebView Navigating Event while loading.](webview-images/loading-start.png)
 
 Finished Loading:
 
-![WebView Navigating Event Example](webview-images/loading-end.png)
+![Screenshot shows WebView Navigating Event after loading.](webview-images/loading-end.png)
 
 ## Reloading content
 
@@ -410,9 +411,12 @@ An application can return to using the iOS `UIWebView` class to implement the Xa
 [assembly: ExportRenderer(typeof(Xamarin.Forms.WebView), typeof(Xamarin.Forms.Platform.iOS.WebViewRenderer))]
 ```
 
+> [!NOTE]
+> In Xamarin.Forms 5.0, the `WebViewRenderer` class has been removed. Therefore, Xamarin.Forms 5.0 doesn't contain a reference to the `UIWebView` control.
+
 `WebView` on Android by default is about as fast as the built-in browser.
 
-The [UWP WebView](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/web-view) uses the Microsoft Edge rendering engine. Desktop and tablet devices should see the same performance as using the Edge browser itself.
+The [UWP WebView](/windows/uwp/design/controls-and-patterns/web-view) uses the Microsoft Edge rendering engine. Desktop and tablet devices should see the same performance as using the Edge browser itself.
 
 ## Permissions
 
@@ -482,7 +486,7 @@ Grid *without* WidthRequest & HeightRequest. Grid is one of the few layouts that
 
 ## Invoking JavaScript
 
-[`WebView`](xref:Xamarin.Forms.WebView) includes the ability to invoke a JavaScript function from C#, and return any result to the calling C# code. This is accomplished with the [`WebView.EvaluateJavaScriptAsync`](xref:Xamarin.Forms.WebView.EvaluateJavaScriptAsync*) method, which is shown in the following example from the [WebView](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-webview) sample:
+[`WebView`](xref:Xamarin.Forms.WebView) includes the ability to invoke a JavaScript function from C#, and return any result to the calling C# code. This is accomplished with the [`WebView.EvaluateJavaScriptAsync`](xref:Xamarin.Forms.WebView.EvaluateJavaScriptAsync*) method, which is shown in the following example from the [WebView](/samples/xamarin/xamarin-forms-samples/userinterface-webview) sample:
 
 ```csharp
 var numberEntry = new Entry { Text = "5" };
@@ -514,7 +518,84 @@ function factorial(num) {
 </html>
 ```
 
+## Cookies
+
+Cookies can be set on a [`WebView`](xref:Xamarin.Forms.WebView), which are then sent with the web request to the specified URL. This is accomplished by adding `Cookie` objects to a `CookieContainer`, which is then set as the value of the `WebView.Cookies` bindable property. The following code shows an example of this:
+
+```csharp
+using System.Net;
+using Xamarin.Forms;
+// ...
+
+CookieContainer cookieContainer = new CookieContainer();
+Uri uri = new Uri("https://dotnet.microsoft.com/apps/xamarin", UriKind.RelativeOrAbsolute);
+
+Cookie cookie = new Cookie
+{
+    Name = "XamarinCookie",
+    Expires = DateTime.Now.AddDays(1),
+    Value = "My cookie",
+    Domain = uri.Host,
+    Path = "/"
+};
+cookieContainer.Add(uri, cookie);
+webView.Cookies = cookieContainer;
+webView.Source = new UrlWebViewSource { Url = uri.ToString() };
+```
+
+In this example, a single `Cookie` is added to the `CookieContainer` object, which is then set as the value of the `WebView.Cookies` property. When the  [`WebView`](xref:Xamarin.Forms.WebView) sends a web request to the specified URL, the cookie is sent with the request.
+
+## UIWebView Deprecation and App Store Rejection (ITMS-90809)
+
+Starting in April 2020, [Apple will reject apps](https://developer.apple.com/news/?id=12232019b) that still use the deprecated `UIWebView` API. While Xamarin.Forms has switched to `WKWebView` as the default, there is still a reference to the older SDK in the Xamarin.Forms binaries. Current [iOS linker](~/ios/deploy-test/linker.md) behavior does not remove this, and as a result the deprecated `UIWebView` API will still appear to be referenced from your app when you submit to the App Store.
+
+> [!IMPORTANT]
+> In Xamarin.Forms 5.0, the `WebViewRenderer` class has been removed. Therefore, Xamarin.Forms 5.0 doesn't contain a reference to the `UIWebView` control.
+
+A preview version of the linker is available to fix this issue. To enable the preview, you will need to supply an additional argument `--optimize=experimental-xforms-product-type` to the linker.
+
+The prerequisites for this to work are:
+
+- **Xamarin.Forms 4.5 or higher**. Xamarin.Forms 4.6, or higher, is required if your app uses Material Visual.
+- **Xamarin.iOS 13.10.0.17 or higher**. Check your Xamarin.iOS version [in Visual Studio](~/cross-platform/troubleshooting/questions/version-logs.md#version-information). This version of Xamarin.iOS is included with Visual Studio for Mac 8.4.1 and Visual Studio 16.4.3.
+- **Remove references to `UIWebView`**. Your code should not have any references to `UIWebView` or any classes that make use of `UIWebView`.
+
+For more information about detecting and removing `UIWebView` references, see [UIWebView deprecation](~/ios/user-interface/controls/webview.md#uiwebview-deprecation).
+
+### Configure the linker
+
+# [Visual Studio](#tab/windows)
+
+Follow these steps for the linker to remove `UIWebView` references:
+
+1. **Open iOS project properties** &ndash; Right-click your iOS project and choose **Properties**.
+1. **Navigate to the iOS Build section** &ndash; Select the **iOS Build** section.
+1. **Update the Additional mtouch arguments** &ndash; In the **Additional mtouch arguments** add this flag `--optimize=experimental-xforms-product-type` (in addition to any value that might already be in there). Note: this flag works together with the **Linker Behavior** set to **SDK Only** or **Link All**. If, for any reason, you see errors when setting the Linker Behavior to All, this is most likely a problem within the app code or a third-party library that is not linker safe. For more information on the linker, see [Linking Xamarin.iOS Apps](~/ios/deploy-test/linker.md).
+1. **Update all build configurations** &ndash; Use the **Configuration** and **Platform** lists at the top of the window to update all build configurations. The most important configuration to update is the **Release/iPhone** configuration, since that is typically used to create builds for App Store submission.
+
+You can see the window with the new flag in place in this screenshot:
+
+[![Setting the flag in the iOS Build section](webview-images/iosbuildblade-vs-sml.png)](webview-images/iosbuildblade-vs.png#lightbox)
+
+# [Visual Studio for Mac](#tab/macos)
+
+Follow these steps for the linker to remove `UIWebView` references:
+
+1. **Open iOS project options** &ndash; Right-click your iOS project and choose **Options**.
+1. **Navigate to the iOS Build section** &ndash; Select the **iOS Build** section.
+1. **Update the Additional _mtouch_ arguments** &ndash; In the **Additional _mtouch_ arguments** add this flag `--optimize=experimental-xforms-product-type` (in addition to any value that might already be in there). Note: this flag works together with the **Linker Behavior** set to **SDK Only** or **Link All**. If, for any reason, you see errors when setting the Linker Behavior to All, this is most likely a problem within the app code or a third-party library that is not linker safe. For more information on the linker, see [Linking Xamarin.iOS Apps](~/ios/deploy-test/linker.md).
+1. **Update all build configurations** &ndash; Use the **Configuration** and **Platform** lists at the top of the window to update all build configurations. The most important configuration to update is the **Release/iPhone** configuration, since that is typically used to create builds for App Store submission.
+
+You can see the window with the new flag in place in this screenshot:
+
+[![Setting the flag in the iOS Build section](webview-images/iosbuildblade-xs-sml.png)](webview-images/iosbuildblade-xs.png#lightbox)
+
+-----
+
+Now when you create a new (release) build and submit it to the App Store, there should be no warnings about the deprecated API.
+
 ## Related Links
 
-- [Working with WebView (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithwebview)
-- [WebView (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-webview)
+- [Working with WebView (sample)](/samples/xamarin/xamarin-forms-samples/workingwithwebview)
+- [WebView (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-webview)
+- [UIWebView deprecation](~/ios/user-interface/controls/webview.md#uiwebview-deprecation)

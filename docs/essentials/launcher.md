@@ -3,8 +3,10 @@ title: "Xamarin.Essentials Launcher"
 description: "The Launcher class in Xamarin.Essentials enables an application to open a URI by the system."
 ms.assetid: BABF40CC-8BEE-43FD-BE12-6301DF27DD33
 author: jamesmontemagno
+ms.custom: video
 ms.author: jamont
 ms.date: 08/20/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: Launcher
@@ -90,6 +92,10 @@ await Launcher.OpenAsync(new OpenFileRequest
 });
 ```
 
+## Presentation Location When Opening Files
+
+[!include[](~/essentials/includes/ios-PresentationSourceBounds.md)]
+
 ## Platform Differences
 
 # [Android](#tab/android)
@@ -112,5 +118,11 @@ No platform differences.
 
 ## API
 
-- [Launcher source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/Launcher)
+- [Launcher source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/Launcher)
 - [Launcher API documentation](xref:Xamarin.Essentials.Launcher)
+
+## Related Video
+
+> [!Video https://channel9.msdn.com/Shows/XamarinShow/Launcher-XamarinEssentials-API-of-the-Week/player]
+
+[!include[](~/essentials/includes/xamarin-show-essentials.md)]

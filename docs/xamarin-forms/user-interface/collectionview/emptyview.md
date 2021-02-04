@@ -6,12 +6,13 @@ ms.assetid: 6CEBCFE6-5577-4F68-9709-431062609153
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 05/06/2019
+ms.date: 11/05/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms CollectionView EmptyView
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-collectionviewdemos/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-collectionviewdemos/)
 
 [`CollectionView`](xref:Xamarin.Forms.CollectionView) defines the following properties that can be used to provide user feedback when there's no data to display:
 
@@ -67,23 +68,28 @@ The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property can be set to
             </DataTemplate>
         </CollectionView.ItemTemplate>
         <CollectionView.EmptyView>
-            <StackLayout>
-                <Label Text="No results matched your filter."
-                       Margin="10,25,10,10"
-                       FontAttributes="Bold"
-                       FontSize="18"
-                       HorizontalOptions="Fill"
-                       HorizontalTextAlignment="Center" />
-                <Label Text="Try a broader filter?"
-                       FontAttributes="Italic"
-                       FontSize="12"
-                       HorizontalOptions="Fill"
-                       HorizontalTextAlignment="Center" />
-            </StackLayout>
+            <ContentView>
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <Label Text="No results matched your filter."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Try a broader filter?"
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </ContentView>
         </CollectionView.EmptyView>
     </CollectionView>
 </StackLayout>
 ```
+
+In this example, what looks like a redundant [`ContentView`](xref:Xamarin.Forms) has been added as the root element of the [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView). This is because internally, the `EmptyView` is added to a native container that doesn't provide any context for Xamarin.Forms layout. Therefore, to position the views that comprise your `EmptyView`, you must add a root layout, whose child is a layout that can position itself within the root layout.
 
 The equivalent C# code is:
 
@@ -91,19 +97,22 @@ The equivalent C# code is:
 SearchBar searchBar = new SearchBar { ... };
 CollectionView collectionView = new CollectionView
 {
-    EmptyView = new StackLayout
+    EmptyView = new ContentView
     {
-        Children =
+        Content = new StackLayout
         {
-            new Label { Text = "No results matched your filter.", ... },
-            new Label { Text = "Try a broader filter?", ... }
+            Children =
+            {
+                new Label { Text = "No results matched your filter.", ... },
+                new Label { Text = "Try a broader filter?", ... }
+            }
         }
     }
 };
 collectionView.SetBinding(ItemsView.ItemsSourceProperty, "Monkeys");
 ```
 
-When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CollectionView`](xref:Xamarin.Forms.CollectionView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text) property. If the filtering operation yields no data, the [`StackLayout`](xref:Xamarin.Forms.StackLayout) set as the [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property value is displayed:
+When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CollectionView`](xref:Xamarin.Forms.CollectionView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text) property. If the filtering operation yields no data, the [`StackLayout`](xref:Xamarin.Forms.StackLayout) set as the [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property value is displayed:
 
 [![Screenshot of a CollectionView vertical list with custom empty view, on iOS and Android](emptyview-images/filter-multiple-views.png "CollectionView vertical list with custom empty view")](emptyview-images/filter-multiple-views-large.png#lightbox "CollectionView vertical list with custom empty view")
 
@@ -169,7 +178,7 @@ public class FilterData : BindableObject
 }
 ```
 
-The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property is set to a `FilterData` object, and the `Filter` property data binds to the [`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text) property. When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CollectionView`](xref:Xamarin.Forms.CollectionView) is filtered for the search term stored in the `Filter` property. If the filtering operation yields no data, the [`Label`](xref:Xamarin.Forms.Label) defined in the [`DataTemplate`](xref:Xamarin.Forms.DataTemplate), that's set as the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property value, is displayed:
+The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property is set to a `FilterData` object, and the `Filter` property data binds to the [`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text) property. When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CollectionView`](xref:Xamarin.Forms.CollectionView) is filtered for the search term stored in the `Filter` property. If the filtering operation yields no data, the [`Label`](xref:Xamarin.Forms.Label) defined in the [`DataTemplate`](xref:Xamarin.Forms.DataTemplate), that's set as the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property value, is displayed:
 
 [![Screenshot of a CollectionView vertical list with an empty view template, on iOS and Android](emptyview-images/emptyviewtemplate.png "CollectionView vertical list with empty view template")](emptyview-images/emptyviewtemplate-large.png#lightbox "CollectionView vertical list with empty view template")
 
@@ -178,7 +187,7 @@ The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property is set to a `
 
 ## Choose an EmptyView at runtime
 
-Views that will be displayed as an [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) when data is unavailable, can be defined as [`ContentView`](xref:Xamarin.Forms.ContentView) objects in a [`ResourceDictionary`](xref:Xamarin.Forms.ResourceDictionary). The `EmptyView` property can then be set to a specific `ContentView`, based on some business logic, at runtime. The following XAML example shows an example of this scenario:
+Views that will be displayed as an [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) when data is unavailable, can be defined as [`ContentView`](xref:Xamarin.Forms.ContentView) objects in a [`ResourceDictionary`](xref:Xamarin.Forms.ResourceDictionary). The `EmptyView` property can then be set to a specific `ContentView`, based on some business logic, at runtime. The following XAML shows an example of this scenario:
 
 ```xaml
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
@@ -243,7 +252,7 @@ void ToggleEmptyView(bool isToggled)
 }
 ```
 
-The `ToggleEmptyView` method sets the [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property of the `collectionView` object to one of the two [`ContentView`](xref:Xamarin.Forms.ContentView) objects stored in the [`ResourceDictionary`](xref:Xamarin.Forms.ResourceDictionary), based on the value of the [`Switch.IsToggled`](xref:Xamarin.Forms.Switch.IsToggled) property. When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CollectionView`](xref:Xamarin.Forms.CollectionView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text) property. If the filtering operation yields no data, the `ContentView` object set as the `EmptyView` property is displayed:
+The `ToggleEmptyView` method sets the [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property of the `collectionView` object to one of the two [`ContentView`](xref:Xamarin.Forms.ContentView) objects stored in the [`ResourceDictionary`](xref:Xamarin.Forms.ResourceDictionary), based on the value of the [`Switch.IsToggled`](xref:Xamarin.Forms.Switch.IsToggled) property. When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CollectionView`](xref:Xamarin.Forms.CollectionView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text) property. If the filtering operation yields no data, the `ContentView` object set as the `EmptyView` property is displayed:
 
 [![Screenshot of a CollectionView vertical list with swapped empty views, on iOS and Android](emptyview-images/swap.png "CollectionView vertical list with swapped empty views")](emptyview-images/swap-large.png#lightbox "CollectionView vertical list with swapped empty views")
 
@@ -294,9 +303,9 @@ CollectionView collectionView = new CollectionView
 collectionView.SetBinding(ItemsView.ItemsSourceProperty, "Monkeys");
 ```
 
-The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property is set to the [`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text) property, and the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property is set to a `SearchTermDataTemplateSelector` object.
+The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property is set to the [`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text) property, and the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property is set to a `SearchTermDataTemplateSelector` object.
 
-When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CollectionView`](xref:Xamarin.Forms.CollectionView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text) property. If the filtering operation yields no data, the [`DataTemplate`](xref:Xamarin.Forms.DataTemplate) chosen by the `SearchTermDataTemplateSelector` object is set as the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property and displayed.
+When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CollectionView`](xref:Xamarin.Forms.CollectionView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text) property. If the filtering operation yields no data, the [`DataTemplate`](xref:Xamarin.Forms.DataTemplate) chosen by the `SearchTermDataTemplateSelector` object is set as the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property and displayed.
 
 The following example shows the `SearchTermDataTemplateSelector` class:
 
@@ -322,7 +331,7 @@ For more information about data template selectors, see [Create a Xamarin.Forms 
 
 ## Related links
 
-- [CollectionView (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-collectionviewdemos/)
+- [CollectionView (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-collectionviewdemos/)
 - [Xamarin.Forms Data Templates](~/xamarin-forms/app-fundamentals/templates/data-templates/index.md)
 - [Xamarin.Forms Resource Dictionaries](~/xamarin-forms/xaml/resource-dictionaries.md)
 - [Create a Xamarin.Forms DataTemplateSelector](~/xamarin-forms/app-fundamentals/templates/data-templates/selector.md)

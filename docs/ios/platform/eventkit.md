@@ -28,7 +28,7 @@ In this guide we’re going to cover:
 All tasks in this guide are available in the companion sample
 application:
 
- [![](eventkit-images/01.png "The companion sample application screens")](eventkit-images/01.png#lightbox)
+ [![The companion sample application screens](eventkit-images/01.png)](eventkit-images/01.png#lightbox)
 
 ## Requirements
 
@@ -201,7 +201,7 @@ The *EKEventEditViewController* does a lot of the heavy lifting for
 you if you want to create or edit an event with the same UI that’s presented
 to the user when using the Calendar Application:
 
- [![](eventkit-images/02.png "The UI that is presented to the user when using the Calendar Application")](eventkit-images/02.png#lightbox)
+ [![The UI that is presented to the user when using the Calendar Application](eventkit-images/02.png)](eventkit-images/02.png#lightbox)
 
 To use it, you’ll want to declare it as a class-level variable so that it
 doesn’t get garbage-collected if it’s declared within a method:
@@ -455,6 +455,6 @@ Apple’s [Calendar and Reminders Programming Guide](https://developer.apple.com
 
 ## Related Links
 
-- [Calendars (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/calendars)
+- [Calendars (sample)](/samples/xamarin/ios-samples/calendars)
 - [Introduction to iOS 6](~/ios/platform/introduction-to-ios6/index.md)
 - [Introduction to Calendars and Reminders](https://developer.apple.com/library/prerelease/ios/#documentation/DataManagement/Conceptual/EventKitProgGuide/Introduction/Introduction.html)

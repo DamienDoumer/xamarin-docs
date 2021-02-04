@@ -20,7 +20,7 @@ programmatically.
 
 This document introduces Wallet and using the PassKit API with Xamarin.iOS.
 
- [![](passkit-images/image1.png "The Wallet stores and organizes all the passes on a phone")](passkit-images/image1.png#lightbox)
+ [![The Wallet stores and organizes all the passes on a phone](passkit-images/image1.png)](passkit-images/image1.png#lightbox)
 
 ## Requirements
 
@@ -58,7 +58,7 @@ ecosystem of apps, data and services that facilitate the secure sharing and
 management of barcodes and other data. This high-level diagram shows the
 different entities that can be involved in creating and using passes:
 
- [![](passkit-images/image2.png "This high level diagram shows the entities involved in creating and using passes")](passkit-images/image2.png#lightbox)
+ [![This high level diagram shows the entities involved in creating and using passes](passkit-images/image2.png)](passkit-images/image2.png#lightbox)
 
 Each piece of the ecosystem has a clearly-defined role:
 
@@ -94,7 +94,7 @@ app by the layout and top edge of the pass:
 The five pass types are shown in this screenshot (in order: coupon, generic,
 store card, boarding pass and event ticket):
 
- [![](passkit-images/image3.png "The five pass types are shown in this screenshot")](passkit-images/image3.png#lightbox)
+ [![The five pass types are shown in this screenshot](passkit-images/image3.png)](passkit-images/image3.png#lightbox)
 
 ### File Structure
 
@@ -113,7 +113,7 @@ as localized strings (also optional).
 Directory structure of a pass file is shown below (this is the contents of
 the ZIP archive):
 
- [![](passkit-images/image4.png "Directory structure of a pass file is shown here")](passkit-images/image4.png#lightbox)
+ [![Directory structure of a pass file is shown here](passkit-images/image4.png)](passkit-images/image4.png#lightbox)
 
 ### pass.json
 
@@ -266,10 +266,10 @@ To create a Pass Type ID do the following.
 The first step is to set up a Pass Type ID for each different _type_ of pass to be supported. The Pass ID (or Pass Type identifier) creates a unique identifier for the Pass. We will use this ID to link the pass with your developer account using a Certificate.
 
 1. In the  [Certificates, Identifiers, and Profiles section of the iOS Provisioning Portal](https://developer.apple.com/account/overview.action), navigate to  **Identifiers** and select  **Pass Type IDs** . Then select the **+** button to create a new pass type:
-  [![](passkit-images/passid.png "Create a new pass type")](passkit-images/passid.png#lightbox)
+  [![Create a new pass type](passkit-images/passid.png)](passkit-images/passid.png#lightbox)
 
 2. Provide a **Description** (name) and **Identifier** (unique string) for the Pass. Note that all Pass Type IDs must begin with the string `pass.` In this example we use `pass.com.xamarin.coupon.banana` :
-  [![](passkit-images/register.png "Provide a Description and Identifier")](passkit-images/register.png#lightbox)
+  [![Provide a Description and Identifier](passkit-images/register.png)](passkit-images/register.png#lightbox)
 
 3. Confirm the Pass ID by pressing the **Register** button.
 
@@ -278,11 +278,11 @@ The first step is to set up a Pass Type ID for each different _type_ of pass to 
 To create a new Certificate for this Pass Type ID, do the following:
 
 1. Select the newly created Pass ID from the list, and click **Edit** :
-  [![](passkit-images/pass-done.png "Select the new Pass ID from the list")](passkit-images/pass-done.png#lightbox)
+  [![Select the new Pass ID from the list](passkit-images/pass-done.png)](passkit-images/pass-done.png#lightbox)
 
     Then, select  **Create Certificate…** :
 
-    [![](passkit-images/cert-dist.png "Select Create Certificate")](passkit-images/cert-dist.png#lightbox)
+    [![Select Create Certificate](passkit-images/cert-dist.png)](passkit-images/cert-dist.png#lightbox)
 
 2. Follow the steps to create a Certificate Signing Request (CSR).
   
@@ -307,12 +307,12 @@ on the simulator or a device. The steps to create a pass are:
 - Sign manifest.json with the downloaded certificate .p12 file.
 - ZIP the directory’s contents and rename with .pkpass extension.
 
-There are some source files in the [sample code](https://docs.microsoft.com/samples/xamarin/ios-samples/passkit) for this article that can be
+There are some source files in the [sample code](/samples/xamarin/ios-samples/passkit) for this article that can be
 used to generate a pass. Use the files in the `CouponBanana.raw`
 directory of the CreateAPassManually directory. The following files are
 present:
 
- [![](passkit-images/image18.png "These files are present")](passkit-images/image18.png#lightbox)
+ [![These files are present](passkit-images/image18.png)](passkit-images/image18.png#lightbox)
 
 Open pass.json and edit the JSON. You must at least update the `passTypeIdentifier` and `teamIdentifer` to match your
 Apple Developer account.
@@ -349,12 +349,12 @@ If you were to examine the output of these tools (by setting the filename to
 .zip and then opening it), you would see the following files (note the addition
 of the `manifest.json` and `signature` files):
 
- [![](passkit-images/image19.png "Examining the output of these tools")](passkit-images/image19.png#lightbox)
+ [![Examining the output of these tools](passkit-images/image19.png)](passkit-images/image19.png#lightbox)
 
 Once you have signed, ZIPped and renamed the file (eg. to `BananaCoupon.pkpass`) you can drag it into the simulator to test, or
 email it to yourself to retrieve on a real device. You should see a screen to **Add** the pass, like this:
 
- [![](passkit-images/image20.png "Add the pass screen")](passkit-images/image20.png#lightbox)
+ [![Add the pass screen](passkit-images/image20.png)](passkit-images/image20.png#lightbox)
 
 Normally that process would be automated on a server, however manual pass
 creation might be an option for small businesses that are only creating coupons
@@ -365,7 +365,7 @@ that do not require the support of a back-end server.
 Wallet is the central piece of the PassKit ecosystem. This screenshot
 shows the empty Wallet, and how the pass list and individual passes look:
 
- [![](passkit-images/image21.png "This screenshot shows the empty Wallet, and how the pass list and individual passes look")](passkit-images/image21.png#lightbox)
+ [![This screenshot shows the empty Wallet, and how the pass list and individual passes look](passkit-images/image21.png)](passkit-images/image21.png#lightbox)
 
 Features of Wallet include:
 
@@ -404,9 +404,9 @@ This screenshot shows how **Mail** in iOS 6 recognizes a
 pass attachment and (when touched) offers to **Add** it to
 Wallet.
 
- [![](passkit-images/image22.png "This screenshot shows how Mail in iOS 6 recognizes a pass attachment")](passkit-images/image22.png#lightbox)
+ [![This screenshot shows how Mail in iOS 6 recognizes a pass attachment](passkit-images/image22.png)](passkit-images/image22.png#lightbox)
 
- [![](passkit-images/image23.png "This screenshot shows how Mail offers to add a pass attachment to Wallet")](passkit-images/image23.png#lightbox)
+ [![This screenshot shows how Mail offers to add a pass attachment to Wallet](passkit-images/image23.png)](passkit-images/image23.png#lightbox)
 
 If you are building an app that could be a conduit for passes, they can be
 recognized by:
@@ -449,11 +449,11 @@ To set entitlements do the following:
 
 Double-click on the **Entitlements.plist** file in the Solution Pad to open the Entitlements.plist editor:
 
-![](passkit-images/image31.png "Entitlements.plst editor")
+![Entitlements.plst editor](passkit-images/image31.png)
 
 Under the Wallet section, select the **Enable Wallet** option
 
-![](passkit-images/image32.png "Enable wallet entitlement")
+![Enable wallet entitlement](passkit-images/image32.png)
 
 The default option is for your app to allow all pass types. However, it is possible to restrict your app and only allow a subset of team pass types. To enable this select the **Allow subset of team pass types** and enter the pass type identifier of the subset that you wish to allow.
 
@@ -463,7 +463,7 @@ Double-click the **Entitlements.plist** file to open the XML source file.
 
 To add the Wallet entitlement, set the **Property** to `Passbook Identifiers` in the dropdown, which will automatically set the **Type** `Array`. Then, set the String **Value** to `$(TeamIdentifierPrefix)*`:
 
-![](passkit-images/image33.png "Enable wallet entitlement")
+![Enable wallet entitlement](passkit-images/image33.png)
 
 This will enable your app to allow all pass types. To restrict your app and only allow a subset of team pass types, set the string value to:
 
@@ -502,7 +502,7 @@ The following PassKit classes are available for apps to access passes:
 ## Example
 
 Refer to the PassLibrary project in the [sample
-code](https://docs.microsoft.com/samples/xamarin/ios-samples/passkit) for this
+code](/samples/xamarin/ios-samples/passkit) for this
 article. It demonstrates the following common functions that would be
 required in a Wallet Companion Application:
 
@@ -541,10 +541,10 @@ var passes = library.GetPasses ();  // returns PKPass[]
 
 Note that the simulator does not filter the list of passes returned, so this
 method should always be tested on real devices. This list can be
-displayed in a UITableView. The [sample app](https://docs.microsoft.com/samples/xamarin/ios-samples/passkit) looks like
+displayed in a UITableView. The [sample app](/samples/xamarin/ios-samples/passkit) looks like
 this after two coupons have been added:
 
- [![](passkit-images/image29.png "The sample app look like this after two coupons have been added")](passkit-images/image29.png#lightbox)
+ [![The sample app look like this after two coupons have been added](passkit-images/image29.png)](passkit-images/image29.png#lightbox)
 
 ### Displaying Passes
 
@@ -565,9 +565,9 @@ string passInfo =
                 + "\nPassUrl:" + pass.PassUrl;
 ```
 
-This string is shown as an alert in the [sample](https://docs.microsoft.com/samples/xamarin/ios-samples/passkit):
+This string is shown as an alert in the [sample](/samples/xamarin/ios-samples/passkit):
 
- [![](passkit-images/image30.png "The Coupon Selected alert in the sample")](passkit-images/image30.png#lightbox)
+ [![The Coupon Selected alert in the sample](passkit-images/image30.png)](passkit-images/image30.png#lightbox)
 
 You can also use the `LocalizedValueForFieldKey()` method to
 retrieve data from fields in the passes you have designed (since you will know
@@ -593,7 +593,7 @@ NavigationController.PresentModalViewController (pkapvc, true);
 
 The pass is presented with **Add** and **Cancel** options:
 
- [![](passkit-images/image20.png "The pass presented with Add and Cancel options")](passkit-images/image20.png#lightbox)
+ [![The pass presented with Add and Cancel options](passkit-images/image20.png)](passkit-images/image20.png#lightbox)
 
 ### Replace an Existing Pass
 
@@ -676,7 +676,7 @@ how to access the PassKit APIs from a Xamarin.iOS application.
 ## Related Links
 
 - [Wallet for Developers](https://developer.apple.com/wallet/)
-- [PassKit Sample](https://docs.microsoft.com/samples/xamarin/ios-samples/passkit)
+- [PassKit Sample](/samples/xamarin/ios-samples/passkit)
 - [Wallet Developer Guide](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/PassKit_PG/index.html#//apple_ref/doc/uid/TP40012195-CH1-SW1)
 - [Frameworks – Apple Pay and Wallet (WWDC videos)](https://developer.apple.com/videos/frameworks/apple-pay-and-wallet)
 - [PassKit Framework Reference](https://developer.apple.com/library/prerelease/ios/#documentation/UserExperience/Reference/PassKit_Framework/_index.html)

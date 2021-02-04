@@ -95,31 +95,31 @@ start trying to solve the User Experience or UX.
 
 #### UX design
 
-UX is usually done via wireframes or mockups using one of the many [design toolkits](https://docs.microsoft.com/windows/uwp/design/downloads/). UX mockups allow the UX to be designed without having to worry
+UX is usually done via wireframes or mockups using one of the many [design toolkits](/windows/uwp/design/downloads/). UX mockups allow the UX to be designed without having to worry
 about the actual UI design:
 
- [![](introduction-to-mobile-sdlc-images/balsamiq.png "UX is usually done via wireframes or mockups using tools such as Balsamiq")](introduction-to-mobile-sdlc-images/balsamiq.png#lightbox)
+ [![UX is usually done via wireframes or mockups using tools such as Balsamiq](introduction-to-mobile-sdlc-images/balsamiq.png)](introduction-to-mobile-sdlc-images/balsamiq.png#lightbox)
 
 When creating UX mockups, it’s important to consider the interface
 guidelines for the various platforms that the app will target. The app should "feel at home" on each platform. The official design guidelines for each platform are:
 
 1. **Apple** -  [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/)
 1. **Android** –  [Design Guidelines](https://developer.android.com/design/index.html)
-1. **UWP** –  [UWP Design basics](https://docs.microsoft.com/windows/uwp/design/basics/)
+1. **UWP** –  [UWP Design basics](/windows/uwp/design/basics/)
 
 For example, each app has a metaphor for switching between sections in an
-application. iOS uses a tab bar at the bottom of the screen, Android uses a tab bar at the top of the screen, and UWP uses the [Pivot or tab](https://docs.microsoft.com/windows/uwp/design/controls-and-patterns/tabs-pivot) view.
+application. iOS uses a tab bar at the bottom of the screen, Android uses a tab bar at the top of the screen, and UWP uses the [Pivot or tab](/windows/uwp/design/controls-and-patterns/pivot) view.
 
 Additionally, the hardware itself also dictates UX decisions. For example,
 iOS devices have no physical *back* button, and therefore introduce the
 Navigation Controller metaphor:
 
- ![](introduction-to-mobile-sdlc-images/01-navigation-controller.png "iOS devices have no physical back button, and therefore introduce the Navigation Controller metaphor")
+ ![iOS devices have no physical back button, and therefore introduce the Navigation Controller metaphor](introduction-to-mobile-sdlc-images/01-navigation-controller.png)
 
 Furthermore, form factor also influences UX decisions. A tablet has far more
 real estate, and so can display more information. Often what needs multiple screens on a phone is compressed into one for a tablet:
 
- [![](introduction-to-mobile-sdlc-images/iphone-vs-ipad.png "Often what needs multiple screens on a phone is compressed into one for a tablet")](introduction-to-mobile-sdlc-images/iphone-vs-ipad.png#lightbox)
+ [![Often what needs multiple screens on a phone is compressed into one for a tablet](introduction-to-mobile-sdlc-images/iphone-vs-ipad.png)](introduction-to-mobile-sdlc-images/iphone-vs-ipad.png#lightbox)
 
 And due to the myriad of form factors out there, there are often mid-size
 form factors (somewhere between a phone and a tablet) that you may also want to
@@ -136,7 +136,7 @@ professional design.
 As with UX, it’s important to understand that each platform has it’s own
 design language, so a well-designed application may still look different on each platform:
 
- [![](introduction-to-mobile-sdlc-images/multiplatform-1.png "A well-designed application may still look different on each platform")](introduction-to-mobile-sdlc-images/multiplatform-1.png#lightbox)
+ [![A well-designed application may still look different on each platform](introduction-to-mobile-sdlc-images/multiplatform-1.png)](introduction-to-mobile-sdlc-images/multiplatform-1.png#lightbox)
 
 ### Development
 
@@ -228,7 +228,7 @@ many others. A few popular ones are:
 
 #### UWP
 
-UWP applications are distributed to users via the Microsoft Store. Developers submit their apps for approval, after which they appear in the Store. For more information on publishing Windows apps, see UWP's [Publish](https://docs.microsoft.com/windows/uwp/publish/) documentation.
+UWP applications are distributed to users via the Microsoft Store. Developers submit their apps for approval, after which they appear in the Store. For more information on publishing Windows apps, see UWP's [Publish](/windows/uwp/publish/) documentation.
 
 ## Mobile development considerations
 
@@ -385,7 +385,7 @@ can opt-out of low-memory support.
 
 #### Security considerations
 
-For information on important security considerations in UWP, refer to the [Security](https://docs.microsoft.com/windows/uwp/security/) documentation.
+For information on important security considerations in UWP, refer to the [Security](/windows/uwp/security/) documentation.
 
 ## Summary
 

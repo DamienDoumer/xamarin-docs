@@ -8,14 +8,14 @@ Congratulations on completing this tutorial, where you learned how to:
 
 ## Next steps
 
-To learn more about the basics of creating mobile applications with Xamarin.Forms, continue to the ListView tutorial.
+To learn more about the basics of creating mobile applications with Xamarin.Forms, continue to the CollectionView tutorial.
 
 > [!div class="nextstepaction"]
-> [ListView Tutorial](~/get-started/tutorials/listview/index.yml)
+> [ListView Tutorial](~/get-started/tutorials/collectionview/index.yml)
 
 ## Related links
 
-- [GridTutorial (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/getstarted-tutorials-gridtutorial/)
+- [GridTutorial (sample)](/samples/xamarin/xamarin-forms-samples/getstarted-tutorials-gridtutorial/)
 - [Xamarin.Forms Grid (guide)](~/xamarin-forms/user-interface/layouts/grid.md)
 - [Margin and Padding (guide)](~/xamarin-forms/user-interface/layouts/margin-and-padding.md)
 - [Grid API](xref:Xamarin.Forms.Grid)

@@ -6,12 +6,13 @@ ms.assetid: B5571660-1E82-4379-95C3-0725288CF5D9
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 07/30/2018
+ms.date: 03/23/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # ListView Data Sources
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-listview-switchentrytwobinding)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-listview-switchentrytwobinding)
 
 A Xamarin.Forms [`ListView`](xref:Xamarin.Forms.ListView) is used for displaying lists of data. This article explains how to populate a `ListView` with data and how to bind data to the selected item.
 
@@ -55,7 +56,7 @@ listView.ItemsSource = new string[]
 };
 ```
 
-![](data-and-databinding-images/itemssource-simple.png "ListView Displaying List of Strings")
+![ListView Displaying List of Strings](data-and-databinding-images/itemssource-simple.png)
 
 This approach will populate the `ListView` with a list of strings. By default, `ListView` will call `ToString` and display the result in a `TextCell` for each row. To customize how data is displayed, see [Cell Appearance](~/xamarin-forms/user-interface/listview/customizing-cell-appearance.md).
 
@@ -112,7 +113,7 @@ public EmployeeListPage()
 ```
 
 > [!WARNING]
-> `ObservableCollection` is not thread safe. Modifying an `ObservableCollection` causes UI updates to happen on the same thread that performed the modifications. If the thread is not the primary UI thread, it will cause an exception.
+> While a `ListView` will update in response to changes in its underlying `ObservableCollection`, a `ListView` will not update if a different `ObservableCollection` instance is assigned to the original `ObservableCollection` reference (e.g. `employees = otherObservableCollection;`).
 
 The following snippet demonstrates a `ListView` bound to a list of employees:
 
@@ -136,7 +137,10 @@ The following snippet demonstrates a `ListView` bound to a list of employees:
 
 This XAML example defines a `ContentPage` that contains a `ListView`. The data source of the `ListView` is set via the `ItemsSource` attribute. The layout of each row in the `ItemsSource` is defined within the `ListView.ItemTemplate` element. This results in the following screenshots:
 
-![](data-and-databinding-images/bound-data.png "ListView using Data Binding")
+![ListView using Data Binding](data-and-databinding-images/bound-data.png)
+
+> [!WARNING]
+> `ObservableCollection` is not thread safe. Modifying an `ObservableCollection` causes UI updates to happen on the same thread that performed the modifications. If the thread is not the primary UI thread, it will cause an exception.
 
 ### Binding SelectedItem
 
@@ -154,4 +158,4 @@ Assuming `listView`'s `ItemsSource` is a list of strings, `SomeLabel` will have 
 
 ## Related Links
 
-- [Two Way Binding (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-listview-switchentrytwobinding)
+- [Two Way Binding (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-listview-switchentrytwobinding)

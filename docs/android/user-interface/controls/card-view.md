@@ -33,7 +33,7 @@ this guide provides a detailed list of `CardView` attributes that you
 can change, including attributes to help you use `CardView` on versions
 of Android earlier than Android 5.0 Lollipop.
 
-<a name="requirements" />
+<a name="requirements"></a>
 
 ## Requirements
 
@@ -47,7 +47,7 @@ The following is required to use new Android 5.0 and later features
    installed via the Android SDK Manager.
 
 - **Java JDK 1.8** &ndash; JDK 1.7 can be used if you are specifically
-    targetting API level 23 and earlier. JDK 1.8 is available from
+    targeting API level 23 and earlier. JDK 1.8 is available from
    [Oracle](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 Your app must also include the `Xamarin.Android.Support.v7.CardView`
@@ -77,7 +77,7 @@ Studio:
 To learn how to configure an Android 5.0 app project,
 see [Setting Up an Android 5.0 Project](~/android/platform/lollipop.md).
 For more information about installing NuGet packages, see
-[Walkthrough: Including a NuGet in your project](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+[Walkthrough: Including a NuGet in your project](/visualstudio/mac/nuget-walkthrough).
 
 ## Introducing CardView
 
@@ -208,7 +208,7 @@ in the following screenshot:
 [![CardView with an image and caption below the image](card-view-images/03-photo-cardview-sml.png)](card-view-images/03-photo-cardview.png#lightbox)
 
 This screenshot is taken from the
-[RecyclerViewer](https://docs.microsoft.com/samples/xamarin/monodroid-samples/android50-recyclerviewer)
+[RecyclerViewer](/samples/xamarin/monodroid-samples/android50-recyclerviewer)
 sample app, which uses a `RecyclerView` widget to present a scrolling
 list of `CardView` images for viewing photos. For more information
 about `RecyclerView`, see the
@@ -362,6 +362,6 @@ Lollipop. For more information about `CardView`, see the
 
 ## Related Links
 
-- [RecyclerView (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/android50-recyclerviewer)
+- [RecyclerView (sample)](/samples/xamarin/monodroid-samples/android50-recyclerviewer)
 - [Introduction to Lollipop](~/android/platform/lollipop.md)
 - [CardView class reference](https://developer.android.com/reference/android/support/v7/widget/CardView.html)

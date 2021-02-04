@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 03/29/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Create a Custom Layout in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-customlayout-wraplayout)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-customlayout-wraplayout)
 
 _Xamarin.Forms defines five layout classes – StackLayout, AbsoluteLayout, RelativeLayout, Grid, and FlexLayout, and each arranges its children in a different way. However, sometimes it's necessary to organize page content using a layout not provided by Xamarin.Forms. This article explains how to write a custom layout class, and demonstrates an orientation-sensitive WrapLayout class that arranges its children horizontally across the page, and then wraps the display of subsequent children to additional rows._
 
@@ -32,7 +33,7 @@ The [`VisualElement`](xref:Xamarin.Forms.VisualElement) class defines a [`Measur
 
 This cycle ensures that every visual element on the page receives calls to the `Measure` and `Layout` methods. The process is shown in the following diagram:
 
-![](custom-images/layout-cycle.png "Xamarin.Forms Layout Cycle")
+![Xamarin.Forms Layout Cycle](custom-images/layout-cycle.png)
 
 > [!NOTE]
 > Note that layout cycles can also occur on a subset of the visual tree if something changes to affect the layout. This includes items being added or removed from a collection such as in a [`StackLayout`](xref:Xamarin.Forms.StackLayout), a change in the [`IsVisible`](xref:Xamarin.Forms.VisualElement.IsVisible) property of an element, or a change in the size of an element.
@@ -52,35 +53,33 @@ Elements invalidate themselves by invoking the [`InvalidateMeasure`](xref:Xamari
 
 The [`Layout`](xref:Xamarin.Forms.Layout) class sets a handler for the [`MeasureInvalidated`](xref:Xamarin.Forms.VisualElement.MeasureInvalidated) event on every child added to its `Content` property or `Children` collection, and detaches the handler when the child is removed. Therefore, every element in the visual tree that has children is alerted whenever one of its children changes size. The following diagram illustrates how a change in the size of an element in the visual tree can cause changes that ripple up the tree:
 
-![](custom-images/invalidation.png "Invalidation in the Visual Tree")
+![Invalidation in the Visual Tree](custom-images/invalidation.png)
 
 However, the `Layout` class attempts to restrict the impact of a change in a child's size on the layout of a page. If the layout is size constrained, then a child size change does not affect anything higher than the parent layout in the visual tree. However, usually a change in the size of a layout affects how the layout arranges its children. Therefore, any change in a layout's size will start a layout cycle for the layout, and the layout will receive calls to its [`OnMeasure`](xref:Xamarin.Forms.VisualElement.OnMeasure(System.Double,System.Double)) and [`LayoutChildren`](xref:Xamarin.Forms.Layout.LayoutChildren(System.Double,System.Double,System.Double,System.Double)) methods.
 
 The [`Layout`](xref:Xamarin.Forms.Layout) class also defines an [`InvalidateLayout`](xref:Xamarin.Forms.Layout.InvalidateLayout) method that has a similar purpose to the [`InvalidateMeasure`](xref:Xamarin.Forms.VisualElement.InvalidateMeasure) method. The `InvalidateLayout` method should be invoked whenever a change is made that affects how the layout positions and sizes its children. For example, the `Layout` class invokes the `InvalidateLayout` method whenever a child is added to or removed from a layout.
 
-The [`InvalidateLayout`](xref:Xamarin.Forms.Layout.InvalidateLayout) can be overridden to implement a cache to minimize repetitive invocations of the [`Measure`](xref:Xamarin.Forms.VisualElement.Measure(System.Double,System.Double,Xamarin.Forms.MeasureFlags)) methods of the layout's children. Overriding the `InvalidateLayout` method will provide a notification of when children are added to or removed from the layout. Similarly, the [`OnChildMeasureInvalidated`](xref:Xamarin.Forms.Layout.OnChildMeasureInvalidated) method can be overridden to provide a notification when one of the layout's children changes size. For both method overrides, a custom layout should respond by clearing the cache. For more information, see [Calculating and Caching Data](#caching).
+The [`InvalidateLayout`](xref:Xamarin.Forms.Layout.InvalidateLayout) can be overridden to implement a cache to minimize repetitive invocations of the [`Measure`](xref:Xamarin.Forms.VisualElement.Measure(System.Double,System.Double,Xamarin.Forms.MeasureFlags)) methods of the layout's children. Overriding the `InvalidateLayout` method will provide a notification of when children are added to or removed from the layout. Similarly, the [`OnChildMeasureInvalidated`](xref:Xamarin.Forms.Layout.OnChildMeasureInvalidated) method can be overridden to provide a notification when one of the layout's children changes size. For both method overrides, a custom layout should respond by clearing the cache. For more information, see [Calculate and Cache Layout Data](#calculate-and-cache-layout-data).
 
 ## Create a Custom Layout
 
 The process for creating a custom layout is as follows:
 
-1. Create a class that derives from the `Layout<View>` class. For more information, see [Creating a WrapLayout](#creating).
-1. [*optional*] Add properties, backed by bindable properties, for any parameters that should be set on the layout class. For more information, see [Adding Properties Backed by Bindable Properties](#adding_properties).
-1. Override the [`OnMeasure`](xref:Xamarin.Forms.VisualElement.OnMeasure(System.Double,System.Double)) method to invoke the [`Measure`](xref:Xamarin.Forms.VisualElement.Measure(System.Double,System.Double,Xamarin.Forms.MeasureFlags)) method on all the layout's children, and return a requested size for the layout. For more information, see [Overriding the OnMeasure Method](#onmeasure).
-1. Override the [`LayoutChildren`](xref:Xamarin.Forms.Layout.LayoutChildren(System.Double,System.Double,System.Double,System.Double)) method to invoke the [`Layout`](xref:Xamarin.Forms.VisualElement.Layout(Xamarin.Forms.Rectangle)) method on all the layout's children. Failure to invoke the [`Layout`](xref:Xamarin.Forms.VisualElement.Layout(Xamarin.Forms.Rectangle)) method on each child in a layout will result in the child never receiving a correct size or position, and hence the child will not become visible on the page. For more information, see [Overriding the LayoutChildren Method](#layoutchildren).
+1. Create a class that derives from the `Layout<View>` class. For more information, see [Create a WrapLayout](#create-a-wraplayout).
+1. [*optional*] Add properties, backed by bindable properties, for any parameters that should be set on the layout class. For more information, see [Add Properties Backed by Bindable Properties](#add-properties-backed-by-bindable-properties).
+1. Override the [`OnMeasure`](xref:Xamarin.Forms.VisualElement.OnMeasure(System.Double,System.Double)) method to invoke the [`Measure`](xref:Xamarin.Forms.VisualElement.Measure(System.Double,System.Double,Xamarin.Forms.MeasureFlags)) method on all the layout's children, and return a requested size for the layout. For more information, see [Override the OnMeasure Method](#override-the-onmeasure-method).
+1. Override the [`LayoutChildren`](xref:Xamarin.Forms.Layout.LayoutChildren(System.Double,System.Double,System.Double,System.Double)) method to invoke the [`Layout`](xref:Xamarin.Forms.VisualElement.Layout(Xamarin.Forms.Rectangle)) method on all the layout's children. Failure to invoke the [`Layout`](xref:Xamarin.Forms.VisualElement.Layout(Xamarin.Forms.Rectangle)) method on each child in a layout will result in the child never receiving a correct size or position, and hence the child will not become visible on the page. For more information, see [Override the LayoutChildren Method](#override-the-layoutchildren-method).
 
     > [!NOTE]
     > When enumerating children in the [`OnMeasure`](xref:Xamarin.Forms.VisualElement.OnMeasure(System.Double,System.Double)) and [`LayoutChildren`](xref:Xamarin.Forms.Layout.LayoutChildren(System.Double,System.Double,System.Double,System.Double)) overrides, skip any child whose [`IsVisible`](xref:Xamarin.Forms.VisualElement.IsVisible) property is set to `false`. This will ensure that the custom layout won't leave space for invisible children.
 
-1. [*optional*] Override the [`InvalidateLayout`](xref:Xamarin.Forms.Layout.InvalidateLayout) method to be notified when children are added to or removed from the layout. For more information, see [Overriding the InvalidateLayout Method](#invalidatelayout).
-1. [*optional*] Override the [`OnChildMeasureInvalidated`](xref:Xamarin.Forms.Layout.OnChildMeasureInvalidated) method to be notified when one of the layout's children changes size. For more information, see [Overriding the OnChildMeasureInvalidated Method](#onchildmeasureinvalidated).
+1. [*optional*] Override the [`InvalidateLayout`](xref:Xamarin.Forms.Layout.InvalidateLayout) method to be notified when children are added to or removed from the layout. For more information, see [Override the InvalidateLayout Method](#override-the-invalidatelayout-method).
+1. [*optional*] Override the [`OnChildMeasureInvalidated`](xref:Xamarin.Forms.Layout.OnChildMeasureInvalidated) method to be notified when one of the layout's children changes size. For more information, see [Override the OnChildMeasureInvalidated Method](#override-the-onchildmeasureinvalidated-method).
 
 > [!NOTE]
-> Note that the [`OnMeasure`](xref:Xamarin.Forms.VisualElement.OnMeasure(System.Double,System.Double)) override won't be invoked if the size of the layout is governed by its parent, rather than its children. However, the override will be invoked if one or both of the constraints are infinite, or if the layout class has non-default [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) or [`VerticalOptions`](xref:Xamarin.Forms.View.VerticalOptions) property values. For this reason, the [`LayoutChildren`](xref:Xamarin.Forms.Layout.LayoutChildren(System.Double,System.Double,System.Double,System.Double)) override can't rely on child sizes obtained during the [`OnMeasure`](xref:Xamarin.Forms.VisualElement.OnMeasure(System.Double,System.Double)) method call. Instead, `LayoutChildren` must invoke the [`Measure`](xref:Xamarin.Forms.VisualElement.Measure(System.Double,System.Double,Xamarin.Forms.MeasureFlags)) method on the layout's children, before invoking the [`Layout`](xref:Xamarin.Forms.VisualElement.Layout(Xamarin.Forms.Rectangle)) method. Alternatively, the size of the children obtained in the `OnMeasure` override can be cached to avoid later `Measure` invocations in the `LayoutChildren` override, but the layout class will need to know when the sizes need to be obtained again. For more information, see [Calculating and Caching Layout Data](#caching).
+> Note that the [`OnMeasure`](xref:Xamarin.Forms.VisualElement.OnMeasure(System.Double,System.Double)) override won't be invoked if the size of the layout is governed by its parent, rather than its children. However, the override will be invoked if one or both of the constraints are infinite, or if the layout class has non-default [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) or [`VerticalOptions`](xref:Xamarin.Forms.View.VerticalOptions) property values. For this reason, the [`LayoutChildren`](xref:Xamarin.Forms.Layout.LayoutChildren(System.Double,System.Double,System.Double,System.Double)) override can't rely on child sizes obtained during the [`OnMeasure`](xref:Xamarin.Forms.VisualElement.OnMeasure(System.Double,System.Double)) method call. Instead, `LayoutChildren` must invoke the [`Measure`](xref:Xamarin.Forms.VisualElement.Measure(System.Double,System.Double,Xamarin.Forms.MeasureFlags)) method on the layout's children, before invoking the [`Layout`](xref:Xamarin.Forms.VisualElement.Layout(Xamarin.Forms.Rectangle)) method. Alternatively, the size of the children obtained in the `OnMeasure` override can be cached to avoid later `Measure` invocations in the `LayoutChildren` override, but the layout class will need to know when the sizes need to be obtained again. For more information, see [Calculate and Cache Layout Data](#calculate-and-cache-layout-data).
 
-The layout class can then be consumed by adding it to a [`Page`](xref:Xamarin.Forms.Page), and by adding children to the layout. For more information, see [Consuming the WrapLayout](#consuming).
-
-<a name="creating" />
+The layout class can then be consumed by adding it to a [`Page`](xref:Xamarin.Forms.Page), and by adding children to the layout. For more information, see [Consume the WrapLayout](#consume-the-wraplayout).
 
 ### Create a WrapLayout
 
@@ -97,8 +96,6 @@ public class WrapLayout : Layout<View>
   ...
 }
 ```
-
-<a name="caching" />
 
 #### Calculate and Cache Layout Data
 
@@ -191,8 +188,6 @@ The `GetLayoutData` method performs the following operations:
 - Provided that there's at least one visible child, it calculates the number of rows and columns required, and then calculates a cell size for the children based on the dimensions of the `WrapLayout`. Note that the cell size is usually slightly wider than the maximum child size, but that it could also be smaller if the `WrapLayout` isn't wide enough for the widest child or tall enough for the tallest child.
 - It stores the new `LayoutData` value in the cache.
 
-<a name="adding_properties" />
-
 #### Add Properties Backed by Bindable Properties
 
 The `WrapLayout` class defines `ColumnSpacing` and `RowSpacing` properties, whose values are used to separate the rows and columns in the layout, and which are backed by bindable properties. The bindable properties are shown in the following code example:
@@ -219,9 +214,7 @@ public static readonly BindableProperty RowSpacingProperty = BindableProperty.Cr
   });
 ```
 
-The property-changed handler of each bindable property invokes the `InvalidateLayout` method override to trigger a new layout pass on the `WrapLayout`. For more information, see [Overriding the InvalidateLayout Method](#invalidatelayout) and [Overriding the OnChildMeasureInvalidated Method](#onchildmeasureinvalidated).
-
-<a name="onmeasure" />
+The property-changed handler of each bindable property invokes the `InvalidateLayout` method override to trigger a new layout pass on the `WrapLayout`. For more information, see [Override the InvalidateLayout Method](#override-the-invalidatelayout-method) and [Override the OnChildMeasureInvalidated Method](#override-the-onchildmeasureinvalidated-method).
 
 #### Override the OnMeasure Method
 
@@ -242,12 +235,10 @@ protected override SizeRequest OnMeasure(double widthConstraint, double heightCo
 }
 ```
 
-The override invokes the `GetLayoutData` method and constructs a `SizeRequest` object from the returned data, while also taking into account the `RowSpacing` and `ColumnSpacing` property values. For more information about the `GetLayoutData` method, see [Calculating and Caching Data](#caching).
+The override invokes the `GetLayoutData` method and constructs a `SizeRequest` object from the returned data, while also taking into account the `RowSpacing` and `ColumnSpacing` property values. For more information about the `GetLayoutData` method, see [Calculate and Cache Layout Data](#calculate-and-cache-layout-data).
 
 > [!IMPORTANT]
 > The [`Measure`](xref:Xamarin.Forms.VisualElement.Measure(System.Double,System.Double,Xamarin.Forms.MeasureFlags)) and [`OnMeasure`](xref:Xamarin.Forms.VisualElement.OnMeasure(System.Double,System.Double)) methods should never request an infinite dimension by returning a [`SizeRequest`](xref:Xamarin.Forms.SizeRequest) value with a property set to `Double.PositiveInfinity`. However, at least one of the constraint arguments to `OnMeasure` can be `Double.PositiveInfinity`.
-
-<a name="layoutchildren" />
 
 #### Override the LayoutChildren Method
 
@@ -296,11 +287,9 @@ The override begins with a call to the `GetLayoutData` method, and then enumerat
 > [!NOTE]
 > Note that the rectangle passed to the `LayoutChildIntoBoundingRegion` method includes the whole area in which the child can reside.
 
-For more information about the `GetLayoutData` method, see [Calculating and Caching Data](#caching).
+For more information about the `GetLayoutData` method, see [Calculate and Cache Layout Data](#calculate-and-cache-layout-data).
 
-<a name="invalidatelayout" />
-
-#### Overridethe InvalidateLayout Method
+#### Override the InvalidateLayout Method
 
 The [`InvalidateLayout`](xref:Xamarin.Forms.Layout.InvalidateLayout) override is invoked when children are added to or removed from the layout, or when one of the `WrapLayout` properties changes value, as shown in the following code example:
 
@@ -317,8 +306,6 @@ The override invalidates the layout and discards all the cached layout informati
 > [!NOTE]
 > To stop the [`Layout`](xref:Xamarin.Forms.Layout) class invoking the [`InvalidateLayout`](xref:Xamarin.Forms.Layout.InvalidateLayout) method whenever a child is added to or removed from a layout, override the [`ShouldInvalidateOnChildAdded`](xref:Xamarin.Forms.Layout.ShouldInvalidateOnChildAdded(Xamarin.Forms.View)) and [`ShouldInvalidateOnChildRemoved`](xref:Xamarin.Forms.Layout.ShouldInvalidateOnChildRemoved(Xamarin.Forms.View)) methods, and return `false`. The layout class can then implement a custom process when children are added or removed.
 
-<a name="onchildmeasureinvalidated" />
-
 #### Override the OnChildMeasureInvalidated Method
 
 The [`OnChildMeasureInvalidated`](xref:Xamarin.Forms.Layout.OnChildMeasureInvalidated) override is invoked when one of the layout's children changes size, and is shown in the following code example:
@@ -332,8 +319,6 @@ protected override void OnChildMeasureInvalidated()
 ```
 
 The override invalidates the child layout, and discards all of the cached layout information.
-
-<a name="consuming" />
 
 ### Consume the WrapLayout
 
@@ -408,19 +393,19 @@ async Task<ImageList> GetImageListAsync()
 
 When the page containing the `WrapLayout` appears, the sample application asynchronously accesses a remote JSON file containing a list of photos, creates an [`Image`](xref:Xamarin.Forms.Image) element for each photo, and adds it to the `WrapLayout`. This results in the appearance shown in the following screenshots:
 
-![](custom-images/portait-screenshots.png "Sample Application Portrait Screenshots")
+![Sample Application Portrait Screenshots](custom-images/portait-screenshots.png)
 
 The following screenshots show the `WrapLayout` after it's been rotated to landscape orientation:
 
-![](custom-images/landscape-ios.png "Sample iOS Application Landscape Screenshot")
-![](custom-images/landscape-android.png "Sample Android Application Landscape Screenshot")
-![](custom-images/landscape-uwp.png "Sample UWP Application Landscape Screenshot")
+![Sample iOS Application Landscape Screenshot](custom-images/landscape-ios.png)
+![Sample Android Application Landscape Screenshot](custom-images/landscape-android.png)
+![Sample UWP Application Landscape Screenshot](custom-images/landscape-uwp.png)
 
 The number of columns in each row depends on the photo size, the screen width, and the number of pixels per device-independent unit. The [`Image`](xref:Xamarin.Forms.Image) elements asynchronously load the photos, and therefore the `WrapLayout` class will receive frequent calls to its [`LayoutChildren`](xref:Xamarin.Forms.Layout.LayoutChildren(System.Double,System.Double,System.Double,System.Double)) method as each `Image` element receives a new size based on the loaded photo.
 
-## Related Links
+## Related links
 
-- [WrapLayout (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-customlayout-wraplayout)
+- [WrapLayout (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-customlayout-wraplayout)
 - [Custom Layouts](~/xamarin-forms/creating-mobile-apps-xamarin-forms/summaries/chapter26.md)
 - [Creating Custom Layouts in Xamarin.Forms (video)](https://www.youtube.com/watch?v=sxjOqNZFhKU)
 - [Layout\<T>](xref:Xamarin.Forms.Layout`1)

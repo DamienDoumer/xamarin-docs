@@ -43,11 +43,11 @@ The [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) and [`Verti
     > [!NOTE]
     > The default value of a view's [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) and [`VerticalOptions`](xref:Xamarin.Forms.View.VerticalOptions) properties is [`Fill`](xref:Xamarin.Forms.LayoutOptions.Fill).
 
-1. In the Visual Studio toolbar, press the **Start** button (the triangular button that resembles a Play button) to launch the application inside your chosen remote iOS simulator or Android emulator:
+1. If the application is still running, save the changes to the file and the application user interface will automatically be updated in your simulator or emulator. Otherwise, in the Visual Studio toolbar, press the **Start** button (the triangular button that resembles a Play button) to launch the application inside your chosen remote iOS simulator or Android emulator:
 
     [![Screenshot of child views in a StackLayout, with alignment and expansion options set, on iOS and Android](../images/alignment-expansion.png "StackLayout containing Label instances, with alignment and expansion set")](../images/alignment-expansion-large.png#lightbox "StackLayout containing Label instances, with alignment and expansion set")
 
-    A [`StackLayout`](xref:Xamarin.Forms.StackLayout) only respects the alignment preferences on child views that are in the opposite direction to the `StackLayout` orientation. Therefore, the [`Label`](xref:Xamarin.Forms.Label) child views within the vertically oriented `StackLayout` set their [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) properties to one of alignment fields:
+    A [`StackLayout`](xref:Xamarin.Forms.StackLayout) only respects the alignment preferences on child views that are in the opposite direction to the `StackLayout` orientation. Therefore, the [`Label`](xref:Xamarin.Forms.Label) child views within the vertically oriented `StackLayout` set their [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) properties to one of the alignment fields:
 
     - [`Start`](xref:Xamarin.Forms.LayoutOptions.Start), which positions the [`Label`](xref:Xamarin.Forms.Label) on the left hand side of the [`StackLayout`](xref:Xamarin.Forms.StackLayout).
     - [`Center`](xref:Xamarin.Forms.LayoutOptions.Center), which centers the [`Label`](xref:Xamarin.Forms.Label) in the [`StackLayout`](xref:Xamarin.Forms.StackLayout).
@@ -58,6 +58,8 @@ The [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) and [`Verti
 
     > [!IMPORTANT]
     > When all the space in a [`StackLayout`](xref:Xamarin.Forms.StackLayout) is used, expansion preferences have no effect.
+
+    In Visual Studio, stop the application.
 
     For more information about alignment and expansion, see [Layout Options in Xamarin.Forms](~/xamarin-forms/user-interface/layouts/layout-options.md).
 
@@ -99,11 +101,11 @@ The [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) and [`Verti
     > [!NOTE]
     > The default value of a view's [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) and [`VerticalOptions`](xref:Xamarin.Forms.View.VerticalOptions) properties is [`Fill`](xref:Xamarin.Forms.LayoutOptions.Fill).
 
-1. In the Visual Studio for Mac toolbar, press the **Start** button (the triangular button that resembles a Play button) to launch the application inside your chosen iOS simulator or Android emulator:
+1. If the application is still running, save the changes to the file and the application user interface will automatically be updated in your simulator or emulator. Otherwise, in the Visual Studio for Mac toolbar, press the **Start** button (the triangular button that resembles a Play button) to launch the application inside your chosen iOS simulator or Android emulator:
 
     [![Screenshot of child views in a StackLayout, with alignment and expansion options set, on iOS and Android](../images/alignment-expansion.png "StackLayout containing Label instances, with alignment and expansion set")](../images/alignment-expansion-large.png#lightbox "StackLayout containing Label instances, with alignment and expansion set")
 
-    A [`StackLayout`](xref:Xamarin.Forms.StackLayout) only respects the alignment preferences on child views that are in the opposite direction to the `StackLayout` orientation. Therefore, the [`Label`](xref:Xamarin.Forms.Label) child views within the vertically oriented `StackLayout` set their [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) properties to one of alignment fields:
+    A [`StackLayout`](xref:Xamarin.Forms.StackLayout) only respects the alignment preferences on child views that are in the opposite direction to the `StackLayout` orientation. Therefore, the [`Label`](xref:Xamarin.Forms.Label) child views within the vertically oriented `StackLayout` set their [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) properties to one of the alignment fields:
 
     - [`Start`](xref:Xamarin.Forms.LayoutOptions.Start), which positions the [`Label`](xref:Xamarin.Forms.Label) on the left hand side of the [`StackLayout`](xref:Xamarin.Forms.StackLayout).
     - [`Center`](xref:Xamarin.Forms.LayoutOptions.Center), which centers the [`Label`](xref:Xamarin.Forms.Label) in the [`StackLayout`](xref:Xamarin.Forms.StackLayout).
@@ -115,9 +117,6 @@ The [`HorizontalOptions`](xref:Xamarin.Forms.View.HorizontalOptions) and [`Verti
     > [!IMPORTANT]
     > When all the space in a [`StackLayout`](xref:Xamarin.Forms.StackLayout) is used, expansion preferences have no effect.
 
+    In Visual Studio for Mac, stop the application.
+
     For more information about alignment and expansion, see [Layout Options in Xamarin.Forms](~/xamarin-forms/user-interface/layouts/layout-options.md).
-
------
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://github.com/MicrosoftDocs/xamarin-docs/issues/new?title=StackLayout+Tutorial+Step+3+Feedback&template=tutorial_template.md)

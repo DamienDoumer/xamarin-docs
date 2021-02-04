@@ -52,7 +52,7 @@ The key lifecycle events of a started service are shown in this diagram:
 
 ![A diagram showing the order in which the lifecycle methods are called](started-services-images/started-service-01.png "A diagram showing the order in which the lifecycle methods are called.")
 
-<a name="Stopping_the_Service" />
+<a name="Stopping_the_Service"></a>
 
 ## Stopping the Service
 
@@ -76,7 +76,7 @@ Multiple callers can request that a service be started. If there is an outstandi
 
 ## Related Links
 
-- [StartedServicesDemo (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/applicationfundamentals-servicesamples-startedservicesdemo)
+- [StartedServicesDemo (sample)](/samples/xamarin/monodroid-samples/applicationfundamentals-servicesamples-startedservicesdemo)
 - [Android.App.Service](xref:Android.App.Service)
 - [Android.App.StartCommandFlags](xref:Android.App.StartCommandFlags)
 - [Android.App.StartCommandResult](xref:Android.App.StartCommandResult)

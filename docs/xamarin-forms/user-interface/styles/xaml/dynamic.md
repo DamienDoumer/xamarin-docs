@@ -7,12 +7,13 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/28/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ms.custom: video
 ---
 
 # Dynamic Styles in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
 
 _Styles do not respond to property changes, and remain unchanged for the duration of an application. For example, after assigning a Style to a visual element, if one of the Setter instances is modified, removed, or a new Setter instance added, the changes won't be applied to the visual element. However, applications can respond to style changes dynamically at runtime by using dynamic resources._
 
@@ -206,8 +207,8 @@ The `tealSearchBarStyle` is assigned directly to the [`Style`](xref:Xamarin.Form
 ## Related links
 
 - [XAML Markup Extensions](~/xamarin-forms/xaml/xaml-basics/xaml-markup-extensions.md)
-- [Dynamic Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
-- [Working with Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithstyles)
+- [Dynamic Styles (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
+- [Working with Styles (sample)](/samples/xamarin/xamarin-forms-samples/workingwithstyles)
 - [ResourceDictionary](xref:Xamarin.Forms.ResourceDictionary)
 - [Style](xref:Xamarin.Forms.Style)
 - [Setter](xref:Xamarin.Forms.Setter)

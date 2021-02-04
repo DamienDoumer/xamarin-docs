@@ -7,11 +7,12 @@ ms.assetid: 95167D1F-A718-405A-AFCC-90E596D422F3
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/29/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Path Effects in SkiaSharp
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
 
 _Discover the various path effects that allow paths to be used for stroking and filling_
 
@@ -1409,5 +1410,5 @@ Now that you've seen path effects that range from simple dots and dashes to stra
 
 ## Related Links
 
-- [SkiaSharp APIs](https://docs.microsoft.com/dotnet/api/skiasharp)
-- [SkiaSharpFormsDemos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+- [SkiaSharp APIs](/dotnet/api/skiasharp)
+- [SkiaSharpFormsDemos (sample)](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)

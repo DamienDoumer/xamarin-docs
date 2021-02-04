@@ -23,13 +23,13 @@ Start by reading
 to determine whether your app is suitable for a complication. There are 5 `CLKComplicationFamily` types
 of display to choose from:
 
-[![](complications-images/all-complications-sml.png "The 5 CLKComplicationFamily types available: Circular Small, Modular Small, Modular Large, Utilitarian Small, Utilitarian Large")](complications-images/all-complications.png#lightbox)
+[![The 5 CLKComplicationFamily types available: Circular Small, Modular Small, Modular Large, Utilitarian Small, Utilitarian Large](complications-images/all-complications-sml.png)](complications-images/all-complications.png#lightbox)
 
 Apps can implement just one style, or all five, depending on the data being displayed.
 You can also support Time Travel, providing values
 for past and/or future times as the user turns the Digital Crown.
 
-<a name="adding" />
+<a name="adding"></a>
 
 ## Adding a Complication
 
@@ -43,7 +43,7 @@ to an existing solution.
 The **Add New Project...** wizard includes a checkbox that will automatically
 create a complication controller class and configure the **Info.plist** file:
 
-![](complications-images/file-new-project-sml.png "The Include Complication checkbox")
+![The Include Complication checkbox](complications-images/file-new-project-sml.png)
 
 ### Existing Projects
 
@@ -56,7 +56,7 @@ To add a complication to an existing project:
 
 These steps are described in more detail below.
 
-<a name="clkcomplicationcontroller" />
+<a name="clkcomplicationcontroller"></a>
 
 ### CLKComplicationDataSource Class
 
@@ -90,7 +90,7 @@ The watch extension's **Info.plist** file should specify the name of the
 `CLKComplicationDataSource` and which complication families you wish to
 support:
 
-[![](complications-images/complications-config-sml.png "The complication family types")](complications-images/complications-config.png#lightbox)
+[![The complication family types](complications-images/complications-config-sml.png)](complications-images/complications-config.png#lightbox)
 
 The **Data Source Class** entry list will show class names that subclass
 `CLKComplicationDataSource` subclass that includes your complication logic.
@@ -140,7 +140,7 @@ must implement the following methods
 - `GetTimelineEntriesBeforeDate`
 - `GetTimelineEntriesAfterDate`
 
-<a name="writing" />
+<a name="writing"></a>
 
 ## Writing a Complication
 
@@ -203,7 +203,7 @@ public class ComplicationController : CLKComplicationDataSource
 }
 ```
 
-<a name="templates" />
+<a name="templates"></a>
 
 ## Complication Templates
 

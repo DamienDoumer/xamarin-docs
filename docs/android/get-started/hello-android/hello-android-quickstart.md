@@ -15,14 +15,14 @@ ms.date: 10/05/2018
 
 _In this two-part guide, you will build your first Xamarin.Android application with Visual Studio and develop an understanding of the fundamentals of Android application development with Xamarin._
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/monodroid-samples/phoneword)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/monodroid-samples/phoneword)
 
 You will create an application that translates an
 alphanumeric phone number (entered by the user) into a numeric phone
 number and display the numeric phone number to the user. The final application looks like
 this:
 
-[![Screenshot of app when it is complete](hello-android-quickstart-images/vs/15-running-app-sml.png)](hello-android-quickstart-images/vs/15-running-app.png#lightbox)
+[![Screenshot of phone number translation app when it is complete.](hello-android-quickstart-images/vs/15-running-app-sml.png)](hello-android-quickstart-images/vs/15-running-app.png#lightbox)
 
 ::: zone pivot="windows"
 
@@ -640,4 +640,4 @@ Now it's time to dissect the tools and skills you have just learned. Next up is 
 ## Related links
 
 - [Xamarin Android App Icons (ZIP)](https://github.com/xamarin/monodroid-samples/blob/master/Phoneword/Resources/XamarinAndroidIcons.zip?raw=true)
-- [Phoneword (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/phoneword)
+- [Phoneword (sample)](/samples/xamarin/monodroid-samples/phoneword)

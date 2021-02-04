@@ -3,13 +3,49 @@ title: "Xamarin.Essentials: Email"
 description: "The Email class in Xamarin.Essentials enables an application to open the default email application with a specified information including subject, body, and recipients (TO, CC, BCC)."
 ms.assetid: 5FBB6FF0-0E7B-4C29-8F06-91642AF12629
 author: jamesmontemagno
+ms.custom: video
 ms.author: jamont
-ms.date: 08/20/2019
+ms.date: 09/24/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: Email
 
 The **Email** class enables an application to open the default email application with a specified information including subject, body, and recipients (TO, CC, BCC).
+
+To access the **Email** functionality the following platform specific setup is required.
+
+# [Android](#tab/android)
+
+If your project's Target Android version is set to **Android 11 (R API 30)** you must update your Android Manifest with queries that are used with the new [package visibility requirements](https://developer.android.com/preview/privacy/package-visibility).
+
+Open the **AndroidManifest.xml** file under the **Properties** folder and add the following inside of the **manifest** node:
+
+```xml
+<queries>
+  <intent>
+    <action android:name="android.intent.action.SENDTO" />
+    <data android:scheme="mailto" />
+  </intent>
+</queries>
+```
+
+# [iOS](#tab/ios)
+
+In iOS 9 and greater, Apple enforces what schemes an application can query for. To query if email is a valid target the `mailto` scheme must be specified in the  LSApplicationQueriesSchemes in your Info.plist file.
+
+```xml
+<key>LSApplicationQueriesSchemes</key>
+<array>
+  <string>mailto</string>
+</array>
+```
+
+# [UWP](#tab/uwp)
+
+No platform differences.
+
+-----
 
 ## Get started
 
@@ -59,7 +95,7 @@ public class EmailTest
 
 ## File Attachments
 
-This features enables an app to emails files in email clients on the device. Xamarin.Essentials will automatically detect the file type (MIME) and request the file to be added as an attachment. Every email client is different a may only support specific file extensions or none at all.
+This feature enables an app to email files in email clients on the device. Xamarin.Essentials will automatically detect the file type (MIME) and request the file to be added as an attachment. Every email client is different and may only support specific file extensions, or none at all.
 
 Here is a sample of writing text to disk and adding it as an email attachment:
 
@@ -93,11 +129,17 @@ No platform differences.
 
 Only supports `PlainText` as the `BodyFormat` attempting to send `Html` will throw a `FeatureNotSupportedException`.
 
-Not all email clients support sending attachments. See [documentation](https://docs.microsoft.com/windows/uwp/contacts-and-calendar/sending-email) for more information.
+Not all email clients support sending attachments. See [documentation](/windows/uwp/contacts-and-calendar/sending-email) for more information.
 
 -----
 
 ## API
 
-- [Email source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/Email)
+- [Email source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/Email)
 - [Email API documentation](xref:Xamarin.Essentials.Email)
+
+## Related Video
+
+> [!Video https://channel9.msdn.com/Shows/XamarinShow/Email-XamarinEssentials-API-of-the-Week/player]
+
+[!include[](~/essentials/includes/xamarin-show-essentials.md)]

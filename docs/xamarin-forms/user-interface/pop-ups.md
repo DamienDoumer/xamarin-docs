@@ -6,12 +6,13 @@ ms.assetid: 46AB0D5E-0025-4A8A-9D00-3E66C3D0BA2E
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 09/25/2019
+ms.date: 12/10/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Display Pop-ups
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/navigation-pop-ups)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/navigation-pop-ups)
 
 Displaying an alert, asking a user to make a choice, or displaying a prompt is a common UI task. Xamarin.Forms has three methods on the [`Page`](xref:Xamarin.Forms.Page) class for interacting with the user via a pop-up: [`DisplayAlert`](xref:Xamarin.Forms.Page.DisplayAlert*), [`DisplayActionSheet`](xref:Xamarin.Forms.Page.DisplayActionSheet*), and `DisplayPromptAsync`. They are rendered with appropriate native controls on each platform.
 
@@ -23,7 +24,7 @@ All Xamarin.Forms-supported platforms have a modal pop-up to alert the user or a
 await DisplayAlert ("Alert", "You have been alerted", "OK");
 ```
 
-![](pop-ups-images/alert.png "Alert Dialog with One Button")
+![Alert Dialog with One Button](pop-ups-images/alert.png)
 
 This example does not collect information from the user. The alert displays modally and once dismissed the user continues interacting with the application.
 
@@ -37,7 +38,12 @@ async void OnAlertYesNoClicked (object sender, EventArgs e)
 }
 ```
 
-[![DisplayAlert](pop-ups-images/alert2-sml.png "Alert Dialog with Two Buttons")](pop-ups-images/alert2.png#lightbox "Alert Dialog with Two Buttons")
+[![Alert Dialog with Two Buttons](pop-ups-images/alert2-sml.png)](pop-ups-images/alert2.png#lightbox)
+
+The [`DisplayAlert`](xref:Xamarin.Forms.Page.DisplayAlert*) method also has overloads that accept a [`FlowDirection`](xref:Xamarin.Forms.FlowDirection) argument that specifies the direction in which UI elements flow within the alert. For more information about flow direction, see [Right-to-left localization](~/xamarin-forms/app-fundamentals/localization/right-to-left.md).
+
+> [!WARNING]
+> By default on UWP, when an alert is displayed any access keys that are defined on the page behind the alert can still be activated. For more information, see [VisualElement Access Keys on Windows](~/xamarin-forms/platform/windows/visualelement-access-keys.md).
 
 ## Guide users through tasks
 
@@ -53,7 +59,7 @@ async void OnActionSheetSimpleClicked (object sender, EventArgs e)
 }
 ```
 
-![](pop-ups-images/action.png "ActionSheet Dialog")
+![ActionSheet Dialog](pop-ups-images/action.png)
 
 The `destroy` button is rendered differently than the others, and can be left `null` or specified as the third string parameter. The following example uses the `destroy` button:
 
@@ -66,6 +72,8 @@ async void OnActionSheetCancelDeleteClicked (object sender, EventArgs e)
 ```
 
 [![DisplayActionSheet](pop-ups-images/action2-sml.png "Action Sheet Dialog with Destroy Button")](pop-ups-images/action2.png#lightbox "Action Sheet Dialog with Destroy Button")
+
+The [`DisplayActionSheet`](xref:Xamarin.Forms.Page.DisplayActionSheet*) method also has an overload that accepts a [`FlowDirection`](xref:Xamarin.Forms.FlowDirection) argument that specifies the direction in which UI elements flow within the action sheet. For more information about flow direction, see [Right-to-left localization](~/xamarin-forms/app-fundamentals/localization/right-to-left.md).
 
 ## Display a prompt
 
@@ -90,20 +98,22 @@ The full argument list for the `DisplayPromptAsync` method is:
 - `placeholder`, of type `string`, is the placeholder text to display in the prompt. This is an optional argument, whose default value is `null`.
 - `maxLength`, of type `int`, is the maximum length of the user response. This is an optional argument, whose default value is -1.
 - `keyboard`, of type `Keyboard`, is the keyboard type to use for the user response. This is an optional argument, whose default value is `Keyboard.Default`.
+- `initialValue`, of type `string`, is a pre-defined response that will be displayed, and which can be edited. This is an optional argument, whose default value is an empty `string`.
 
 The following example shows setting some of the optional arguments:
 
 ```csharp
-string result = await DisplayPromptAsync("Question 2", "What's 5 + 5?", maxLength: 2, keyboard: Keyboard.Numeric);
+string result = await DisplayPromptAsync("Question 2", "What's 5 + 5?", initialValue: "10", maxLength: 2, keyboard: Keyboard.Numeric);
 ```
 
-This code limits the number of characters that can be input to 2, and displays the numeric keyboard for user input:
+This code displays a predefined response of 10, limits the number of characters that can be input to 2, and displays the numeric keyboard for user input:
 
-[![Screenshot of a modal prompt, on iOS and Android](pop-ups-images/keyboard-prompt.png "Modal prompt")](pop-ups-images/keyboard-prompt-large.png#lightbox "Modal prompt")
+[![Screenshot of an optional modal prompt, on iOS and Android](pop-ups-images/keyboard-prompt.png "Modal prompt")](pop-ups-images/keyboard-prompt-large.png#lightbox "Modal prompt")
 
-> [!NOTE]
-> The `DisplayPromptAsync` method is currently only implemented on iOS and Android.
+> [!WARNING]
+> By default on UWP, when a prompt is displayed any access keys that are defined on the page behind the prompt can still be activated. For more information, see [VisualElement Access Keys on Windows](~/xamarin-forms/platform/windows/visualelement-access-keys.md).
 
 ## Related links
 
-- [PopupsSample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/navigation-pop-ups)
+- [PopupsSample](/samples/xamarin/xamarin-forms-samples/navigation-pop-ups)
+- [Right-to-left localization](~/xamarin-forms/app-fundamentals/localization/right-to-left.md)

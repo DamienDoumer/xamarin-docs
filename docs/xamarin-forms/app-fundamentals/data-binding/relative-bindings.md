@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 12/04/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Relative Bindings
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/databindingdemos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/databindingdemos)
 
 Relative bindings provide the ability to set the binding source relative to the position of the binding target. They are created with the `RelativeSource` markup extension, and set as the `Source` property of a binding expression.
 
@@ -174,10 +175,10 @@ In this example, the [`Frame`](xref:Xamarin.Forms.Frame), which is the root elem
 
 [![Screenshot of a TemplatedParent mode relative binding, on iOS and Android](relative-bindings-images/templatedparent-relative-binding.png "TemplatedParent relative binding mode")](relative-bindings-images/templatedparent-relative-binding-large.png#lightbox "TemplatedParent relative binding mode")
 
-For more information about control templates, see [Xamarin.Forms Control Templates](~/xamarin-forms/app-fundamentals/templates/control-templates/index.md).
+For more information about control templates, see [Xamarin.Forms Control Templates](~/xamarin-forms/app-fundamentals/templates/control-template.md).
 
 ## Related links
 
-- [Data Binding Demos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/databindingdemos)
+- [Data Binding Demos (sample)](/samples/xamarin/xamarin-forms-samples/databindingdemos)
 - [XAML Markup Extensions](~/xamarin-forms/xaml/markup-extensions/index.md)
-- [Xamarin.Forms Control Templates](~/xamarin-forms/app-fundamentals/templates/control-templates/index.md)
+- [Xamarin.Forms Control Templates](~/xamarin-forms/app-fundamentals/templates/control-template.md)

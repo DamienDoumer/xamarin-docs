@@ -7,11 +7,12 @@ ms.assetid: F4A37564-B18B-42FF-B841-9A1949895AB6
 author: davidbritch
 ms.author: dabritch
 ms.date: 03/27/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Part 3. XAML Markup Extensions
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/xamlsamples)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/xamlsamples)
 
 _XAML markup extensions constitute an important feature in XAML that allow properties to be set to objects or values that are referenced indirectly from other sources. XAML markup extensions are particularly important for sharing objects, and referencing constants used throughout an application, but they find their greatest utility in data bindings._
 
@@ -394,10 +395,10 @@ You’ll need additional XML namespace declarations to access other classes. Eac
 xmlns:local="clr-namespace:XamlSamples"
 ```
 
-You can also define XML namespace declarations for .NET namespaces in any assembly that the .NET Standard library references. For example, here’s a `sys` prefix for the standard .NET `System` namespace, which is in the **mscorlib** assembly, which once stood for "Microsoft Common Object Runtime Library," but now means "Multilanguage Standard Common Object Runtime Library." Because this is another assembly, you must also specify the assembly name, in this case **mscorlib**:
+You can also define XML namespace declarations for .NET namespaces in any assembly that the .NET Standard library references. For example, here’s a `sys` prefix for the standard .NET `System` namespace, which is in the **netstandard** assembly. Because this is another assembly, you must also specify the assembly name, in this case **netstandard**:
 
 ```csharp
-xmlns:sys="clr-namespace:System;assembly=mscorlib"
+xmlns:sys="clr-namespace:System;assembly=netstandard"
 ```
 
 Notice that the keyword `clr-namespace` is followed by a colon and then the .NET namespace name, followed by a semicolon, the keyword `assembly`, an equal sign, and the assembly name.
@@ -410,7 +411,7 @@ Both these namespace declarations are included in the **StaticConstantsPage** sa
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:XamlSamples"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:Class="XamlSamples.StaticConstantsPage"
              Title="Static Constants Page"
              Padding="{x:Static local:AppConstants.PagePadding}">
@@ -559,7 +560,7 @@ The XAML markup extensions shown here provide important support for XAML files. 
 
 ## Related Links
 
-- [XamlSamples](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/xamlsamples)
+- [XamlSamples](/samples/xamarin/xamarin-forms-samples/xamlsamples)
 - [Part 1. Getting Started with XAML](~/xamarin-forms/xaml/xaml-basics/get-started-with-xaml.md)
 - [Part 2. Essential XAML Syntax](~/xamarin-forms/xaml/xaml-basics/essential-xaml-syntax.md)
 - [Part 4. Data Binding Basics](~/xamarin-forms/xaml/xaml-basics/data-binding-basics.md)

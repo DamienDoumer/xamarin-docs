@@ -141,6 +141,10 @@
               href: user-interface/android-designer/alternative-layout-views.md
             - name: Material Design Features
               href: user-interface/android-designer/material-design-features.md
+            - name: Android Layout Diagnostics
+              href: user-interface/android-designer/diagnostics.md
+            - name: Android Designer Diagnostic Analyzers
+              href: user-interface/android-designer/diagnostic-analyzers.md
         - name: Material Theme
           href: user-interface/material-theme.md
         - name: User Profile
@@ -303,6 +307,8 @@
               href: platform/fragments/providing-backwards-compatibility.md
         - name: App Linking
           href: platform/app-linking.md
+        - name: AndroidX
+          href: platform/androidx.md
         - name: Android 10
           href: platform/android-10.md
         - name: Android 9 Pie
@@ -373,6 +379,11 @@
                   href: platform/binding-java-library/customizing-bindings/naming-parameters-with-javadoc.md
             - name: Troubleshooting Bindings
               href: platform/binding-java-library/troubleshooting-bindings.md
+        - name: Bind a Kotlin Library
+          href: platform/binding-kotlin-library/index.md
+          items:
+            - name: Walkthrough
+              href: platform/binding-kotlin-library/walkthrough.md
         - name: Using Native Libraries
           href: platform/native-libraries.md
         - name: Renderscript
@@ -386,8 +397,12 @@
           href: ~/essentials/platform-feature-support.md?context=xamarin/android
         - name: Accelerometer
           href: ~/essentials/accelerometer.md?context=xamarin/android
+        - name: App Actions
+          href: ~/essentials/app-actions.md?context=xamarin/android
         - name: App Information
           href: ~/essentials/app-information.md?context=xamarin/android
+        - name: App Theme
+          href: ~/essentials/app-theme.md?context=xamarin/android
         - name: Barometer
           href: ~/essentials/barometer.md?context=xamarin/android
         - name: Battery
@@ -400,6 +415,8 @@
           href: ~/essentials/compass.md?context=xamarin/android
         - name: Connectivity
           href: ~/essentials/connectivity.md?context=xamarin/android
+        - name: Contacts
+          href: ~/essentials/contacts.md?context=xamarin/android
         - name: Detect Shake
           href: ~/essentials/detect-shake.md?context=xamarin/android
         - name: Device Display Information
@@ -408,6 +425,8 @@
           href: ~/essentials/device-information.md?context=xamarin/android
         - name: Email
           href: ~/essentials/email.md?context=xamarin/android
+        - name: File Picker
+          href: ~/essentials/file-picker.md?context=xamarin/android
         - name: File System Helpers
           href: ~/essentials/file-system-helpers.md?context=xamarin/android
         - name: Flashlight
@@ -418,6 +437,8 @@
           href: ~/essentials/geolocation.md?context=xamarin/android
         - name: Gyroscope
           href: ~/essentials/gyroscope.md?context=xamarin/android
+        - name: Haptic Feedback
+          href: ~/essentials/haptic-feedback.md?context=xamarin/android
         - name: Launcher
           href: ~/essentials/launcher.md?context=xamarin/android
         - name: Magnetometer
@@ -426,16 +447,22 @@
           href: ~/essentials/main-thread.md?context=xamarin/android
         - name: Maps
           href: ~/essentials/maps.md?context=xamarin/android
+        - name: Media Picker
+          href: ~/essentials/media-picker.md?context=xamarin/android
         - name: Open Browser
           href: ~/essentials/open-browser.md?context=xamarin/android
         - name: Orientation Sensor
           href: ~/essentials/orientation-sensor.md?context=xamarin/android
+        - name: Permissions
+          href: ~/essentials/permissions.md?context=xamarin/android
         - name: Phone Dialer
-          href: ~/essentials/phone-dialer.md?context=xamarin/android  
+          href: ~/essentials/phone-dialer.md?context=xamarin/android
         - name: Platform Extensions(Size, Rect, Point)
           href: ~/essentials/platform-extensions.md?context=xamarin/android
         - name: Preferences
           href: ~/essentials/preferences.md?context=xamarin/android
+        - name: Screenshot
+          href: ~/essentials/screenshot.md?context=xamarin/android
         - name: Secure Storage
           href: ~/essentials/secure-storage.md?context=xamarin/android
         - name: Share
@@ -450,10 +477,14 @@
           href: ~/essentials/version-tracking.md?context=xamarin/android
         - name: Vibrate
           href: ~/essentials/vibrate.md?context=xamarin/android
+        - name: Web Authenticator
+          href: ~/essentials/web-authenticator.md?context=xamarin/android
         - name: Xamarin.Essentials release notes
-          href: https://docs.microsoft.com/xamarin/essentials/release-notes/
+          href: /xamarin/essentials/release-notes/
         - name: Troubleshooting
           href: ~/essentials/troubleshooting.md?context=xamarin/android
+        - name: Xamarin.Essentials on Q&A
+          href: /answers/topics/dotnet-xamarinessentials.html          
     - name: Data and Cloud Services
       href: data-cloud/index.md
       items:
@@ -502,11 +533,19 @@
       items:
         - name: App Package Size
           href: deploy-test/app-package-size.md
+        - name: Apply Changes
+          href: deploy-test/apply-changes.md
         - name: Building Apps
           href: deploy-test/building-apps/index.md
           items:
             - name: Build Process
               href: deploy-test/building-apps/build-process.md
+            - name: Build Items
+              href: deploy-test/building-apps/build-items.md
+            - name: Build Properties
+              href: deploy-test/building-apps/build-properties.md
+            - name: Build Targets
+              href: deploy-test/building-apps/build-targets.md
             - name: Building ABI-Specific APKs
               href: deploy-test/building-apps/abi-specific-apks.md
         - name: Command Line Emulator
@@ -657,7 +696,9 @@
               href: wear/deploy-test/debug-on-device.md
             - name: Packaging
               href: wear/deploy-test/packaging.md
+    - name: Xamarin.Android on Q&A
+      href: /answers/topics/dotnet-android.html
     - name: Release Notes
-      href: https://docs.microsoft.com/xamarin/android/release-notes/
+      href: /xamarin/android/release-notes/
     - name: Samples
       href: samples/index.md

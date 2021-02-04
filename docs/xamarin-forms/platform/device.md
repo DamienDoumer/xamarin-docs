@@ -6,18 +6,19 @@ ms.assetid: 2F304AEC-8612-4833-81E5-B2F3F469B2DF
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 06/12/2019
+ms.date: 07/20/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Device Class
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithdevice)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/workingwithdevice)
 
 The [`Device`](xref:Xamarin.Forms.Device) class contains a number of properties and methods to help developers customize layout and functionality on a per-platform basis.
 
 In addition to methods and properties to target code at specific hardware types and sizes, the `Device` class includes methods that can be used to interact with UI controls from background threads. For more information, see [Interact with the UI from background threads](#interact-with-the-ui-from-background-threads).
 
-## Providing platform-specific values
+## Provide platform-specific values
 
 Prior to Xamarin.Forms 2.3.4, the platform the application was running on could be obtained by examining the [`Device.OS`](xref:Xamarin.Forms.Device.OS) property and comparing it to the [`TargetPlatform.iOS`](xref:Xamarin.Forms.TargetPlatform.iOS), [`TargetPlatform.Android`](xref:Xamarin.Forms.TargetPlatform.Android), [`TargetPlatform.WinPhone`](xref:Xamarin.Forms.TargetPlatform.WinPhone), and [`TargetPlatform.Windows`](xref:Xamarin.Forms.TargetPlatform.Windows) enumeration values. Similarly, one of the [`Device.OnPlatform`](xref:Xamarin.Forms.Device.OnPlatform(System.Action,System.Action,System.Action,System.Action)) overloads could be used to provide platform-specific values to a control.
 
@@ -60,7 +61,7 @@ The [`OnPlatform`](xref:Xamarin.Forms.OnPlatform`1) class is a generic class tha
 > [!IMPORTANT]
 > Providing an incorrect `Platform` attribute value in the `On` class will not result in an error. Instead, the code will execute without the platform-specific value being applied.
 
-Alternatively, the `OnPlatform` markup extension can be used in XAML to customize UI appearance on a per-platform basis. For more information, see [OnPlatform Markup Extension](~/xamarin-forms/xaml/markup-extensions/consuming.md#onplatform).
+Alternatively, the `OnPlatform` markup extension can be used in XAML to customize UI appearance on a per-platform basis. For more information, see [OnPlatform Markup Extension](~/xamarin-forms/xaml/markup-extensions/consuming.md#onplatform-markup-extension).
 
 ## Device.Idiom
 
@@ -102,7 +103,7 @@ The [`OnIdiom`](xref:Xamarin.Forms.OnIdiom`1) class provides the same functional
 
 The [`OnIdiom`](xref:Xamarin.Forms.OnPlatform`1) class is a generic class that must be instantiated with an `x:TypeArguments` attribute that matches the target type.
 
-Alternatively, the `OnIdiom` markup extension can be used in XAML to customize UI appearance based on the idiom of the device the application is running on. For more information, see [OnIdiom Markup Extension](~/xamarin-forms/xaml/markup-extensions/consuming.md#onidiom).
+Alternatively, the `OnIdiom` markup extension can be used in XAML to customize UI appearance based on the idiom of the device the application is running on. For more information, see [OnIdiom Markup Extension](~/xamarin-forms/xaml/markup-extensions/consuming.md#onidiom-markup-extension).
 
 ## Device.FlowDirection
 
@@ -150,6 +151,76 @@ someLabel.FontSize = Device.OnPlatform (
 );
 ```
 
+## Device.GetNamedColor
+
+Xamarin.Forms 4.6 introduces support for named colors. A named color is a color that has a different value depending on which system mode (for example, light or dark) is active on the device. On Android, named colors are accessed via the [R.Color](https://developer.android.com/reference/android/R.color#constants_2) class. On iOS, named colors are called [system colors](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/#system-colors). On the Universal Windows Platform, named colors are called [XAML theme resources](/windows/uwp/design/controls-and-patterns/xaml-theme-resources).
+
+The `GetNamedColor` method can be used to retrieve named colors on Android, iOS, and UWP. The method takes a `string` argument and returns a [`Color`](xref:Xamarin.Forms.Color):
+
+```csharp
+// Retrieve an Android named color
+Color color = Device.GetNamedColor(NamedPlatformColor.HoloBlueBright);
+```
+
+`Color.Default` will be returned when a color name cannot be found, or when `GetNamedColor` is invoked on an unsupported platform.
+
+> [!NOTE]
+> Because the `GetNamedColor` method returns a `Color` that's specific to a platform, it should typically be used in conjunction with the [`Device.RuntimePlatform`](xref:Xamarin.Forms.Device.RuntimePlatform) property.
+
+The `NamedPlatformColor` class contains the constants that define the named colors for Android, iOS, and UWP:
+
+| Android | iOS | macOS | UWP |
+| --- | --- | --- | --- |
+| `BackgroundDark` | `Label` | `AlternateSelectedControlTextColor` | `SystemAltHighColor` |
+| `BackgroundLight` | `Link` | `ControlAccent` | `SystemAltLowColor` |
+| `Black` | `OpaqueSeparator` | `ControlBackgroundColor` | `SystemAltMediumColor` |
+| `DarkerGray` | `PlaceholderText` | `ControlColor` | `SystemAltMediumHighColor` |
+| `HoloBlueBright` | `QuaternaryLabel` | `DisabledControlTextColor` | `SystemAltMediumLowColor` |
+| `HoloBlueDark` | `SecondaryLabel` | `FindHighlightColor` | `SystemBaseHighColor` |
+| `HoloBlueLight` | `Separator` | `GridColor` | `SystemBaseLowColor` |
+| `HoloGreenDark` | `SystemBlue` | `HeaderTextColor` | `SystemBaseMediumColor` |
+| `HoloGreenLight` | `SystemGray` | `HighlightColor` | `SystemBaseMediumHighColor` |
+| `HoloOrangeDark` | `SystemGray2` | `KeyboardFocusIndicatorColor` | `SystemBaseMediumLowColor` |
+| `HoloOrangeLight` | `SystemGray3` | `Label` | `SystemChromeAltLowColor` |
+| `HoloPurple` | `SystemGray4` | `LabelColor` | `SystemChromeBlackHighColor` |
+| `HoloRedDark` | `SystemGray5` | `Link` | `SystemChromeBlackLowColor` |
+| `HoloRedLight` | `SystemGray6` | `LinkColor` | `SystemChromeBlackMediumColor` |
+| `TabIndicatorText` | `SystemGreen` | `PlaceholderText` | `SystemChromeBlackMediumLowColor` |
+| `Transparent` | `SystemIndigo` | `PlaceholderTextColor` | `SystemChromeDisabledHighColor` |
+| `White` | `SystemOrange` | `QuaternaryLabel`| `SystemChromeDisabledLowColor` |
+| `WidgetEditTextDark` | `SystemPink` | `QuaternaryLabelColor` | `SystemChromeHighColor` |
+| | `SystemPurple` | `SecondaryLabel` | `SystemChromeLowColor` |
+| | `SystemRed` | `SecondaryLabelColor` | `SystemChromeMediumColor` |
+| | `SystemTeal` | `SelectedContentBackgroundColor` | `SystemChromeMediumLowColor` |
+| | `SystemYellow` | `SelectedControlColor` | `SystemChromeWhiteColor` |
+| | `TertiaryLabel` | `SelectedControlTextColor` | `SystemListLowColor` |
+| | | `SelectedMenuItemTextColor` | `SystemListMediumColor`|
+| | | `SelectedTextBackgroundColor` | |
+| | | `SelectedTextColor` | |
+| | | `Separator` | |
+| | | `SeparatorColor` | |
+| | | `ShadowColor` | |
+| | | `SystemBlue` | |
+| | | `SystemGray` | |
+| | | `SystemGreen` | |
+| | | `SystemIndigo` | |
+| | | `SystemOrange` | |
+| | | `SystemPink` | |
+| | | `SystemPurple` | |
+| | | `SystemRed` | |
+| | | `SystemTeal` | |
+| | | `SystemYellow` | |
+| | | `TertiaryLabel` | |
+| | | `TertiaryLabelColor` | |
+| | | `TextBackgroundColor` | |
+| | | `TextColor` | |
+| | | `UnderPageBackgroundColor` | |
+| | | `UnemphasizedSelectedContentBackgroundColor` | |
+| | | `UnemphasizedSelectedTextBackgroundColor` | |
+| | | `UnemphasizedSelectedTextColor` | |
+| | | `WindowBackgroundColor` | |
+| | | `WindowFrameTextColor` | |
+
 ## Device.StartTimer
 
 The `Device` class also has a `StartTimer` method which provides a simple way to trigger time-dependent tasks that works in Xamarin.Forms common code, including a .NET Standard library. Pass a `TimeSpan` to set the interval and return `true` to keep the timer running or `false` to stop it after the current invocation.
@@ -195,6 +266,6 @@ Device.BeginInvokeOnMainThread (() =>
 
 ## Related links
 
-- [Device Sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithdevice)
-- [Styles Sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithstyles)
-- [Device](xref:Xamarin.Forms.Device)
+- [Device Sample](/samples/xamarin/xamarin-forms-samples/workingwithdevice)
+- [Styles Sample](/samples/xamarin/xamarin-forms-samples/workingwithstyles)
+- [Device API](xref:Xamarin.Forms.Device)

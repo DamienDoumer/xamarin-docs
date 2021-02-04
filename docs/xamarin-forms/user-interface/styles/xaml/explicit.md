@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/17/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Explicit Styles in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
 
 _An explicit style is one that is selectively applied to controls by setting their Style properties._
 
@@ -179,8 +180,8 @@ The constructor defines three *explicit* styles that are applied to the page's [
 ## Related links
 
 - [XAML Markup Extensions](~/xamarin-forms/xaml/xaml-basics/xaml-markup-extensions.md)
-- [Basic Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
-- [Working with Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithstyles)
+- [Basic Styles (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
+- [Working with Styles (sample)](/samples/xamarin/xamarin-forms-samples/workingwithstyles)
 - [ResourceDictionary](xref:Xamarin.Forms.ResourceDictionary)
 - [Style](xref:Xamarin.Forms.Style)
 - [Setter](xref:Xamarin.Forms.Setter)

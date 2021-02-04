@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: profexorgeek
 ms.author: jusjohns
 ms.date: 12/05/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Local Databases
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/todo)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/todo)
 
 The SQLite database engine allows Xamarin.Forms applications to load and save data objects in shared code. The sample application uses a SQLite database table to store todo items. This article describes how to use SQLite.Net in shared code to store and retrieve information in a local database.
 
@@ -31,8 +32,9 @@ Use the NuGet package manager to search for **sqlite-net-pcl** and add the lates
 
 There are a number of NuGet packages with similar names. The correct package has these attributes:
 
-- **Created by:** Frank A. Krueger
 - **ID:** sqlite-net-pcl
+- **Authors:** SQLite-net
+- **Owners:** praeclarum
 - **NuGet link:** [sqlite-net-pcl](https://www.nuget.org/packages/sqlite-net-pcl/)
 
 > [!NOTE]
@@ -87,7 +89,7 @@ A database wrapper class abstracts the data access layer from the rest of the ap
 
 ### Lazy initialization
 
-The `TodoItemDatabase` uses the .NET `Lazy` class to delay initialization of the database until it's first accessed. Using lazy initialization prevents the database loading process from delaying the app launch. For more information, see [Lazy&lt;T&gt; Class](https://docs.microsoft.com/dotnet/api/system.lazy-1).
+The `TodoItemDatabase` uses the .NET `Lazy` class to delay initialization of the database until it's first accessed. Using lazy initialization prevents the database loading process from delaying the app launch. For more information, see [Lazy&lt;T&gt; Class](xref:System.Lazy`1).
 
 ```csharp
 public class TodoItemDatabase
@@ -112,8 +114,8 @@ public class TodoItemDatabase
             if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(TodoItem).Name))
             {
                 await Database.CreateTablesAsync(CreateFlags.None, typeof(TodoItem)).ConfigureAwait(false);
-                initialized = true;
             }
+            initialized = true;
         }
     }
 
@@ -163,14 +165,14 @@ public static class TaskExtensions
 
 The `SafeFireAndForget` method awaits the asynchronous execution of the provided `Task` object, and allows you to attach an `Action` that is called if an exception is thrown.
 
-For more information, see [Task-based asynchronous pattern (TAP)](https://docs.microsoft.com/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap).
+For more information, see [Task-based asynchronous pattern (TAP)](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap).
 
 ### Data manipulation methods
 
 The `TodoItemDatabase` class includes methods for the four types of data manipulation: create, read, edit, and delete. The SQLite.NET library provides a simple Object Relational Map (ORM) that allows you to store and retrieve objects without writing SQL statements.
 
 ```csharp
-public static class TodoItemDatabase {
+public class TodoItemDatabase {
 
     // ...
 
@@ -214,6 +216,7 @@ public static class TodoItemDatabase {
 The Xamarin.Forms `App` class exposes an instance of the `TodoItemDatabase` class:
 
 ```csharp
+static TodoItemDatabase database;
 public static TodoItemDatabase Database
 {
     get
@@ -278,10 +281,10 @@ For more information, see [File Handling in Xamarin.Forms](~/xamarin-forms/data-
 
 ## Related Links
 
-- [Todo sample application](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/todo)
+- [Todo sample application](/samples/xamarin/xamarin-forms-samples/todo)
 - [SQLite.NET NuGet package](https://www.nuget.org/packages/sqlite-net-pcl/)
 - [SQLite documentation](https://www.sqlite.org/docs.html)
 - [Using SQLite with Android](~/android/data-cloud/data-access/using-sqlite-orm.md)
 - [Using SQLite with iOS](~/ios/data-cloud/data/using-sqlite-orm.md)
-- [Task-based asynchronous pattern (TAP)](https://docs.microsoft.com/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
-- [Lazy<T> Class](https://docs.microsoft.com//api/system.lazy-1)
+- [Task-based asynchronous pattern (TAP)](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
+- [Lazy&lt;T&gt; Class](xref:System.Lazy`1)

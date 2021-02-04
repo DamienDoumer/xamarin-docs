@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 12/28/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Store and Access Data in Azure Storage from Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-azurestorage)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/webservices-azurestorage)
 
 _Azure Storage is a scalable cloud storage solution that can be used to store unstructured, and structured data. This article demonstrates how to use Xamarin.Forms to store text and binary data in Azure Storage, and how to access the data._
 
@@ -38,7 +39,7 @@ For more information about Azure Storage, see [Introduction to Storage](https://
 
 Blob storage consists of three components, which are shown in the following diagram:
 
-![](azure-storage-images/blob-storage.png "Blob Storage Concepts")
+![Blob Storage Concepts](azure-storage-images/blob-storage.png)
 
 All access to Azure Storage is through a storage account. A storage account can contain an unlimited number of containers, and a container can store an unlimited number of blobs, up to the capacity limit of the storage account.
 
@@ -61,12 +62,10 @@ The URL for accessing an object in a storage account is built by appending the o
 
 The process for integrating an Azure Storage account into a Xamarin.Forms application is as follows:
 
-1. Create a storage account. For more information, see [Create a storage account](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account).
+1. Create a storage account. For more information, see [Create a storage account](/azure/storage/common/storage-account-create#create-a-storage-account).
 1. Add the [Azure Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) to the Xamarin.Forms application.
-1. Configure the storage connection string. For more information, see [Connecting to Azure Storage](#connecting).
+1. Configure the storage connection string. For more information, see [Connecting to Azure Storage](#connecting-to-azure-storage).
 1. Add `using` directives for the `Microsoft.WindowsAzure.Storage` and `Microsoft.WindowsAzure.Storage.Blob` namespaces to classes that will access Azure Storage.
-
-<a name="connecting" />
 
 ## Connecting to Azure Storage
 
@@ -75,22 +74,22 @@ Every request made against storage account resources must be authenticated. Whil
 - Shared Key. This approach uses the Azure Storage account name and account key to access storage services. A storage account is assigned two private keys on creation that can be used for shared key authentication.
 - Shared Access Signature. This is a token that can be appended to a URL that enables delegated access to a storage resource, with the permissions it specifies, for the period of time that it's valid.
 
-Connection strings can be specified that include the authentication information required to access Azure Storage resources from an application. In addition, a connection string can be configured to connect to the Azure Storage emulator from Visual Studio.
+Connection strings can be specified that include the authentication information required to access Azure Storage resources from an application. In addition, a connection string can be configured to connect to the Azure storage emulator from Visual Studio.
 
 > [!NOTE]
 > Azure Storage supports HTTP and HTTPS in a connection string. However, using HTTPS is recommended.
 
 ### Connecting to the Azure Storage Emulator
 
-The Azure Storage emulator provides a local environment that emulates the Azure blob, queue, and table services for development purposes.
+The Azure storage emulator provides a local environment that emulates the Azure blob, queue, and table services for development purposes.
 
-The following connection string should be used to connect to the Azure Storage emulator:
+The following connection string should be used to connect to the Azure storage emulator:
 
 ```csharp
 UseDevelopmentStorage=true
 ```
 
-For more information about the Azure Storage Emulator, see [Use the Azure Storage Emulator for Development and testing](https://azure.microsoft.com/documentation/articles/storage-use-emulator/).
+For more information about the Azure storage emulator, see [Use the Azure storage emulator for Development and testing](/azure/storage/common/storage-use-emulator).
 
 ### Connecting to Azure Storage Using a Shared Key
 
@@ -116,7 +115,7 @@ The following connection string format should be used to connect to Azure Storag
 > [!NOTE]
 > SAS authentication is recommended for production applications. However, in a production application the SAS should be retrieved from a backend service on-demand, rather than being bundled with the application.
 
-For more information about Shared Access Signatures, see [Using Shared Access Signatures (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+For more information about Shared Access Signatures, see [Using Shared Access Signatures (SAS)](/azure/storage/common/storage-sas-overview).
 
 ## Creating a Container
 
@@ -148,7 +147,7 @@ The `CloudBlobContainer` instance can then be used to create a container if it d
 await container.CreateIfNotExistsAsync();
 ```
 
-By default, a newly created container is private. This means that a storage access key must be specified to retrieve blobs from the container. For information about making blobs within a container public, see [Create a container](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#create-a-container).
+By default, a newly created container is private. This means that a storage access key must be specified to retrieve blobs from the container. For information about making blobs within a container public, see [Create a container](/azure/storage/blobs/storage-quickstart-blobs-dotnet#create-a-container).
 
 ## Uploading Data to a Container
 
@@ -258,8 +257,8 @@ After retrieving a container reference, the method retrieves a blob reference fo
 
 ## Related Links
 
-- [Azure Storage (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-azurestorage)
+- [Azure Storage (sample)](/samples/xamarin/xamarin-forms-samples/webservices-azurestorage)
 - [Introduction to Storage](https://azure.microsoft.com/documentation/articles/storage-introduction/)
-- [How to use Blob Storage from Xamarin](https://azure.microsoft.com/documentation/articles/storage-xamarin-blob-storage/)
-- [Using Shared Access Signatures (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)
+- [How to use Blob Storage from Xamarin](/azure/storage/blobs/storage-quickstart-blobs-xamarin)
+- [Using Shared Access Signatures (SAS)](/azure/storage/common/storage-sas-overview)
 - [Windows Azure Storage (NuGet)](https://www.nuget.org/packages/WindowsAzure.Storage/)

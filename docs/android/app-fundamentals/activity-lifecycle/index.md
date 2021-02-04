@@ -299,7 +299,7 @@ Android may kill the application process that is hosting the Activity,
 which will result in `OnDestroy` not being invoked. Most Activities
 will not implement this method because most clean up and shut down has
 been done in the `OnPause` and `OnStop` methods. The `OnDestroy` method
-is typically overridden to clean up long running resources that might
+is typically overridden to clean up long running tasks that might
 leak resources. An example of this might be background threads that
 were started in `OnCreate`.
 
@@ -341,7 +341,7 @@ Activity. In contrast, when the user clicks the Home button the
 activity is merely placed into the background &ndash; Android will not kill
 the activity.
 
-<a name="Managing_State_Throughout_the_Lifecycle" />
+<a name="Managing_State_Throughout_the_Lifecycle"></a>
 
 ## Managing State Throughout the Lifecycle
 

@@ -64,14 +64,13 @@ Xamarin.iOS. It has covered:
 
 ## Related Links
 
-- [InAppPurchaseSample](https://docs.microsoft.com/samples/xamarin/ios-samples/storekit/)
+- [InAppPurchaseSample](/samples/xamarin/ios-samples/storekit/)
 - [In App Purchase Programming Guide](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/StoreKitGuide/Introduction.html)
 - [iTunes Connect Developer Guide](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/iTunesConnect_Guide.pdf)
 - [Store Kit Framework Reference](https://developer.apple.com/library/ios/documentation/StoreKit/Reference/StoreKit_Collection/StoreKit_Collection.pdf)
 - [In-App Purchase Product Identifiers Q&A](https://developer.apple.com/library/ios/#qa/qa1329/_index.html)
 - [In-App Purchase Technical Note](https://developer.apple.com/library/ios/#technotes/tn2259/_index.html)
 - [Your First App Store Submission](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/Introduction/Introduction.html)
-- [App Store Resource Center](https://developer.apple.com/appstore/index.html)
 - [App Store Submission Tips](https://developer.apple.com/appstore/resources/submission/tips.html)
 - [App Store Review Guidelines](https://developer.apple.com/appstore/resources/approval/guidelines.html)
 - [Managing Your Apps](https://developer.apple.com/appstore/resources/managing/index.html)

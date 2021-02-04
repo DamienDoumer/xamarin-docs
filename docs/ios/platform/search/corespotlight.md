@@ -46,7 +46,7 @@ CSSearchableIndex.DefaultSearchableIndex.Index (new CSSearchableItem[]{ item }, 
 
 This information would appear like the following in a search result:
 
-[![](corespotlight-images/corespotlight01.png "Core Spotlight search result overview")](corespotlight-images/corespotlight01.png#lightbox)
+[![Core Spotlight search result overview](corespotlight-images/corespotlight01.png)](corespotlight-images/corespotlight01.png#lightbox)
 
 ## Restoring an Item
 
@@ -86,7 +86,7 @@ this change, we use the same method as was used to initially create the index.
 We create a new `CSSearchableItem` using the same ID as was used to create the
 item and attach a new `CSSearchableItemAttributeSet` containing the modified attributes:
 
-[![](corespotlight-images/corespotlight02.png "Updating an Item overview")](corespotlight-images/corespotlight02.png#lightbox)
+[![Updating an Item overview](corespotlight-images/corespotlight02.png)](corespotlight-images/corespotlight02.png#lightbox)
 
 When this item is written to the searchable index, the existing item is updated with the new information.
 
@@ -141,7 +141,7 @@ and up-to-date:
 
 ## Related Links
 
-- [iOS 9 Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+iOS9)
+- [iOS 9 Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2biOS9)
 - [iOS 9 for Developers](https://developer.apple.com/ios/pre-release/)
 - [iOS 9.0](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html)
 - [App Search Programming Guide](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/index.html#//apple_ref/doc/uid/TP40016308)

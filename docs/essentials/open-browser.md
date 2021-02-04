@@ -4,8 +4,9 @@ description: "The Browser class in Xamarin.Essentials enables an application to 
 ms.assetid: BABF40CC-8BEE-43FD-BE12-6301DF27DD33
 author: jamesmontemagno
 ms.author: jamont
-ms.date: 04/02/2019
+ms.date: 09/24/2020
 ms.custom: video
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: Browser
@@ -15,6 +16,37 @@ The **Browser** class enables an application to open a web link in the optimized
 ## Get started
 
 [!include[](~/essentials/includes/get-started.md)]
+
+To access the **Browser** functionality the following platform specific setup is required.
+
+# [Android](#tab/android)
+
+If your project's Target Android version is set to **Android 11 (R API 30)** you must update your Android Manifest with queries that are used with the new [package visibility requirements](https://developer.android.com/preview/privacy/package-visibility).
+
+Open the **AndroidManifest.xml** file under the **Properties** folder and add the following inside of the **manifest** node:
+
+```xml
+<queries>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="http"/>
+  </intent>
+  <intent>
+    <action android:name="android.intent.action.VIEW" />
+    <data android:scheme="https"/>
+  </intent>
+</queries>
+```
+
+# [iOS](#tab/ios)
+
+No additional setup required.
+
+# [UWP](#tab/uwp)
+
+No platform differences.
+
+-----
 
 ## Using Browser
 
@@ -30,9 +62,16 @@ The Browser functionality works by calling the `OpenAsync` method with the `Uri`
 
 public class BrowserTest
 {
-    public async Task<bool> OpenBrowser(Uri uri)
+    public async Task OpenBrowser(Uri uri)
     {
-        return await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        try
+        {
+            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+        }
+        catch(Exception ex)
+        {
+            // An unexpected error occured. No browser may be installed on the device.
+        }
     }
 }
 ```
@@ -41,7 +80,7 @@ This method returns after the browser was _launched_ and not necessarily _closed
 
 ## Customization
 
-When using the system preferred browser there are several customization options available for iOS and Android. This includes a `TitleMode` (Android only), and preferred color options for the `Toolbar` (iOS and Android) and `Controls` (iOS only) that appear. 
+When using the system preferred browser there are several customization options available for iOS and Android. This includes a `TitleMode` (Android only), and preferred color options for the `Toolbar` (iOS and Android) and `Controls` (iOS only) that appear.
 
 These options are specified using `BrowserLaunchOptions` when calling `OpenAsync`.
 
@@ -65,7 +104,7 @@ The Launch Mode determines how the browser is launched:
 
 ## System Preferred
 
-[Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) will attempted to be used load the Uri and keep navigation awareness.
+[Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs) will attempted to be used to load the Uri and keep navigation awareness.
 
 ## External
 
@@ -89,7 +128,7 @@ The user's default browser will always be launched regardless of the `BrowserLau
 
 ## API
 
-- [Browser source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/Browser)
+- [Browser source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/Browser)
 - [Browser API documentation](xref:Xamarin.Essentials.Browser)
 
 ## Related Video

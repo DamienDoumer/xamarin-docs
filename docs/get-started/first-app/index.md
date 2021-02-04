@@ -9,6 +9,7 @@ ms.custom: video
 author: conceptdev
 ms.author: crdun
 ms.date: 05/23/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 # Build your first Xamarin.Forms App
 
@@ -20,7 +21,7 @@ _Watch this video and follow along to create your first mobile app with Xamarin.
 
 ## Step-by-step instructions for Windows
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/getstarted-firstapp/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/getstarted-firstapp/)
 
 Follow these steps along with the video above:
 
@@ -105,7 +106,7 @@ This video covers the process of building and testing an iOS app using Visual St
 
 ## Step-by-step instructions for Windows
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/getstarted-firstapp/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/getstarted-firstapp/)
 
 Follow these steps along with the video above:
 
@@ -140,7 +141,7 @@ Follow these steps along with the video above:
 
 7. Debug the app on Android:
 
-    ![Android app](images/win/07-sml.png)
+    ![Screenshot shows the Android Emulator.](images/win/07-sml.png)
 
     > [!TIP]
     > It is possible to build and debug the iOS app from Visual Studio with a
@@ -154,7 +155,7 @@ Follow these steps along with the video above:
 
 ## Step-by-step instructions for Mac
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/getstarted-firstapp/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/getstarted-firstapp/)
 
 Follow these steps along with the video above:
 
@@ -168,7 +169,7 @@ Follow these steps along with the video above:
 
 3. Restore NuGet packages, by right-clicking on the solution:
 
-    ![Android app](images/03-sml.png)
+    ![Screenshot shows Restore NuGet Packages selected from the context menu for the solution.](images/03-sml.png)
 
 4. Launch Android emulator by pressing the debug button (or **Run > Start Debugging**).
 
@@ -191,7 +192,7 @@ Follow these steps along with the video above:
 
 7. Debug the app on Android:
 
-    ![Android app](images/07-sml.png)
+    ![Screenshot shows the Android Emulator.](images/07-sml.png)
 
 8. Right-click to set iOS to the **Startup Project**:
 
@@ -203,7 +204,7 @@ Follow these steps along with the video above:
 
 ::: zone-end
 
-You can download the completed code from the [samples gallery](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/getstarted-firstapp/) or view it on [GitHub](https://github.com/xamarin/xamarin-forms-samples/tree/master/GetStarted/FirstApp).
+You can download the completed code from the [samples gallery](/samples/xamarin/xamarin-forms-samples/getstarted-firstapp/) or view it on [GitHub](https://github.com/xamarin/xamarin-forms-samples/tree/master/GetStarted/FirstApp).
 
 ## Next Steps
 

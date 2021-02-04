@@ -7,11 +7,15 @@ ms.assetid: 88882A48-3226-42D1-96ED-241250B64A84
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/19/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 14. Absolute layout
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter14)
+
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 Like `StackLayout`, [`AbsoluteLayout`](xref:Xamarin.Forms.AbsoluteLayout) derives from `Layout<View>` and inherits a `Children` property. `AbsoluteLayout` implements a layout system that requires the programmer to specify the positions of its children and, optionally, their size. The position is specified by the upper-left corner of the child relative to the upper-left corner of the `AbsoluteLayout` in device-independent units. `AbsoluteLayout` also implements a proportional positioning and sizing feature.
 
@@ -98,5 +102,5 @@ The [**BouncingText**](https://github.com/xamarin/xamarin-forms-book-samples/tre
 
 - [Chapter 14 full text (PDF)](https://download.xamarin.com/developer/xamarin-forms-book/XamarinFormsBook-Ch14-Apr2016.pdf)
 - [Chapter 14 samples](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter14)
-- [AbsoluteLayout](~/xamarin-forms/user-interface/layouts/absolute-layout.md)
+- [AbsoluteLayout](~/xamarin-forms/user-interface/layouts/absolutelayout.md)
 - [Attached Properties](~/xamarin-forms/xaml/attached-properties.md)

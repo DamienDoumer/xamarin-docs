@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/25/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Part 2. Essential XAML Syntax
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/xamlsamples)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/xamlsamples)
 
 _XAML is mostly designed for instantiating and initializing objects. But often, properties must be set to complex objects that cannot easily be represented as XML strings, and sometimes properties defined by one class must be set on a child class. These two needs require the essential XAML syntax features of property elements and attached properties._
 
@@ -518,7 +519,7 @@ This is the standard way to set a platform-dependent `Padding` property in XAML.
 ```
 
 > [!NOTE]
-> The `OnPlatform` markup extension can also be used in XAML to customize UI appearance on a per-platform basis. It provides the same functionality as the `OnPlatform` and `On` classes, but with a more concise representation. For more information, see [OnPlatform Markup Extension](~/xamarin-forms/xaml/markup-extensions/consuming.md#onplatform).
+> The `OnPlatform` markup extension can also be used in XAML to customize UI appearance on a per-platform basis. It provides the same functionality as the `OnPlatform` and `On` classes, but with a more concise representation. For more information, see [OnPlatform Markup Extension](~/xamarin-forms/xaml/markup-extensions/consuming.md#onplatform-markup-extension).
 
 ## Summary
 
@@ -526,7 +527,7 @@ With property elements and attached properties, much of the basic XAML syntax ha
 
 ## Related Links
 
-- [XamlSamples](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/xamlsamples)
+- [XamlSamples](/samples/xamarin/xamarin-forms-samples/xamlsamples)
 - [Part 1. Getting Started with XAML](~/xamarin-forms/xaml/xaml-basics/get-started-with-xaml.md)
 - [Part 3. XAML Markup Extensions](~/xamarin-forms/xaml/xaml-basics/xaml-markup-extensions.md)
 - [Part 4. Data Binding Basics](~/xamarin-forms/xaml/xaml-basics/data-binding-basics.md)

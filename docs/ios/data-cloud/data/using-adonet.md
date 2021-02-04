@@ -22,11 +22,11 @@ references to your iOS project, as shown here
 
 # [Visual Studio for Mac](#tab/macos)
 
- ![](using-adonet-images/image4.png "Assembly References in Visual Studio for Mac")
+ ![Assembly References in Visual Studio for Mac](using-adonet-images/image4.png)
 
 # [Visual Studio](#tab/windows)
 
-  ![](using-adonet-images/image6.png "Assembly References in Visual Studio")
+  ![Assembly References in Visual Studio](using-adonet-images/image6.png)
 
 -----
 
@@ -71,7 +71,7 @@ When executing SQL directly against the database you should take the normal prec
 
 The *DataAccess_Basic* sample code for this document looks like this when running on iOS:
 
- ![](using-adonet-images/image9.png "iOS ADO.NET sample")
+ ![iOS ADO.NET sample](using-adonet-images/image9.png)
 
 The code below illustrates how to perform simple SQLite operations and shows the results in as text in the application’s main window.
 
@@ -209,6 +209,17 @@ using (var contents = connection.CreateCommand ()) {
 ```
 
 The `ExecuteScalar` method’s return type is `object` – you should cast the result depending on the database query. The result could be an integer from a COUNT query or a string from a single column SELECT query. Note that this is different to other Execute methods that return a reader object or a count of the number of rows affected.
+
+## Microsoft.Data.Sqlite
+
+There is another library `Microsoft.Data.Sqlite`, which can be [installed from NuGet](https://www.nuget.org/packages/Microsoft.Data.Sqlite), that is functionally equivalent to `Mono.Data.Sqlite` and allows the same types of queries.
+
+There is a [comparison between the two libraries](/dotnet/standard/data/sqlite/compare) and some [Xamarin-specific details](/dotnet/standard/data/sqlite/xamarin). Most important for Xamarin.iOS apps, you must include an initialization call:
+
+```csharp
+// required for Xamarin.iOS
+SQLitePCL.Batteries_V2.Init();
+```
 
 ## Related Links
 

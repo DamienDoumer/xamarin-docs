@@ -21,7 +21,7 @@ For multi-scene watch apps there are two navigation paradigms
 - [Hierarchical Navigation](#Hierarchical_Navigation)
 - [Page-based Interfaces](#Page-Based_Interfaces)
 
-<a name="modal"/>
+<a name="modal"></a>
 
 ## Modal Interfaces
 
@@ -47,7 +47,7 @@ DismissController();
 Modal screens can be either a single scene or use a
   page-based layout.
 
-<a name="Hierarchical_Navigation"/>
+<a name="Hierarchical_Navigation"></a>
 
 ## Hierarchical Navigation
 
@@ -57,13 +57,13 @@ Presents scenes like a stack that can be
   can be pushed onto the navigation stack and
   popped off (either programmatically or by user-selection).
 
-![](navigation-images/hierarchy-1.png "Scenes can be pushed onto the navigation stack") ![](navigation-images/hierarchy-2.png "Scenes can be popped off of the navigation stack")
+![Scenes can be pushed onto the navigation stack](navigation-images/hierarchy-1.png) ![Scenes can be popped off of the navigation stack](navigation-images/hierarchy-2.png)
 
 As with iOS, a left-edge-swipe navigates back to the
   parent controller in a hierarchical navigation stack.
 
-Both the [WatchKitCatalog](https://docs.microsoft.com/samples/xamarin/ios-samples/watchos-watchkitcatalog) and
-  [WatchTables](https://docs.microsoft.com/samples/xamarin/ios-samples/watchos-watchtables) samples include hierarchical
+Both the [WatchKitCatalog](/samples/xamarin/ios-samples/watchos-watchkitcatalog) and
+  [WatchTables](/samples/xamarin/ios-samples/watchos-watchtables) samples include hierarchical
   navigation.
 
 ### Pushing and Popping in Code
@@ -110,7 +110,7 @@ public override NSObject GetContextForSegue (string segueIdentifier)
 }
 ```
 
-<a name="Page-Based_Interfaces"/>
+<a name="Page-Based_Interfaces"></a>
 
 ## Page-Based Interfaces
 
@@ -119,7 +119,7 @@ Page-based interfaces swipe left-to-right, similar to the way
   along the bottom of the screen to show which page is
   currently displayed.
 
-![](navigation-images/paged-1.png "Sample first page") ![](navigation-images/paged-2.png "Sample second page") ![](navigation-images/paged-5.png "Sample fifth page")
+![Sample first page](navigation-images/paged-1.png) ![Sample second page](navigation-images/paged-2.png) ![Sample fifth page](navigation-images/paged-5.png)
 
 To make a page-based interface the main UI for your watch app,
   use `ReloadRootControllers` with an array of interface
@@ -143,5 +143,5 @@ PresentController (controllerNames, contexts);
 
 ## Related Links
 
-- [WatchKitCatalog (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/watchos-watchkitcatalog)
+- [WatchKitCatalog (sample)](/samples/xamarin/ios-samples/watchos-watchkitcatalog)
 - [WatchTables (sample)](https://developer.xamarin.com//samples/monotouch/watchOS/WatchTables/)

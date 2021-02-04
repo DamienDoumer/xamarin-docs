@@ -15,24 +15,24 @@ _This article covers working with UIAlertController to display an alert message 
 
 If you need to get the attention of the tvOS user or ask permission to perform a destructive action (such as deleting a file), you can present an alert message using the `UIAlertViewController`:
 
-[![](alerts-images/alert01.png "An example UIAlertViewController")](alerts-images/alert01.png#lightbox)
+[![An example UIAlertViewController](alerts-images/alert01.png)](alerts-images/alert01.png#lightbox)
 
 If addition to displaying a message, you can add buttons and text fields to an alert to allow the user to respond to actions and provide feedback.
 
-<a name="About-Alerts" />
+<a name="About-Alerts"></a>
 
 ## About Alerts
 
 As stated above, alerts are used to get the user's attention and inform them of the state of your app or request feedback. Alerts must present a Title, they can optionally have a message and one or more buttons or text fields.
 
-[![](alerts-images/alert04.png "An example alert")](alerts-images/alert04.png#lightbox)
+[![An example alert](alerts-images/alert04.png)](alerts-images/alert04.png#lightbox)
 
 Apple has the following suggestions for working with Alerts:
 
 - **Use Alerts Sparingly** - Alerts disrupt the user's flow with the app and interrupt the user experience and as such, should only be used for important situations such as error notifications, In-App Purchases and destructive actions.
 - **Provides Useful Choices** - If the Alert presents options to the user, your should ensure that each option offers critical information and provides useful actions for the user to take.
 
-<a name="Alert-Titles-and-Messages" />
+<a name="Alert-Titles-and-Messages"></a>
 
 ### Alert Titles and Messages
 
@@ -42,7 +42,7 @@ Apple has the following suggestions for presenting an Alert's Title and optional
 - **Use Descriptive Titles that do not Require a Message** - Wherever possible, consider making the Alert's title descriptive enough that the optional Message text is not required.
 - **Make the Message a Short, Complete Sentence** - If the optional Message is required to get the point of the Alert across, keep it as simple as possible and make it a complete sentence with proper capitalization and punctuation.
 
-<a name="Alert-Buttons" />
+<a name="Alert-Buttons"></a>
 
 ### Alert Buttons
 
@@ -52,7 +52,7 @@ Apple has the following suggestion for adding Buttons to an Alert:
 - **Use Succinct, Logical Button Titles** - Simple one to two word Button titles that clearly describe the Button's action work best. For more information, see our [Working with Buttons](~/ios/tvos/user-interface/buttons.md) documentation.
 - **Clearly Mark Destructive Buttons** - For Buttons that perform a destructive action (such as deleting a file) clearly mark them with the `UIAlertActionStyle.Destructive` style.
 
-<a name="Displaying-an-Alert" />
+<a name="Displaying-an-Alert"></a>
 
 ## Displaying an Alert
 
@@ -106,17 +106,17 @@ The `UIAlertActionStyle` enum allow you to set the style of the button as one of
 
 The `AddAction` method adds the given action to the `UIAlertViewController` and finally the `PresentViewController (alertController, true, null)` method displays the given alert to the user.
 
-<a name="Adding-Text-Fields" />
+<a name="Adding-Text-Fields"></a>
 
 ## Adding Text Fields
 
 In addition to adding Actions (buttons) to the Alert, you can add Text Fields to the Alert to allow the user to fill in information such as user IDs and passwords:
 
-[![](alerts-images/alert02.png "Text Field in an alert")](alerts-images/alert02.png#lightbox)
+[![Text Field in an alert](alerts-images/alert02.png)](alerts-images/alert02.png#lightbox)
 
 If the user selects the Text Field, the standard tvOS keyboard will be displayed allowing them to enter a value for the field:
 
-[![](alerts-images/alert03.png "Entering text")](alerts-images/alert03.png#lightbox)
+[![Entering text](alerts-images/alert03.png)](alerts-images/alert03.png#lightbox)
 
 The following code displays an OK/Cancel Alert with a single Text Field for entering a value:
 
@@ -183,7 +183,7 @@ alert.AddTextField ((textField) => {
 
 After the user has entered a value in the Text Field, we can use the `field` variable to access that value.
 
-<a name="Alert-View-Controller-Helper-Class" />
+<a name="Alert-View-Controller-Helper-Class"></a>
 
 ## Alert View Controller Helper Class
 
@@ -356,7 +356,7 @@ partial void DisplayTextInputAlert (Foundation.NSObject sender) {
 #endregion
 ```
 
-<a name="Summary" />
+<a name="Summary"></a>
 
 ## Summary
 
@@ -364,7 +364,7 @@ This article has covered working with `UIAlertController` to display an alert me
 
 ## Related Links
 
-- [tvOS Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+tvOS)
+- [tvOS Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2btvOS)
 - [tvOS](https://developer.apple.com/tvos/)
 - [tvOS Human Interface Guides](https://developer.apple.com/tvos/human-interface-guidelines/)
 - [App Programming Guide for tvOS](https://developer.apple.com/library/prerelease/tvos/documentation/General/Conceptual/AppleTV_PG/)

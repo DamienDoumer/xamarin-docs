@@ -181,9 +181,9 @@ var calendar = new NSCalendar(NSCalendarType.Gregorian);
 var currentDate = NSDate.Now;
 var components = new NSDateComponents();
 components.Year = -60;
-NSDate minDate = calendar.DateByAddingComponents(components, NSDate.Now, NSCalendarOptions.None);
+NSDate minDate = calendar.DateByAddingComponents(components, currentDate, NSCalendarOptions.None);
 datePickerView.MinimumDate = minDate;
-datePickerView.MaximumDate = NSDate.Now;
+datePickerView.MaximumDate = currentDate;
 ```
 
 > [!TIP]
@@ -357,4 +357,4 @@ Various `NSDateFormatterStyle` values display dates as follows:
 
 ## Related links
 
-- [PickerControl (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/pickercontrol)
+- [PickerControl (sample)](/samples/xamarin/ios-samples/pickercontrol)

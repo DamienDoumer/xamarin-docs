@@ -8,12 +8,13 @@ ms.assetid: CCCF8E57-D021-4542-8709-5808570FC26A
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 01/02/2019
+ms.date: 02/07/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Style a Cross-Platform Xamarin.Forms Application
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/getstarted-notes-styled/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/getstarted-notes-styled/)
 
 In this quickstart, you will learn how to:
 
@@ -21,12 +22,12 @@ In this quickstart, you will learn how to:
 
 The quickstart walks through how to style a cross-platform Xamarin.Forms application with XAML styles. The final application is shown below:
 
-[![](styling-images/screenshots1-sml.png "Notes Page")](styling-images/screenshots1.png#lightbox "Notes Page")
-[![](styling-images/screenshots2-sml.png "Note Entry Page")](styling-images/screenshots2.png#lightbox "Note Entry Page")
+[![Notes Page](styling-images/screenshots1-sml.png)](styling-images/screenshots1.png#lightbox "Notes Page")
+[![Note Entry Page](styling-images/screenshots2-sml.png)](styling-images/screenshots2.png#lightbox "Note Entry Page")
 
 ### Prerequisites
 
-You should successfully complete the [previous quickstart](database.md) before attempting this quickstart. Alternatively, download the [previous quickstart sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/getstarted-notes-database/) and use it as the starting point for this quickstart.
+You should successfully complete the [previous quickstart](database.md) before attempting this quickstart. Alternatively, download the [previous quickstart sample](/samples/xamarin/xamarin-forms-samples/getstarted-notes-database/) and use it as the starting point for this quickstart.
 
 ::: zone pivot="windows"
 
@@ -46,20 +47,16 @@ You should successfully complete the [previous quickstart](database.md) before a
             <Thickness x:Key="PageMargin">20</Thickness>
 
             <!-- Colors -->
-            <Color x:Key="AppBackgroundColor">WhiteSmoke</Color>
-            <Color x:Key="iOSNavigationBarColor">WhiteSmoke</Color>
-            <Color x:Key="AndroidNavigationBarColor">#2196F3</Color>
-            <Color x:Key="iOSNavigationBarTextColor">Black</Color>
-            <Color x:Key="AndroidNavigationBarTextColor">White</Color>
+            <Color x:Key="AppBackgroundColor">AliceBlue</Color>
+            <Color x:Key="NavigationBarColor">#1976D2</Color>
+            <Color x:Key="NavigationBarTextColor">White</Color>
 
             <!-- Implicit styles -->
             <Style TargetType="{x:Type NavigationPage}">
                 <Setter Property="BarBackgroundColor"
-                        Value="{OnPlatform iOS={StaticResource iOSNavigationBarColor},
-                                           Android={StaticResource AndroidNavigationBarColor}}" />
+                        Value="{StaticResource NavigationBarColor}" />
                  <Setter Property="BarTextColor"
-                        Value="{OnPlatform iOS={StaticResource iOSNavigationBarTextColor},
-                                           Android={StaticResource AndroidNavigationBarTextColor}}" />           
+                        Value="{StaticResource NavigationBarTextColor}" />           
             </Style>
 
             <Style TargetType="{x:Type ContentPage}"
@@ -103,6 +100,7 @@ You should successfully complete the [previous quickstart](database.md) before a
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Text}"
+                              TextColor="Black"
                               Detail="{Binding Date}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -134,8 +132,8 @@ You should successfully complete the [previous quickstart](database.md) before a
                    ApplyToDerivedTypes="True"
                    CanCascade="True">
                 <Setter Property="FontSize" Value="Medium" />
-                <Setter Property="BackgroundColor" Value="LightGray" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="#1976D2" />
+                <Setter Property="TextColor" Value="White" />
                 <Setter Property="CornerRadius" Value="5" />
             </Style>
         </ContentPage.Resources>
@@ -187,20 +185,16 @@ You should successfully complete the [previous quickstart](database.md) before a
             <Thickness x:Key="PageMargin">20</Thickness>
 
             <!-- Colors -->
-            <Color x:Key="AppBackgroundColor">WhiteSmoke</Color>
-            <Color x:Key="iOSNavigationBarColor">WhiteSmoke</Color>
-            <Color x:Key="AndroidNavigationBarColor">#2196F3</Color>
-            <Color x:Key="iOSNavigationBarTextColor">Black</Color>
-            <Color x:Key="AndroidNavigationBarTextColor">White</Color>
+            <Color x:Key="AppBackgroundColor">AliceBlue</Color>
+            <Color x:Key="NavigationBarColor">#1976D2</Color>
+            <Color x:Key="NavigationBarTextColor">White</Color>
 
             <!-- Implicit styles -->
             <Style TargetType="{x:Type NavigationPage}">
                 <Setter Property="BarBackgroundColor"
-                        Value="{OnPlatform iOS={StaticResource iOSNavigationBarColor},
-                                           Android={StaticResource AndroidNavigationBarColor}}" />
+                        Value="{StaticResource NavigationBarColor}" />
                  <Setter Property="BarTextColor"
-                        Value="{OnPlatform iOS={StaticResource iOSNavigationBarTextColor},
-                                           Android={StaticResource AndroidNavigationBarTextColor}}" />           
+                        Value="{StaticResource NavigationBarTextColor}" />           
             </Style>
 
             <Style TargetType="{x:Type ContentPage}"
@@ -244,6 +238,7 @@ You should successfully complete the [previous quickstart](database.md) before a
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Text}"
+                              TextColor="Black"
                               Detail="{Binding Date}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -275,8 +270,8 @@ You should successfully complete the [previous quickstart](database.md) before a
                    ApplyToDerivedTypes="True"
                    CanCascade="True">
                 <Setter Property="FontSize" Value="Medium" />
-                <Setter Property="BackgroundColor" Value="LightGray" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="#1976D2" />
+                <Setter Property="TextColor" Value="White" />
                 <Setter Property="CornerRadius" Value="5" />
             </Style>
         </ContentPage.Resources>
@@ -324,5 +319,5 @@ To learn more about the fundamentals of application development using Xamarin.Fo
 
 ## Related links
 
-- [Notes (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/getstarted-notes-styled/)
+- [Notes (sample)](/samples/xamarin/xamarin-forms-samples/getstarted-notes-styled/)
 - [Xamarin.Forms Quickstart Deep Dive](deepdive.md)

@@ -13,9 +13,9 @@ ms.date: 03/21/2017
 
 The application we’re going to build in this walkthrough is shown below:
 
- [![](ios-maps-walkthrough-images/00-map-overlay.png "An example MapKit app")](ios-maps-walkthrough-images/00-map-overlay.png#lightbox)
+ [![An example MapKit app](ios-maps-walkthrough-images/00-map-overlay.png)](ios-maps-walkthrough-images/00-map-overlay.png#lightbox)
 
-You can find the completed code in the [Maps Walkthrough sample](https://docs.microsoft.com/samples/xamarin/ios-samples/mapswalkthrough).
+You can find the completed code in the [Maps Walkthrough sample](/samples/xamarin/ios-samples/mapswalkthrough).
 
 Let's begin by creating a new **iOS Empty Project**, and giving it a relevant name. We'll start by adding code to our View Controller to display the MapView, and will then create new classes for our MapDelegate, and the custom annotations. Follow the steps below to achieve this:
 
@@ -75,7 +75,7 @@ Let's begin by creating a new **iOS Empty Project**, and giving it a relevant na
 
     ```
 
-1. Create a new instance of  `MapDelegate` and assign it to the `Delegate` of the `MKMapView`. Again, we'll implcodeent the `MapDelegate` shortly:
+1. Create a new instance of  `MapDelegate` and assign it to the `Delegate` of the `MKMapView`. Again, we'll implement the `MapDelegate` shortly:
 
     ```csharp
     mapDelegate = new MapDelegate ();
@@ -240,7 +240,7 @@ This completes the code in `ViewDidLoad`. Now we need to implement our `MapDeleg
     }
     ```
 
-1. To hide the image when the user deselects the annotation by tapping anywhere else on the map, implement the `DidSelectAnnotationView` method as follows:
+1. To hide the image when the user deselects the annotation by tapping anywhere else on the map, implement the `DidDeselectAnnotationView` method as follows:
 
     ```csharp
     public override void DidDeselectAnnotationView (MKMapView mapView, MKAnnotationView view)
@@ -273,7 +273,7 @@ This completes the code in `ViewDidLoad`. Now we need to implement our `MapDeleg
 
 Run the application. We now have an interactive map with a custom annotation and an overlay! Tap on the annotation and the image of Austin is displayed, as shown below:
 
- [![](ios-maps-walkthrough-images/01-map-image.png "Tap on the annotation and the image of Austin is displayed")](ios-maps-walkthrough-images/01-map-image.png#lightbox)
+ [![Tap on the annotation and the image of Austin is displayed](ios-maps-walkthrough-images/01-map-image.png)](ios-maps-walkthrough-images/01-map-image.png#lightbox)
 
 ## Summary
 
@@ -281,6 +281,6 @@ In this article we looked at how to add an annotation to a map as well as how to
 
 ## Related Links
 
-- [Maps Walkthrough sample](https://docs.microsoft.com/samples/xamarin/ios-samples/mapswalkthrough)
-- [Map Demo sample](https://docs.microsoft.com/samples/xamarin/ios-samples/mapdemo)
+- [Maps Walkthrough sample](/samples/xamarin/ios-samples/mapswalkthrough)
+- [Map Demo sample](/samples/xamarin/ios-samples/mapdemo)
 - [iOS Maps](~/ios/user-interface/controls/ios-maps/index.md)

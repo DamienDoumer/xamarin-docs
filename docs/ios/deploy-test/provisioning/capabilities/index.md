@@ -77,7 +77,7 @@ Capabilities are added to the **Entitlements.plist** in Visual Studio for Mac. T
 
 2. Open the **Entitlements.plist** file and select the capability that you wish to add:
 
-    ![Add capabilities to entitlements.plist file](images/image17.png)
+    ![Screenshot shows contents of the Entitlements.plist file.](images/image17.png)
 
     Selecting a capability does two things:
     - Adds that feature to your App ID
@@ -85,7 +85,7 @@ Capabilities are added to the **Entitlements.plist** in Visual Studio for Mac. T
 
     Visual Studio for Mac will advise you when these tasks have been carried out by displaying the following success message:
 
-    ![Add capabilities to entitlements.plist file](images/image18.png)
+    ![Screenshot shows the notification when Automatic Provisioning finishes.](images/image18.png)
 
 # [Visual Studio](#tab/windows)
 
@@ -108,7 +108,7 @@ Capabilities are added to the **Entitlements.plist**. To add capabilities in Vis
 
 -----
 
-<a name="devcenter" />
+<a name="devcenter"></a>
 
 ## Using the Developer Center
 
@@ -141,7 +141,7 @@ Using the developer center is a two step process that requires creating an App I
 
 9. Click **Register** and then **Done**. The newly created App ID should display in the iOS App IDs list.
 
-<a name="provisioningprofile" />
+<a name="provisioningprofile"></a>
 
 ### Creating a Provisioning Profile
 
@@ -183,7 +183,7 @@ Now create a provisioning profile that contains this App ID. Follow the steps be
 > [!IMPORTANT]
 > You may also need to set entitlement keys in the Entitlement.plist file and privacy keys in the Info.plist file. More information on these entitlements is provided in the [Working with Entitlements](~/ios/deploy-test/provisioning/entitlements.md) guide.
 
-<a name="nextsteps" />
+<a name="nextsteps"></a>
 
 ## Next Steps
 
@@ -192,7 +192,7 @@ Once a Capability has been enabled on the server side, there is still work that 
 - Use the framework namespace in your app.
 - Add the required entitlements to your App. Information on the entitlements required and how to add them is detailed in the [Introduction to Entitlements](~/ios/deploy-test/provisioning/entitlements.md) guide.
 
-<a name="troubleshooting" />
+<a name="troubleshooting"></a>
 
 ## Troubleshooting Capabilities
 
@@ -205,7 +205,7 @@ The list below details some of the most common issues that can create roadblocks
 - Ensure that the appropriate privacy-keys are set in info.plist
 - In the App's **iOS Bundle Signing**, ensure that the **Custom Entitlements** is set to **Entitlements.plist**. This is _not_ the default setting for Debug and iOS Simulator builds.
 
-<a name="summary" />
+<a name="summary"></a>
 
 ## Summary
 

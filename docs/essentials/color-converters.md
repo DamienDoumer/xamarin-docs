@@ -4,7 +4,9 @@ description: "The ColorConverters class in Xamarin.Essentials provides several h
 ms.assetid: B10428D6-89E2-4714-A39F-7E6E626391B2
 author: jamesmontemagno
 ms.author: jamont
-ms.date: 03/13/2019
+ms.date: 01/06/2020
+ms.custom: video
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: Color Converters
@@ -28,7 +30,7 @@ When working with `System.Drawing.Color` you can use the built in converters of 
 ```csharp
 var blueHex = ColorConverters.FromHex("#3498db");
 var blueHsl = ColorConverters.FromHsl(204, 70, 53);
-var blueUInt = ColorConverers.FromUInt(3447003);
+var blueUInt = ColorConverters.FromUInt(3447003);
 ```
 
 ## Using Color Extensions
@@ -44,12 +46,13 @@ var blueWithAlpha = blue.MultiplyAlpha(.5f);
 
 There are several other extension methods including:
 
-- ToUInt
+- GetComplementary
 - MultiplyAlpha
-- WithHue
+- ToUInt
 - WithAlpha
-- WithSaturation
+- WithHue
 - WithLuminosity
+- WithSaturation
 
 ## Using Platform Extensions
 
@@ -73,7 +76,13 @@ The `ToSystemColor` method applies to Android.Graphics.Color, UIKit.UIColor, and
 
 ## API
 
-- [Color Converters source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/Types/ColorConverters.shared.cs)
+- [Color Converters source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/Types/ColorConverters.shared.cs)
 - [Color Converters API documentation](xref:Xamarin.Essentials.ColorConverters)
-- [Color Extensions source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/Types/ColorConverters.shared.cs)
+- [Color Extensions source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/Types/ColorConverters.shared.cs)
 - [Color Extensions API documentation](xref:Xamarin.Essentials.ColorExtensions)
+
+## Related Video
+
+> [!Video https://channel9.msdn.com/Shows/XamarinShow/Color-Converters-XamarinEssentials-API-of-the-Week/player]
+
+[!include[](~/essentials/includes/xamarin-show-essentials.md)]

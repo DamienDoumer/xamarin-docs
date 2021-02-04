@@ -13,6 +13,10 @@ ms.date: 03/22/2017
 
 _The Xamarin Designer for iOS supports rendering custom controls created in your project or referenced from external sources like the Xamarin Component Store._
 
+> [!WARNING]
+> The iOS Designer will start to be phased out in Visual Studio 2019 version 16.8 and Visual Studio 2019 for Mac version 8.8.
+> The recommended way to build iOS user interfaces is directly on a Mac running Xcode. For more information, see [Designing user interfaces with Xcode](../storyboards/index.md). 
+
 The Xamarin Designer for iOS is a powerful tool for visualizing an application's user interface and provides
 WYSIWYG editing support for most iOS views and view controllers. Your app may also contain custom controls
 that extend the ones built into iOS. If these custom controls are written with a few guidelines in mind,
@@ -179,7 +183,7 @@ The design surface can often catch exceptions thrown by individual controls whil
 render other controls. The faulty control is replaced with a red placeholder, and you can view the
 exception trace by clicking on the exclamation icon:
 
- ![](ios-designable-controls-overview-images/exception-box.png "A faulty control as red placeholder and the exception details")
+ ![A faulty control as red placeholder and the exception details](ios-designable-controls-overview-images/exception-box.png)
 
 If debug symbols are available for the control, the trace will have file names and line numbers.
 Double clicking a line in the stack trace will jump to that line in the source code.
@@ -187,7 +191,7 @@ Double clicking a line in the stack trace will jump to that line in the source c
 If the designer can't isolate the faulty control, a warning message will appear
 at the top of the design surface:
 
- ![](ios-designable-controls-overview-images/info-bar.png "A warning message at the top of the design surface")
+ ![A warning message at the top of the design surface](ios-designable-controls-overview-images/info-bar.png)
 
 Full rendering will resume when the faulty control is fixed or removed from the design surface.
 

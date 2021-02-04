@@ -30,7 +30,7 @@ An application does not need the location `UIBackgroundMode` to use these locati
 
 Apps using location monitoring for background processing expose a flaw in iOS 6: if an application's needs don't fit into a background-necessary category, it has limited backgrounding options. With the introduction of two new APIs, *Background Fetch* and *Remote Notifications*, iOS 7 (and greater) provides backgrounding opportunities to more applications. The next two sections introduce these new APIs.
 
-<a name="background_fetch" />
+<a name="background_fetch"></a>
 
 ## Background Fetch (iOS 7 and Greater)
 
@@ -38,7 +38,7 @@ In iOS 6, an application entering the foreground needed time to load new content
 
 To implement background fetch, edit *Info.plist* and check the **Enable Background Modes** and **Background Fetch** check boxes:
 
- [![](updating-an-application-in-the-background-images/fetch.png "Edit the Info.plist and check the Enable Background Modes and Background Fetch check boxes")](updating-an-application-in-the-background-images/fetch.png#lightbox)
+ [![Edit the Info.plist and check the Enable Background Modes and Background Fetch check boxes](updating-an-application-in-the-background-images/fetch.png)](updating-an-application-in-the-background-images/fetch.png#lightbox)
 
 Next, in the `AppDelegate`, override the `FinishedLaunching` method to set the minimum fetch interval. In this example, we let the OS decide how often to fetch new content:
 
@@ -86,7 +86,7 @@ Both `BackgroundFetchIntervalMinimum` and `BackgroundFetchIntervalCustom` rely o
 
 Background Fetch should be used for applications that update frequently with non-critical content. For applications with critical updates, Remote Notifications should be used. Remote Notifications are based on Background Fetch, and share the same completion handler. We'll dive into Remote Notifications next.
 
- <a name="remote_notifications" />
+ <a name="remote_notifications"></a>
 
 ## Remote Notifications (iOS 7 and Greater)
 
@@ -96,7 +96,7 @@ In iOS 6, an incoming push notifications tells the system to alert the user that
 
 To implement remote notifications, edit *Info.plist* and check the **Enable Background Modes** and **Remote notifications** check boxes:
 
- [![](updating-an-application-in-the-background-images/remote.png "Background Mode set to Enable Background Modes and Remote notifications")](updating-an-application-in-the-background-images/remote.png#lightbox)
+ [![Background Mode set to Enable Background Modes and Remote notifications](updating-an-application-in-the-background-images/remote.png)](updating-an-application-in-the-background-images/remote.png#lightbox)
 
 Next, set the `content-available` flag on the push notification itself to 1. This lets the application know to fetch new content before displaying the alert:
 
@@ -142,7 +142,7 @@ The biggest difference between normal and silent notifications from a developer 
 
 However, APNs will let silent notifications "piggyback" alongside a normal Remote Notification or keep-alive response. Because regular notifications are not rate limited, they can be used to push stored up silent notifications from the APNs to the device, as illustrated by the following diagram:
 
- [![](updating-an-application-in-the-background-images/silent.png "Regular notifications can be used to push stored silent notifications from the APNs to the device, as illustrated by this diagram")](updating-an-application-in-the-background-images/silent.png#lightbox)
+ [![Regular notifications can be used to push stored silent notifications from the APNs to the device, as illustrated by this diagram](updating-an-application-in-the-background-images/silent.png)](updating-an-application-in-the-background-images/silent.png#lightbox)
 
 > [!IMPORTANT]
 > Apple encourages developers to send silent push notifications whenever the application requires, and let the APNs schedule their delivery.

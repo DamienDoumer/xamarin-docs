@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 09/20/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Shell Introduction
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
 
 Xamarin.Forms Shell reduces the complexity of mobile application development by providing the fundamental features that most mobile applications require, including:
 
@@ -32,6 +33,8 @@ Xamarin.Forms Shell is fully available on iOS and Android, but only partially av
 ```csharp
 global::Xamarin.Forms.Forms.SetFlags("Shell_UWP_Experimental");
 ```
+
+For more information about the status of Shell on UWP, see [Xamarin.Forms Shell Project Board](https://github.com/xamarin/Xamarin.Forms/projects/54) on github.com.
 
 ## Shell navigation experience
 
@@ -56,4 +59,4 @@ Within each tab, additional [`ContentPage`](xref:Xamarin.Forms.ContentPage) obje
 
 ## Related links
 
-- [Xaminals (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
+- [Xaminals (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)

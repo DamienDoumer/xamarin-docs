@@ -8,6 +8,7 @@ ms.custom: video
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/19/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms App Class
@@ -15,7 +16,7 @@ ms.date: 02/19/2016
 The `Application` base class offers the following features, which are exposed in your projects default `App` subclass:
 
 * A `MainPage` property, which is where to set the initial page for the app.
-* A persistent [`Properties` dictionary](#Properties_Dictionary) to store simple values across lifecycle state changes.
+* A persistent [`Properties` dictionary](#properties-dictionary) to store simple values across lifecycle state changes.
 * A static `Current` property that contains a reference to the current application object.
 
 It also exposes [Lifecycle methods](~/xamarin-forms/app-fundamentals/app-lifecycle.md) such
@@ -70,8 +71,6 @@ public class App : Xamarin.Forms.Application
     }
 }
 ```
-
-<a name="Properties_Dictionary" />
 
 ## Properties dictionary
 

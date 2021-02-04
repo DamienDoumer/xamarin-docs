@@ -7,16 +7,17 @@ ms.assetid: D595862D-64FD-4C0D-B0AD-C1F440564247
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/18/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 20. Async and file I/O
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter20)
 
-> [!NOTE] 
-> Notes on this page indicate areas where Xamarin.Forms has diverged from the material presented in the book.
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
- A graphical user interface must respond to user-input events sequentially. This implies that all processing of user-input events must occur in a single thread, often called the *main thread* or the *UI thread*.
+A graphical user interface must respond to user-input events sequentially. This implies that all processing of user-input events must occur in a single thread, often called the *main thread* or the *UI thread*.
 
 Users expect graphical user interfaces to be responsive. This means that a program must process user-input events quickly. If that is not possible, then processing must be relegated to secondary threads of execution.
 

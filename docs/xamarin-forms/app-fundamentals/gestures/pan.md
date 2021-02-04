@@ -1,5 +1,5 @@
 ---
-title: "Adding a pan gesture recognizer"
+title: "Add a pan gesture recognizer"
 description: "This article explains how to use a pan gesture to horizontally and vertically pan an image, so that all of the image content can be viewed when it's being displayed in a viewport smaller than the image dimensions."
 ms.prod: xamarin
 ms.assetid: 42CBD2CF-432D-4F19-A05E-D569BB7F8713
@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/21/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
-# Adding a pan gesture recognizer
+# Add a pan gesture recognizer
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithgestures-pangesture)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/workingwithgestures-pangesture)
 
 _The pan gesture is used for detecting the movement of fingers around the screen and applying that movement to content, and is implemented with the `PanGestureRecognizer` class. A common scenario for the pan gesture is to horizontally and vertically pan an image, so that all of the image content can be viewed when it's being displayed in a viewport smaller than the image dimensions. This is accomplished by moving the image within the viewport, and is demonstrated in this article._
 
@@ -143,6 +144,6 @@ When panning content in an element that does not occupy the full screen, the hei
 
 ## Related Links
 
-- [PanGesture (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithgestures-pangesture)
+- [PanGesture (sample)](/samples/xamarin/xamarin-forms-samples/workingwithgestures-pangesture)
 - [GestureRecognizer](xref:Xamarin.Forms.GestureRecognizer)
 - [PanGestureRecognizer](xref:Xamarin.Forms.PanGestureRecognizer)

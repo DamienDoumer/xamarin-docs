@@ -20,9 +20,9 @@ the support for the encoding you need.
 This is done by selecting the extra encodings from the iOS Build/Advanced
 pane in Visual Studio for Mac or Visual Studio:
 
- [![](encodings-images/00.png "Selecting the extra encodings")](encodings-images/00.png#lightbox)
+ [![Screenshot shows selecting the extra encodings in Visual Studio for Mac.](encodings-images/00.png)](encodings-images/00.png#lightbox)
 
- [![](encodings-images/00a.png "Selecting the extra encodings")](encodings-images/00a.png#lightbox)
+ [![Screenshot shows selecting the extra encodings in Visual Studio.](encodings-images/00a.png)](encodings-images/00a.png#lightbox)
 
 You can select one of these:
 
@@ -33,7 +33,7 @@ You can select one of these:
 - west: Latin languages, Easter and Western European
 - all
 
- <a name="cjk" />
+ <a name="cjk"></a>
 
 ## cjk
 
@@ -44,7 +44,7 @@ You can select one of these:
 - CP950
 - CP54936
 
- <a name="mideast" />
+ <a name="mideast"></a>
 
 ## mideast
 
@@ -56,7 +56,7 @@ You can select one of these:
 - CP28599
 - CP38598
 
- <a name="other" />
+ <a name="other"></a>
 
 ## other
 
@@ -70,7 +70,7 @@ You can select one of these:
 - CP57002
 - CP874
 
- <a name="rare" />
+ <a name="rare"></a>
 
 ## rare
 
@@ -112,7 +112,7 @@ You can select one of these:
 - CP870
 - CP875
 
- <a name="west" />
+ <a name="west"></a>
 
 ## west
 

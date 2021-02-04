@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/21/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Choose a Xamarin.Forms Layout
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-layout)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-layout)
 
 Xamarin.Forms layout classes allow you to arrange and group UI controls in your application. Choosing a layout class requires knowledge of how the layout positions its child elements, and how the layout sizes its child elements. In addition, it may be necessary to nest layouts to create your desired layout.
 
@@ -68,7 +69,7 @@ This is wasteful because unnecessary layout calculations are performed. Instead,
 > [!TIP]
 > When using a [`StackLayout`](xref:Xamarin.Forms.StackLayout), ensure that only one child element is set to [`LayoutOptions.Expands`](xref:Xamarin.Forms.LayoutOptions.Expands). This property ensures that the specified child will occupy the largest space that the `StackLayout` can give to it, and it is wasteful to perform these calculations more than once.
 
-For more information, see [Xamarin.Forms StackLayout](stack-layout.md).
+For more information, see [Xamarin.Forms StackLayout](stacklayout.md).
 
 ## Grid
 
@@ -92,7 +93,7 @@ The following XAML shows how to create a [`Grid`](xref:Xamarin.Forms.Grid) with 
         <ColumnDefinition />
     </Grid.ColumnDefinitions>    
     <Label Text="Column 0, Row 0"
-           Width="200" />
+           WidthRequest="200" />
     <Label Grid.Column="1"
            Text="Column 1, Row 0" />
     <Label Grid.Row="1"
@@ -186,7 +187,7 @@ In this example, layout works as follows:
 > [!WARNING]
 > Avoid using a `RelativeLayout` whenever possible. It will result in the CPU having to perform significantly more work.
 
-For more information, see [Xamarin.Forms RelativeLayout](relative-layout.md).
+For more information, see [Xamarin.Forms RelativeLayout](relativelayout.md).
 
 ## AbsoluteLayout
 
@@ -226,7 +227,7 @@ In this example, layout works as follows:
 > [!CAUTION]
 > Avoid using the [`AbsoluteLayout.AutoSize`](xref:Xamarin.Forms.AbsoluteLayout.AutoSize) property whenever possible, as it will cause the layout engine to perform additional layout calculations.
 
-For more information, see [Xamarin.Forms AbsoluteLayout](absolute-layout.md).
+For more information, see [Xamarin.Forms AbsoluteLayout](absolutelayout.md).
 
 ## Input transparency
 
@@ -242,12 +243,12 @@ In addition, page rendering performance can also be improved by using layout com
 
 ## Related links
 
-- [Layout (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-layout)
+- [Layout (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-layout)
 - [Xamarin.Forms Layouts (video)](https://youtu.be/4HlLjTZQzjM)
-- [Xamarin.Forms StackLayout](stack-layout.md)
+- [Xamarin.Forms StackLayout](stacklayout.md)
 - [Xamarin.Forms Grid](grid.md)
 - [Xamarin.Forms FlexLayout](flex-layout.md)
-- [Xamarin.Forms AbsoluteLayout](absolute-layout.md)
-- [Xamarin.Forms RelativeLayout](relative-layout.md)
+- [Xamarin.Forms AbsoluteLayout](absolutelayout.md)
+- [Xamarin.Forms RelativeLayout](relativelayout.md)
 - [Optimize layout performance](~/xamarin-forms/deploy-test/performance.md#optimize-layout-performance)
 - [Layout compression](layout-compression.md)

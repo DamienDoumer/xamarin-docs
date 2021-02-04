@@ -6,12 +6,13 @@ ms.assetid: F8F9471D-6771-4D23-96C0-2B79473A06D4
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 12/18/2019
+ms.date: 07/21/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Shell Search
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
 
 Xamarin.Forms Shell includes integrated search functionality that's provided by the `SearchHandler` class. Search capability can be added to a page by setting the `Shell.SearchHandler` attached property to a sub-classed `SearchHandler` object. This results in a search box being added at the top of the page:
 
@@ -94,11 +95,11 @@ The `MonkeySearchHandler.OnQueryChanged` method returns a `List` of `Animal` obj
 
 The `ShowsResults` property is set to `true`, so that search suggestions are displayed as the user enters a search query:
 
-[![Screenshot of search results in a Shell SearchHandler, on iOS and Android](search-images/search-results.png "Shell SearchHandler search results")](search-images/search-results-large.png#lightbox "Shell SearchHandler search results")
+[![Screenshot of search results in a Shell SearchHandler, on iOS and Android, with results for the partial string M.](search-images/search-results.png "Shell SearchHandler search results")](search-images/search-results-large.png#lightbox "Shell SearchHandler search results")
 
 As the search query changes, the search suggestions area is updated:
 
-[![Screenshot of search results in a Shell SearchHandler, on iOS and Android](search-images/search-results-change.png "Shell SearchHandler search results")](search-images/search-results-change-large.png#lightbox "Shell SearchHandler search results")
+[![Screenshot of search results in a Shell SearchHandler, on iOS and Android, with results for the partial string M o n.](search-images/search-results-change.png "Shell SearchHandler search results")](search-images/search-results-change-large.png#lightbox "Shell SearchHandler search results")
 
 When a search result is selected, the `MonkeyDetailPage` is navigated to, and data about the selected monkey is displayed:
 
@@ -216,6 +217,7 @@ The `SearchHandler` class defines the following properties that affect its appea
 - `HorizontalTextAlignment`, of type `TextAlignment`, is the horizontal alignment of the search box text.
 - `PlaceholderColor`, of type `Color`, is the color of the placeholder search box text.
 - `TextColor`, of type `Color`, is the color of the search box text.
+- `TextTransform`, of type `TextTransform`, determines the casing of the search box text.
 - `VerticalTextAlignment`, of type `TextAlignment`, is the vertical alignment of the search box text.
 
 ## SearchHandler keyboard
@@ -312,6 +314,7 @@ The `SearchHandler` class defines the following properties that control its appe
 - `SelectedItem`, of type `object`, the selected item in the search results. This property is read only, and has a default value of `null`.
 - `ShowsResults`, of type `bool`, indicates whether search results should be expected in the suggestion area, on text entry. The default value is `false`.
 - `TextColor`, of type `Color`, is the color of the search box text.
+- `TextTransform`, of type `TextTransform`, determines the casing of the search box text.
 
 All of these properties are backed by [`BindableProperty`](xref:Xamarin.Forms.BindableProperty) objects, which means that the properties can be targets of data bindings.
 
@@ -326,5 +329,5 @@ In addition, the `SearchHandler` class provides the following overridable method
 
 ## Related links
 
-- [Xaminals (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
+- [Xaminals (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-xaminals/)
 - [Xamarin.Forms Shell Navigation](navigation.md)

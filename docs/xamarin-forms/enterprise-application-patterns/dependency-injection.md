@@ -7,17 +7,19 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 11/04/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Dependency Injection
+
+> [!NOTE]
+> This eBook was published in the spring of 2017, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated.
 
 Typically, a class constructor is invoked when instantiating an object, and any values that the object needs are passed as arguments to the constructor. This is an example of dependency injection, and specifically is known as *constructor injection*. The dependencies the object needs are injected into the constructor.
 
 By specifying dependencies as interface types, dependency injection enables decoupling of the concrete types from the code that depends on these types. It generally uses a container that holds a list of registrations and mappings between interfaces and abstract types, and the concrete types that implement or extend these types.
 
 There are also other types of dependency injection, such as *property setter injection*, and *method call injection*, but they are less commonly seen. Therefore, this chapter will focus solely on performing constructor injection with a dependency injection container.
-
-<a name="introduction_to_dependency_injection" />
 
 ## Introduction to Dependency Injection
 
@@ -56,7 +58,7 @@ There are many dependency injection containers available, with the eShopOnContai
 
 In TinyIoC, the `TinyIoCContainer` type provides the dependency injection container. Figure 3-1 shows the dependencies when using this container, which instantiates an `IOrderService` object and injects it into the `ProfileViewModel` class.
 
-![](dependency-injection-images/dependencyinjection.png "Dependencies example when using dependency injection")
+![Dependencies example when using dependency injection](dependency-injection-images/dependencyinjection.png)
 
 **Figure 3-1:** Dependencies when using dependency injection
 
@@ -110,8 +112,6 @@ _container.Register<ProfileViewModel>();
 
 By default, each concrete class registration is configured as a multi-instance so that every dependent object receives a new instance. Therefore, when the `ProfileViewModel` is resolved, a new instance will be created and the container will inject its required dependencies.
 
-<a name="resolution" />
-
 ## Resolution
 
 After a type is registered, it can be resolved or injected as a dependency. When a type is being resolved and the container needs to create a new instance, it injects any dependencies into the instance.
@@ -128,7 +128,7 @@ The following code example shows how the `RequestProvider` type that was previou
 var requestProvider = _container.Resolve<IRequestProvider>();
 ```
 
-In this example, TinyIoC is asked to resolve the concrete type for the `IRequestProvider` type, along with any dependencies. Typically, the `Resolve` method is called when an instance of a specific type is required. For information about controlling the lifetime of resolved objects, see [Managing the Lifetime of Resolved Objects](#managing_the_lifetime_of_resolved_objects).
+In this example, TinyIoC is asked to resolve the concrete type for the `IRequestProvider` type, along with any dependencies. Typically, the `Resolve` method is called when an instance of a specific type is required. For information about controlling the lifetime of resolved objects, see [Managing the Lifetime of Resolved Objects](#managing-the-lifetime-of-resolved-objects).
 
 The following code example shows how the eShopOnContainers mobile app instantiates view model types and their dependencies:
 
@@ -136,12 +136,10 @@ The following code example shows how the eShopOnContainers mobile app instantiat
 var viewModel = _container.Resolve(viewModelType);
 ```
 
-In this example, TinyIoC is asked to resolve the view model type for a requested view model, and the container will also resolve any dependencies. When resolving the `ProfileViewModel` type, the dependencies to resolve are an `ISettingsService` object and an `IOrderService` object. Because interface registrations were used when registering the `SettingsService` and `OrderService` classes, TinyIoC returns singleton instances for the `SettingsService` and `OrderService` classes and then passes them to the constructor of the `ProfileViewModel` class. For more information about how the eShopOnContainers mobile app constructs view models and associates them to views, see [Automatically Creating a View Model with a View Model Locator](~/xamarin-forms/enterprise-application-patterns/mvvm.md#automatically_creating_a_view_model_with_a_view_model_locator).
+In this example, TinyIoC is asked to resolve the view model type for a requested view model, and the container will also resolve any dependencies. When resolving the `ProfileViewModel` type, the dependencies to resolve are an `ISettingsService` object and an `IOrderService` object. Because interface registrations were used when registering the `SettingsService` and `OrderService` classes, TinyIoC returns singleton instances for the `SettingsService` and `OrderService` classes and then passes them to the constructor of the `ProfileViewModel` class. For more information about how the eShopOnContainers mobile app constructs view models and associates them to views, see [Automatically Creating a View Model with a View Model Locator](~/xamarin-forms/enterprise-application-patterns/mvvm.md#automatically-creating-a-view-model-with-a-view-model-locator).
 
 > [!NOTE]
 > Registering and resolving types with a container has a performance cost because of the container's use of reflection for creating each type, especially if dependencies are being reconstructed for each page navigation in the app. If there are many or deep dependencies, the cost of creation can increase significantly.
-
-<a name="managing_the_lifetime_of_resolved_objects" />
 
 ## Managing the Lifetime of Resolved Objects
 

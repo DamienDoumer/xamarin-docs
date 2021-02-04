@@ -21,7 +21,7 @@ This guide covers:
 - Adding an Index
 - Adding Headers and Footers
 
-<a name="Subclassing_UITableViewSource" />
+<a name="Subclassing_UITableViewSource"></a>
 
 ## Subclassing UITableViewSource
 
@@ -31,7 +31,7 @@ each cell view populated with data.
 There are only two mandatory methods required to make a table display data:
 
 - **RowsInSection** – return an  [`nint`](~/cross-platform/macios/nativetypes.md) count of the total number of rows of data the table should display.
-- **GetCell** – return a  `UITableCellView` populated with data for the corresponding row index passed to the method.
+- **GetCell** – return a  `UITableViewCell` populated with data for the corresponding row index passed to the method.
 
 The BasicTable sample file **TableSource.cs** has the simplest possible
 implementation of `UITableViewSource`. You can see in code snippet below that it accepts an array of strings to display in the table and returns a default cell style containing each
@@ -59,7 +59,8 @@ public class TableSource : UITableViewSource {
             string item = TableItems[indexPath.Row];
 
             //if there are no cells to reuse, create a new one
-            if (cell == null){ 
+            if (cell == null)
+            { 
                 cell = new UITableViewCell (UITableViewCellStyle.Default, CellIdentifier); 
             }
 
@@ -87,7 +88,7 @@ public override void ViewDidLoad ()
 
 The resulting table looks like this:
 
- [![](populating-a-table-with-data-images/image3.png "Sample table running")](populating-a-table-with-data-images/image3.png#lightbox)
+ [![Sample table running](populating-a-table-with-data-images/image3.png)](populating-a-table-with-data-images/image3.png#lightbox)
 
 Most tables allow the user to touch a row to select it and perform some other
 action (such as playing a song, or calling a contact, or showing another
@@ -141,7 +142,7 @@ public override void RowSelected (UITableView tableView, NSIndexPath indexPath)
 
 Now the user can touch a row and an alert will appear:
 
- [![](populating-a-table-with-data-images/image4.png "The row selected alert")](populating-a-table-with-data-images/image4.png#lightbox)
+ [![The row selected alert](populating-a-table-with-data-images/image4.png)](populating-a-table-with-data-images/image4.png#lightbox)
 
 ## Cell Reuse
 
@@ -223,7 +224,7 @@ public class MyCell : UITableViewCell
 
 You can see examples of the topics explained above in the **BasicTable** sample linked to this article.
 
-<a name="Adding_an_Index" />
+<a name="Adding_an_Index"></a>
 
 ## Adding an Index
 
@@ -233,7 +234,7 @@ alphabetically although you can index by whatever criteria you wish. The
 demonstrate the index. Each item in the index corresponds to a ‘section’ of
 the table.
 
- [![](populating-a-table-with-data-images/image5.png "The Index display")](populating-a-table-with-data-images/image5.png#lightbox)
+ [![The Index display](populating-a-table-with-data-images/image5.png)](populating-a-table-with-data-images/image5.png#lightbox)
 
 To support ‘sections’ the data behind the table needs to be grouped, so
 the BasicTableIndex sample creates a `Dictionary<>` from the
@@ -278,7 +279,7 @@ public override string[] SectionIndexTitles (UITableView tableView)
 
 Indexes are generally only used with the Plain table style.
 
-<a name="Adding_Headers_and_Footers" />
+<a name="Adding_Headers_and_Footers"></a>
 
 ## Adding Headers and Footers
 
@@ -287,7 +288,7 @@ structure required is very similar to adding an index – a `Dictionary<>` works
 to group the cells, this example will group the vegetables by botanical type.
 The output looks like this:
 
- [![](populating-a-table-with-data-images/image6.png "Sample Headers and Footers")](populating-a-table-with-data-images/image6.png#lightbox)
+ [![Sample Headers and Footers](populating-a-table-with-data-images/image6.png)](populating-a-table-with-data-images/image6.png#lightbox)
 
 To display headers and footers the `UITableViewSource` subclass
 requires these additional methods:
@@ -314,4 +315,4 @@ object, using the `GetViewForHeader` and `GetViewForFooter` method overrides on 
 
 ## Related Links
 
-- [WorkingWithTables (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/workingwithtables)
+- [WorkingWithTables (sample)](/samples/xamarin/ios-samples/workingwithtables)

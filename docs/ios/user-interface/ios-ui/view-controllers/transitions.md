@@ -37,7 +37,7 @@ showTwo.TouchUpInside += (object sender, EventArgs e) => {
 
 Running the app and tapping the button causes the default animation of the second controller’s view to animate in from the bottom, as shown below:
 
- ![](transitions-images/no-custom-transition.png "Running the app and tapping the button causes the default animation of the second controllers view to animate in from the bottom")
+ ![Running the app and tapping the button causes the default animation of the second controllers view to animate in from the bottom](transitions-images/no-custom-transition.png)
 
 However, setting the `ModalPresentationStyle` and `TransitioningDelegate` results in a custom animation for the transition:
 
@@ -113,7 +113,7 @@ public class CustomTransitionAnimator : UIViewControllerAnimatedTransitioning
 
 Now, when the button is tapped, the animation implemented in the `UIViewControllerAnimatedTransitioning` class is used:
 
- ![](transitions-images/custom-transition.png "An example of the zoom in effect running")
+ ![An example of the zoom in effect running](transitions-images/custom-transition.png)
 
 ## Collection View Transitions
 
@@ -189,7 +189,7 @@ public override void ItemSelected (UICollectionView collectionView, NSIndexPath 
 
 The `UseLayoutToLayoutNavigationTransitions` property must be set prior to adding the controller to the navigation stack. With this property set, the normal horizontal sliding transition is replaced with an animated transition between the layouts of the two controllers, as illustrated below:
 
-![](transitions-images/nav2.png "An animated transition between the layouts of the two controllers")
+![An animated transition between the layouts of the two controllers](transitions-images/nav2.png)
 
 ### Transition Layout
 
@@ -253,6 +253,6 @@ As the user pinches the collection view, the `TransitionProgress` is set relativ
 
 ## Related Links
 
-- [Intro to iOS 7 (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/introtoios7)
+- [Intro to iOS 7 (sample)](/samples/xamarin/ios-samples/introtoios7)
 - [iOS 7 User Interface Overview](~/ios/platform/introduction-to-ios7/ios7-ui.md)
 - [Backgrounding](~/ios/app-fundamentals/backgrounding/index.md)

@@ -7,17 +7,18 @@ ms.assetid: 32C95DFF-9065-42D7-966C-D3DBD16906B3
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/17/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Bitmap Basics in SkiaSharp
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
 
 _Load bitmaps from various sources and display them._
 
 The support of bitmaps in SkiaSharp is quite extensive. This article covers only the basics &mdash; how to load bitmaps and how to display them:
 
-![](bitmaps-images/basicbitmaps-small.png "The display of two bitmaps")
+![The display of two bitmaps](bitmaps-images/basicbitmaps-small.png)
 
 A much deeper exploration of bitmaps can be found in the section [SkiaSharp Bitmaps](../bitmaps/index.md).
 
@@ -200,7 +201,7 @@ void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
 
 The bitmap is stretched to the dimensions of the rectangle, which is why the monkey is horizontally stretched in these screenshots:
 
-[![](bitmaps-images/basicbitmaps-small.png "A triple screenshot of the Basic Bitmaps page")](bitmaps-images/basicbitmaps-large.png#lightbox "A triple screenshot of the Basic Bitmaps page")
+[![A triple screenshot of the Basic Bitmaps page](bitmaps-images/basicbitmaps-small.png)](bitmaps-images/basicbitmaps-large.png#lightbox "A triple screenshot of the Basic Bitmaps page")
 
 The third image &mdash; which you can only see if you run the program and load a photo from your own picture library &mdash; is also displayed within a rectangle, but the rectangle's position and size are adjusted to maintain the bitmap's aspect ratio. This calculation is a little more involved because it requires calculating a scaling factor based on the size of the bitmap and the destination rectangle, and centering the rectangle in that area:
 
@@ -243,6 +244,6 @@ You can display bitmaps with various degrees of transparency, and the next artic
 
 ## Related Links
 
-- [SkiaSharp APIs](https://docs.microsoft.com/dotnet/api/skiasharp)
-- [SkiaSharpFormsDemos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
+- [SkiaSharp APIs](/dotnet/api/skiasharp)
+- [SkiaSharpFormsDemos (sample)](/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)
 - [Picking a Photo from the Picture Library](~/xamarin-forms/app-fundamentals/dependency-service/photo-picker.md)

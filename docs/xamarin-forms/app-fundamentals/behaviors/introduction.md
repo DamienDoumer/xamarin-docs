@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 04/06/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Introduction to Behaviors
@@ -24,7 +25,7 @@ Behaviors also enable more advanced scenarios. In the context of *commanding*, b
 
 Xamarin.Forms supports two different styles of behaviors:
 
-- **Xamarin.Forms behaviors** – classes that derive from the [`Behavior`](xref:Xamarin.Forms.Behavior) or [`Behavior<T>`](xref:Xamarin.Forms.Behavior`1) class, where `T` is the type of the control to which the behavior should apply. For more information about Xamarin.Forms behaviors, see [Xamarin.Forms Behaviors](~/xamarin-forms/app-fundamentals/behaviors/creating.md) and [Reusable Behaviors](~/xamarin-forms/app-fundamentals/behaviors/reusable/index.md).
+- **Xamarin.Forms behaviors** – classes that derive from the [`Behavior`](xref:Xamarin.Forms.Behavior) or [`Behavior<T>`](xref:Xamarin.Forms.Behavior`1) class, where `T` is the type of the control to which the behavior should apply. For more information about Xamarin.Forms behaviors, see [Xamarin.Forms Behaviors](~/xamarin-forms/app-fundamentals/behaviors/creating.md).
 - **Attached behaviors** – `static` classes with one or more attached properties. For more information about attached behaviors, see [Attached Behaviors](~/xamarin-forms/app-fundamentals/behaviors/attached.md).
 
 This guide focuses on Xamarin.Forms behaviors because they are the preferred approach to behavior construction.

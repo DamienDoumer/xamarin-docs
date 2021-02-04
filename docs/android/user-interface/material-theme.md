@@ -67,7 +67,7 @@ features in Xamarin-based apps:
    installed via the Android SDK Manager.
 
 - **Java JDK 1.8** &ndash; JDK 1.7 can be used if you are specifically 
-    targetting API level 23 and earlier. JDK 1.8 is available from 
+    targeting API level 23 and earlier. JDK 1.8 is available from 
    [Oracle](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 
 To learn how to configure an Android 5.0 app project, 
@@ -132,7 +132,7 @@ an activity with `Theme.Material.Light`:
 Other activities in this app will use the default `Theme.Material` dark
 color scheme (or, if configured, the application theme setting).
 
-<a name="customtheme" />
+<a name="customtheme"></a>
 
 ## Using Custom Themes
 
@@ -253,7 +253,7 @@ for the background color, status bar, and text colors, but it changes the
 color of the app bar to `my_blue` and sets the color of the radio button 
 to `my_purple`.
 
-<a name="customview" />
+<a name="customview"></a>
 
 ### Creating a Custom View Style
 
@@ -371,7 +371,7 @@ downward compatibility with older versions of Android.
 
 ## Related Links
 
-- [ThemeSwitcher (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/android50-themeswitcher)
+- [ThemeSwitcher (sample)](/samples/xamarin/monodroid-samples/android50-themeswitcher)
 - [Introduction to Lollipop](../platform/lollipop.md)
 - [CardView](controls/card-view.md)
 - [Alternate Resources](../app-fundamentals/resources-in-android/alternate-resources.md)

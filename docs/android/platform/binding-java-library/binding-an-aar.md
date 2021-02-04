@@ -11,6 +11,9 @@ ms.date: 04/11/2018
 
 # Binding an .AAR
 
+> [!IMPORTANT]
+> We're currently investigating custom binding usage on the Xamarin platform. Please take [**this survey**](https://www.surveymonkey.com/r/KKBHNLT) to inform future development efforts.
+
 _This walkthrough provides step-by-step instructions for creating a Xamarin.Android Java Bindings Library from an Android .AAR file._
 
 ## Overview
@@ -384,5 +387,5 @@ resource that resides in the .AAR file.
 - [Building a Java Bindings Library (video)](https://university.xamarin.com/classes#10090)
 - [Binding a .JAR](~/android/platform/binding-java-library/binding-a-jar.md)
 - [Binding a Java Library](~/android/platform/binding-java-library/index.md)
-- [AarBinding (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/javaintegration-aarbinding)
+- [AarBinding (sample)](/samples/xamarin/monodroid-samples/javaintegration-aarbinding)
 - [Bug 44573 - One project cannot bind multiple .aar files](https://bugzilla.xamarin.com/show_bug.cgi?id=44573)

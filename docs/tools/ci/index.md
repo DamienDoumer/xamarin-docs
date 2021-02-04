@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Continuous Integration with Xamarin"
+title: "Continuous Integration with Xamarin"
 description: "This document links to guides that describe continuous integration with Xamarin. Linked content provides an overview of continuous integration and discusses App Center Build, TeamCity, and Jenkins."
 ms.prod: xamarin
 ms.assetid: 99484E96-DC69-4697-8BBB-1B44C5CBB5ED
@@ -22,11 +22,11 @@ This section identifies which DevOps features in Azure and Visual Studio you can
 
 ## Working with Continuous Integration Environments
 
-### [Build Xamarin apps with Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin/)
+### [Build Xamarin apps with Azure Pipelines](/azure/devops/pipelines/languages/xamarin/)
 
 Use Azure Pipelines to automatically build Xamarin apps for Android and iOS.
 
-### [Build Xamarin apps using App Center](https://docs.microsoft.com/appcenter/build/xamarin/)
+### [Build Xamarin apps using App Center](/appcenter/build/xamarin/)
 
 Build Xamarin.iOS and Xamarin.Android solutions with App Center, straight from GitHub, Azure DevOps, or Bitbucket.
 

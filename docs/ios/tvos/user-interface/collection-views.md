@@ -13,11 +13,11 @@ ms.date: 03/16/2017
 
 Collection Views allow for a group of content to be displayed using arbitrary layouts. Using built-in support, they allow for the easy creation grid-like or linear layouts, while also supporting custom layouts.
 
-[![](collection-views-images/collection01.png "Sample collection view")](collection-views-images/collection01.png#lightbox)
+[![Sample collection view](collection-views-images/collection01.png)](collection-views-images/collection01.png#lightbox)
 
 The Collection View maintains a collection of items using both a Delegate  and a Data Source to provide user interaction and the content of the collection. Since the Collection View is based on a Layout Subsystem that is independent of the view itself, providing a different Layout can easily change the presentation of the Collection View's data on-the-fly.
 
-<a name="About-Collection-Views" />
+<a name="About-Collection-Views"></a>
 
 ## About Collection Views
 
@@ -31,7 +31,7 @@ Optionally, Supplementary Views can be added to the Collection View's presentati
 
 The Collection View can respond to user interaction using a Delegate (`UICollectionViewDelegate`). This delegate is also responsible for determining if a given cell can get focus, if a cell has been highlighted or if one has been selected. In some cases, the Delegate determines the size of the individual cells.
 
-<a name="Collection-View-Layouts" />
+<a name="Collection-View-Layouts"></a>
 
 ## Collection View Layouts
 
@@ -43,7 +43,7 @@ The Collection View Layout is normally provided when the Collection View is crea
 
 The Collection View Layout provides several methods that can be used to animate the transition between two different layouts (by default no animation is done). Additionally, Collection View Layouts can work with Gesture Recognizers to further animate user interaction that results in a change in layout.
 
-<a name="Creating-Cells-and-Supplementary-Views" />
+<a name="Creating-Cells-and-Supplementary-Views"></a>
 
 ## Creating Cells and Supplementary Views
 
@@ -69,7 +69,7 @@ Where `typeof(CityCollectionViewCell)` provides the class that supports the view
 
 After the cell is dequeued, you configure it with the data for the item it is representing and return to the Collection View for display.
 
-<a name="About-Collection-View-Controllers" />
+<a name="About-Collection-View-Controllers"></a>
 
 ## About Collection View Controllers
 
@@ -82,7 +82,7 @@ first displayed, and reloads and clear the select on each subsequent display.
 
 Additionally, the Collection View Controller provides overridable methods that can be used to manage the lifecycle of the Collection View such as `AwakeFromNib` and `ViewWillDisplay`.
 
-<a name="Collection-Views-and-Storyboards" />
+<a name="Collection-Views-and-Storyboards"></a>
 
 ## Collection Views and Storyboards
 
@@ -96,36 +96,36 @@ Let's do the following:
 1. In the **Solution Explorer**, double-click the `Main.storyboard` file and open it in the iOS Designer.
 1. Add a Image View, a Label and a Button to the existing view and configure them to look like the following: 
 
-    [![](collection-views-images/collection02.png "Sample layout")](collection-views-images/collection02.png#lightbox)
+    [![Sample layout](collection-views-images/collection02.png)](collection-views-images/collection02.png#lightbox)
 1. Assign a **Name** to the Image View and the Label in the **Widget Tab** of the **Properties Explorer**. For example: 
 
-    [![](collection-views-images/collection03.png "Setting the name")](collection-views-images/collection03.png#lightbox)
+    [![Setting the name](collection-views-images/collection03.png)](collection-views-images/collection03.png#lightbox)
 1. Next, drag a Collection View Controller onto the Storyboard: 
 
-    [![](collection-views-images/collection04.png "A Collection View Controller")](collection-views-images/collection04.png#lightbox)
+    [![A Collection View Controller](collection-views-images/collection04.png)](collection-views-images/collection04.png#lightbox)
 1. Control-drag from the Button to the Collection View Controller and select **Push** from the popup: 
 
-    [![](collection-views-images/collection05.png "Select Push from the popup")](collection-views-images/collection05.png#lightbox)
+    [![Select Push from the popup](collection-views-images/collection05.png)](collection-views-images/collection05.png#lightbox)
 1. When the app is run, this will make the Collection View be show whenever the user clicks the Button.
 1. Select the Collection View and enter the following values in the **Layout Tab** of the **Properties Explorer**: 
 
-    [![](collection-views-images/collection06.png "The Properties Explorer")](collection-views-images/collection06.png#lightbox)
+    [![The Properties Explorer](collection-views-images/collection06.png)](collection-views-images/collection06.png#lightbox)
 1. This controls the size of the individual cells and the borders between the cells and the outer edge of the Collection View.
 1. Select the Collection View Controller and set its class to `CityCollectionViewController` in the **Widget Tab**: 
 
-    [![](collection-views-images/collection07.png "Set the class to CityCollectionViewController")](collection-views-images/collection07.png#lightbox)
+    [![Set the class to CityCollectionViewController](collection-views-images/collection07.png)](collection-views-images/collection07.png#lightbox)
 1. Select the Collection View and set its class to `CityCollectionView` in the **Widget Tab**: 
 
-    [![](collection-views-images/collection08.png "Set the class to CityCollectionView")](collection-views-images/collection08.png#lightbox)
+    [![Set the class to CityCollectionView](collection-views-images/collection08.png)](collection-views-images/collection08.png#lightbox)
 1. Select the Collection View Cell and set its class to `CityCollectionViewCell` in the **Widget Tab**: 
 
-    [![](collection-views-images/collection09.png "Set the class to CityCollectionViewCell")](collection-views-images/collection09.png#lightbox)
+    [![Set the class to CityCollectionViewCell](collection-views-images/collection09.png)](collection-views-images/collection09.png#lightbox)
 1. In the **Widget Tab** ensure that the **Layout** is `Flow` and the **Scroll Direction** is `Vertical` for the Collection View: 
 
-    [![](collection-views-images/collection10.png "The Widget Tab")](collection-views-images/collection10.png#lightbox)
+    [![The Widget Tab](collection-views-images/collection10.png)](collection-views-images/collection10.png#lightbox)
 1. Select the Collection View Cell and set its **Identity** to `CityCell` in the **Widget Tab**: 
 
-    [![](collection-views-images/collection11.png "Set the Identity to CityCell")](collection-views-images/collection11.png#lightbox)
+    [![Set the Identity to CityCell](collection-views-images/collection11.png)](collection-views-images/collection11.png#lightbox)
 1. Save your changes.
 
 # [Visual Studio](#tab/windows)
@@ -134,34 +134,34 @@ Let's do the following:
 1. In the **Solution Explorer**, double-click the `Main.storyboard` file and open it in the iOS Designer.
 1. Add a Image View, a Label and a Button to the existing view and configure them to look like the following: 
 
-    [![](collection-views-images/collection02vs.png "Configure the layout")](collection-views-images/collection02vs.png#lightbox)
+    [![Configure the layout](collection-views-images/collection02vs.png)](collection-views-images/collection02vs.png#lightbox)
 1. Assign a **Name** to the Image View and the Label in the **Widget Tab** of the **Properties Explorer**. For example: 
 
-    [![](collection-views-images/collection03vs.png "The Properties Explorer")](collection-views-images/collection03vs.png#lightbox)
+    [![The Properties Explorer](collection-views-images/collection03vs.png)](collection-views-images/collection03vs.png#lightbox)
 1. Next, drag a Collection View Controller onto the Storyboard: 
 
-    [![](collection-views-images/collection04vs.png "A Collection View Controller")](collection-views-images/collection04vs.png#lightbox)
+    [![A Collection View Controller](collection-views-images/collection04vs.png)](collection-views-images/collection04vs.png#lightbox)
 1. Control-drag from the Button to the Collection View Controller and select **Push** from the popup: 
 
-    [![](collection-views-images/collection05vs.png "Select Push from the popup")](collection-views-images/collection05vs.png#lightbox)
+    [![Select Push from the popup](collection-views-images/collection05vs.png)](collection-views-images/collection05vs.png#lightbox)
 1. When the app is run, this will make the Collection View be show whenever the user clicks the Button.
 1. Select the Collection View and in the **Layout Tab** of the **Properties Explorer** enter the **Width** as _361_ and **Height** as _256_ 
 1. This controls the size of the individual cells and the borders between the cells and the outer edge of the Collection View.
 1. Select the Collection View Controller and set its class to `CityCollectionViewController` in the **Widget Tab**: 
 
-    [![](collection-views-images/collection07vs.png "Set the class to CityCollectionViewController")](collection-views-images/collection07vs.png#lightbox)
+    [![Set the class to CityCollectionViewController](collection-views-images/collection07vs.png)](collection-views-images/collection07vs.png#lightbox)
 1. Select the Collection View and set its class to `CityCollectionView` in the **Widget Tab**: 
 
-    [![](collection-views-images/collection08vs.png "Set the class to CityCollectionView")](collection-views-images/collection08vs.png#lightbox)
+    [![Set the class to CityCollectionView](collection-views-images/collection08vs.png)](collection-views-images/collection08vs.png#lightbox)
 1. Select the Collection View Cell and set its class to `CityCollectionViewCell` in the **Widget Tab**: 
 
-    [![](collection-views-images/collection09vs.png "Set the class to CityCollectionViewCell")](collection-views-images/collection09vs.png#lightbox)
+    [![Set the class to CityCollectionViewCell](collection-views-images/collection09vs.png)](collection-views-images/collection09vs.png#lightbox)
 1. In the **Widget Tab** ensure that the **Layout** is `Flow` and the **Scroll Direction** is `Vertical` for the Collection View: 
 
-    [![](collection-views-images/collection10vs.png "Tthe Widget Tab")](collection-views-images/collection10vs.png#lightbox)
+    [![Tthe Widget Tab](collection-views-images/collection10vs.png)](collection-views-images/collection10vs.png#lightbox)
 1. Select the Collection View Cell and set its **Identity** to `CityCell` in the **Widget Tab**: 
 
-    [![](collection-views-images/collection11vs.png "Set the Identity to CityCell")](collection-views-images/collection11vs.png#lightbox)
+    [![Set the Identity to CityCell](collection-views-images/collection11vs.png)](collection-views-images/collection11vs.png#lightbox)
 1. Save your changes.
 
 -----
@@ -170,13 +170,13 @@ If we had chosen `Custom` for the Collection View's **Layout**, we could have sp
 
 For more information on working with Storyboards, please see our [Hello, tvOS Quick Start Guide](~/ios/tvos/get-started/hello-tvos.md).
 
-<a name="Providing-Data-for-the-Collection-View" />
+<a name="Providing-Data-for-the-Collection-View"></a>
 
 ## Providing Data for the Collection View
 
 Now that we have our Collection View (and Collection View Controller) added to our Storyboard, we need to provide the data for the collection. 
 
-<a name="The-Data-Model" />
+<a name="The-Data-Model"></a>
 
 ### The Data Model
 
@@ -279,7 +279,7 @@ CityView.AdjustsImageWhenAncestorFocused = true;
 
 For more information on Navigation and Focus, please see our [Working with Navigation and Focus](~/ios/tvos/app-fundamentals/navigation-focus.md) and [Siri Remote and Bluetooth Controllers](~/ios/tvos/platform/remote-bluetooth.md) documentation.
 
-<a name="The-Collection-View-Data-Provider" />
+<a name="The-Collection-View-Data-Provider"></a>
 
 ### The Collection View Data Provider
 
@@ -437,13 +437,13 @@ public override UICollectionViewCell GetCell (UICollectionView collectionView, N
 
 After we get a Collection View Cell of our `CityCollectionViewCell` type, we populate it with the given item.
 
-<a name="Responding-to-User-Events" />
+<a name="Responding-to-User-Events"></a>
 
 ## Responding to User Events
 
 Because we want the user to be able to select an item from our collection, we need to provide a Collection View Delegate to handle this interaction. And we need to provide a way to let our calling view know what item the user has selected.
 
-<a name="The-App-Delegate" />
+<a name="The-App-Delegate"></a>
 
 ### The App Delegate
 
@@ -455,7 +455,7 @@ public CityInfo SelectedCity { get; set;} = new CityInfo("City02.jpg", "Turning 
 
 This defines the property and sets the default city that will initially be shown. Later, we'll consume this property to display the user's selection and allow the select to be changed.
 
-<a name="The-Collection-View-Delegate" />
+<a name="The-Collection-View-Delegate"></a>
 
 ### The Collection View Delegate
 
@@ -555,7 +555,7 @@ public override void ItemSelected (UICollectionView collectionView, NSIndexPath 
 
 Here we set the `SelectedCity` property of our `AppDelegate` to the item that the user selected and we close the Collection View Controller, returning to the view that called us. We haven't defined the `ParentController` property of our Collection View yet, we'll do that next.
 
-<a name="Configuring-the-Collection-View" />
+<a name="Configuring-the-Collection-View"></a>
 
 ## Configuring the Collection View
 
@@ -787,25 +787,25 @@ public override void ViewWillAppear (bool animated)
 }
 ```
 
-<a name="Testing-the-app" />
+<a name="Testing-the-app"></a>
 
 ## Testing the app
 
 With everything in place, if you build and run the app, the main view is displayed with the default city:
 
-[![](collection-views-images/run01.png "The main screen")](collection-views-images/run01.png#lightbox)
+[![The main screen](collection-views-images/run01.png)](collection-views-images/run01.png#lightbox)
 
 If the user click the **Select a View** button, the Collection View will be displayed:
 
-[![](collection-views-images/run02.png "The collection view")](collection-views-images/run02.png#lightbox)
+[![The collection view](collection-views-images/run02.png)](collection-views-images/run02.png#lightbox)
 
 Any city that has its `CanSelect` property set to `false` will be displayed dimmed and the user will not be able to set focus to it. When the user highlights an item (make it in-focus) the title is displayed and they can use the Parallax Effect to subtlety tilt the image in 3D.
 
 When the user clicks a select image, the Collection View is closed and the main view is redisplayed with the new image:
 
-[![](collection-views-images/run03.png "A new image on the home screen")](collection-views-images/run03.png#lightbox)
+[![A new image on the home screen](collection-views-images/run03.png)](collection-views-images/run03.png#lightbox)
 
-<a name="Creating-Custom-Layout-and-Reordering-Items" />
+<a name="Creating-Custom-Layout-and-Reordering-Items"></a>
 
 ## Creating Custom Layout and Reordering Items
 
@@ -813,7 +813,7 @@ One of the key features of using a Collection View is the ability to create cust
 
 Recently added to Collection Views for iOS 9 was the ability to easily allow the reordering of items in the collection. Again, since tvOS 9 is a subset of iOS 9, this is done them same way. Please see our [Collection View Changes](~/ios/user-interface/controls/uicollectionview.md) document for more details.
 
-<a name="Summary" />
+<a name="Summary"></a>
 
 ## Summary
 
@@ -821,7 +821,7 @@ This article has covered designing and working with Collection Views inside of a
 
 ## Related Links
 
-- [tvOS Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+tvOS)
+- [tvOS Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2btvOS)
 - [tvOS](https://developer.apple.com/tvos/)
 - [tvOS Human Interface Guides](https://developer.apple.com/tvos/human-interface-guidelines/)
 - [App Programming Guide for tvOS](https://developer.apple.com/library/prerelease/tvos/documentation/General/Conceptual/AppleTV_PG/)

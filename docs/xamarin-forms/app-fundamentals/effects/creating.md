@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/24/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Creating an Effect
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/effects-focuseffect)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/effects-focuseffect)
 
 _Effects simplify the customization of a control. This article demonstrates how to create an effect that changes the background color of the Entry control when the control gains focus._
 
@@ -30,12 +31,12 @@ The effect can then be consumed by attaching it to the appropriate control.
 
 The sample application demonstrates a `FocusEffect` that changes the background color of a control when it gains focus. The following diagram illustrates the responsibilities of each project in the sample application, along with the relationships between them:
 
-![](creating-images/focus-effect.png "Focus Effect Project Responsibilities")
+![Focus Effect Project Responsibilities](creating-images/focus-effect.png)
 
 An [`Entry`](xref:Xamarin.Forms.Entry) control on the `HomePage` is customized by the `FocusEffect` class in each platform-specific project. Each `FocusEffect` class derives from the `PlatformEffect` class for each platform. This results in the `Entry` control being rendered with a platform-specific background color, which changes when the control gains focus, as shown in the following screenshots:
 
-![](creating-images/screenshots-1.png "Focus Effect on each Platform")
-![](creating-images/screenshots-2.png "Focus Effect on each Platform")
+![Focus Effect on each Platform, control focused](creating-images/screenshots-1.png)
+![Focus Effect on each Platform, control unfocused](creating-images/screenshots-2.png)
 
 ## Creating the Effect on Each Platform
 
@@ -231,7 +232,7 @@ public class FocusEffect : RoutingEffect
 
 The `FocusEffect` class subclasses the [`RoutingEffect`](xref:Xamarin.Forms.RoutingEffect) class, which represents a platform-independent effect that wraps an inner effect that is usually platform-specific. The `FocusEffect` class calls the base class constructor, passing in a parameter consisting of a concatenation of the resolution group name (specified using the [`ResolutionGroupName`](xref:Xamarin.Forms.ResolutionGroupNameAttribute) attribute on the effect class), and the unique ID that was specified using the [`ExportEffect`](xref:Xamarin.Forms.ExportEffectAttribute) attribute on the effect class. Therefore, when the [`Entry`](xref:Xamarin.Forms.Entry) is initialized at runtime, a new instance of the `MyCompany.FocusEffect` is added to the control's [`Effects`](xref:Xamarin.Forms.Element.Effects) collection.
 
-Effects can also be attached to controls by using a behavior, or by using attached properties. For more information about attaching an effect to a control by using a behavior, see [Reusable EffectBehavior](~/xamarin-forms/app-fundamentals/behaviors/reusable/effect-behavior.md). For more information about attaching an effect to a control by using attached properties, see [Passing Parameters to an Effect](~/xamarin-forms/app-fundamentals/effects/passing-parameters/index.md).
+Effects can also be attached to controls by using a behavior, or by using attached properties. For more information about attaching an effect to a control by using a behavior, see [Reusable EffectBehavior](~/xamarin-forms/app-fundamentals/behaviors/effect-behavior.md). For more information about attaching an effect to a control by using attached properties, see [Passing Parameters to an Effect](~/xamarin-forms/app-fundamentals/effects/passing-parameters/index.md).
 
 ## Consuming the Effect in C&num;
 
@@ -266,5 +267,5 @@ This article demonstrated how to create an effect that changes the background co
 - [Custom Renderers](~/xamarin-forms/app-fundamentals/custom-renderer/index.md)
 - [Effect](xref:Xamarin.Forms.Effect)
 - [PlatformEffect](xref:Xamarin.Forms.PlatformEffect`2)
-- [Background Color Effect (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/effects-backgroundcoloreffect)
-- [Focus Effect (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/effects-focuseffect)
+- [Background Color Effect (sample)](/samples/xamarin/xamarin-forms-samples/effects-backgroundcoloreffect)
+- [Focus Effect (sample)](/samples/xamarin/xamarin-forms-samples/effects-focuseffect)

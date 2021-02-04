@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/17/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Global Styles in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
 
 _Styles can be made available globally by adding them to the application's resource dictionary. This helps to avoid duplication of styles across pages or controls._
 
@@ -57,7 +58,7 @@ The following code example shows a XAML page applying the `buttonStyle` to the p
 
 This results in the appearance shown in the following screenshots:
 
-[![](application-images/application-styles-1.png "Global Styles Example")](application-images/application-styles-1-large.png#lightbox "Global Styles Example")
+[![Global Styles Example](application-images/application-styles-1.png)](application-images/application-styles-1-large.png#lightbox "Global Styles Example")
 
 For information about creating styles in a page's [`ResourceDictionary`](xref:Xamarin.Forms.ResourceDictionary), see [Explicit Styles](~/xamarin-forms/user-interface/styles/explicit.md) and [Implicit Styles](~/xamarin-forms/user-interface/styles/implicit.md).
 
@@ -95,7 +96,7 @@ Styles lower in the view hierarchy take precedence over those defined higher up.
 
 The original `buttonStyle`, defined at application level, is overridden by the `buttonStyle` instance defined at page level. In addition, the page level style is overridden by the control level `buttonStyle`. Therefore, the [`Button`](xref:Xamarin.Forms.Button) instances are displayed with blue text, as shown in the following screenshots:
 
-[![](application-images/application-styles-2.png "Overriding Styles Example")](application-images/application-styles-2-large.png#lightbox "Overriding Styles Example")
+[![Overriding Styles Example](application-images/application-styles-2.png)](application-images/application-styles-2-large.png#lightbox "Overriding Styles Example")
 
 ## Create a global style in C&#35;
 
@@ -148,8 +149,8 @@ The `buttonStyle` is applied to the [`Button`](xref:Xamarin.Forms.Button) instan
 ## Related links
 
 - [XAML Markup Extensions](~/xamarin-forms/xaml/xaml-basics/xaml-markup-extensions.md)
-- [Basic Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
-- [Working with Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithstyles)
+- [Basic Styles (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-styles-basicstyles)
+- [Working with Styles (sample)](/samples/xamarin/xamarin-forms-samples/workingwithstyles)
 - [ResourceDictionary](xref:Xamarin.Forms.ResourceDictionary)
 - [Style](xref:Xamarin.Forms.Style)
 - [Setter](xref:Xamarin.Forms.Setter)

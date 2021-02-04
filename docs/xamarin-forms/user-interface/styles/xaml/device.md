@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/17/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Device Styles in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
 
 _Xamarin.Forms includes six dynamic styles, known as device styles, in the Device.Styles class._
 
@@ -62,7 +63,7 @@ The following code example demonstrates using the *device* styles in a XAML page
 
 The device styles are bound to using the `DynamicResource` markup extension. The dynamic nature of the styles can be seen in iOS by changing the **Accessibility** settings for text size. The appearance of the *device* styles is different on each platform, as shown in the following screenshots:
 
-![](device-images/device-styles.png "Device Styles on Each Platform")
+![Device Styles on Each Platform](device-images/device-styles.png)
 
 *Device* styles can also be derived from by setting the [`BaseResourceKey`](xref:Xamarin.Forms.Style.BaseResourceKey) property to the key name for the device style. In the code example above, `myBodyStyle` inherits from [`BodyStyle`](xref:Xamarin.Forms.Device.Styles.BodyStyle) and sets an accented text color. For more information about dynamic style inheritance, see [Dynamic Style Inheritance](~/xamarin-forms/user-interface/styles/xaml/dynamic.md#dynamic-style-inheritance).
 
@@ -112,18 +113,18 @@ The *device* styles respect accessibility preferences, so font sizes will change
 
 The following screenshots demonstrate the device styles on each platform, with the smallest accessible font size:
 
-[![](device-images/minimum-size.png "Accessible Small Device Styles on Each Platform")](device-images/minimum-size-large.png#lightbox "Accessible Small Device Styles on Each Platform")
+[![Accessible Small Device Styles on Each Platform](device-images/minimum-size.png)](device-images/minimum-size-large.png#lightbox "Accessible Small Device Styles on Each Platform")
 
 The following screenshots demonstrate the device styles on each platform, with the largest accessible font size:
 
-![](device-images/maximum-size.png "Accessible Large Device Styles on Each Platform")
+![Accessible Large Device Styles on Each Platform](device-images/maximum-size.png)
 
 ## Related links
 
 - [Text Styles](~/xamarin-forms/user-interface/text/styles.md)
 - [XAML Markup Extensions](~/xamarin-forms/xaml/xaml-basics/xaml-markup-extensions.md)
-- [Dynamic Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
-- [Working with Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithstyles)
+- [Dynamic Styles (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
+- [Working with Styles (sample)](/samples/xamarin/xamarin-forms-samples/workingwithstyles)
 - [Device.Styles](xref:Xamarin.Forms.Device.Styles)
 - [ResourceDictionary](xref:Xamarin.Forms.ResourceDictionary)
 - [Style](xref:Xamarin.Forms.Style)

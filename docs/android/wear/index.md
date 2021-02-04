@@ -59,18 +59,18 @@ such as [Wearable Activity](https://developer.android.com/reference/android/supp
 ## Samples
 
 You can find a number of
-[samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.Android+wear) using Android Wear (or go
+[samples](/samples/browse/?products=xamarin&term=Xamarin.Android%2bwear) using Android Wear (or go
 directly to
 [github](https://github.com/xamarin/monodroid-samples/tree/master/wear)).
 
 |Sample|Description|Screenshot|
 |--- |--- |--- |
-|[SkeletonWear](https://docs.microsoft.com/samples/xamarin/monodroid-samples/wear-skeletonwear)|A simple example of the basics of wearable projects, including GridViewPager and interactive notifications.|![Screenshot of Skeletonwear](images/skeleton.png)|
-|[WatchViewStub](https://docs.microsoft.com/samples/xamarin/monodroid-samples/wear-watchviewstub)|A simple demo of the WatchViewStub control that detects screen shape and automatically loads the correct layout. See how WatchViewStub works in the **Resources/layout/main_activity.xml** layout.|![Screenshot of WatchViewStub](images/watchview.png)|
-|[RecipeAssistant](https://docs.microsoft.com/samples/xamarin/monodroid-samples/wear-recipeassistant)|Demonstration of Wear notification pages, in the form of recipe steps. Notifications are created in RecipeService.cs.|![Screenshot of RecipeAssistant](images/recipeassist.png)|
-|[ElizaChat](https://docs.microsoft.com/samples/xamarin/monodroid-samples/wear-elizachat)|Fun sample of interacting with a "personal assistant" called Eliza, using Wear interactive notifications to create a conversation using canned responses.|![Screenshot of ElizaChat](images/eliza.png)|
-|[GridViewPager](https://docs.microsoft.com/samples/xamarin/monodroid-samples/wear-gridviewpager)|GridViewPager implements the 2D navigation pattern, where the user swipes vertically and then horizontally to navigate through options and content.|![Screenshot of GridViewPager](images/gridviewpager.png)|
-|[WatchFace](https://docs.microsoft.com/samples/xamarin/monodroid-samples/wear-watchface)|WatchFace is a custom watch face with analog-style hour, minute, and second hands. This sample demonstrates how to create a watch face service that draws the current time and handles ambient mode and visibility change events. It includes a broadcast receiver that listens for time zone changes and automatically updates the time accordingly.|![Screenshot of WatchFace](images/gridviewpager.png)|
+|[SkeletonWear](/samples/xamarin/monodroid-samples/wear-skeletonwear)|A simple example of the basics of wearable projects, including GridViewPager and interactive notifications.|![Screenshot of Skeletonwear](images/skeleton.png)|
+|[WatchViewStub](/samples/xamarin/monodroid-samples/wear-watchviewstub)|A simple demo of the WatchViewStub control that detects screen shape and automatically loads the correct layout. See how WatchViewStub works in the **Resources/layout/main_activity.xml** layout.|![Screenshot of WatchViewStub](images/watchview.png)|
+|[RecipeAssistant](/samples/xamarin/monodroid-samples/wear-recipeassistant)|Demonstration of Wear notification pages, in the form of recipe steps. Notifications are created in RecipeService.cs.|![Screenshot of RecipeAssistant](images/recipeassist.png)|
+|[ElizaChat](/samples/xamarin/monodroid-samples/wear-elizachat)|Fun sample of interacting with a "personal assistant" called Eliza, using Wear interactive notifications to create a conversation using canned responses.|![Screenshot of ElizaChat](images/eliza.png)|
+|[GridViewPager](/samples/xamarin/monodroid-samples/wear-gridviewpager)|GridViewPager implements the 2D navigation pattern, where the user swipes vertically and then horizontally to navigate through options and content.|![Screenshot of GridViewPager](images/gridviewpager.png)|
+|[WatchFace](/samples/xamarin/monodroid-samples/wear-watchface)|WatchFace is a custom watch face with analog-style hour, minute, and second hands. This sample demonstrates how to create a watch face service that draws the current time and handles ambient mode and visibility change events. It includes a broadcast receiver that listens for time zone changes and automatically updates the time accordingly.|![Screenshot of WatchFace](images/gridviewpager.png)|
 
 ## Videos
 
@@ -78,9 +78,9 @@ Check out these video links that discuss Xamarin.Android with Wear support:
 
 |Description|Screenshot|
 |--- |--- |
-|[Android L and So Much More](https://blog.xamarin.com/webinar-recording-android-l-and-so-much-more/) &ndash; The Android L Developer Preview introduced a plethora of new APIs for developers to take advantage of, including Material Design, notifications, and new animations, to name a few.|![Video screenshot of presentation](images/video-android-l.png)|
-|[C# is in my Ears and in my Eyes: Google Glass and Android Wear](https://www.youtube.com/watch?v=80H8tXByZQc) &ndash; Wearable computing might seem like something from the future (or an Inspector Gadget episode), but many people are already embracing the future today! C# developers know this and already have the tools and skills to harness the power of wearable devices (from Evolve 2014).|![Video screenshot of presentation](images/video-eyes-ears.png)|
-|[What's new in Xamarin.Android](https://www.youtube.com/watch?v=Gpqc2XZIQfU) &ndash; Android L, Android Wear, Android TV, Android Auto, Material Design, and ART; what does this mean to you as a Xamarin developer? from Evolve 2014.|![Video screenshot of presentation](Images/video-whats-new.png)|
+|[Android L and So Much More](https://blog.xamarin.com/webinar-recording-android-l-and-so-much-more/) &ndash; The Android L Developer Preview introduced a plethora of new APIs for developers to take advantage of, including Material Design, notifications, and new animations, to name a few.|![Video screenshot of Android L and So Much More presentation.](images/video-android-l.png)|
+|[C# is in my Ears and in my Eyes: Google Glass and Android Wear](https://www.youtube.com/watch?v=80H8tXByZQc) &ndash; Wearable computing might seem like something from the future (or an Inspector Gadget episode), but many people are already embracing the future today! C# developers know this and already have the tools and skills to harness the power of wearable devices (from Evolve 2014).|![Video screenshot of C# is in my Ears and in my Eyes presentation.](images/video-eyes-ears.png)|
+|[What's new in Xamarin.Android](https://www.youtube.com/watch?v=Gpqc2XZIQfU) &ndash; Android L, Android Wear, Android TV, Android Auto, Material Design, and ART; what does this mean to you as a Xamarin developer? from Evolve 2014.|![Video screenshot of What's new in Xamarin dot Android presentation.](Images/video-whats-new.png)|
 
 <!--
 

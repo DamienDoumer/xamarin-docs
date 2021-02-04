@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/06/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms CollectionView Selection
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-collectionviewdemos/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-collectionviewdemos/)
 
 [`CollectionView`](xref:Xamarin.Forms.CollectionView) defines the following properties that control item selection:
 
@@ -33,6 +34,8 @@ By default, [`CollectionView`](xref:Xamarin.Forms.CollectionView) selection is d
 
 - `PreviousSelection` – the list of items that were selected, before the selection changed.
 - `CurrentSelection` – the list of items that are selected, after the selection change.
+
+In addition, [`CollectionView`](xref:Xamarin.Forms.CollectionView) has a `UpdateSelectedItems` method that updates the [`SelectedItems`](xref:Xamarin.Forms.SelectableItemsView.SelectedItems) property with a list of selected items, while only firing a single change notification.
 
 ## Single selection
 
@@ -328,5 +331,5 @@ When the [`SelectionMode`](xref:Xamarin.Forms.SelectableItemsView.SelectionMode)
 
 ## Related links
 
-- [CollectionView (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-collectionviewdemos/)
+- [CollectionView (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-collectionviewdemos/)
 - [Xamarin.Forms Visual State Manager](~/xamarin-forms/user-interface/visual-state-manager.md)

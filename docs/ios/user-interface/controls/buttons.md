@@ -14,7 +14,7 @@ ms.date: 07/11/2018
 In iOS, the `UIButton` class represents a button control.
 
 A button's properties can be modified either programmatically or with the
-**Properties Pad** of the iOS Designer:
+**Properties Window or Pad** of the iOS Designer:
 
 ![The Properties Pad of the iOS Designer](buttons-images/properties.png "The Properties Pad of the iOS Designer")
 
@@ -28,7 +28,7 @@ A `UIButton` can be created with only a few lines of code.
   UIButton myButton = new UIButton(UIButtonType.System);
   ```
 
-  The button's type is specified by a `UIButtonType`:
+  The button's type is specified by a `UIButtonType` property:
 
   - `UIButtonType.System` - A general-purpose button
   - `UIButtonType.DetailDisclosure` - Indicates the availability of detailed information, usually about a specific item in a table
@@ -51,12 +51,22 @@ A `UIButton` can be created with only a few lines of code.
   ```
 
 - Set the button's text. Use the `SetTitle` method, which requires the text
-  and a `UIControlState` value:
+  and a `UIControlState` value for button state:
 
   ```csharp
   myButton.SetTitle("Hello, World!", UIControlState.Normal);
   ```
-
+  
+  The button's state types are listed below:
+  
+  - `UIControlState.Normal`
+  - `UIControlState.Highlighted`
+  - `UIControlState.Disabled`
+  - `UIControlState.Selected`
+  - `UIControlState.Focused`
+  - `UIControlState.Application`
+  - `UIControlState.Reserved`
+  
   For more information about styling a button and setting its text, refer
   to:
 
@@ -70,7 +80,7 @@ To respond to a button tap, provide a handler for the button's
 `TouchUpInside` event:
 
 ```csharp
-button.TouchUpInside += (sender, e) => {
+myButton.TouchUpInside += (sender, e) => {
     DoSomething();
 };
 ```
@@ -107,8 +117,8 @@ For example, to set the title color and shadow color for
 `UIControlState.Normal`:
 
 ```csharp
-button.SetTitleColor(UIColor.White, UIControlState.Normal);
-button.SetTitleShadowColor(UIColor.Black, UIControlState.Normal);
+myButton.SetTitleColor(UIColor.White, UIControlState.Normal);
+myButton.SetTitleShadowColor(UIColor.Black, UIControlState.Normal);
 ```
 
 The following code sets the button title to an attributed (stylized) string 
@@ -129,9 +139,9 @@ it's possible to configure the button's appearance by setting an image for
 its different states:
 
 ```csharp
-button4.SetImage (UIImage.FromBundle ("Buttons/MagicWand.png"), UIControlState.Normal);
-button4.SetImage (UIImage.FromBundle ("Buttons/MagicWand_Highlight.png"), UIControlState.Highlighted);
-button4.SetImage (UIImage.FromBundle ("Buttons/MagicWand_On.png"), UIControlState.Selected);
+myButton.SetImage (UIImage.FromBundle ("Buttons/MagicWand.png"), UIControlState.Normal);
+myButton.SetImage (UIImage.FromBundle ("Buttons/MagicWand_Highlight.png"), UIControlState.Highlighted);
+myButton.SetImage (UIImage.FromBundle ("Buttons/MagicWand_On.png"), UIControlState.Selected);
 ```
 
 Depending on whether the user is touching the button or not, it will

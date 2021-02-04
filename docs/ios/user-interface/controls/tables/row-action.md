@@ -41,7 +41,7 @@ These are explained in greater detail in the following sections.
 
 `UITableViewController` (and also `UITableViewSource` and `UITableViewDelegate`) contain two methods: `GetLeadingSwipeActionsConfiguration` and `GetTrailingSwipeActionsConfiguration`, that are used to implement a set of swipe actions on a table view row. The leading swipe action refers to a swipe from the left hand side of the screen in a left-to-right language and from the right hand side of the screen in a right-to-left language.
 
-The following example (from the [TableSwipeActions](https://docs.microsoft.com/samples/xamarin/ios-samples/tableswipeactions) sample) demonstrates implementing the leading swipe configuration. Two actions are created from the contextual actions, which are explained [below](#create-uicontextualaction). These actions are then passed in to a newly initialized [`UISwipeActionsConfiguration`](#create-uiswipeactionsconfigurations), which is used as the return value.
+The following example (from the [TableSwipeActions](/samples/xamarin/ios-samples/tableswipeactions) sample) demonstrates implementing the leading swipe configuration. Two actions are created from the contextual actions, which are explained [below](#create-uicontextualaction). These actions are then passed in to a newly initialized [`UISwipeActionsConfiguration`](#create-uiswipeactionsconfigurations), which is used as the return value.
 
 ```csharp
 public override UISwipeActionsConfiguration GetLeadingSwipeActionsConfiguration(UITableView tableView, NSIndexPath indexPath)
@@ -59,7 +59,7 @@ public override UISwipeActionsConfiguration GetLeadingSwipeActionsConfiguration(
 }
 ```
 
-<a name="create-uiswipeactionsconfigurations" />
+<a name="create-uiswipeactionsconfigurations"></a>
 
 ### 2. Instantiate a `UISwipeActionsConfiguration`
 
@@ -71,7 +71,7 @@ var leadingSwipe = UISwipeActionsConfiguration.FromActions(new UIContextualActio
 leadingSwipe.PerformsFirstActionWithFullSwipe = false;
 ```
 
-It's important to note that the order in which your actions display is dependant on how they are passed into your array. For example, the code above for leading swipes displays the actions as so:
+It's important to note that the order in which your actions display is dependent on how they are passed into your array. For example, the code above for leading swipes displays the actions as so:
 
 ![leading swipe Actions displayed on a table row](row-action-images/action03.png)
 
@@ -81,7 +81,7 @@ For trailing swipes, the actions will be displayed as illustrated in the followi
 
 This code snippet also makes use of the new `PerformsFirstActionWithFullSwipe` property. By default, this property is set to true, meaning that the first action in the array will happen when a user swipes fully on a row. If you have an action that is not destructive (for example "Delete", this might not be ideal behavior and you should therefore set it to `false`.
 
-<a name="create-uicontextualaction" />
+<a name="create-uicontextualaction"></a>
 
 ### Create a `UIContextualAction`
 
@@ -181,12 +181,12 @@ table.Delegate = tableDelegate;
 When the above code is run and the user swipes left on a table row,
 the **Hi** button will be displayed instead of the **Delete** button that is displayed by default:
 
-[![](row-action-images/action01.png "The Hi button being displayed instead of the Delete button")](row-action-images/action01.png#lightbox)
+[![The Hi button being displayed instead of the Delete button](row-action-images/action01.png)](row-action-images/action01.png#lightbox)
 
 If the user taps the **Hi** button, `Hello World!` will be written out to the
 console in Visual Studio for Mac or Visual Studio when the application is run in the debug mode.
 
 ## Related Links
 
-- [TableSwipeActions (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/tableswipeactions)
-- [WorkingWithTables (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/workingwithtables)
+- [TableSwipeActions (sample)](/samples/xamarin/ios-samples/tableswipeactions)
+- [WorkingWithTables (sample)](/samples/xamarin/ios-samples/workingwithtables)

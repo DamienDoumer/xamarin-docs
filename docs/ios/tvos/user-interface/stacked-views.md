@@ -15,7 +15,7 @@ The Stack View control (`UIStackView`) leverages the power of Auto Layout and Si
 
 The layout of all subviews attached to a Stack View are managed by it based on developer defined properties such as axis, distribution, alignment and spacing:
 
-[![](stacked-views-images/stacked01.png "Subview layout diagram")](stacked-views-images/stacked01.png#lightbox)
+[![Subview layout diagram](stacked-views-images/stacked01.png)](stacked-views-images/stacked01.png#lightbox)
 
 When using a `UIStackView` in a Xamarin.tvOS app, the developer can either define the subviews either inside a Storyboard in the iOS Designer, or by adding and removing subviews in C# code.
 
@@ -36,7 +36,7 @@ Typically you will use a Stack View to arrange a small number of subviews. More 
 
 You can further fine-tune the UIs appearance by adding additional constraints to the subviews (for example to control the Height or Width). However, care should be taken not to include conflicting constraints to those introduced by the Stack View itself.
 
-<a name="Auto-Layout-and-Size-Classes" />
+<a name="Auto-Layout-and-Size-Classes"></a>
 
 ## Auto Layout and Size Classes
 
@@ -48,7 +48,7 @@ The Stack View uses the subview's `IntrinsicContentSize` property when calculati
 
 With the exception of the `Fill Alignment`, the Stack View uses the subview's `IntrinsicContentSize` property for calculating the view's size perpendicular to the given `Axis`. For the `Fill Alignment`, all subviews are sized so that they fill the Stack View perpendicular to the given `Axis`.
 
-<a name="Positioning-and-Sizing-the-Stack-View" />
+<a name="Positioning-and-Sizing-the-Stack-View"></a>
 
 ## Positioning and Sizing the Stack View
 
@@ -70,7 +70,7 @@ If the `BaselineRelativeArrangement` property is `true`, the subviews will be la
 > [!IMPORTANT]
 > Baseline Alignment does not work on stretched or compressed subview sizes as the baseline will be calculated to the wrong position. For Baseline Alignment, ensure that the subview's **Height** matches the Intrinsic Content View's **Height**.
 
-<a name="Common-Stack-View-Uses" />
+<a name="Common-Stack-View-Uses"></a>
 
 ## Common Stack View Uses
 
@@ -81,7 +81,7 @@ There are several layout types that work well with Stack View controls. Accordin
 - **Define the Size and Position of the Stack** – By pinning all four edges of the Stack View to the parent view, the Stack View arranges the subviews based on the space defined within the Stack View.
 - **Define the Size Perpendicular the Axis** – By pinning both edges perpendicular to the Stack View's `Axis` and one of the edges along the axis to set the position, the Stack view will grow perpendicular to the axis to fit the space defined by its subviews.
 
-<a name="Stack-Views-and-Storyboards" />
+<a name="Stack-Views-and-Storyboards"></a>
 
 ## Stack Views and Storyboards
 
@@ -92,21 +92,21 @@ The easiest way to work with Stack Views in a Xamarin.tvOS app is to add them to
 1. In the **Solution Pad**, double-clicking the `Main.storyboard` file and open it for editing.
 1. Design the layout of your individual elements that you are going to add to the Stack View:
 
-    [![](stacked-views-images/layout01.png "Element layout example")](stacked-views-images/layout01.png#lightbox)
+    [![Element layout example](stacked-views-images/layout01.png)](stacked-views-images/layout01.png#lightbox)
 1. Add any required constraints to the elements to ensure they scale correctly. This step is important once the element is added to the Stack View.
 1. Make the required number of copies (four in this case):
 
-    [![](stacked-views-images/layout02.png "The required number of copies")](stacked-views-images/layout02.png#lightbox)
+    [![The required number of copies](stacked-views-images/layout02.png)](stacked-views-images/layout02.png#lightbox)
 1. Drag a **Stack View** from the **Toolbox** and drop it on the View:
 
-    [![](stacked-views-images/layout03.png "A Stack View")](stacked-views-images/layout03.png#lightbox)
+    [![A Stack View](stacked-views-images/layout03.png)](stacked-views-images/layout03.png#lightbox)
 1. Select the Stack View, in the **Widget Tab** of the **Properties Pad** select **Fill** for the **Alignment**, **Fill Equally** for the **Distribution** and enter `25` for the **Spacing**:
 
-    [![](stacked-views-images/layout04.png "The Widget Tab")](stacked-views-images/layout04.png#lightbox)
+    [![The Widget Tab](stacked-views-images/layout04.png)](stacked-views-images/layout04.png#lightbox)
 1. Position the Stack View on the screen where you want it and add Constraints to keep it in the required location.
 1. Select the individual elements and drag them into the Stack View:
 
-    [![](stacked-views-images/layout05.png "The individual elements in the Stack View")](stacked-views-images/layout05.png#lightbox)
+    [![The individual elements in the Stack View](stacked-views-images/layout05.png)](stacked-views-images/layout05.png#lightbox)
 1. The layout will be adjusted and the elements will be arranged in the Stack View based on the attributes you set above.
 1. Assign **Names** in the **Widget Tab** of the **Properties Explorer** to work with your UI controls in C# code.
 1. Save your changes.
@@ -116,21 +116,21 @@ The easiest way to work with Stack Views in a Xamarin.tvOS app is to add them to
 1. In the **Solution Explorer**, double-clicking the `Main.storyboard` file and open it for editing.
 1. Design the layout of your individual elements that you are going to add to the Stack View:
 
-    [![](stacked-views-images/layout01.png "Example element layout")](stacked-views-images/layout01.png#lightbox)
+    [![Example element layout](stacked-views-images/layout01.png)](stacked-views-images/layout01.png#lightbox)
 1. Add any required constraints to the elements to ensure they scale correctly. This step is important once the element is added to the Stack View.
 1. Make the required number of copies (four in this case):
 
-    [![](stacked-views-images/layout02.png "The required number of copies")](stacked-views-images/layout02.png#lightbox)
+    [![The required number of copies](stacked-views-images/layout02.png)](stacked-views-images/layout02.png#lightbox)
 1. Drag a **Stack View** from the **Toolbox** and drop it on the View:
 
-    [![](stacked-views-images/layout03-vs.png "A Stack View")](stacked-views-images/layout03-vs.png#lightbox)
+    [![A Stack View](stacked-views-images/layout03-vs.png)](stacked-views-images/layout03-vs.png#lightbox)
 1. Select the Stack View, in the **Widget Tab** of the **Properties Explorer** select **Fill** for the **Alignment**, **Fill Equally** for the **Distribution** and enter `25` for the **Spacing**:
 
-    [![](stacked-views-images/layout04-vs.png "The Widget Tab")](stacked-views-images/layout04-vs.png#lightbox)
+    [![The Widget Tab](stacked-views-images/layout04-vs.png)](stacked-views-images/layout04-vs.png#lightbox)
 1. Position the Stack View on the screen where you want it and add Constraints to keep it in the required location.
 1. Select the individual elements and drag them into the Stack View:
 
-    [![](stacked-views-images/layout05-vs.png "The individual elements in the Stack View")](stacked-views-images/layout05-vs.png#lightbox)
+    [![The individual elements in the Stack View](stacked-views-images/layout05-vs.png)](stacked-views-images/layout05-vs.png#lightbox)
 1. The layout will be adjusted and the elements will be arranged in the Stack View based on the attributes you set above.
 1. Assign **Names** in the **Widget Tab** of the **Properties Explorer** to work with your UI controls in C# code.
 1. Save your changes.
@@ -179,13 +179,13 @@ partial void PlayerCountChanged (Foundation.NSObject sender) {
 
 When the app is run, the four elements will equally be distributed in our Stack View:
 
-[![](stacked-views-images/layout06.png "When the app is run, the four elements will equally be distributed in our Stack View")](stacked-views-images/layout06.png#lightbox)
+[![When the app is run, the four elements will equally be distributed in our Stack View](stacked-views-images/layout06.png)](stacked-views-images/layout06.png#lightbox)
 
 If the number of players is decreased, the unused views are hidden and the Stack View adjust the layout to fit:
 
-[![](stacked-views-images/layout07.png "If the number of players is decreased, the unused views are hidden and the Stack View adjust the layout to fit")](stacked-views-images/layout07.png#lightbox)
+[![If the number of players is decreased, the unused views are hidden and the Stack View adjust the layout to fit](stacked-views-images/layout07.png)](stacked-views-images/layout07.png#lightbox)
 
-<a name="Populate-a-Stack-View-from-Code" />
+<a name="Populate-a-Stack-View-from-Code"></a>
 
 ### Populate a Stack View from Code
 
@@ -278,7 +278,7 @@ icon.RemoveFromSuperview();
 
 Removing a subview from just the `ArrangedSubviews` collection takes it out of the Stack View's control, but does not remove it from the screen.
 
-<a name="Dynamically-Changing-Content" />
+<a name="Dynamically-Changing-Content"></a>
 
 ## Dynamically Changing Content
 
@@ -296,7 +296,7 @@ UIView.Animate(0.25, ()=>{
 
 Many of the Stack View's properties can be specified using Size Classes within a Storyboard. These properties will be automatically animated is response to size or orientation changes.
 
-<a name="Summary" />
+<a name="Summary"></a>
 
 ## Summary
 
@@ -304,7 +304,7 @@ This article has covered designing and working with Stacked View inside of a Xam
 
 ## Related Links
 
-- [tvOS Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+tvOS)
+- [tvOS Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2btvOS)
 - [tvOS](https://developer.apple.com/tvos/)
 - [tvOS Human Interface Guides](https://developer.apple.com/tvos/human-interface-guidelines/)
 - [App Programming Guide for tvOS](https://developer.apple.com/library/prerelease/tvos/documentation/General/Conceptual/AppleTV_PG/)

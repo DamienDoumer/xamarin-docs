@@ -50,7 +50,7 @@ When a downstream message is sent to a client app from an app server,
 the app server sends the message to an *FCM connection server* provided
 by Google; the FCM connection server, in turn, forwards the message to
 a device that is running the client app. Messages can be sent over HTTP
-or [XMPP](https://developers.google.com/cloud-messaging/ccs) (Extensible
+or [XMPP](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) (Extensible
 Messaging and Presence Protocol). Because client apps are not always
 connected or running, the FCM connection server enqueues and stores
 messages, sending them to client apps as they reconnect and become
@@ -101,7 +101,7 @@ to your Xamarin.Android project as explained in
 The following sections explain how these credentials are used when
 client apps communicate with app servers through FCM.
 
-<a name="registration" />
+<a name="registration"></a>
 
 ### Registration with FCM
 
@@ -191,7 +191,7 @@ obtains a registration token as explained earlier):
 For more information about Firebase topic messaging, see Google's
 [Topic Messaging on Android](https://firebase.google.com/docs/cloud-messaging/android/topic-messaging).
 
-<a name="setup_fcm" />
+<a name="setup_fcm"></a>
 
 ## Setting up Firebase Cloud Messaging
 

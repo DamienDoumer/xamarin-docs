@@ -51,11 +51,11 @@ To implement this feature, edit the app's `Info.plist` file, add the `CoreSpotli
 
 # [Visual Studio for Mac](#tab/macos)
 
-[![](app-search-enhancements-images/search01.png "Editing CoreSpotlightContinuation in the Info.plist file")](app-search-enhancements-images/search01.png#lightbox)
+[![Editing CoreSpotlightContinuation in the Info.plist file](app-search-enhancements-images/search01.png)](app-search-enhancements-images/search01.png#lightbox)
 
 # [Visual Studio](#tab/windows)
 
-[![](app-search-enhancements-images/searchw01.png "Editing CoreSpotlightContinuation in the Info.plist file")](app-search-enhancements-images/search01.png#lightbox)
+[![Editing CoreSpotlightContinuation in the Info.plist file](app-search-enhancements-images/searchw01.png)](app-search-enhancements-images/search01.png#lightbox)
 
 -----
 
@@ -113,4 +113,4 @@ This article has covered the enhancements Apple has made to App Search in iOS 10
 
 ## Related Links
 
-- [iOS 10 Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+iOS10)
+- [iOS 10 Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2biOS10)

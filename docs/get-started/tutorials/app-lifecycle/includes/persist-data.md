@@ -74,7 +74,7 @@ In this exercise, you'll modify the application to persist the text from an [`En
     </ContentPage>
     ```
 
-    This code declaratively defines the user interface for the page, which consists of an [`Entry`](xref:Xamarin.Forms.Entry) in a [`StackLayout`](xref:Xamarin.Forms.StackLayout). The [`Entry.Placeholder`](xref:Xamarin.Forms.Entry.Placeholder) property specifies the placeholder text that's shown when the `Entry` is first displayed, and an event handler named `OnEntryCompleted` is registered with the [`Completed`](xref:Xamarin.Forms.Entry.Completed) event. In addition, the `Entry` has a name specified with the `x:Name` attribute. This enables the code-behind file to access the `Entry` object using the name assigned to it.
+    This code declaratively defines the user interface for the page, which consists of an [`Entry`](xref:Xamarin.Forms.Entry) in a [`StackLayout`](xref:Xamarin.Forms.StackLayout). The [`Entry.Placeholder`](xref:Xamarin.Forms.InputView.Placeholder) property specifies the placeholder text that's shown when the `Entry` is first displayed, and an event handler named `OnEntryCompleted` is registered with the [`Completed`](xref:Xamarin.Forms.Entry.Completed) event. In addition, the `Entry` has a name specified with the `x:Name` attribute. This enables the code-behind file to access the `Entry` object using the name assigned to it.
 
 1. In **Solution Explorer**, in the **AppLifecycleTutorial** project, expand **MainPage.xaml** and double-click **MainPage.xaml.cs** to open it. Then, in **MainPage.xaml.cs**, add an override for the `OnAppearing` method, and the `OnEntryCompleted` event handler to the class:
 
@@ -92,7 +92,7 @@ In this exercise, you'll modify the application to persist the text from an [`En
     }
     ```
 
-    The `OnAppearing` method retrieves the value of the `App.DisplayText` property and sets it as the [`Text`](xref:Xamarin.Forms.Entry.Text) property value of the [`Entry`](xref:Xamarin.Forms.Entry).
+    The `OnAppearing` method retrieves the value of the `App.DisplayText` property and sets it as the [`Text`](xref:Xamarin.Forms.InputView.Text) property value of the [`Entry`](xref:Xamarin.Forms.Entry).
 
     > [!NOTE]
     > The `OnAppearing` method override is executed after the [`ContentPage`](xref:Xamarin.Forms.ContentPage) is laid out, but just before it becomes visible. Therefore, this is a good place to set the content of Xamarin.Forms views.
@@ -103,9 +103,11 @@ In this exercise, you'll modify the application to persist the text from an [`En
 
     Enter some text into the [`Entry`](xref:Xamarin.Forms.Entry) and hit the return key. Then, background the application by tapping the Home button to invoke the `OnSleep` method.
 
-    Finally, launch the application again from Visual Studio, and the text that was previously entered into the [`Entry`](xref:Xamarin.Forms.Entry) will be restored:
+    In Visual Studio, stop the application and relaunch it again, and the text that was previously entered into the [`Entry`](xref:Xamarin.Forms.Entry) will be restored:
 
     [![Screenshot of an Entry whose Text property is persisted across lifecycle state changes, on iOS and Android](../images/persist-data.png "Entry whose Text property persists across lifecycle state changes")](../images/persist-data-large.png#lightbox "Entry whose Text property persists across lifecycle state changes")
+
+    In Visual Studio, stop the application.
 
     For more information about persisting data to the properties dictionary, see [Properties Dictionary](~/xamarin-forms/app-fundamentals/application-class.md#properties-dictionary) in the [Xamarin.Forms App Class](~/xamarin-forms/app-fundamentals/application-class.md) guide.
 
@@ -178,7 +180,7 @@ In this exercise, you'll modify the application to persist the text from an [`En
     </ContentPage>
     ```
 
-    This code declaratively defines the user interface for the page, which consists of an [`Entry`](xref:Xamarin.Forms.Entry) in a [`StackLayout`](xref:Xamarin.Forms.StackLayout). The [`Entry.Placeholder`](xref:Xamarin.Forms.Entry.Placeholder) property specifies the placeholder text that's shown when the `Entry` is first displayed, and an event handler named `OnEntryCompleted` is registered with the [`Completed`](xref:Xamarin.Forms.Entry.Completed) event. In addition, the `Entry` has a name specified with the `x:Name` attribute. This enables the code-behind file to access the `Entry` object using the name assigned to it.
+    This code declaratively defines the user interface for the page, which consists of an [`Entry`](xref:Xamarin.Forms.Entry) in a [`StackLayout`](xref:Xamarin.Forms.StackLayout). The [`Entry.Placeholder`](xref:Xamarin.Forms.InputView.Placeholder) property specifies the placeholder text that's shown when the `Entry` is first displayed, and an event handler named `OnEntryCompleted` is registered with the [`Completed`](xref:Xamarin.Forms.Entry.Completed) event. In addition, the `Entry` has a name specified with the `x:Name` attribute. This enables the code-behind file to access the `Entry` object using the name assigned to it.
 
 1. In **Solution Pad**, in the **AppLifecycleTutorial** project, expand **MainPage.xaml** and double-click **MainPage.xaml.cs** to open it. Then, in **MainPage.xaml.cs**, add an override for the `OnAppearing` method, and the `OnEntryCompleted` event handler to the class:
 
@@ -196,7 +198,7 @@ In this exercise, you'll modify the application to persist the text from an [`En
     }
     ```
 
-    The `OnAppearing` method retrieves the value of the `App.DisplayText` property and sets it as the [`Text`](xref:Xamarin.Forms.Entry.Text) property value of the [`Entry`](xref:Xamarin.Forms.Entry).
+    The `OnAppearing` method retrieves the value of the `App.DisplayText` property and sets it as the [`Text`](xref:Xamarin.Forms.InputView.Text) property value of the [`Entry`](xref:Xamarin.Forms.Entry).
 
     > [!NOTE]
     > The `OnAppearing` method override is executed after the [`ContentPage`](xref:Xamarin.Forms.ContentPage) is laid out, but just before it becomes visible. Therefore, this is a good place to set the content of Xamarin.Forms views.
@@ -207,8 +209,10 @@ In this exercise, you'll modify the application to persist the text from an [`En
 
     Enter some text into the [`Entry`](xref:Xamarin.Forms.Entry) and hit the return key. Then, background the application by tapping the Home button to invoke the `OnSleep` method.
 
-    Finally, launch the application again from Visual Studio for Mac, and the text that was previously entered into the [`Entry`](xref:Xamarin.Forms.Entry) will be restored:
+    In Visual Studio for Mac, stop the application and relaunch it again, and the text that was previously entered into the [`Entry`](xref:Xamarin.Forms.Entry) will be restored:
 
     [![Screenshot of an Entry whose Text property is persisted across lifecycle state changes, on iOS and Android](../images/persist-data.png "Entry whose Text property persists across lifecycle state changes")](../images/persist-data-large.png#lightbox "Entry whose Text property persists across lifecycle state changes")
+
+    In Visual Studio for Mac, stop the application.
 
     For more information about persisting data to the properties dictionary, see [Properties Dictionary](~/xamarin-forms/app-fundamentals/application-class.md#properties-dictionary) in the [Xamarin.Forms App Class](~/xamarin-forms/app-fundamentals/application-class.md) guide.

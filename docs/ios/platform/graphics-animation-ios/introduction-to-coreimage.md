@@ -236,7 +236,7 @@ default values for parameters and the maximum and minimum allowable values
 The List Categories output looks like this on the simulator – you can
 scroll through the list to see all the filters and their parameters.
 
- [![](introduction-to-coreimage-images/coreimage05.png "The List Categories output looks like this on the simulator")](introduction-to-coreimage-images/coreimage05.png#lightbox)
+ [![The List Categories output looks like this on the simulator](introduction-to-coreimage-images/coreimage05.png)](introduction-to-coreimage-images/coreimage05.png#lightbox)
 
 Each filter listed has been exposed as a class in Xamarin.iOS, so you can also
 explore the Xamarin.iOS.CoreImage API in the Assembly Browser or using
@@ -250,7 +250,7 @@ of different image filters available in the framework for you to use.
 
 ## Related Links
 
-- [Core Image (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/coreimage)
+- [Core Image (sample)](/samples/xamarin/ios-samples/coreimage)
 - [Adjust Contract and Brightness of an Image Recipe](https://github.com/xamarin/recipes/tree/master/Recipes/ios/media/coreimage/adjust_contrast_and_brightness_of_an_image)
 - [Using Core Image Filters](https://developer.apple.com/library/prerelease/ios/#documentation/GraphicsImaging/Conceptual/CoreImaging/ci_tasks/ci_tasks.html)
 - [CIFilter Class Reference](https://developer.apple.com/library/prerelease/ios/#documentation/GraphicsImaging/Reference/QuartzCoreFramework/Classes/CIFilter_Class/Reference/Reference.htm)

@@ -14,7 +14,7 @@ ms.date: 03/20/2017
 
 _iOS 9 supports two apps running at the same time, using slide over or split view. It also supports video playing Picture-In-Picture._
 
-![](multitasking-images/about02-sml.png "Split Screen Example") ![](multitasking-images/about03-sml.png "Picture-in-Picture Example")
+![Split Screen Example](multitasking-images/about02-sml.png) ![Picture-in-Picture Example](multitasking-images/about03-sml.png)
 
 iOS 9 adds multitasking support for running two apps at the same time on specific iPad hardware. Multitasking for iPad is supported via the following features:
 
@@ -36,7 +36,7 @@ This article will cover the steps required to ensure that your Xamarin.iOS app r
 
 **Multitasking for iPad video**
 
-<a name="Multitasking-QuickStart" />
+<a name="Multitasking-QuickStart"></a>
 
 ## Multitasking QuickStart
 
@@ -47,19 +47,19 @@ To support **Slide Over** or **Split View** your app must do the following:
 - Use a Storyboard with Autolayout and Size Classes for its UI.
 - Support all 4 iOS device orientations (Portrait, Upside-down Portrait, Landscape Left & Landscape Right).
 
-<a name="Multitasking" />
+<a name="Multitasking"></a>
 
 ## About Multitasking for iPad
 
 iOS 9 offers new multitasking abilities on iPad with the introduction of _Slide Over_, _Split View_ (iPad Air 2, iPad Mini 4 and iPad Pro only) and _Picture in Picture_. We'll take a closer look at these features in the following sections.
 
-<a name="Slide-Over" />
+<a name="Slide-Over"></a>
 
 ### Slide Over
 
 The Slide Over feature allows the user to pick a second app and display it in a small sliding panel to provide quick interaction. The Slide Over panel is temporary, and will close when the user goes back to working with the main app again.
 
-[![](multitasking-images/about01.png "The Slide Over panel")](multitasking-images/about01.png#lightbox)
+[![The Slide Over panel](multitasking-images/about01.png)](multitasking-images/about01.png#lightbox)
 
 The main thing to remember is that the user decides which two apps will be running side-by-side and that the developer has no control over this process. As a result, there are a few things that you will need to do to ensure your Xamarin.iOS app runs correctly in a Slide Over panel:
 
@@ -68,13 +68,13 @@ The main thing to remember is that the user decides which two apps will be runni
 
 Slide Over is available only on an iPad Pro, iPad Air, iPad Air 2, iPad Mini 2, iPad Mini 3, or iPad Mini 4. To learn more about preparing your app for Slide Over, please see Apple's [Adopting Multitasking Enhancements on iPad](https://developer.apple.com/library/prerelease/ios/documentation/WindowsViews/Conceptual/AdoptingMultitaskingOniPad/index.html#//apple_ref/doc/uid/TP40015145) documentation.
 
-<a name="Split-View" />
+<a name="Split-View"></a>
 
 ### Split View
 
 On supported iPad hardware (iPad Air 2, iPad Mini 4 and iPad Pro only), the user can pick a second app and run it side-by-side with the currently running app in a split screen mode. The user can control the percentage of the main screen that each app occupies by dragging an on-screen divider.
 
-[![](multitasking-images/about02.png "The Split View")](multitasking-images/about02.png#lightbox)
+[![The Split View](multitasking-images/about02.png)](multitasking-images/about02.png#lightbox)
 
 Like Slide Over, the user decides which two apps will be running side-by-side and again, the developer has no control over this process. As a result, Split View places similar requirements on a Xamarin.iOS app:
 
@@ -83,21 +83,21 @@ Like Slide Over, the user decides which two apps will be running side-by-side an
 
 To learn more about preparing your app for Split View, please see Apple's [Adopting Multitasking Enhancements on iPad](https://developer.apple.com/library/prerelease/ios/documentation/WindowsViews/Conceptual/AdoptingMultitaskingOniPad/index.html#//apple_ref/doc/uid/TP40015145) documentation.
 
-<a name="Picture-in-Picture" />
+<a name="Picture-in-Picture"></a>
 
 ### Picture in Picture
 
 The new Picture in Picture feature (also known as _PIP_) allows the user to watch a video in a small, floating window that the user can position anywhere on screen above other running apps.
 
-[![](multitasking-images/about03.png "An example Picture in Picture floating window")](multitasking-images/about03.png#lightbox)
+[![An example Picture in Picture floating window](multitasking-images/about03.png)](multitasking-images/about03.png#lightbox)
 
 As with Slide Over and Split View, the user has full control over watching a video in the Picture in Picture mode. If your app's main function is to watch video, it will need some modification to behave correctly in PIP mode. Otherwise, no changes are required to support PIP.
 
 For your app to display PIP video at the user's request, you will need to be using either _AVKit_ or the _AV Foundation APIs_. The Media Player framework has been depreciated in iOS 9 and does not support PIP.
 
-Picture in Picture is available only on an iPad Pro, iPad Air, iPad Air 2, iPad Mini 2, iPad Mini 3, or iPad Mini 4. For more information, please see our [PictureInPicture Sample App](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+iOS9) and  Apple's [Picture in Picture Quick Start](https://developer.apple.com/library/prerelease/ios/documentation/WindowsViews/Conceptual/AdoptingMultitaskingOniPad/QuickStartForPictureInPicture.html#//apple_ref/doc/uid/TP40015145-CH14) documentation.
+Picture in Picture is available only on an iPad Pro, iPad Air, iPad Air 2, iPad Mini 2, iPad Mini 3, or iPad Mini 4. For more information, please see our [PictureInPicture Sample App](/samples/browse/?products=xamarin&term=Xamarin.iOS%2biOS9) and  Apple's [Picture in Picture Quick Start](https://developer.apple.com/library/prerelease/ios/documentation/WindowsViews/Conceptual/AdoptingMultitaskingOniPad/QuickStartForPictureInPicture.html#//apple_ref/doc/uid/TP40015145-CH14) documentation.
 
-<a name="Supporting-Multitasking-in-your-App" />
+<a name="Supporting-Multitasking-in-your-App"></a>
 
 ## Supporting Multitasking in your App
 
@@ -107,13 +107,13 @@ For these apps, little or no changes are required to support multitasking and to
 
 To support iOS 9 multitasking on any new Xamarin.iOS app, again use storyboards with Autolayout and Size Classes for all of the app's User Interface layouts and implement the instructions in the following sections.
 
-<a name="Screen-Size-Considerations" />
+<a name="Screen-Size-Considerations"></a>
 
 ### Screen Size and Orientation Considerations
 
 Before iOS 9, you could design your app against specific device screen sizes and orientations. Because an app can now be run in a Slide Out panel or in Split View mode, it can find itself running in either a compact or regular horizontal size class on iPad, regardless of the device's physical orientation or screen size.
 
-[![](multitasking-images/sizeclasses01.png "Screen Size and Orientation Considerations")](multitasking-images/sizeclasses01.png#lightbox)
+[![Screen Size and Orientation Considerations](multitasking-images/sizeclasses01.png)](multitasking-images/sizeclasses01.png#lightbox)
 
 On an iPad, a full screen app has Regular horizontal and vertical Size Classes. All iPhones but the iPhone 6 Plus and iPhone 6s Plus, have Compact Size classes in both directions in any orientation. The iPhone 6 Plus and iPhone 6s Plus in Landscape mode have a Regular horizontal Size Class and a Compact vertical Size Class (much like an iPad Mini).
 
@@ -125,13 +125,13 @@ On iPads that support Slide Over and Split View, you can end up with the followi
 | **Landscape** |75% of Screen<br />Regular Horizontal<br />Regular Vertical|25% of Screen<br />Compact Horizontal<br />Regular Vertical|
 | **Landscape** |50% of Screen<br />Compact Horizontal<br />Regular Vertical|50% of Screen<br />Compact Horizontal<br />Regular Vertical|
 
-In the example [MuliTask](https://docs.microsoft.com/samples/xamarin/ios-samples/ios9-multitask) app, if it is run full screen on an iPad in the landscape mode, it will present both the list and the detail view at the same time:
+In the example [MuliTask](/samples/xamarin/ios-samples/ios9-multitask) app, if it is run full screen on an iPad in the landscape mode, it will present both the list and the detail view at the same time:
 
-[![](multitasking-images/sizeclasses03.png "The list and the detail view presented at the same time")](multitasking-images/sizeclasses03.png#lightbox)
+[![The list and the detail view presented at the same time](multitasking-images/sizeclasses03.png)](multitasking-images/sizeclasses03.png#lightbox)
 
 If the same app is run in a Slide Over panel, it is laid out as a Compact Horizontal Size Class and displays only the list:
 
-[![](multitasking-images/sizeclasses04.png "Only the list presented when the device is horizontal")](multitasking-images/sizeclasses04.png#lightbox)
+[![Only the list presented when the device is horizontal](multitasking-images/sizeclasses04.png)](multitasking-images/sizeclasses04.png#lightbox)
 
 To ensure that your app behaves correctly in these situations, you should adopt Trait Collections along with Size Classes and conform to the `IUIContentContainer` and `IUITraitEnvironment` interfaces. See Apple's [UITraitCollection Class Reference](https://developer.apple.com/library/prerelease/ios/documentation/UIKit/Reference/UITraitCollection_ClassReference/index.html#//apple_ref/doc/uid/TP40014202) and our [Introduction to Unified Storyboards](~/ios/user-interface/storyboards/unified-storyboards.md) guide for more information.
 
@@ -139,7 +139,7 @@ Additionally, you can no longer rely on the devices screen bounds to define the 
 
 Finally, your app must use a storyboard file to present its Launch Screen as opposed to using a set of **.png** image files and support all four interface orientations (Portrait, Upside-down Portrait, Landscape Left and Landscape Right) to be considered for running in a Slide Over panel or in Split View mode.
 
-<a name="Custom-Hardware-Keyboard-Shortcuts" />
+<a name="Custom-Hardware-Keyboard-Shortcuts"></a>
 
 ### Custom Hardware Keyboard Shortcuts
 
@@ -149,11 +149,11 @@ Now, with iOS 9, apps can create their own custom keyboard shortcuts. Additional
 
 **Command-Tab** will bring up an app switcher that allows the user to quickly switch between apps from the keyboard, much like the Mac OS:
 
-[![](multitasking-images/keyboard01.png "The app switcher")](multitasking-images/keyboard01.png#lightbox)
+[![The app switcher](multitasking-images/keyboard01.png)](multitasking-images/keyboard01.png#lightbox)
 
 If an iOS 9 app includes keyboard shortcuts, the user can hold down on the **Command**, **Option** or **Control** keys to display them in a popup:
 
-[![](multitasking-images/keyboard02.png "The keyboard shortcuts popup")](multitasking-images/keyboard02.png#lightbox)
+[![Screenshot shows the keyboard shortcuts for an app.](multitasking-images/keyboard02.png)](multitasking-images/keyboard02.png#lightbox)
 
 #### Defining Custom Keyboard Shortcuts
 
@@ -189,11 +189,11 @@ Next, we override the `KeyCommands` property and create a new `UIKeyCommand` for
 
 If we run this app on an iPad with an hardware keyboard attached and the user types **Command-N**, a new entry will be added to the list. If the user holds down on the **Command** key, the list of shortcuts will be displayed:
 
-[![](multitasking-images/keyboard03.png "The keyboard shortcuts popup")](multitasking-images/keyboard03.png#lightbox)
+[![Screenshot shows the New Entry shortcut for an app.](multitasking-images/keyboard03.png)](multitasking-images/keyboard03.png#lightbox)
 
-Please see the sample [MultiTask app](https://docs.microsoft.com/samples/xamarin/ios-samples/ios9-multitask) for an example implementation.
+Please see the sample [MultiTask app](/samples/xamarin/ios-samples/ios9-multitask) for an example implementation.
 
-<a name="Resource-Management-Considerations" />
+<a name="Resource-Management-Considerations"></a>
 
 ### Resource Management Considerations
 
@@ -215,7 +215,7 @@ To ensure that your app is using resources efficiently, you should do the follow
 
 See Apple's [Energy Efficiency Guide for iOS Apps](https://developer.apple.com/library/prerelease/ios/documentation/Performance/Conceptual/EnergyGuide-iOS/index.html#//apple_ref/doc/uid/TP40015243) for more information on resource management.
 
-<a name="Opting-Out-of-Multitasking" />
+<a name="Opting-Out-of-Multitasking"></a>
 
 ## Opting Out of Multitasking
 
@@ -223,14 +223,14 @@ While Apple suggests that all iOS 9 apps support multitasking, there might very 
 
 For your Xamarin.iOS app to opt out of being run in either a Slide Out panel or in Split View mode, edit the project's **Info.plist** file and check **Requires Full Screen**:
 
-[![](multitasking-images/fullscreen01.png "Opting Out of Multitasking")](multitasking-images/fullscreen01.png#lightbox)
+[![Opting Out of Multitasking](multitasking-images/fullscreen01.png)](multitasking-images/fullscreen01.png#lightbox)
 
 > [!IMPORTANT]
 > While opting out of multitasking prevents your app from being run in Slide
 > Out or Split View, it does not prevent another app from being run in Slide
 > Out or a Picture in Picture video from displaying along with your app.
 
-<a name="Disabling-PIP-Video-Playback" />
+<a name="Disabling-PIP-Video-Playback"></a>
 
 ### Disabling PIP Video Playback
 
@@ -242,7 +242,7 @@ To opt out of PIP video playback, do the following in your app:
 - If you are using the `AVPlayerLayer` to display video, don't instantiate an `AVPictureInPictureController`.
 - If you are using a `WKWebView` to display video, set the `AllowsPictureInPictureMediaPlayback` property to `false`.
 
-<a name="Summary" />
+<a name="Summary"></a>
 
 ## Summary
 
@@ -250,8 +250,8 @@ This article has covered the steps required to ensure that a Xamarin.iOS app wil
 
 ## Related Links
 
-- [iOS 9 Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+iOS9)
-- [MultiTask (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/ios9-multitask)
+- [iOS 9 Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2biOS9)
+- [MultiTask (sample)](/samples/xamarin/ios-samples/ios9-multitask)
 - [Introduction to Unified Storyboards](~/ios/user-interface/storyboards/unified-storyboards.md)
 - [iOS 9 for Developers](https://developer.apple.com/ios/pre-release/)
 - [iOS 9.0](https://developer.apple.com/library/prerelease/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS9.html)

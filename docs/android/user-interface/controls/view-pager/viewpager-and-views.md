@@ -39,7 +39,7 @@ Create a new Android project called **TreePager** (see
 for more information about creating new Android projects). 
 Next, launch the NuGet Package Manager. (For more information about 
 installing NuGet packages, see 
-[Walkthrough: Including a NuGet in your project](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough)). 
+[Walkthrough: Including a NuGet in your project](/visualstudio/mac/nuget-walkthrough)). 
 Find and install **Android Support Library v4**: 
 
 [![Screenshot of Support v4 NuGet selected in the NuGet Package Manager](viewpager-and-views-images/01-install-support-lib-sml.png)](viewpager-and-views-images/01-install-support-lib.png#lightbox)
@@ -89,8 +89,8 @@ Open **Resources/layout/Main.axml** and replace its contents with the following 
     android:layout_height="match_parent" >
 
 </android.support.v4.view.ViewPager>
+```
 
-```csharp
 This XML defines a `ViewPager` that occupies the entire screen. Note that
 you must use the fully-qualified name **android.support.v4.view.ViewPager**
 because `ViewPager` is packaged in a support library. `ViewPager` is
@@ -458,4 +458,4 @@ caption at the top of each page.
 
 ## Related Links
 
-- [TreePager (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/userinterface-treepager)
+- [TreePager (sample)](/samples/xamarin/monodroid-samples/userinterface-treepager)

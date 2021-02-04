@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 12/13/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # ListView appearance
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-listview-grouping)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-listview-grouping)
 
 The Xamarin.Forms [`ListView`](xref:Xamarin.Forms.ListView) allows you to customize the presentation of the list, in addition to the [`ViewCell`](xref:Xamarin.Forms.ViewCell) instances for each row in the list.
 
@@ -110,7 +111,7 @@ This XAML performs the following actions:
 
 This following screenshot shows the resulting UI:
 
-![](customizing-list-appearance-images/grouping-depth.png "ListView Grouping Example")
+![ListView Grouping Example](customizing-list-appearance-images/grouping-depth.png)
 
 ### Customizing grouping
 
@@ -180,7 +181,7 @@ In XAML:
 </ListView>
 ```
 
-![](customizing-list-appearance-images/header-default.png "ListView with Header and Footer")
+![ListView with Header and Footer](customizing-list-appearance-images/header-default.png)
 
 To create a customized header and footer, define the Header and Footer views:
 
@@ -201,7 +202,7 @@ To create a customized header and footer, define the Header and Footer views:
 </ListView.Footer>
 ```
 
-![](customizing-list-appearance-images/header-custom.png "ListView with Customized Header and Footer")
+![ListView with Customized Header and Footer](customizing-list-appearance-images/header-custom.png)
 
 ## Scrollbar visibility
 
@@ -232,7 +233,7 @@ XAML:
 <ListView x:Name="SeparatorDemoListView" SeparatorVisibility="Default" />
 ```
 
-![](customizing-list-appearance-images/separator-default.png "ListView with Default Row Separators")
+![ListView with Default Row Separators](customizing-list-appearance-images/separator-default.png)
 
 None:
 
@@ -248,7 +249,7 @@ XAML:
 <ListView x:Name="SeparatorDemoListView" SeparatorVisibility="None" />
 ```
 
-![](customizing-list-appearance-images/separator-none.png "ListView without Row Separators")
+![ListView without Row Separators](customizing-list-appearance-images/separator-none.png)
 
 You can also set the color of the separator line via the `SeparatorColor` property:
 
@@ -264,7 +265,7 @@ XAML:
 <ListView x:Name="SeparatorDemoListView" SeparatorColor="Green" />
 ```
 
-![](customizing-list-appearance-images/separator-custom.png "ListView with Green Row Separators")
+![ListView with Green Row Separators](customizing-list-appearance-images/separator-custom.png)
 
 > [!NOTE]
 > Setting either of these properties on Android after loading the `ListView` incurs a large performance penalty.
@@ -292,7 +293,7 @@ XAML:
 <ListView x:Name="RowHeightDemoListView" RowHeight="100" />
 ```
 
-![](customizing-list-appearance-images/height-custom.png "ListView with Fixed Row Height")
+![ListView with Fixed Row Height](customizing-list-appearance-images/height-custom.png)
 
 ### Uneven rows
 
@@ -310,7 +311,7 @@ XAML:
 <ListView x:Name="RowHeightDemoListView" HasUnevenRows="true" />
 ```
 
-![](customizing-list-appearance-images/height-uneven.png "ListView with Uneven Rows")
+![ListView with Uneven Rows](customizing-list-appearance-images/height-uneven.png)
 
 ### Resize rows at runtime
 
@@ -331,15 +332,15 @@ void OnImageTapped (object sender, EventArgs args)
 
 The `OnImageTapped` event handler is executed in response to an [`Image`](xref:Xamarin.Forms.Image) in a cell being tapped, and increases the size of the `Image` displayed in the cell so that it's easily viewed.
 
-![](customizing-list-appearance-images/dynamic-row-resizing.png "ListView with Runtime Row Resizing")
+![ListView with Runtime Row Resizing](customizing-list-appearance-images/dynamic-row-resizing.png)
 
 > [!WARNING]
 > Overuse of runtime row resizing can cause performance degradation.
 
 ## Related links
 
-- [Grouping (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-listview-grouping)
-- [Custom Renderer View (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithlistviewnative)
-- [Dynamic Resizing of Rows (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-listview-dynamicunevenlistcells)
+- [Grouping (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-listview-grouping)
+- [Custom Renderer View (sample)](/samples/xamarin/xamarin-forms-samples/workingwithlistviewnative)
+- [Dynamic Resizing of Rows (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-listview-dynamicunevenlistcells)
 - [1.4 release notes](https://forums.xamarin.com/discussion/35451/xamarin-forms-1-4-0-released/)
 - [1.3 release notes](https://forums.xamarin.com/discussion/29934/xamarin-forms-1-3-0-released/)

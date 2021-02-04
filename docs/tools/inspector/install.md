@@ -16,14 +16,14 @@ ms.date: 06/19/2018
 
 1. Download and install [Visual Studio Enterprise](https://visualstudio.microsoft.com/vs/)
    and select the **Mobile development with .NET** workload.
-1. [Sign in](https://docs.microsoft.com/visualstudio/ide/signing-in-to-visual-studio)
+1. [Sign in](/visualstudio/ide/signing-in-to-visual-studio)
    to enable your Enterprise subscription.
 1. [Inspect](~/tools/inspector/inspect.md) your own app!
 
 # [macOS](#tab/macos)
 
 1. Download and install [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/).
-1. [Sign in](https://docs.microsoft.com/visualstudio/mac/activation)
+1. [Sign in](/visualstudio/mac/activation)
    to enable your Enterprise subscription.
 1. [Inspect](~/tools/inspector/inspect.md) your own app!
 
@@ -44,18 +44,18 @@ ms.date: 06/19/2018
 
 Live app inspection is available for enterprise customers.
 
-<a name="supported-platforms" />
+<a name="supported-platforms"></a>
 
 ### Supported App Platforms
 
 |App Platform|IDE Support|Notes|
 |--- |--- |--- |
 |Mac|Only supported in Visual Studio for Mac|
-|iOS|Supported in Visual Studio 2017 and Visual Studio for Mac| Linker behavior must be set to **Don't Link** (under **iOS Build** Project options) |
+|iOS|Supported in Visual Studio 2017 and Visual Studio for Mac| Linker behavior must be set to [**Don't Link**](~/ios/deploy-test/linker.md) (under **iOS Build** Project options) |
 |Android|Supported in Visual Studio 2017 and Visual Studio for Mac|Must target Android >= 4.0.3, with **fastdev** enabled.<br />Must use Google, Visual Studio, or Xamarin Android emulators. Android 7 emulators may not allow inspection at this time.|
 |WPF|Only supported in Visual Studio 2017|
 
-<a name="reporting-bugs" />
+<a name="reporting-bugs"></a>
 
 ## Reporting Bugs
 

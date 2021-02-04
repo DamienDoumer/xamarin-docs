@@ -12,6 +12,7 @@ metadata:
   author: davidbritch
   ms.author: dabritch
   ms.date: 12/23/2019
+  no-loc: [Xamarin.Forms, Xamarin.Essentials]
 
 landingContent:
   - title: Layouts
@@ -37,8 +38,8 @@ landingContent:
             url: editor/index.yml
           - text: Image
             url: image/index.yml
-          - text: ListView
-            url: listview/index.yml
+          - text: CollectionView
+            url: collectionview/index.yml
           - text: Pop-ups
             url: pop-ups/index.yml
 

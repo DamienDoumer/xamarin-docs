@@ -85,7 +85,7 @@ The reason for this is the need for flexibility. For example, multiple CodeBehin
 
 It is conventional to put these in a **{0}.xib.cs** file beside the **{0}.xib.designer.cs** designer file.
 
-<a name="generated" />
+<a name="generated"></a>
 
 ## Generated Actions and Outlets
 
@@ -136,7 +136,7 @@ languages.
 ## Cross-XIB Class Usage
 
 Sometimes, users wish to reference the same class from multiple **.xib** files, for
-example with tab controllers. This can be done by explictly referencing the
+example with tab controllers. This can be done by explicitly referencing the
 class definition from another **.xib** file, or by defining the same class name again
 in the second **.xib**.
 

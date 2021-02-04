@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/05/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # The Xamarin.Forms Command Interface
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/databindingdemos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/databindingdemos)
 
 In the Model-View-ViewModel (MVVM) architecture, data bindings are defined between properties in the ViewModel, which is generally a class that derives from `INotifyPropertyChanged`, and properties in the View, which is generally the XAML file. Sometimes an application has needs that go beyond these property bindings by requiring the user to initiate commands that affect something in the ViewModel. These commands are generally signaled by button clicks or finger taps, and traditionally they are processed in the code-behind file in a handler for the `Clicked` event of the `Button` or the `Tapped` event of a `TapGestureRecognizer`.
 
@@ -81,7 +82,7 @@ If sharing ViewModels between Windows and Xamarin.Forms is not a concern, then y
 
 ## Basic Commanding
 
-The **Person Entry** page in the [**Data Binding Demos**](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/databindingdemos) program demonstrates some simple commands implemented in a ViewModel.
+The **Person Entry** page in the [**Data Binding Demos**](/samples/xamarin/xamarin-forms-samples/databindingdemos) program demonstrates some simple commands implemented in a ViewModel.
 
 The `PersonViewModel` defines three properties named `Name`, `Age`, and `Skills` that define a person. This class does *not* contain any `ICommand` properties:
 
@@ -681,13 +682,9 @@ The `canExecute` method returns `false` only if the argument is the decimal poin
 
 All the `execute` methods call `RefreshCanExecutes`, which then calls `ChangeCanExecute` for both `DigitCommand` and `ClearCommand`. This ensures that the decimal point and backspace buttons are enabled or disabled based on the current sequence of entered digits.
 
-## Adding Commands to Existing Views
-
-If you'd like to use the commanding interface with views that don't support it, it's possible to use a Xamarin.Forms behavior that converts an event into a command. This is described in the article [**Reusable EventToCommandBehavior**](~/xamarin-forms/app-fundamentals/behaviors/reusable/event-to-command-behavior.md).
-
 ## Asynchronous Commanding for Navigation Menus
 
-Commanding is convenient for implementing navigation menus, such as that in the [**Data Binding Demos**](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/databindingdemos) program itself. Here's part of **MainPage.xaml**:
+Commanding is convenient for implementing navigation menus, such as that in the [**Data Binding Demos**](/samples/xamarin/xamarin-forms-samples/databindingdemos) program itself. Here's part of **MainPage.xaml**:
 
 ```xaml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -761,5 +758,5 @@ Data bindings can sometimes be tricky, but as you've seen in this series of arti
 
 ## Related Links
 
-- [Data Binding Demos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/databindingdemos)
+- [Data Binding Demos (sample)](/samples/xamarin/xamarin-forms-samples/databindingdemos)
 - [Data binding chapter from Xamarin.Forms book](~/xamarin-forms/creating-mobile-apps-xamarin-forms/summaries/chapter18.md)

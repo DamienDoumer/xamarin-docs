@@ -6,6 +6,7 @@ author: jamesmontemagno
 ms.author: jamont
 ms.date: 05/28/2019
 ms.custom: video
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: Geocoding
@@ -118,7 +119,7 @@ The [`Location`](xref:Xamarin.Essentials.Location) and [`LocationExtensions`](xr
 
 ## API
 
-- [Geocoding source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/Geocoding)
+- [Geocoding source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/Geocoding)
 - [Geocoding API documentation](xref:Xamarin.Essentials.Geocoding)
 
 ## Related Video

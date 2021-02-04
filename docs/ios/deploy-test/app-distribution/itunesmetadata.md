@@ -17,7 +17,7 @@ When an iOS application is created in iTune Connect (either for sale or free rel
 
 To supply the missing information to an Ad Hoc distribution, an optional `iTunesMetadata.plist` file can be created and included in the applications IPA file. This plist file is a specially formatted XML file (see Apple's [Property List Programming Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/PropertyLists/Introduction/Introduction.html) for more information) that contains key/value pairs defining information about a given iOS application.
 
-<a name="iTunesMetadata_contents" />
+<a name="iTunesMetadata_contents"></a>
 
 ## The iTunesMetadata.plist Contents
 
@@ -237,8 +237,6 @@ For iOS applications, Apple currently defines the following genres and genre IDs
 
 [!include[](~/ios/includes/table-appstore.md)]
 
-For more information, please see Apple's [Genre IDs Appendix](https://www.apple.com/itunes/affiliates/resources/documentation/genre-mapping.html) documentation.
-
 ### softwareSupportedDeviceIds
 
 Use the `softwareSupportedDeviceIds` key to tell iTunes what iOS devices this iOS application supports. Example:
@@ -277,7 +275,7 @@ The following keys are included in all `iTunesMetadata.plist` files for iOS appl
 <integer>16843008</integer>
 ```
 
-<a name="iTunesMetadata_creating" />
+<a name="iTunesMetadata_creating"></a>
 
 ## Creating an iTunesMetadata.plist File
 
@@ -297,26 +295,26 @@ Do the following:
 1. In the **Solution Explorer**, right-click the Xamarin.iOS project file and select **Add** > **New File...**
 2. From the New File Dialog, select **iOS** > **Property List**:
 
-    ![](itunesmetadata-images/image01.png "Select iOS Property List")
+    ![Select iOS Property List](itunesmetadata-images/image01.png)
 3. Enter `iTunesMetadata` for the **Name** and click the **New** button.
 4. Double-click the `iTunesMetadata.plist` file in the **Solution Explorer** to open it for editing:
 
-    ![](itunesmetadata-images/image02.png "The iTunesMetadata.plist editor")
+    ![The iTunesMetadata.plist editor](itunesmetadata-images/image02.png)
 5. Click the green **+** to create a new entry and enter `UIRequiredDeviceCapabilities` as the key name:
 
-    ![](itunesmetadata-images/image03.png "Create a new entry and enter UIRequiredDeviceCapabilities as the key name")
+    ![Create a new entry and enter UIRequiredDeviceCapabilities as the key name](itunesmetadata-images/image03.png)
 6. Click on the **String** value type and select **Dictionary** from the popup list:
 
-    ![](itunesmetadata-images/image04.png "Select Dictionary from the popup list")
+    ![Select Dictionary from the popup list](itunesmetadata-images/image04.png)
 7. Click the turndown at the left of the Property's name to reveal the dictionary's entries:
 
-    ![](itunesmetadata-images/image05.png "Reveal the dictionary entries")
+    ![Reveal the dictionary entries](itunesmetadata-images/image05.png)
 8. Click on the **Add new entry** text, then click the green **+** to add an entry to the dictionary:
 
-    ![](itunesmetadata-images/image06.png "Add an entry to the dictionary")
+    ![Add an entry to the dictionary](itunesmetadata-images/image06.png)
 9. Enter `armv7` for the key name, select a type of **Boolean** and enter **Yes** as the value:
 
-    ![](itunesmetadata-images/image07.png "Enter armv7 for the key name, select a type of Boolean and enter Yes as the value")
+    ![Enter armv7 for the key name, select a type of Boolean and enter Yes as the value](itunesmetadata-images/image07.png)
 10. Repeat the steps above until you have filled out the `iTunesMetadata.plist` file with all of the key/value pairs required (see the [The iTunesMetadata.plist Contents](#iTunesMetadata_contents) section above for more details).
 
 11. Save the changes to the plist file.

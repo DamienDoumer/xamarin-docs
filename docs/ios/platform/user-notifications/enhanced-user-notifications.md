@@ -107,6 +107,7 @@ The new User Notification framework provides a unified notification API across t
 - **iOS** - Full support to manage and schedule notifications.
 - **tvOS** - Adds the ability to badge app icons for local and remote notifications.
 - **watchOS** - Adds the ability to forward notifications from the user's paired iOS device to their Apple Watch and gives watch apps the ability to do local notifications directly on the watch itself.
+- **macOS** - Full support to manage and schedule notifications.
 
 For more information, please see Apple's [UserNotifications Framework Reference](https://developer.apple.com/reference/usernotifications) and [UserNotificationsUI](https://developer.apple.com/reference/usernotificationsui) documentation.
 
@@ -124,20 +125,46 @@ Additionally, these approval levels must be requested and set for both local and
 
 Notification permission should be requested as soon as the app launches by adding the following code to the `FinishedLaunching` method of the `AppDelegate` and setting the desired notification type (`UNAuthorizationOptions`):
 
+> [!NOTE]
+> `UNUserNotificationCenter` is only available from iOS 10+. Therefore, it's best practice to check the macOS version before sending the request. 
+
 ```csharp
 using UserNotifications;
 ...
 
 public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 {
-    // Request notification permissions from the user
-    UNUserNotificationCenter.Current.RequestAuthorization (UNAuthorizationOptions.Alert, (approved, err) => {
-        // Handle approval
-    });
+    // Version check
+    if (UIDevice.CurrentDevice.CheckSystemVersion (10, 0)) {
+        // Request notification permissions from the user
+        UNUserNotificationCenter.Current.RequestAuthorization (UNAuthorizationOptions.Alert, (approved, err) => {
+            // Handle approval
+        });
+    }
 
     return true;
 }
 ```
+
+As this API is unified and also works on Mac 10.14+, if you are targetting macOS you must also check for the Notification permission as soon as possible:
+
+```csharp
+using UserNotifications;
+...
+
+public override void DidFinishLaunching (NSNotification notification)
+{
+    // Check we're at least v10.14
+    if (NSProcessInfo.ProcessInfo.IsOperatingSystemAtLeastVersion (new NSOperatingSystemVersion (10, 14, 0))) {
+        // Request notification permissions from the user
+        UNUserNotificationCenter.Current.RequestAuthorization (UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound, (approved, err) => {
+            // Handle approval
+        });
+    }
+}
+
+> [!NOTE]
+> With MacOS apps, for the permission dialog to appear, you must sign your macOS app, even if building locally in DEBUG mode. Therefore, **Project->Options->Mac Signing->Sign the application bundle** must be checked.
 
 Additionally, a user can always change the notification privileges for an app at any time using the **Settings** app on the device. The app should check for the user's requested notification privileges before presenting a notification using the following code:
 
@@ -161,11 +188,11 @@ To provide the required entitlement, do the following:
 1. Double-click the `Entitlements.plist` file in the **Solution Pad** to open it for editing.
 2. Switch to the **Source** view: 
 
-    [![](enhanced-user-notifications-images/setup01.png "The Source view")](enhanced-user-notifications-images/setup01.png#lightbox)
+    [![The Source view](enhanced-user-notifications-images/setup01.png)](enhanced-user-notifications-images/setup01.png#lightbox)
 3. Click the **+** button to add a new key.
 4. Enter `aps-environment` for the **Property**, leave the **Type** as `String` and enter either `development` or `production` for the **Value**: 
 
-    [![](enhanced-user-notifications-images/setup02.png "The aps-environment Property")](enhanced-user-notifications-images/setup02.png#lightbox)
+    [![The aps-environment Property](enhanced-user-notifications-images/setup02.png)](enhanced-user-notifications-images/setup02.png#lightbox)
 5. Save the changes to the file.
 
 # [Visual Studio](#tab/windows)
@@ -174,7 +201,7 @@ To provide the required entitlement, do the following:
 2. Click the **+** button to add a new key.
 3. Enter `aps-environment` for the **Property**, leave the **Type** as `String` and enter either `development` or `production` for the **Value**: 
 
-    [![](enhanced-user-notifications-images/setup02w.png "The aps-environment Property")](enhanced-user-notifications-images/setup02.png#lightbox)
+    [![The aps-environment Property](enhanced-user-notifications-images/setup02w.png)](enhanced-user-notifications-images/setup02.png#lightbox)
 4. Save the changes to the file.
 
 -----
@@ -183,7 +210,7 @@ To provide the required entitlement, do the following:
 
 If the app will be sending and receiving Remote Notifications, it will still need to do _Token Registration_ using the existing `UIApplication` API. This registration requires the device to have a live network connection access APNs, which will generate the necessary token that will be sent to the app. The app needs to then forward this token to the developer's server side app to register for remote notifications:
 
-[![](enhanced-user-notifications-images/token01.png "Token Registration overview")](enhanced-user-notifications-images/token01.png#lightbox)
+[![Token Registration overview](enhanced-user-notifications-images/token01.png)](enhanced-user-notifications-images/token01.png#lightbox)
 
 Use the following code to initialize the required registration:
 
@@ -193,7 +220,7 @@ UIApplication.SharedApplication.RegisterForRemoteNotifications ();
 
 The token that gets sent to the developer's server side app will need to be included as part of the Notification Payload that get's sent from the server to APNs when sending a Remote Notification:
 
-[![](enhanced-user-notifications-images/token02.png "The token included as part of the Notification Payload")](enhanced-user-notifications-images/token02.png#lightbox)
+[![The token included as part of the Notification Payload](enhanced-user-notifications-images/token02.png)](enhanced-user-notifications-images/token02.png#lightbox)
 
 The token acts as the key that ties together the notification and the app used to open or respond to the notification.
 
@@ -517,7 +544,7 @@ The `UserText` property holds the value of any user text input. The `Notificatio
 
 When working with Remote Notifications, _Service Extensions_ provide a way to enable end-to-end encryption inside of the Notification Payload. Service Extensions are a non-User Interface extension (available in iOS 10) that run in the background with the main purpose of augmenting or replacing the visible content of a Notification before it is presented to the user. 
 
-[![](enhanced-user-notifications-images/extension01.png "Service Extension overview")](enhanced-user-notifications-images/extension01.png#lightbox)
+[![Service Extension overview](enhanced-user-notifications-images/extension01.png)](enhanced-user-notifications-images/extension01.png#lightbox)
 
 Service Extensions are meant to run quickly and are only given a short amount of time to execute by the system. In the event that the Service Extension fails to complete its task in the allotted amount of time, a fallback method will be called. If the fallback fails, the original Notification Content will be displayed to the user.
 
@@ -536,13 +563,13 @@ To implement a Service Extension in a Xamarin.iOS app, do the following:
 2. Right-click on the Solution Name in the **Solution Pad** and select **Add** > **Add New Project**.
 3. Select **iOS** > **Extensions** > **Notification Service Extensions** and click the **Next** button: 
 
-    [![](enhanced-user-notifications-images/extension02.png "Select Notification Service Extensions")](enhanced-user-notifications-images/extension02.png#lightbox)
+    [![Select Notification Service Extensions](enhanced-user-notifications-images/extension02.png)](enhanced-user-notifications-images/extension02.png#lightbox)
 4. Enter a **Name** for the extension and click the **Next** button: 
 
-    [![](enhanced-user-notifications-images/extension03.png "Enter a Name for the extension")](enhanced-user-notifications-images/extension03.png#lightbox)
+    [![Enter a Name for the extension](enhanced-user-notifications-images/extension03.png)](enhanced-user-notifications-images/extension03.png#lightbox)
 5. Adjust the **Project Name** and/or **Solution Name** if required and click the **Create** button: 
 
-    [![](enhanced-user-notifications-images/extension04.png "Adjust the Project Name and/or Solution Name")](enhanced-user-notifications-images/extension04.png#lightbox) 
+    [![Adjust the Project Name and/or Solution Name](enhanced-user-notifications-images/extension04.png)](enhanced-user-notifications-images/extension04.png#lightbox) 
 
 # [Visual Studio](#tab/windows)
 
@@ -550,7 +577,7 @@ To implement a Service Extension in a Xamarin.iOS app, do the following:
 2. Right-click on the Solution Name in the **Solution Explorer** and select **Add > New Project...**.
 3. Select **Visual C# > iOS Extensions > Notification Service Extension**:
 
-    [![](enhanced-user-notifications-images/extension01.w157-sml.png "Select Notification Service Extensions")](enhanced-user-notifications-images/extension01.w157.png#lightbox)
+    [![Select Notification Service Extensions](enhanced-user-notifications-images/extension01.w157-sml.png)](enhanced-user-notifications-images/extension01.w157.png#lightbox)
 4. Enter a **Name** for the extension and click the **OK** button.
 
 -----
@@ -664,7 +691,7 @@ This article has covered all of the ways that Users Notification have been enhan
 
 ## Related Links
 
-- [iOS 10 Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+iOS10)
+- [iOS 10 Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2biOS10)
 - [UserNotifications Framework Reference](https://developer.apple.com/reference/usernotifications)
 - [UserNotificationsUI](https://developer.apple.com/reference/usernotificationsui)
 - [Local and Remote Notification Programming Guide](https://developer.apple.com/documentation/usernotifications)

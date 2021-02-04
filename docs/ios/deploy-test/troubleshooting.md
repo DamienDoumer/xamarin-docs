@@ -17,7 +17,7 @@ Code Signing & Provisioning with iOS can be quite awkward, and so it is importan
 
 - Large teams should refrain from using the "Fix issue" button in Xcode, illustrated here:
 
-    [![](troubleshooting-images/fixissue.png "The Fix Issues dialog")](troubleshooting-images/fixissue.png#lightbox)
+    [![The Fix Issues dialog](troubleshooting-images/fixissue.png)](troubleshooting-images/fixissue.png#lightbox)
 
     This will create new provisioning profiles and certificates. At best this will create a provisioning profile every time a team member clicks it, causing disorganization with profiles. At worst, it will revoke certificates for everyone else in the company, causing their apps to stop working.
 
@@ -55,7 +55,7 @@ Sometimes, testing doesn’t go quite as smoothly as planned.  The following ste
 
 - Only two builds can be submitted for review each day. Since changing the version forces a review, this means that version numbers can only be changed twice per day.
 
-<a name="Automatically_copy_app_bundles_back_to_Windows" />
+<a name="Automatically_copy_app_bundles_back_to_Windows"></a>
 
 ## Automatically copy .app bundles back to Windows
 

@@ -7,11 +7,15 @@ ms.assetid: 34671C48-0ED4-4B76-A33D-D6505390DC5B
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/19/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 11. The Bindable infrastructure
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter11)
+
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 Every C# programmer is familiar with C# *properties*. Properties contain a *set* accessor and/or a *get* accessor. They are often called *CLR properties* for the Common Language Runtime.
 

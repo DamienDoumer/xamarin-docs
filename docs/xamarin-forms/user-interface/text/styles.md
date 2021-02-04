@@ -7,18 +7,17 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/22/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Text Styles
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-text)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-text)
 
 _Styling text in Xamarin.Forms_
 
 Styles can be used to adjust the appearance of labels, entries, and editors. Styles can be defined once and used by many views, but a style can only be used with views of one type.
 Styles can be given a `Key` and applied selectively using a specific control's `Style` property.
-
-<a name="Built-In_Styles" />
 
 ## Built-In Styles
 
@@ -44,8 +43,6 @@ label.Style = Device.Styles.TitleStyle;
 ```
 
 ![Device Styles Example](styles-images/builtinstyles.png)
-
-<a name="Custom_Styles" />
 
 ## Custom Styles
 
@@ -86,8 +83,6 @@ In XAML:
 Note that resources (including all styles) are defined within `ContentPage.Resources`, which is a sibling of the more familiar `ContentPage.Content` element.
 
 ![Custom Styles Example](styles-images/customstyle.png)
-
-<a name="Applying_Styles" />
 
 ## Applying Styles
 
@@ -144,5 +139,5 @@ To ensure accessibility, make sure that built-in styles are used as the basis fo
 
 - [Creating Mobile Apps with Xamarin.Forms, Chapter 12](https://developer.xamarin.com/r/xamarin-forms/book/chapter12.pdf)
 - [Styles](~/xamarin-forms/user-interface/styles/index.md)
-- [Text (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-text)
+- [Text (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-text)
 - [Style](xref:Xamarin.Forms.Style)

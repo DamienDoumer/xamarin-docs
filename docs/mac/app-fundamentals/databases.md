@@ -1007,7 +1007,7 @@ _conn.Close ();
 
 The only real difference in the in SQL statement (which loads only managers `command.CommandText = "SELECT ID FROM [People] WHERE isManager = 1"`) but works the same as the section above otherwise.
 
-<a name="Databases-and-ComboBoxes" />
+<a name="Databases-and-ComboBoxes"></a>
 
 ### Databases and comboboxes
 
@@ -2219,7 +2219,7 @@ This article has taken a detailed look at working with data binding and key-valu
 
 ## Related Links
 
-- [MacDatabase (sample)](https://docs.microsoft.com/samples/xamarin/mac-samples/macdatabase)
+- [MacDatabase (sample)](/samples/xamarin/mac-samples/macdatabase)
 - [Hello, Mac](~/mac/get-started/hello-mac.md)
 - [Data binding and key-value coding](~/mac/app-fundamentals/databinding.md)
 - [Standard controls](~/mac/user-interface/standard-controls.md)

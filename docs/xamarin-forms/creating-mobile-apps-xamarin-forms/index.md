@@ -7,13 +7,14 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/19/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Creating Mobile Apps with Xamarin.Forms book
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples)
 
-<img src="images/cover-sml.png" title="Creating Mobile Apps with Xamarin.Forms Book" align="left" />The book
+<img src="images/cover-sml.png" title="Creating Mobile Apps with Xamarin.Forms Book" alt="Creating Mobile Apps with Xamarin.Forms Book" align="left" />The book
 *Creating Mobile Apps with Xamarin.Forms* by Charles Petzold is a guide for learning how to write Xamarin.Forms applications. The only prerequisite is knowledge of the C# programming language. The book provides an extensive exploration into the Xamarin.Forms user interface and also covers animation, MVVM, triggers, behaviors, custom layouts, custom renderers, and much more.
 
 The book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the [material is outdated](#ways-in-which-the-book-is-outdated), and some topics are no longer entirely correct or complete.
@@ -22,7 +23,7 @@ The book was published in the spring of 2016, and has not been updated since the
 
 Download your preferred eBook format from Microsoft Virtual Academy:
 
-- [**PDF (56Mb)**](https://aka.ms/xamebook)
+- [**PDF (56Mb)**](https://aka.ms/xamformsebook)
 
 - [**ePub (151Mb)**](https://aka.ms/xamebook/epub)
 
@@ -81,7 +82,7 @@ These summaries also indicate when material in the chapter might be [somewhat ou
 
 ## Ways in which the book is outdated
 
-Since the publication of *Creating Mobile Apps with Xamarin.Forms*, several new features have been added to Xamarin.Forms. These new features are described in individual articles in the [Xamarin.Forms](/xamarin/) documentation.
+Since the publication of *Creating Mobile Apps with Xamarin.Forms*, several new features have been added to Xamarin.Forms. These new features are described in individual articles in the [Xamarin.Forms](../../index.yml) documentation.
 
 Other changes have caused some of the content of the book to be outdated:
 
@@ -124,5 +125,5 @@ In the [**xamarin-forms-book-samples**](https://github.com/xamarin/xamarin-forms
 
 ## Related Links
 
-- [MS Press blog](https://blogs.msdn.microsoft.com/microsoft_press/2016/03/31/free-ebook-creating-mobile-apps-with-xamarin-forms/)
+- [MS Press blog](/archive/blogs/microsoft_press/free-ebook-creating-mobile-apps-with-xamarin-forms)
 - [Sample code from book](https://github.com/xamarin/xamarin-forms-book-samples)

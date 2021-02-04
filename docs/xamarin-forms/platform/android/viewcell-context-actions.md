@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 09/24/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # ViewCell Context Actions on Android
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
 
 By default from Xamarin.Forms 4.3, when a [`ViewCell`](xref:Xamarin.Forms.ViewCell) in an Android application defines context actions for each item in a [`ListView`](xref:Xamarin.Forms.ListView), the context actions menu is updated when the selected item in the `ListView` changes. However, in previous versions of Xamarin.Forms the context actions menu was not updated, and this behavior is referred to as the `ViewCell` legacy mode. This legacy mode can result in incorrect behavior if a `ListView` uses a [`DataTemplateSelector`](xref:Xamarin.Forms.DataTemplateSelector) to set its `ItemTemplate` from [`DataTemplate`](xref:Xamarin.Forms.DataTemplate) objects that define different context actions.
 
@@ -64,7 +65,7 @@ In this mode, the correct context action menu items are displayed for cell 1 and
 
 ## Related links
 
-- [PlatformSpecifics (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
+- [PlatformSpecifics (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-platformspecifics)
 - [Creating Platform-Specifics](~/xamarin-forms/platform/platform-specifics/index.md#creating-platform-specifics)
 - [AndroidSpecific API](xref:Xamarin.Forms.PlatformConfiguration.AndroidSpecific)
 - [AndroidSpecific.AppCompat API](xref:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat)

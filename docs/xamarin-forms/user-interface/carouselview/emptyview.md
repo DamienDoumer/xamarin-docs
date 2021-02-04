@@ -6,14 +6,13 @@ ms.assetid: C6DEE1A9-63FC-4889-BC77-F401D5D7DF32
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 10/03/2019
+ms.date: 09/24/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms CarouselView EmptyView
 
-![](~/media/shared/preview.png "This API is currently pre-release")
-
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-carouselviewdemos/)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-carouselviewdemos/)
 
 [`CarouselView`](xref:Xamarin.Forms.CarouselView) defines the following properties that can be used to provide user feedback when there's no data to display:
 
@@ -61,19 +60,22 @@ The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property can be set to
                Placeholder="Filter" />
     <CarouselView ItemsSource="{Binding Monkeys}">
         <CarouselView.EmptyView>
-            <StackLayout>
-                <Label Text="No results matched your filter."
-                       Margin="10,25,10,10"
-                       FontAttributes="Bold"
-                       FontSize="18"
-                       HorizontalOptions="Fill"
-                       HorizontalTextAlignment="Center" />
-                <Label Text="Try a broader filter?"
-                       FontAttributes="Italic"
-                       FontSize="12"
-                       HorizontalOptions="Fill"
-                       HorizontalTextAlignment="Center" />
-            </StackLayout>
+            <ContentView>
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <Label Text="No results matched your filter."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Try a broader filter?"
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </ContentView>
         </CarouselView.EmptyView>
         <CarouselView.ItemTemplate>
             ...
@@ -82,25 +84,30 @@ The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property can be set to
 </StackLayout>
 ```
 
+In this example, what looks like a redundant [`ContentView`](xref:Xamarin.Forms) has been added as the root element of the [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView). This is because internally, the `EmptyView` is added to a native container that doesn't provide any context for Xamarin.Forms layout. Therefore, to position the views that comprise your `EmptyView`, you must add a root layout, whose child is a layout that can position itself within the root layout.
+
 The equivalent C# code is:
 
 ```csharp
 SearchBar searchBar = new SearchBar { ... };
 CarouselView carouselView = new CarouselView
 {
-    EmptyView = new StackLayout
+    EmptyView = new ContentView
     {
-        Children =
+        Content = new StackLayout
         {
-            new Label { Text = "No results matched your filter.", ... },
-            new Label { Text = "Try a broader filter?", ... }
+            Children =
+            {
+                new Label { Text = "No results matched your filter.", ... },
+                new Label { Text = "Try a broader filter?", ... }
+            }
         }
     }
 };
 carouselView.SetBinding(ItemsView.ItemsSourceProperty, "Monkeys");
 ```
 
-When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CarouselView`](xref:Xamarin.Forms.CarouselView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text) property. If the filtering operation yields no data, the [`StackLayout`](xref:Xamarin.Forms.StackLayout) set as the [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property value is displayed.
+When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CarouselView`](xref:Xamarin.Forms.CarouselView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text) property. If the filtering operation yields no data, the [`StackLayout`](xref:Xamarin.Forms.StackLayout) set as the [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property value is displayed.
 
 ## Display a templated custom type when data is unavailable
 
@@ -162,7 +169,7 @@ public class FilterData : BindableObject
 }
 ```
 
-The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property is set to a `FilterData` object, and the `Filter` property data binds to the [`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text) property. When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CarouselView`](xref:Xamarin.Forms.CarouselView) is filtered for the search term stored in the `Filter` property. If the filtering operation yields no data, the [`Label`](xref:Xamarin.Forms.Label) defined in the [`DataTemplate`](xref:Xamarin.Forms.DataTemplate), that's set as the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property value, is displayed.
+The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property is set to a `FilterData` object, and the `Filter` property data binds to the [`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text) property. When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CarouselView`](xref:Xamarin.Forms.CarouselView) is filtered for the search term stored in the `Filter` property. If the filtering operation yields no data, the [`Label`](xref:Xamarin.Forms.Label) defined in the [`DataTemplate`](xref:Xamarin.Forms.DataTemplate), that's set as the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property value, is displayed.
 
 > [!NOTE]
 > When displaying a templated custom type when data is unavailable, the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property can be set to a view that contains multiple child views.
@@ -234,7 +241,7 @@ void ToggleEmptyView(bool isToggled)
 }
 ```
 
-The `ToggleEmptyView` method sets the [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property of the `carouselView` object to one of the two [`ContentView`](xref:Xamarin.Forms.ContentView) objects stored in the [`ResourceDictionary`](xref:Xamarin.Forms.ResourceDictionary), based on the value of the [`Switch.IsToggled`](xref:Xamarin.Forms.Switch.IsToggled) property. When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CarouselView`](xref:Xamarin.Forms.CarouselView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text) property. If the filtering operation yields no data, the `ContentView` object set as the `EmptyView` property is displayed.
+The `ToggleEmptyView` method sets the [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property of the `carouselView` object to one of the two [`ContentView`](xref:Xamarin.Forms.ContentView) objects stored in the [`ResourceDictionary`](xref:Xamarin.Forms.ResourceDictionary), based on the value of the [`Switch.IsToggled`](xref:Xamarin.Forms.Switch.IsToggled) property. When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CarouselView`](xref:Xamarin.Forms.CarouselView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text) property. If the filtering operation yields no data, the `ContentView` object set as the `EmptyView` property is displayed.
 
 For more information about resource dictionaries, see [Xamarin.Forms Resource Dictionaries](~/xamarin-forms/xaml/resource-dictionaries.md).
 
@@ -287,9 +294,9 @@ CarouselView carouselView = new CarouselView()
 carouselView.SetBinding(ItemsView.ItemsSourceProperty, "Monkeys");
 ```
 
-The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property is set to the [`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text) property, and the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property is set to a `SearchTermDataTemplateSelector` object.
+The [`EmptyView`](xref:Xamarin.Forms.ItemsView.EmptyView) property is set to the [`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text) property, and the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property is set to a `SearchTermDataTemplateSelector` object.
 
-When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CarouselView`](xref:Xamarin.Forms.CarouselView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.SearchBar.Text) property. If the filtering operation yields no data, the [`DataTemplate`](xref:Xamarin.Forms.DataTemplate) chosen by the `SearchTermDataTemplateSelector` object is set as the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property and displayed.
+When the [`SearchBar`](xref:Xamarin.Forms.SearchBar) executes the `FilterCommand`, the collection displayed by the [`CarouselView`](xref:Xamarin.Forms.CarouselView) is filtered for the search term stored in the [`SearchBar.Text`](xref:Xamarin.Forms.InputView.Text) property. If the filtering operation yields no data, the [`DataTemplate`](xref:Xamarin.Forms.DataTemplate) chosen by the `SearchTermDataTemplateSelector` object is set as the [`EmptyViewTemplate`](xref:Xamarin.Forms.ItemsView.EmptyViewTemplate) property and displayed.
 
 The following example shows the `SearchTermDataTemplateSelector` class:
 
@@ -313,7 +320,7 @@ For more information about data template selectors, see [Create a Xamarin.Forms 
 
 ## Related links
 
-- [CarouselView (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-carouselviewdemos/)
+- [CarouselView (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-carouselviewdemos/)
 - [Xamarin.Forms Data Templates](~/xamarin-forms/app-fundamentals/templates/data-templates/index.md)
 - [Xamarin.Forms Resource Dictionaries](~/xamarin-forms/xaml/resource-dictionaries.md)
 - [Create a Xamarin.Forms DataTemplateSelector](~/xamarin-forms/app-fundamentals/templates/data-templates/selector.md)

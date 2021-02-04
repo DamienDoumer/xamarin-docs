@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/05/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms String Formatting
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/databindingdemos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/databindingdemos)
 
 Sometimes it's convenient to use data bindings to display the string representation of an object or value. For example, you might want to use a `Label` to display the current value of a `Slider`. In this data binding, the `Slider` is the source, and the target is the `Text` property of the `Label`.
 
@@ -39,7 +40,7 @@ The **String Formatting** page illustrates several uses of the `StringFormat` pr
 ```xaml
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:Class="DataBindingDemos.StringFormattingPage"
              Title="String Formatting">
 
@@ -181,5 +182,5 @@ The next article, however, explores the [**Binding Path**](binding-path.md) in m
 
 ## Related Links
 
-- [Data Binding Demos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/databindingdemos)
+- [Data Binding Demos (sample)](/samples/xamarin/xamarin-forms-samples/databindingdemos)
 - [Data binding chapter from Xamarin.Forms book](~/xamarin-forms/creating-mobile-apps-xamarin-forms/summaries/chapter16.md)

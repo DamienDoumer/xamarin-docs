@@ -7,17 +7,16 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/31/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms App Lifecycle
 
 The [`Application`](xref:Xamarin.Forms.Application) base class provides the following features:
 
-- [Lifecycle methods](#Lifecycle_Methods) `OnStart`, `OnSleep`, and `OnResume`.
-- [Page navigation events](#page) [`PageAppearing`](xref:Xamarin.Forms.Application.PageAppearing), [`PageDisappearing`](xref:Xamarin.Forms.Application.PageDisappearing).
-- [Modal navigation events](#modal) `ModalPushing`, `ModalPushed`, `ModalPopping`, and `ModalPopped`.
-
-<a name="Lifecycle_Methods" />
+- [Lifecycle methods](#lifecycle-methods) `OnStart`, `OnSleep`, and `OnResume`.
+- [Page navigation events](#page-navigation-events) [`PageAppearing`](xref:Xamarin.Forms.Application.PageAppearing), [`PageDisappearing`](xref:Xamarin.Forms.Application.PageDisappearing).
+- [Modal navigation events](#modal-navigation-events) `ModalPushing`, `ModalPushed`, `ModalPopping`, and `ModalPopped`.
 
 ## Lifecycle methods
 
@@ -50,9 +49,7 @@ protected override void OnResume()
 > [!IMPORTANT]
 > On Android, the `OnStart` method will be called on rotation as well as when the application first starts, if the main activity lacks `ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation` in the `[Activity()]` attribute.
 
-<a name="page" />
-
-## Page notification events
+## Page navigation events
 
 There are two events on the [`Application`](xref:Xamarin.Forms.Application) class that provide notification of pages appearing and disappearing:
 
@@ -63,8 +60,6 @@ These events can be used in scenarios where you want to track pages as they appe
 
 > [!NOTE]
 > The [`PageAppearing`](xref:Xamarin.Forms.Application.PageAppearing) and [`PageDisappearing`](xref:Xamarin.Forms.Application.PageDisappearing) events are raised from the [`Page`](xref:Xamarin.Forms.Page) base class immediately after the [`Page.Appearing`](xref:Xamarin.Forms.Page.Appearing) and [`Page.Disappearing`](xref:Xamarin.Forms.Page.Disappearing) events, respectively.
-
-<a name="modal" />
 
 ## Modal navigation events
 
